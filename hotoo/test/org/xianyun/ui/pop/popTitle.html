@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html>
+<head>
+<title>title break</title>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<a href="#" title="title
+break" onmouseover="mouseover(event);" onmouseout="mouseout(event);">title break</a>
+<a href="#" title="long text for title
+this is break line." onmouseover="mouseover(event);" onmouseout="mouseout(event);">title break</a>
+
+<div style="border:1px outset #ccc;position:absolute;display:none;">
+<div style="background-color:#999;color:#eee;">xianyun.org</div>
+<div id="pop"></div>
+</div>
+<script type="text/javascript" language="javascript">/*<![CDATA[*/
+var $ = function(id){
+	return document.getElementById(id)
+};
+
+var mouseover=function(e){
+	e=window.event||e;
+	var s=e.srcElement||e.target, p=$("pop"), pp=p.parentNode;
+	p.innerHTML=(s.getAttribute("title")||s.title).replace(/\r\n|\n|\r/g,"<br />");
+	s.title="";
+	pp.style.display="";
+	pp.style.left=e.clientX+10+"px";
+	pp.style.top=e.clientY+"px";
+};
+var mouseout=function(e){
+	e=window.event||e;
+	var s=e.srcElement||e.target, p=$("pop"), pp=p.parentNode;
+	s.title=p.innerHTML.replace(/<br \/>/g,"\r\n");
+	pp.style.display="none";
+};
+/*]]>*/</script>
+</body>
+</html>

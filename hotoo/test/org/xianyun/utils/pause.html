@@ -1,0 +1,73 @@
+<html>  
+  <head>  
+  <meta   http-equiv="Content-Type"   content="text/html;   charset=utf-8">  
+  <title></title>  
+  </head>  
+  <body>  
+  <div   id=ttText   style="display:none">  
+  程序运行中......<BR>  
+  <span   id=currentState></span>   &nbsp;   <button   onclick="CANCLE   =   true;">停止</button><BR>  
+  </div>  
+  <button   onclick="run_step1()"   id=button1>开始</button>  
+  <span   id=result></span>  
+  <script>  
+  var   i=0;  
+  var   sum   =0;  
+  var   CANCLE   =   false;  
+  var   max   =   1000000;   //循环的终点  
+  var   step   =   9999; //步长：选择合适的步长可以在响应能力和计算速度上获得比较好的折衷。  
+  //(步长用9999而不是10000只是为了显示的时候好看，其实都一样)  
+  var   timeStart   =   "";  
+  function   run_step1()  
+  {  
+  if   (i   ==   0)timeStart   =   new   Date();  
+  ttText.style.display="";  
+  button1.style.display="none";  
+  setTimeout("run_step2()",1);  
+  CANCLE   =   false;  
+  }  
+  function   run_step2()  
+  {  
+  if   (CANCLE)    
+  {  
+  ttText.style.display="none";  
+  button1.style.display="";  
+  button1.value="继续";  
+  return;  
+  }  
+  if   (i   ==   null)  
+  {  
+  //初始化  
+  //注意：这里不能写var，因为循环变量和结果都为全局变量。  
+  i   =   1;  
+  sum   =   0;  
+  run_step2();  
+  }  
+  else   if   (i<=max)  
+  {  
+  var   endValue   =   i+step;  
+  if   (endValue   >max)   endValue   =   max+1;  
+  for   (j=i;   j<endValue   ;   j++)  
+  sum   +=   j;  
+  i+=step;  
+  currentState.innerText   =   i;  
+  result.innerText   =   "临时结果："+sum;  
+  setTimeout("run_step2()",0);  
+  }  
+  else  
+  {  
+  run_step3();  
+  }  
+  }  
+  function   run_step3()  
+  {  
+  ttText.style.display="none";  
+  button1.style.display="";  
+  button1.value="重新开始";  
+  result.innerText   =   "最终结果"+sum+"   用时："+(new   Date-timeStart)/1000+"秒"  
+  sum   =   0;  
+  i   =   0;  
+  }  
+  </script>  
+  </body>  
+  </html>   

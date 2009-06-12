@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html>
+<head>
+<title>t</title>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="calendar">&nbsp;</div>
+
+<script language="javascript">
+var c = new Calendar(new CalendarStyle());
+var h1 = c.buildWeek(["SUN", "MON", "TUS", "WED", "THU", "FRI", "STA"]);
+var h2 = c.build();
+var table = "<TABLE border=1 cellpadding=4 cellspacing=2 style='border-collapse:collapse;'>";
+calendar.innerHTML = c.sb(table, h1, h2, "</table>");
+
+function CalendarStyle() {
+    this.line = function(c, begin) {
+        return (begin) ? "<tr valign=middle onmouseover='this.style.backgroundColor=\"#eee\"' onmouseout='this.style.backgroundColor=\"#fff\"'>" : "</tr>";
+    };
+   
+    this.week = function(c, w) {
+        return c.sb('<TD class="tdDateBack" width="45px"><DIV align="center" class="black bold">', w, "</td>");
+    };
+   
+    this.day = function(c, d, pos) {
+        if (pos != 0) return "<td style='color:#ccc;'>"+d.getDate()+"</td>";
+       
+        var cday = c.sb(d.getFullYear(), c.fullday(d.getMonth()+1), c.fullday(d.getDate()));
+        var day = c.fullday(d.getDate());
+        if (d.getDay() == 0 ) {
+             day = "<font color=red>" + day + "</font>";
+        }
+        return c.sb("<td align=center>", day, "</td>");
+    };
+}
+
+
+function Calendar(style) {
+    var now = new Date();
+    this.year = now.getFullYear();
+    this.month = now.getMonth() + 1;
+    this.style = style;
+    
+    this.build = function(year, month) {
+        this.year = year || this.year;
+        this.month = month || this.month;
+
+        var daysInMonth=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (this.isLeapYear(this.year)) daysInMonth[1] = 29;
+        var maxdays = daysInMonth[this.month-1];
+        
+        var firstDate = new Date(this.year, this.month-1, 1);
+        var week = firstDate.getDay();
+        var startDay = 1 - week;
+        
+        var ndays = maxdays + week;
+        if (ndays > 35) ndays = 42;
+        else if (ndays > 28) ndays = 35;
+
+        var HTML = "";
+        for (var i=0, n=startDay; i<ndays; i++, n++) {
+            if (i % 7 == 0)
+                HTML += this.style.line(this, true);
+            var dayPos = (n<=0) ? -1 : (n>maxdays) ? 1: 0;
+            HTML += this.style.day(this, _setDay(firstDate,n), dayPos);
+            if (i % 7 == 6)
+                HTML += this.style.line(this, false);
+        }
+        return HTML;
+    };
+
+    this.buildWeek = function (weekNames) {
+         var HTML = "";
+         HTML += this.style.line(this, true);
+         for (var i=0; i<weekNames.length; i++) {
+            HTML += this.style.week(this, weekNames[i]);
+         }
+         HTML += this.style.line(this, false);
+         return HTML;
+    };
+
+    /**
+     * prev year  : buildDiff(-1, 0)
+     * next year  : buildDiff(1, 0)
+     * prev month : buildDiff(0, -1)
+     * next month : buildDiff(0, 1)
+     */
+    this.buildDiff = function (yeardiff, monthdiff) {
+        this.year += yeardiff;
+        this.month += monthdiff;
+        return this.build();
+    };
+
+    this.isLeapYear = function (year) {
+        year = year || this.year;
+        return ((year%4==0) && (year%100!=0)) || (year%400==0);
+    };
+    
+    // concat string
+    this.sb = function () {
+        var s = "";
+        for (var i=0; i<arguments.length; i++) {
+            s += arguments[i];
+        }
+        return s;
+    };
+    
+    // "9" => "09"
+    this.fullday = function (day) {
+        return  (day<10) ? "0"+day : ""+day;
+    };
+     
+    _setDay = function (d, day) {
+        return new Date(d.getFullYear(), d.getMonth(), day);
+    };
+}
+
+</script>
+</body>
+</html>
