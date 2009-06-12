@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>DragDropable Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../../system/Event.js"></script>
+<script type="text/javascript" src="../../system/Function.js"></script>
+<script type="text/javascript" src="../../system/Array.js"></script>
+<script type="text/javascript" src="DragDropable.js"></script>
+<style type="text/css">
+div{border:1px solid #999;width:100px;}
+</style>
+</head>
+<body>
+
+<div id="sourcea">source a</div>
+<div id="sourceb">source b</div>
+<br />
+<br />
+
+<div id="targeta">target a</div>
+<div id="targetb">target b</div>
+<div id="targetc">target c</div>
+
+<br />
+<br />
+
+<script type="text/javascript">
+
+var dd2 = new DragDropable();
+dd2.addSource(document.getElementById("sourcea"));
+dd2.addSource(document.getElementById("sourceb"));
+dd2.addTarget(document.getElementById("targeta"));
+dd2.addTarget(document.getElementById("targetb"));
+dd2.addTarget(document.getElementById("targetc"));
+</script>
+</body>
+</html>

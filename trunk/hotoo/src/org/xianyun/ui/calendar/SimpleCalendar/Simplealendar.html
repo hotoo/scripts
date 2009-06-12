@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>SimpleCalendar</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src="../../../../../../bin/org/xianyun/lang/Exception.js"></script>
+<script language="javascript" type="text/javascript" src="../../../../../../bin/org/xianyun/utils/HashMap.js"></script>
+<script language="javascript" type="text/javascript" src="../../../../../../bin/org/xianyun/utils/Calendar.js"></script>
+<script language="javascript" type="text/javascript" src="../../../../../../bin/org/xianyun/utils/LunarCalendar.js"></script>
+<script language="javascript" type="text/javascript" src="../../../../../../bin/org/xianyun/ui/calendar/SimpleCalendar/SimpleCalendar.js"></script>
+<script language="javascript">/*<![CDATA[*/
+var $ = function(id){
+	return document.getElementById(id);
+};
+/*]]>*/</script>
+<link href="" type="text/css" rel="stylesheet" />
+<style>
+.SimpleCalendar{background-image:url(icon/task_bg_001.jpg);background-repeat:no-repeat;width:302px;height:236px;}
+div.SimpleCalendarDateOn{width:24px;height:24px;color:#fff;font-weight:bold;font-size:12px;line-height:12px;font-family:verdana;}
+div.SimpleCalendarDateOff{width:24px;height:24px;color:#ececec;font-size:10px;line-height:12px;font-family:verdana;}
+div.SimpleCalendarToday{color:#fe9d01;background:url(icon/tast_kuang_02.gif) no-repeat;font-size:12px;width:24px;height:24px;}
+div.SimpleCalendarMemo{background:url(icon/tast_kuang_01.gif) no-repeat;font-size:12px;width:24px;height:24px;}
+div.SimpleCalendarTodayMemo{color:#fe9d01;background:url(icon/tast_kuang_03.gif) no-repeat;font-size:12px;width:24px;height:24px;}
+td.SimpleCalendarDateOn,
+td.SimpleCalendarDateOff{width:45px;height:24px;text-align:center;font-size:12px;}
+td.SimpleCalendarDateOn{color:#fff;font-weight:bold;}
+td.SimpleCalendarDateOff{color:#ccc;font-weight:bold;}
+.SimpleCalendarTitle{font-size:12px;color:#fff;width:45px;height:30px;text-align:center;}
+.SimpleCalendarTimer{color:#fff;width:216px;font-weight:bold;font-size:15px;text-indent:5px;}
+.SimpleCalendarPrev{font-size:12px;width:14px;background:url(icon/task_left_001.gif) no-repeat;cursor:pointer;}
+.SimpleCalendarDate{text-align:center;font-size:11px;width:60px;background:url(icon/task_middle_001.gif) no-repeat;color:#fff;}
+.SimpleCalendarNext{font-size:12px;width:14px;background:url(icon/task_right_001.gif) no-repeat;cursor:pointer;}
+.SimpleCalendarTextArea{border:1px solid #49e;width:300px;height:100%;overflow:hidden;}
+.SimpleCalendarLunarDate{font-size:8px;color:#ececec;font-weight:normal;}
+</style>
+</head>
+<body>
+<script language="javascript">/*<![CDATA[*/
+
+var itemID = "123456";
+
+var cal = new SimpleCalendar();
+cal.putMemo({"2008_4_1":"a test memo@2008/4/1","2008_4_14":"a test memo@2008/4/14","2008_4_24":"a test memo@2008/4/24","2008_4_30":"a test memo@2008/4/30"});
+//cal.setYear(1999);
+document.write(cal.toString("cal"));
+
+/*]]>*/</script>
+</body>
+</html>
