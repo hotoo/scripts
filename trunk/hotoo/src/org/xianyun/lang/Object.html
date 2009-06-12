@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Object test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="Object.js" type="text/javascript"></script>
+	<script src="String.js" type="text/javascript"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+var tester = {
+ str : "str",
+ Str : new String("Str"),
+ num : 1,
+ Num : new Number(100),
+ bool : true,
+ Bool : new Boolean(true),
+ regex : /regex/ig,
+ RegEx : new RegExp("RegEx"),
+ date : new Date(),
+ arr : [],
+ Arr : new Array(),
+ fun : function(){},
+ Fun : new Function()
+};
+tester.fun.typeOf = function(){return "fun"};
+for (var k in tester)
+	document.write(k+" : "+tester[k].typeOf()+"<br />");
+</script>
+</body>
+</html>

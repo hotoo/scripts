@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Date test</title>
+</head>
+<body>
+<script type="text/javascript" src="Date.js"></script>
+<script type="text/javascript">
+
+var f = ["YY", "YYYY", "MM", "M", "DD", "D", "hh", "h", "mm", "m", "ss", "s", "ms", "YYMMDD", "DD/MM/YY", "MM/DD/YYYY", "YYYY-MM-DD h:m:s:ms"];
+var d = new Date();
+for (var i=0, l=f.length; i<l; i++){
+	document.write(f[i]+" : "+d.format(f[i])+"<br />");
+}
+
+document.write("<hr />")
+
+var fe = ["{YY}", "{YYYY}", "{MM}", "{M}", "{DD}", "{D}", "{hh}", "{h}", "{mm}", "{m}", "{ss}", "{s}", "{ms}", "{YY}{MM}{DD}", "{DD}/{MM}/{YY}", "{MM}/{DD}/{YYYY}", "{YYYY}-{MM}-{DD} {h}:{m}:{s}:{ms}"];
+for (var i=0, l=f.length; i<l; i++){
+	document.write(fe[i]+" : "+d.format(fe[i], true)+"<br />");
+}
+
+</script>
+</body>
+</html>

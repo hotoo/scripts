@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Private</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+</head>
+<body>
+<script language="JavaScript">
+<!--
+Function.prototype.bind = function(object) { 
+  var __method = this; 
+  return function() { 
+    __method.apply(object, arguments); 
+  } 
+} 
+/*
+Object.prototype.bind = function(object) { 
+  var __method = this; 
+  return function() { 
+    __method.apply(object, arguments); 
+  } 
+} 
+*/
+
+function Private(value){
+    var _value = value;
+    this.getValue = function(){
+        return _value;
+    };
+    this.setValue = function(value){
+        _value = value;
+    };
+};
+
+function Name(name){
+    this.name = new Private(name);
+    this.writeName = function(){
+        document.write('writeName : ' + _name + '<br />');
+    };
+    this.innerSetName = function(name){
+        _name = name
+    };
+};
+Private.prototype.getName = function(){
+    return this.name;
+};
+Private.prototype.setName = function(name){
+    this.name = name;
+};
+
+var pri = new Private('hotoo');
+document.write(pri.getName() + '<br />');
+pri.writeName();
+
+pri.setName('meizz');
+document.write(pri.getName() + '<br />');
+pri.writeName();
+
+pri.innerSetName('other');
+document.write(pri.getName() + '<br />');
+pri.writeName();
+//-->
+</script>
+</body>
+</html>
