@@ -1,0 +1,269 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="Line.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>Line.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'Line.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+    <table border="1" cellpadding="3" cellspacing="0" width="100%">
+    <tr bgcolor="#CCCCFF" class="TableHeadingColor">
+    <td colspan=2><font size="+2">
+    
+        <b>Class Summary</b>
+    
+    </font></td>
+    </tr>
+    
+    <tr bgcolor="white" class="TableRowColor">
+    <td width="15%"><b><a href="Line.html">Line</a></b></td>
+    <td>&nbsp;</td>
+    </tr>
+    
+    </table>
+    <hr/> 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview">
+<span class="comment">/**
+ * 直线方程: A*x+B*y+C=0
+ * y=K*x+B;
+ * <span class="attrib">@namespace</span> org.xianyun.math;
+ * <span class="attrib">@constructor</span> new Line(Point2D, Point2D);
+ * 				new Line(Number, Number);
+ * <span class="attrib">@param</span> {Point2D, Number} a
+ * <span class="attrib">@param</span> {Point2D, Number} b
+ * <span class="attrib">@since</span> IE5.0, Firefox1.0, Opera8.0, Netscape8.0
+ * <span class="attrib">@author</span> 闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)
+ * <span class="attrib">@version</span> 0.1.1, 2007/11/18
+ */</span>
+var Line = <span class="reserved">function</span>(a, b){
+	<span class="reserved">if</span> (a instanceof Point2D &amp;&amp; b instanceof Point2D)
+		<span class="reserved">this</span>.__Line_point2d_point2d(a, b);
+	<span class="reserved">else</span> <span class="reserved">if</span> (a.typeOf()===<span class="literal">"Number"</span> &amp;&amp; b.typeOf()===<span class="literal">"Number"</span>)
+		<span class="reserved">this</span>.__Line_k_offset(a, b);
+	<span class="reserved">else</span> 
+		throw new Error(<span class="literal">"arguments error."</span>);
+};
+<span class="comment">/**
+ * 重载构造函数。
+ * 直线方程: A*x+B*y+C=0
+ * y=K*x+B;
+ * <span class="attrib">@param</span> {Point2D} point2d_1
+ * <span class="attrib">@param</span> {Point2D} point2d_2
+ */</span>
+Line.<span class="reserved">prototype</span>.__Line_point2d_point2d = <span class="reserved">function</span>(point2d_1, point2d_2){
+	<span class="reserved">this</span>.start = point2d_1;
+	<span class="reserved">this</span>.end = point2d_2;
+	<span class="reserved">this</span>._K = (<span class="reserved">this</span>.end.y-<span class="reserved">this</span>.start.y) / (<span class="reserved">this</span>.end.x-<span class="reserved">this</span>.start.y);
+	<span class="reserved">this</span>.offset = <span class="reserved">this</span>.end.y - <span class="reserved">this</span>._K*<span class="reserved">this</span>.end.x;
+};
+<span class="comment">/**
+ * 重载构造函数。
+ * 直线方程: A*x+B*y+C=0
+ * y=K*x+B;
+ * <span class="attrib">@param</span> {Number} k
+ * <span class="attrib">@param</span> {Number} offset
+ */</span>
+Line.<span class="reserved">prototype</span>.__Line_k_offset = <span class="reserved">function</span>(k, offset){
+	<span class="reserved">this</span>._K = k;
+	<span class="reserved">this</span>.offset = offset;
+};
+
+Line.<span class="reserved">prototype</span>._distance_line = <span class="reserved">function</span>(line){
+};
+Line.<span class="reserved">prototype</span>._distance_point2d = <span class="reserved">function</span>(point2d){
+};
+
+<span class="comment">/**
+ * 判断指定二维空间点是否位于直线上。
+ * <span class="attrib">@param</span> {Object} obj
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Line.<span class="reserved">prototype</span>.contains = <span class="reserved">function</span>(obj){
+	<span class="reserved">if</span> (obj instanceof Point2D) <span class="reserved">return</span> <span class="reserved">this</span>._contains_point2d(obj);
+	<span class="reserved">return</span> false;
+};
+<span class="comment">/**
+ * 判断指定二维空间点是否位于直线上。
+ * <span class="attrib">@param</span> {Point2D} point2d
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Line.<span class="reserved">prototype</span>._contains_point2d = <span class="reserved">function</span>(point2d){
+	<span class="reserved">return</span> (new Line(<span class="reserved">this</span>.start, point2d)._K===<span class="reserved">this</span>._K);
+};
+
+<span class="comment">/**
+ * 判断直线是否与指定另一直线相交。
+ * <span class="attrib">@param</span> {Line} line
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Line.<span class="reserved">prototype</span>.intersect = <span class="reserved">function</span>(line){
+	<span class="reserved">return</span> line instanceof Line &amp;&amp;
+		<span class="reserved">this</span>._K!==line._K;
+};
+
+<span class="comment">/**
+ * 求直线与另一直线的交点。
+ * <span class="attrib">@param</span> {Line} line
+ * <span class="attrib">@return</span> {Point2D}
+ */</span>
+Line.<span class="reserved">prototype</span>.intersection = <span class="reserved">function</span>(line){
+	<span class="reserved">if</span> (!<span class="reserved">this</span>.intersect(line)) <span class="reserved">return</span> null;
+	<span class="comment">//TODO</span>
+};
+
+<span class="comment">/**
+ * 判断直线是否平行于指定直线。
+ * <span class="attrib">@param</span> {Line} line
+ */</span>
+Line.<span class="reserved">prototype</span>.parallel = <span class="reserved">function</span>(line){
+	<span class="reserved">return</span> (!<span class="reserved">this</span>.intersect(line)) &amp;&amp;
+		(<span class="reserved">this</span>.offset !== line.offset);
+};
+</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>
