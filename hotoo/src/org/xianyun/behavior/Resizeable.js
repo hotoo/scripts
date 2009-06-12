@@ -1,0 +1,2 @@
+
+var Resizeable = ResizeBehavior = function(){};

@@ -1,0 +1,17 @@
+behavior
+  |
+  +-- Moveable/MoveBehavior
+  |
+  +-- Resizeable/ResizeBehavior
+  |
+  +-- DragDropable/DragDropBehavior
+  |
+  +-- AutoCompleteable/AutoCompleteBehavior
+  |
+  +-- Closeable/CloseBehavior(removeChild)
+  |
+  +-- Hiddenable/HiddenBehavior(display/visibility)
+  |
+  +-- Maximizeable
+  |
+  +-- Minimizeable
