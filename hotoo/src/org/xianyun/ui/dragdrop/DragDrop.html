@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>DragDropable Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../../lang/Event.js"></script>
+<script type="text/javascript" src="../../lang/Function.js"></script>
+<script type="text/javascript" src="../../lang/Array.js"></script>
+<script type="text/javascript" src="../utils/Moveable.js"></script>
+<script type="text/javascript" src="DragDropable.js"></script>
+<script type="text/javascript" src="DragDrop.js"></script>
+<style type="text/css">
+div{border:1px solid #999;width:100px;}
+</style>
+</head>
+<body>
+
+<table border="1px" width="600px">
+<tr>
+	<td>
+		<div id="folder1">folder 1</div>
+		<div id="folder2">folder 2</div>
+		<div id="folder3">folder 3</div>
+	</td>
+	<td rowspan="2">
+		<div id="url1">url 1</div>
+		<div id="url2">url 2</div>
+		<div id="url3">url 3</div>
+		<div id="url4">url 4</div>
+		<div id="url5">url 5</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		<div id="tag1">tag 1</div>
+		<div id="tag2">tag 2</div>
+	</td>
+</tr>
+</table>
+
+
+<br />
+<br />
+
+
+
+<script type="text/javascript">
+
+var url2folder = new DragDrop();
+url2folder.droped = function(evt){
+	if (!this.dragable || !this.dropable)return false;
+	evt=window.event||evt;
+	var ele=Event.element(evt);
+	ele.innerHTML = this.source.innerHTML;
+	return false;
+};
+url2folder.addSource(document.getElementById("url1"));
+url2folder.addSource(document.getElementById("url2"));
+url2folder.addSource(document.getElementById("url3"));
+url2folder.addSource(document.getElementById("url4"));
+url2folder.addSource(document.getElementById("url5"));
+url2folder.addTarget(document.getElementById("folder1"));
+url2folder.addTarget(document.getElementById("folder2"));
+url2folder.addTarget(document.getElementById("folder3"));
+
+var url2tag = new DragDrop();
+url2tag.droped = function(evt){
+	if (!this.dragable || !this.dropable)return false;
+	evt=window.event||evt;
+	var ele=Event.element(evt);
+	alert(this.source.innerHTML);
+	//ele.innerHTML = this.source.innerHTML;
+	return false;
+};
+url2tag.addSource(document.getElementById("url1"));
+url2tag.addSource(document.getElementById("url2"));
+url2tag.addSource(document.getElementById("url3"));
+url2tag.addSource(document.getElementById("url4"));
+url2tag.addSource(document.getElementById("url5"));
+url2tag.addTarget(document.getElementById("tag1"));
+url2tag.addTarget(document.getElementById("tag2"));
+
+
+var tag2url = new DragDrop();
+tag2url.droped = function(evt){
+	if (!this.dragable || !this.dropable)return false;
+	evt=window.event||evt;
+	var ele=Event.element(evt);
+	//ele.innerHTML = this.source.innerHTML;
+	return false;
+};
+tag2url.addSource(document.getElementById("tag1"));
+tag2url.addSource(document.getElementById("tag2"));
+tag2url.addTarget(document.getElementById("url1"));
+tag2url.addTarget(document.getElementById("url2"));
+tag2url.addTarget(document.getElementById("url3"));
+tag2url.addTarget(document.getElementById("url4"));
+tag2url.addTarget(document.getElementById("url5"));
+
+</script>
+</body>
+</html>

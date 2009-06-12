@@ -1,0 +1,22 @@
+
+窗口类封装一个层，没有标题头，浮动在上层，没有边框。
+
+框架类封装标题头，窗体，继承自窗口，提供底层方法。
+
+Movable
+	|
+	+-- DragDropable
+  		|
+  		+-- Window
+  			|
+  			+-- Frame (无形框架，只有标题头，窗体和状态栏)
+  				|
+  				+-- RectangleFrame (矩形框架)
+  				|
+  				+-- RoundCornerFrame (圆角框架)
+  				|
+  				+-- HalfRoundCornerFrame (半圆角框架)
+
+
+事件模式
+打开，关闭，移动，调整大小，获焦，失焦。

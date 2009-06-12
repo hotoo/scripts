@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>HT2DCalendar</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src="../../../utils/Calendar.js"></script>
+<script language="javascript">/*<![CDATA[*/
+Function.prototype.Extends=function(SuperClass,ClassName)
+{ // from meizz.
+  var op=this.prototype, i, p=this.prototype=new SuperClass();
+  if(ClassName)p._className=ClassName; for(i in op)p[i]=op[i];
+  return p;
+};
+/*]]>*/</script>
+<link href="" type="text/css" rel="stylesheet" />
+<style>
+div.HT2DCalendarDateOn{width:10px;height:20px;color:#000000;font-weight:bolder;}
+div.HT2DCalendarDateOff{width:10px;height:20px;color:#999;}
+td.HT2DCalendarDateOn{background-color:#fff;color:#666;width:25px;height:25px;}
+td.HT2DCalendarDateOff{background-color:#fff;color:#ccc;width:25px;height:25px;}
+</style>
+</head>
+<body>
+<script language="javascript">/*<![CDATA[*/
+
+var HT2DCalendar = function(date){
+    if (date instanceof Date){
+        Calendar.call(this, date);
+    } else if(arguments.length>=3){
+        Calendar.call(this, arguments[0], arguments[1], arguments[2]);
+    } else if(arguments.length==1 && !isNaN(new Date(date))){
+        Calendar.call(this, date);
+    } else {
+        Calendar.call(this);
+    }
+};
+HT2DCalendar.prototype = new Calendar();
+HT2DCalendar.LANG = "ZH-CN";
+HT2DCalendar.MONTHS = {
+"EN":["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+"EN1":["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."],
+"EN2":["JAN.", "FEB.", "MAR.", "APR.", "MAY", "JUN.", "JUL.", "AUG.", "SEP.", "OCT.", "NOV.", "DEC."],
+"ZH-CN":["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+};
+HT2DCalendar.WEEKS = {
+"EN":["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+"EN1":["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+"EN2":["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
+"ZH-CN":["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+};
+HT2DCalendar.prototype.toHTML = function(){
+    var b = '<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr>';
+
+    // 输出上个月最后的几天，用于补全列表。
+    var startDay = new Calendar(this.getYear(), this.getMonth(), 1).getDay();
+    var pM = this.getPrevMonth();
+    var prev = Calendar.getDays1Month(pM.year, pM.month);
+    for(var i=0; i<startDay ; i++){
+        b += "<td class='HT2DCalendarDateOff'><div class='HT2DCalendarDateOff'>"+(prev-startDay+i)+"</div></td>";
+    }
+
+    // 输出当前月份。
+    var numDays = Calendar.getDays1Month(this.getYear(), this.getMonth());
+    for(var i=0 ; i<numDays ; i++){
+        if((i + startDay + 1 ) % 7 == 1 ){
+            b += "</tr><tr>";
+        }
+        b += "<td class='HT2DCalendarDateOn'><div class='HT2DCalendarDateOn'>" + (i+1) + "</div></td>"; 
+    }
+
+    // 输出下个月的开头，用于补全。
+    var Y = this.getYear();
+    var M = this.getMonth();
+    var D = Calendar.getDays1Month(Y, M);
+    var endDay = new Date(Y, M-1, D).getDay();
+    if(endDay==0){
+        b += "</tr><tr>";
+    }
+    for(var i=1; i<6-endDay+1 ; i++){
+        b += "<td class='HT2DCalendarDateOff'><div class='HT2DCalendarDateOff'>"+i+"</div></td>";
+    }
+    if (endDay==0){
+        b+="<td class='HT2DCalendarDateOff'><div class='HT2DCalendarDateOff'>7</div></td>";
+    }
+    b+='</tr>'+
+        '</table>';
+    // header html.
+    s = "<table>"+
+        "<tr><td>header</td><td cols='3' width='10'>up, down</td></tr>"+
+        "<tr><td>"+b+"</td></tr>"+
+        "<tr><td>footer</td></tr>"+
+        "<table>";
+    return s;
+};
+HT2DCalendar.prototype.toString = function(){
+    return "[object:HT2DCalendar]";
+}
+
+var cal = new HT2DCalendar();
+//cal.setYear("1999");
+document.write(cal.toHTML());
+
+/*]]>*/</script>
+</body>
+</html>

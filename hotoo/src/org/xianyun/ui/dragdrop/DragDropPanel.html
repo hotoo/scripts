@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>DragDropable Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../../system/Event.js"></script>
+<script type="text/javascript" src="../../system/Function.js"></script>
+<script type="text/javascript" src="../../system/Array.js"></script>
+<script type="text/javascript" src="../utils/Moveable.js"></script>
+<script type="text/javascript" src="DragDropable.js"></script>
+<script type="text/javascript" src="DragDropPanel.js"></script>
+<style type="text/css">
+div{border:1px solid #999;width:100px;}
+</style>
+</head>
+<body>
+
+<div id="panel1">panel 1</div>
+<div id="panel2">panel 2</div>
+<div id="panel3">panel 3</div>
+<br />
+<br />
+
+<script type="text/javascript">
+
+var dd = new DragDropPanel();
+dd.addSource(document.getElementById("panel1"));
+dd.addSource(document.getElementById("panel2"));
+dd.addSource(document.getElementById("panel3"));
+
+dd.addTarget(document.getElementById("panel1"));
+dd.addTarget(document.getElementById("panel2"));
+dd.addTarget(document.getElementById("panel3"));
+
+</script>
+</body>
+</html>
