@@ -1,0 +1,221 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="CascadeManager.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>CascadeManager.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'CascadeManager.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*&lt;![CDATA[*/</span>
+<span class="comment">/**
+ * 浮动层的层次(层叠)管理器。
+ * <span class="attrib">@author</span> 闲耘 (xianyun.org, mail[AT]xianyun.org)
+ * <span class="attrib">@version</span> 2007/11/01
+ */</span>
+var CascadeManager = {
+	maxZIndex : 0,
+	
+	topsideElement : null, <span class="comment">// 最上层的元素对象。</span>
+	
+	<span class="comment">/**
+	 * 初始化页面：获得页面上初始Z轴最大值，
+	 * 并为浮动可层叠元素对象(position:absolute)注册被管理监听事件。
+	 * 完成后，该对象被鼠标按下时，将自动显示在最上层（坐标位置不变）。
+	 * 
+	 * 注意：该方法在页面加载完成时自动执行，如无必要，请不要调用执行，避免重复绑定事件。
+	 * 另，主动调用并重复绑定事件不影响效果，除了相对效率。
+	 */</span>
+	initialize : <span class="reserved">function</span>(){
+		var eles = document.getElementsByTagName(<span class="literal">"*"</span>);
+		<span class="reserved">for</span> (var i=0; i&lt;eles.length; i++){
+			<span class="reserved">if</span> (eles[i].style.position.toString().toLowerCase()===<span class="literal">"absolute"</span>){
+				var z = (parseInt(eles[i].style.zIndex)||0);
+				<span class="reserved">if</span> (CascadeManager.maxZIndex&lt;=z){
+					CascadeManager.maxZIndex = z;
+					CascadeManager.topsideElement = eles[i]; <span class="comment">// 获得初始的最上层对象：Z轴大于或等于其他对象，并位于文档较后位置。</span>
+				}
+				<span class="comment">//CascadeManager.maxZIndex = Math.max(CascadeManager.maxZIndex, parseInt(eles[i].style.zIndex)||0);</span>
+				Event.addEventListener(eles[i], <span class="literal">"mousedown"</span>, Function.createDelegate(eles[i], <span class="reserved">function</span>(){CascadeManager.setTopside(<span class="reserved">this</span>);}));
+			}
+		}
+	},
+	
+	<span class="comment">/**
+	 * 获取当前页面中Z轴最大的值。
+	 * <span class="attrib">@return</span> {Number}
+	 */</span>
+	getMaxZIndex : <span class="reserved">function</span>(){
+		var eles = document.getElementsByTagName(<span class="literal">"*"</span>);
+		<span class="reserved">for</span> (var i=0; i&lt;eles.length; i++){
+			<span class="reserved">if</span> (eles[i].style.position.toString().toLowerCase()===<span class="literal">"absolute"</span>){
+				var z = (parseInt(eles[i].style.zIndex)||0);
+				<span class="reserved">if</span> (CascadeManager.maxZIndex&lt;=z){
+					CascadeManager.maxZIndex = z;
+					CascadeManager.topsideElement = eles[i]; <span class="comment">// 获得初始的最上层对象：Z轴大于或等于其他对象，并位于文档较后位置。</span>
+				}
+			}
+		}
+		<span class="reserved">return</span> CascadeManager.maxZIndex;
+	},
+	
+	<span class="comment">/**
+	 * 将指定元素对象显示到最上层。
+	 * <span class="attrib">@param</span> {HTMLElement} elem Element, 被指定的元素对象。
+	 */</span>
+	setTopside : <span class="reserved">function</span>(elem){
+		<span class="reserved">if</span> (CascadeManager.topsideElement===elem) <span class="reserved">return</span>;
+		elem.style.zIndex = CascadeManager.maxZIndex;
+		document.body.appendChild(elem);
+		<span class="reserved">if</span> (CascadeManager.topsideElement &amp;&amp; CascadeManager.topsideElement.uonblur) <span class="comment">// 当为元素（自）定义失去焦点(onlostfocus)的事件时，执行此事件。</span>
+			CascadeManager.topsideElement.uonblur();
+		CascadeManager.topsideElement = elem;
+	}
+};
+<span class="comment">//Event.addEventListener(window, "load", Function.createDelegate(this, CascadeManager.initialize));</span>
+<span class="comment">/*]]&gt;*/</span></pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>

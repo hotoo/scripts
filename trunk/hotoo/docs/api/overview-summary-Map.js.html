@@ -1,0 +1,389 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="Map.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>Map.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'Map.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+    <table border="1" cellpadding="3" cellspacing="0" width="100%">
+    <tr bgcolor="#CCCCFF" class="TableHeadingColor">
+    <td colspan=2><font size="+2">
+    
+        <b>Class Summary</b>
+    
+    </font></td>
+    </tr>
+    
+    <tr bgcolor="white" class="TableRowColor">
+    <td width="15%"><b><a href="Map.html">Map</a></b></td>
+    <td>&nbsp;</td>
+    </tr>
+    
+    <tr bgcolor="white" class="TableRowColor">
+    <td width="15%"><b><a href="Map/Entry.html">Map.Entry</a></b></td>
+    <td>&nbsp;</td>
+    </tr>
+    
+    </table>
+    <hr/> 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*&lt;![CDATA[*/</span>
+<span class="comment">/**
+ * 无序图，“键值对”类型对象(org.xianyun.utils.KeyValuePair)的集合。
+ * key和value都允许是对象(而不仅仅是字符串或索引[数值])。
+ * <span class="attrib">@namespace</span> org.xianyun.utils;
+ * <span class="attrib">@extends</span> Object
+ * <span class="attrib">@constructor</span> new Map();
+ * <span class="attrib">@since</span> IE5.0, Firefox1.0, Netscape8.0, Opera8.0, Safari3.0
+ * <span class="attrib">@author</span> 闲耘 (mail[AT]xianyun.org)
+ * <span class="attrib">@version</span> 1.2.0, 2007/11/29
+ */</span>
+var Map = <span class="reserved">function</span>(){
+	<span class="comment">// [new Map.Entry(KEY, VALUE), ...]</span>
+	<span class="reserved">this</span>._table = [];
+};
+<span class="comment">/**
+ * 检查图中是否包含有值为key的键。
+ * <span class="attrib">@param</span> {Object} key 指定键。
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Map.<span class="reserved">prototype</span>.containsKey = <span class="reserved">function</span>(key){
+	<span class="reserved">return</span> <span class="reserved">this</span>.get(key)===null;
+};
+<span class="comment">/**
+ * 判断图中是否包含内容为value的值。
+ * <span class="attrib">@param</span> {Object} value
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Map.<span class="reserved">prototype</span>.containsValue = <span class="reserved">function</span>(value){
+	<span class="reserved">for</span> (var i=0; i&lt;<span class="reserved">this</span>._table.length; i++){
+		<span class="reserved">if</span> ((<span class="reserved">this</span>._table[i].getValue()===null &amp;&amp; value===null) ||
+		  <span class="reserved">this</span>._table[i].getValue().equals(value))
+			<span class="reserved">return</span> true;
+	}
+	<span class="reserved">return</span> false;
+};
+<span class="comment">/**
+ * 根据指定的键取得无序图中对应的值。
+ * <span class="attrib">@param</span> {Object} key 指定的键。
+ * <span class="attrib">@return</span> {Object}
+ */</span>
+Map.<span class="reserved">prototype</span>.get = <span class="reserved">function</span>(key){
+	<span class="reserved">for</span> (var i=0; i&lt;<span class="reserved">this</span>._table.length; i++){
+		<span class="reserved">if</span> (<span class="reserved">this</span>._table[i].getKey().equals(key))
+			<span class="reserved">return</span> <span class="reserved">this</span>._table[i].getValue();
+	}
+	<span class="reserved">return</span> null;
+};
+<span class="comment">/**
+ * 向无序图中添加键值对对象，如果已经存在相同的键，则覆盖此键的值。
+ * <span class="attrib">@param</span> {KeyValuePair} pair 指定的键值对。
+ */</span>
+Map.<span class="reserved">prototype</span>.set = <span class="reserved">function</span>(pair){
+	<span class="reserved">if</span> (!(pair instanceof Map.Entry))
+		throw new Error(<span class="literal">"arguments error."</span>);
+
+	var i = <span class="reserved">this</span>._indexOf(pair.getKey());
+	<span class="reserved">if</span> (i !== -1){
+		<span class="reserved">this</span>._table[i].setValue(pair.getValue());
+	} <span class="reserved">else</span> {
+		<span class="reserved">this</span>._table.push(pair);
+	}
+};
+<span class="comment">/**
+ * 返回无序图当前所有的键列表。
+ * <span class="attrib">@return</span> {Array}
+ */</span>
+Map.<span class="reserved">prototype</span>.keys = <span class="reserved">function</span>(){
+	var k = [];
+	<span class="reserved">for</span> (var i=0; i&lt;<span class="reserved">this</span>._table.length; i++){
+		k[k.length] = <span class="reserved">this</span>._table[i].getKey();
+	}
+	<span class="reserved">return</span> k;
+};
+<span class="comment">/**
+ * 返回无序图当前的长度，即键值对的数量。
+ * <span class="attrib">@return</span> {Number}
+ */</span>
+Map.<span class="reserved">prototype</span>.length = <span class="reserved">function</span>(){
+	<span class="reserved">return</span> <span class="reserved">this</span>._table.length;
+};
+<span class="comment">/**
+ * 判断无序图是否为空。
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Map.<span class="reserved">prototype</span>.isEmpty = <span class="reserved">function</span>(){
+	<span class="reserved">return</span> <span class="reserved">this</span>._table.length===0;
+};
+<span class="comment">/**
+ * {private}
+ * 返回指定键所在的索引位置，仅供内部实现使用。
+ * <span class="attrib">@param</span> {Object} key 指定的键。
+ * <span class="attrib">@return</span> {Number}
+ */</span>
+Map.<span class="reserved">prototype</span>._indexOf = <span class="reserved">function</span>(key){
+	<span class="reserved">for</span> (var i=0; i&lt;<span class="reserved">this</span>._table.length; i++){
+		<span class="reserved">if</span> (<span class="reserved">this</span>._table[i].getKey().equals(key))
+			<span class="reserved">return</span> i;
+	}
+	<span class="reserved">return</span> -1;
+};
+<span class="comment">/**
+ * 将键为key的键值对对象从无序图中删除。
+ * <span class="attrib">@param</span> {Object} key 指定的键。
+ * <span class="attrib">@return</span> {Object} 返回被删除键值对对象的值。
+ */</span>
+Map.<span class="reserved">prototype</span>.remove = <span class="reserved">function</span>(key){
+	var i = <span class="reserved">this</span>._indexOf(key);
+	<span class="reserved">return</span> ((i===-1)?null:<span class="reserved">this</span>._table.splice(i, 1).getValue());
+};
+<span class="comment">/**
+ * 将无序图中所有的键值对删除。
+ */</span>
+Map.<span class="reserved">prototype</span>.clear = <span class="reserved">function</span>(){
+	<span class="reserved">this</span>._table.length = 0;
+};
+<span class="comment">/**
+ * 判断两个无序图的值是否相等。
+ * <span class="attrib">@param</span> {Map} map
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Map.<span class="reserved">prototype</span>.equals = <span class="reserved">function</span>(map){
+	<span class="reserved">if</span> (!(map instanceof Map) ||
+		<span class="reserved">this</span>.length()!==map.length())
+		<span class="reserved">return</span> false;
+	
+	var k = <span class="reserved">this</span>.keys();
+	<span class="reserved">for</span> (var i=0; i&lt;k.length; i++){
+		var v1 = <span class="reserved">this</span>.get(k[i]);
+		var v2 = map.get(k[i]);
+		<span class="reserved">if</span> (map.containsKey(k[i]) &amp;&amp;
+		  ((v1===null &amp;&amp; v2===null) || v1.equals(v2)))
+			<span class="reserved">return</span> true;
+	}
+	<span class="reserved">return</span> false;
+};
+<span class="comment">/**
+ * 将无序图转型为字符串型。
+ * <span class="attrib">@return</span> {String}
+ */</span>
+Map.<span class="reserved">prototype</span>.toString = <span class="reserved">function</span>(){
+	<span class="reserved">return</span> <span class="literal">"[Object Map]"</span>;
+};
+
+
+
+<span class="comment">/**
+ * 键值对。其中键的值不允许为以下值：
+ * 空(null), 空字符串("", ''), 未定义(undefined)。
+ * <span class="attrib">@namespace</span> org.xianyun.utils;
+ * <span class="attrib">@extends</span> Object
+ * <span class="attrib">@constructor</span> new Map.Entry(Object, Object);
+ * <span class="attrib">@param</span> {Object} key
+ * <span class="attrib">@param</span> {Object} value
+ * <span class="attrib">@author</span> 闲耘 (mail[AT]xianyun.org)
+ * <span class="attrib">@version</span> 1.0, 2007/11/29
+ */</span>
+Map.Entry = <span class="reserved">function</span>(key, value){
+	<span class="reserved">if</span> (key===null || key===<span class="literal">""</span> || key===undefined)
+		throw new Error(<span class="literal">"arguments error."</span>);
+
+	<span class="reserved">this</span>._key = key;
+	<span class="reserved">this</span>._value = value;
+};
+<span class="comment">/**
+ * 将{key:KEY, value:VALUE}对象解析为键值对类型的对象(KeyValuePair)。
+ * <span class="attrib">@param</span> {Object} pair 指定的存在key和value属性的对象。
+ * <span class="attrib">@return</span> {KeyValuePair}
+ */</span>
+Map.Entry.parse = <span class="reserved">function</span>(pair){
+	<span class="reserved">if</span> (!pair || !pair.key || !pair.value)
+		throw new Error(<span class="literal">"arguments error."</span>);
+	<span class="reserved">return</span> new KeyValuePair(pair.key, pair.value);
+};
+<span class="comment">/**
+ * 返回条目的键。
+ * <span class="attrib">@return</span> {Object}
+ */</span>
+Map.Entry.<span class="reserved">prototype</span>.getKey = <span class="reserved">function</span>(){
+	<span class="reserved">return</span> <span class="reserved">this</span>._key;
+};
+<span class="comment">/**
+ * 获得条目的值。
+ * <span class="attrib">@return</span> {Object}
+ */</span>
+Map.Entry.<span class="reserved">prototype</span>.getValue = <span class="reserved">function</span>(){
+	<span class="reserved">return</span> <span class="reserved">this</span>._value;
+};
+<span class="comment">/**
+ * 设置条目的值。
+ * <span class="attrib">@param</span> {Object} value 指定值。
+ */</span>
+Map.Entry.<span class="reserved">prototype</span>.setValue = <span class="reserved">function</span>(value){
+	<span class="reserved">this</span>._value = value;
+};
+<span class="comment">/**
+ * 判断两个键值对对象的值是否相等。
+ * <span class="attrib">@param</span> {KeyValuePair} keyValuePair
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Map.Entry.<span class="reserved">prototype</span>.equals = <span class="reserved">function</span>(entry){
+	<span class="reserved">return</span> (entry instanceof Map.Entry) &amp;&amp;
+		<span class="reserved">this</span>._key.equals(entry.key) &amp;&amp;
+		((<span class="reserved">this</span>._value===null &amp;&amp; entry.value===null) ||
+		<span class="reserved">this</span>._value.equals(entry.value));
+};
+<span class="comment">/**
+ * 将键值对对象转换为字符串对象。
+ */</span>
+Map.Entry.<span class="reserved">prototype</span>.toString = <span class="reserved">function</span>(){
+	<span class="reserved">return</span> <span class="literal">"{key:"</span>+<span class="reserved">this</span>._key+<span class="literal">",value:"</span>+<span class="reserved">this</span>._value+<span class="literal">"}"</span>;
+};
+<span class="comment">/*]]&gt;*/</span></pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>
