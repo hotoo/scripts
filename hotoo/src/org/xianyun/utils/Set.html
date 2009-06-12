@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>test Set</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src="../lang/Array.js"></script>
+<script language="javascript" type="text/javascript" src="equals.js"></script>
+</head>
+<body>
+<script language="javascript">/*<![CDATA[*/
+
+var SetII = function(){
+	return Array.apply(this, arguments);
+};
+SetII.prototype.push = function(){
+	for (var i=0, l=arguments.length, o; o=arguments[i], i<l; i++){
+		if (!this.contains(o))
+			this[this.length] = o;
+//			Array.prototype.push.call(this, o);
+	}
+};
+
+var s = new SetII(2);
+s.push(1, 2, 3, 4, 5, 6, 8, 8, 6, 4);
+document.write(s instanceof Array);
+s[0] = 100;
+document.write(s);
+/*]]>*/</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html>
+<head>
+<title>Math.draw</title>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">/*<![CDATA[*/
+html, body{padding:0px;margin:0px;}
+.point{position:absolute;background-color:#000;border:0px solid #000;font-size:1px;width:1px;height:1px;overflow:hidden;}
+.horizontal{position:absolute;width:0px;height:1px;font-size:1px;border:0px solid #000;background-color:#000;overflow:hidden;}
+.vertical{position:absolute;width:1px;height:0px;font-size:1px;border:0px solid #000;background-color:#000;}
+/*]]>*/</style>
+</head>
+<body>
+<div id="demo"></div>
+<script type="text/javascript" language="javascript">/*<![CDATA[*/
+/**
+ * 获取窗口的可用大小(宽,高)
+ * @return {Object} {width,height}
+ */
+window.getSize = function(){
+	var w=(window.opera?(document.body.clientWidth||document.body.offsetWidth):
+		(document.documentElement.clientWidth||document.documentElement.offsetWidth))||0, 
+	h=(window.opera?(document.body.clientHeight||document.body.offsetHeight):
+		(document.documentElement.clientHeight||document.documentElement.offsetHeight))||0;
+	return {width:w,height:h,"0":w,"1":h};
+};
+/**
+ * @overview 获取浏览器的可用大小。
+ * @namespace org.xianyun.ui.utils;
+ * @extends {Object}
+ * @constructor {static}
+ * @since IE5.0+, Firefox1.0+, Opera8.0+, Safari3.0, Netscape8.0
+ * @version 2008/6/24, 2008/7/10
+ *
+ * @author 闲耘(mail[AT]xianyun.org)
+ * @example window.sizer.width, window.sizer.height;
+ */
+var _sz=window.getSize();
+window.sizer = {
+	width:_sz.width,
+	height:_sz.height,
+	_adjust:function(){
+		var s = window.getSize();
+		with(window.sizer){
+		width = s.width;
+		height = s.height;
+		}
+	}
+};
+
+var O = {x:window.sizer.width/2, y:window.sizer.height/2};
+function draw(f, s, e, d){
+	var x=document.createElement("div");
+	x.style.cssText="position:absolute;left:0px;top:"+O.y+"px;width:"+window.sizer.width+"px;height:1px;font-size:1px;border:0px solid #000;background-color:#000;overflow:hidden;";
+	document.getElementById("demo").appendChild(x);
+	var y=document.createElement("div");
+	y.style.cssText="position:absolute;left:"+O.x+"px;top:0px;width:1px;height:"+window.sizer.height+"px;font-size:1px;border:0px solid #000;background-color:#000;";
+	document.getElementById("demo").appendChild(y);
+	var o=document.createElement("div");
+	o.style.cssText="position:absolute;left:"+(O.x+5)+"px;top:"+(O.y+2)+"px;width:24px;height:18px;font-size:9px;";
+	o.innerHTML="0";
+	document.getElementById("demo").appendChild(o);
+	for (var i=s; i<=e; i++){
+		var l=document.createElement("div"), c=Math.floor(d/2);
+	//	l.style.cssText="float:left;border-bottom:1px solid #000;font-size:"+d+"px;width:"+d+"px;height:"+f(i)+"px;";
+		l.style.cssText="position:absolute;background-color:#000;border:0px solid #000;font-size:"+d+"px;width:"+d+"px;height:"+d+"px;left:"+(i*d+O.x-c)+"px;top:"+(O.y-f(i/10)-c)+"px;overflow:hidden;";
+		document.getElementById("demo").appendChild(l);
+	}
+}
+
+
+
+function v(t){
+	t=t*10;
+	return Math.sqrt(100000-t*t);
+//	return t*t-10*t;
+//	return Math.tan(t);
+//	return Math.sin(t)*50;
+//	return Math.cos(t)*50;
+	return 20*t-t*t;
+}
+draw(v,-600,600,1);
+
+/*]]>*/</script>
+
+</body>
+</html>

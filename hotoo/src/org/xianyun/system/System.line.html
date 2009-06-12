@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html>
+<head>
+<title>r</title>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script type="text/javascript" language="javascript">/*<![CDATA[*/
+
+function l(){
+	var t=document.createTextNode("\r\n\r");
+	return t.innerText;
+
+	var d=document.createElement("div");
+	d.innerHTML="<br />";
+	return d.innerHTML
+	return d.innerText;
+}
+//alert(l());
+//alert(l()=="\r\n\r");
+
+/*]]>*/</script>
+
+<div id=a>1<br />
+2</div>
+<script>
+if(window.HTMLElement && !HTMLElement.prototype.innerText){
+    HTMLElement.prototype.__defineSetter__("innerText",function(sText){ 
+        var parsedText=document.createTextNode(sText); 
+        this.innerHTML=parsedText; 
+        return parsedText; 
+        }); 
+    HTMLElement.prototype.__defineGetter__("innerText",function(){ 
+        var r=this.ownerDocument.createRange(); 
+        r.selectNodeContents(this); 
+        return r.toString(); 
+        }); 
+}
+function line(){
+	var d=document.createElement("div"),t;
+	d.innerHTML="A<br />\r\nB"; t=d.innerText;
+	if(t.indexOf("\r\n")==1){return "\\r\\n";}
+	if(t.indexOf("\n")==1){return "\\n";}
+	return "\\r";
+}
+alert(line());
+var a=document.getElementById("a");
+a.innerHTML = "1<br>\r\n2";
+var c = a.innerText;
+//alert( c );
+alert(c.indexOf("\r\n")+","+c.indexOf("\r")+","+c.indexOf("\n"));
+</script>
+</body>
+</html>
