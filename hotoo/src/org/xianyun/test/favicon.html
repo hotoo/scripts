@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>favicon</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+<script language="JavaScript">
+<!--
+// <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+var fav = function(){
+    var link = document.getElementsByTagName('link');
+    for (var i = 0; i < link.length; i++){
+        if (link[i].getAttribute('rel').toLowerCase() == 'icon'){
+            return link[0].getAttribute('href');
+        };
+    };
+};
+alert(fav());
+//-->
+</script>
+</body>
+</html>
