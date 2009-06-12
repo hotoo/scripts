@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Timer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../lang/Function.js"></script>
+<script type="text/javascript" src="../lang/Array.js"></script>
+<script type="text/javascript" src="../utils/equals.js"></script>
+<script type="text/javascript" src="../utils/HashMap.js"></script>
+<script type="text/javascript" src="../event/EventListener.js"></script>
+<script type="text/javascript" src="Timer.js"></script>
+<script type="text/javascript">
+
+var $=function(id){return document.getElementById(id);};
+var t = new Timer(5000,function(){$("timer").innerHTML=new Date().getSeconds();});
+var tri=function(){$('timer2').innerHTML=new Date().getSeconds();};
+
+</script>
+</head>
+<body>
+每个五的倍数秒触发。
+<div id="timer">init</div>
+<div id="timer2">un-added</div>
+<input type="button" onclick="t.setInitialDelay(5000-new Date().getTime()%5000);t.start()" value="start" />
+<input type="button" onclick="t.stop()" value="stop" />
+<input type="button" onclick="t.addTrigger(tri)" value="addTrigger" />
+<input type="button" onclick="t.removeTrigger(tri)" value="removeTrigger" />
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+</head>
+
+<body>
+<script language="JavaScript">
+<!--
+/*
+从1到100，100个数字相加，和为100的算法，可以1位，2位，3位等，不限位数相加，数字不能重复，可以有多少种算法，并把代码贴出；
+可以这样：
+        1 + 99；
+        2 + 98；
+也可以这样：
+        1 + 2 + 97；
+更可以这样：
+        1 + 2 + 3 + 5 + 7 + 82；
+*/
+
+var main = function(num){
+    var maxCount = 0;
+    for (var i = 0, total = 0; i < num; i++, total += i){ // 求最大数字相加个数
+        if(total >= num) break;
+        maxCount ++;
+    };
+    for (var i = 1, arr = new Array(); i < maxCount; i++){
+        for (var j = 1; j <= num; j++){
+            arr[i] = j;
+        };
+        var t =0;
+        for (var i = 1; i < arr.length; i++){
+            t += arr[i];
+        };
+        if (t = num){
+            for (var i = 1; i < arr.length; i++){
+                document.write(arr[i] + ' + ');
+            };
+            document.write(' = ' + t + '<br />');
+        };
+    };
+};
+
+main(200);
+//-->
+</script>
+</body>
+</html>
