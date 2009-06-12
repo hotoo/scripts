@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>csv parser</title>
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../lang/Object.js"></script>
+<script type="text/javascript" src="../lang/Array.js"></script>
+<script type="text/javascript" src="../lang/String.js"></script>
+<script type="text/javascript" src="../utils/equals.js"></script>
+<script type="text/javascript" src="CSV.js"></script>
+
+ </head>
+
+ <body>
+  <script type="text/javascript">
+  <!--
+
+var tester=[
+['"a\n"',[['a\n']]]
+//["1,2,3,4",[["1","2","3","4"]]],
+//['"1,2",3,4',[["1,2","3","4"]]],
+//['"0\n1\n2",3,4',[["0\n1\n2","3","4"]]],
+//['1,"0\n1\n2",3,4',[["1","0\n1\n2","3","4"]]],
+//['',[['']]],
+//['"1""2""3",4,5',[['1"2"3',"4","5"]]]
+];
+for (var i=0,l=tester.length; i<l; i++){
+	var c=CSV.parse(tester[i][0]);
+	document.write((c.equals(tester[i][1])?"ok":"Error:"+tester[i][1]+" : "+c)+"<br />");
+}
+
+
+  //-->
+  </script>
+ </body>
+</html>

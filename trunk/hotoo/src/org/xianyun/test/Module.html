@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Module</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+</head>
+<body>
+<div id="module_all" style="border:1px solid #999999;">
+    <div id="module_1" style="border:1px solid #999999;">
+        module 1
+    </div>
+    <div id="module_2" style="border:1px solid #999999;">
+        module 2
+    </div>
+    <div id="module_3" style="border:1px solid #999999;">
+        module 3
+    </div>
+</div>
+
+<script language="JavaScript">
+<!--
+var Module = function(){
+    this.currentName = '';
+    this.previousName = '';
+    this.show = function(module){
+        if (this.currentName == module){return;};
+        try{
+        	this[this.currentName].deconstruction();
+        }catch (e){};
+        try{
+            this[module].construction();
+        }catch (e){};
+        this.previousName = this.currentName;
+        this.currentName = module;
+    };
+    this.showPrevious = function(){
+        try{
+        	this[this.currentName].showPreviousModule();
+        }catch (e){};
+    };
+    this.showNext = function(){
+        try{
+        	this[this.currentName].showNextModule();
+        }catch (e){};
+        setTimeout('this.focus()', 10);
+    };
+};
+
+var Links = new Module();
+Links.$ = function(s){
+    return document.getElementById(s);
+};
+Links.All = new Object();
+Links.All.consttuction = function(){
+    Links.$('module_1').style.display = '';
+    Links.$('module_2').style.display = '';
+    Links.$('module_3').style.display = '';
+};
+Links.All.deconsttuction = function(){
+    Links.$('module_1').style.display = 'none';
+};
+
+Links.M1 = new Object();
+Links.M1.consttuction = function(){
+    Links.$('module_1').style.display = '';
+};
+Links.M1.deconsttuction = function(){
+    Links.$('module_1').style.display = 'none';
+};
+
+Links.M2 = new Object();
+Links.M2.consttuction = function(){
+    Links.$('module_2').style.display = '';
+};
+Links.M2.deconsttuction = function(){
+    Links.$('module_2').style.display = 'none';
+};
+
+Links.M3 = new Object();
+Links.M3.consttuction = function(){
+    Links.$('module_3').style.display = '';
+};
+Links.M3.deconsttuction = function(){
+    Links.$('module_3').style.display = 'none';
+};
+//-->
+</script>
+</body>
+</html>
