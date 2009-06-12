@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html>
+<head>
+<title>date</title>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script type="text/javascript" language="javascript">/*<![CDATA[*/
+
+String.prototype.cdate=function(s,z)
+{
+	var dt=new Date(this.replace(/\-/g,'/'));
+	var now=new Date();
+	if(isNaN(dt) )
+	{
+		return this;
+	}
+	var dts;
+				var y=dt.getYear();
+			var m=dt.getMonth();
+			var d=dt.getDate();
+			var h=dt.getHours();
+			var i=dt.getMinutes();
+			if(y!=now.getYear())
+			{
+				y=dt.getYear()+'年';
+				m=dt.getMonth()+1+'月';
+				d=dt.getDate()+'日';
+			}
+			else
+			{
+				y='';
+				if(m==now.getMonth())
+				{
+					m='';
+					if(d==now.getDate())
+					{
+						d='';
+					}
+					else
+					{
+						d=dt.getDate()+'日';
+					}
+				}
+				else
+				{
+					m=(m+1)+'月';
+					d=d+'日';
+				}
+			}
+		var dts=parseInt((now-dt)/1000/60);
+		if(dts<0)
+		{
+			return this;
+		}
+		dts=dts<0?0:dts;
+		var t=function(s){return (s?s.alter([["y",y],["m",m],["d",d],["h",h],["i",i]]):y+m+d+h+':'+i)};
+		if(z)
+		{
+			return t(s);
+		}
+		if (dts<60){
+			if(dts==0)
+			{
+				dts='刚刚';
+			}
+			else
+			{
+				dts=dts+'分钟前';
+			}
+			
+		}else if(dts<(60*24)){
+		    dts=parseInt(dts/60)+'小时前';
+		}else if(dts<(60*24*2)){
+
+		    dts='昨天'+t(s?"":"&nbsp;h:i");
+		}else if(dts<(60*24*3)){
+
+		    dts='前天'+t(s?"":"&nbsp;h:i");
+		}else {
+		    dts=t(s);
+		}
+		return dts;
+};
+
+
+
+Date.diffDays=function(d0,d1){
+	var d=86400000, //1000*60*60*24
+	s=new Date(d1.getFullYear(),d1.getMonth(),d1.getDate()),
+	e=new Date(d0.getFullYear(),d0.getMonth(),d0.getDate());
+	return (e-s)/d;
+};
+Date.prototype.diffDays=function(d){
+	return Date.diffDays(this,d);
+};
+Date.diffYear=function(d0,d1){
+	return d0.getFullYear()-d1.getFullYear();
+};
+Date.prototype.diffYear=function(d){
+	return Date.diffYear(this,d);
+};
+Date.diffMonth=function(d0,d1){
+	return (d0.getFullYear()-d1.getFullYear())*12+
+		(d0.getMonth()+(12-d1.getMonth()))-12;
+};
+Date.prototype.diffMonth=function(d){
+	return Date.diffMonth(this,d);
+};
+//alert(new Date("2008/1/2").diffMonth(new Date("2007/12/1")));
+//alert(Date.diffDays(new Date("2008/7/16 00:00:00"),new Date("2008/7/14 23:59:59")));
+var A=[
+["2008/7/16 00:00:00","2008/7/16 23:59:59",0],
+["2008/7/16 00:00:00","2008/7/15 23:59:59",1],
+["2008/7/16 00:00:00","2008/7/14 23:59:59",2],
+["2008/7/16 23:59:59","2008/7/15 01:00:00",1],
+["2008/7/14 23:59:59","2008/7/16 00:00:00",-2],
+["2008/7/15 23:59:59","2008/7/16 00:00:00",-1]
+];
+for (var i=0,l=A.length,b; i<l; i++){
+	b=new Date(A[i][0]).diffDays(new Date(A[i][1]));
+	document.write((b==A[i][2]?"ok":"ERR:"+A[i]+","+b)+"<br />");
+}
+/**
+ * @param {Date} 被比较的时间。
+ * @param {Date} 比较的时间参照点。
+ * @return {Array} 各相差值数组，按每个时间基数的起始点分隔计算，而不是计算绝对的时间差。r[0]:相差毫秒数；
+ * r[1]:相差秒数；
+ * r[2]:相差分钟数；
+ * r[3]:相差小时数；
+ * r[4]:相差天数；
+ * r[5]:相差周数；
+ * r[6]:相差月数；
+ * r[7]:相差年数；
+ */
+Date.diff=function(d0,d1){
+	if(!d1){d1=new Date();}// d1=d1||new Date();
+	var Y = d0.getFullYear()-d1.getFullYear();
+	var M = Y*12 + (d0.getMonth()-d1.getMonth());
+	var D = Date.diffDays(d0,d1);
+	var h = 24*D + d0.getHours()-d1.getHours();
+	var m = h*60 + d0.getMinutes()-d1.getMinutes();
+	var s = m*60 + d0.getSeconds()-d1.getSeconds();
+	var ms = d0.valueOf()-d1.valueOf();
+	return [ms,s,m,h,D,M,Y];
+};
+Date.prototype.diff=function(d){
+	return Date.diff(this,d);
+};
+Date.relative=function(d0,d1){
+	d=Date.diff(d0,d1);
+	if(d[6]>=2){return d[6]+"年前";}
+	else if(d[6]==1){return "去年"+(d0.getMonth()+1)+"月";}
+	else if(d[5]>=6){return "半年前";}
+	else if(d[5]==1){return "上个月";}
+	else if(d[5]>0){return d[5]+"个月前";}
+	else if(d[4]==1){return "昨天";}
+	else if(d[4]==2){return "前天";}
+	else if(d[4]==3){return "大前天";}
+	else if(d[3]>0){return d[3]+"小时前";}
+	else if(d[2]>10){return d[2]+"分钟前";}
+	else{return "刚刚";}
+};
+Date.prototype.relative=function(d){
+	return Date.relative(this,d);
+};
+
+document.write(new Date().diff(new Date(2008,6,15)));
+document.write("<br />");
+document.write(new Date().relative(new Date(2008,6,16)));
+
+
+Date.prototype.format = function(format) {  
+ var o = {
+  "M+" : this.getMonth()+1,  //month
+  "d+" : this.getDate(),   //day
+  "h+" : this.getHours(),   //hour
+  "m+" : this.getMinutes(),  //minute
+  "s+" : this.getSeconds(),  //second
+  "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+  "S" : this.getMilliseconds() //millisecond
+ }
+ if(/(y+)/.test(format)) format = format.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+ for(var k in o)
+  if(new RegExp("("+ k +")").test(format))
+ format = format.replace(RegExp.$1, RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+ return format;
+};
+//document.write(new Date().format("yyyyMMdd"));
+
+/*]]>*/</script>
+</body>
+</html>

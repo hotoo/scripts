@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+    <title>Screen Size Test</title>
+    <script language="JavaScript" type="text/JavaScript">
+<!-- 
+        function displayScreenSize()
+        {
+            var bodyWidth           =document.body.clientWidth;      //网页可见区域宽
+            var bodyHeight          =document.body.clientHeight;     //网页可见区域高
+            var bodyWidthWithBorder =document.body.offsetWidth;      //网页可见区域宽(包括边线的宽)
+            var bodyHeightWithBorder=document.body.offsetHeight;     //网页可见区域高(包括边线的宽)
+            var bodyWidthWithScroll =document.body.scrollWidth;      //网页正文全文宽
+            var bodyHeightWithScroll=document.body.scrollHeight;     //网页正文全文高     
+            var bodyTopHeight       =document.body.scrollTop;        //网页被卷去的上边距
+            var bodyLeftWidth       =document.body.scrollLeft;       //网页被卷去的左边距
+            var windowTopHeight     =window.screenTop;               //网页正文部分上边距
+            var windowLeftWidth     =window.screenLeft;              //网页正文部分左边距 
+            var screenHeight        =window.screen.height;           //屏幕分辨率的高
+            var screenWidth         =window.screen.width;            //屏幕分辨率的宽
+            var screenAvailHeight   =window.screen.availHeight;      //屏幕可用工作区高度 
+            var screenAvailWidth    =window.screen.availWidth;       //屏幕可用工作区宽度
+            
+            var Str="<p>";
+            Str+="网页可见区域宽document.body.clientWidth:<span class='data'>"+bodyWidth+"px</span><br>";
+            Str+="网页可见区域高document.body.clientHeight:<span class='data'>"+bodyHeight+"px</span><br>";
+            Str+="网页可见区域宽(包括边线的宽)document.body.offsetWidth:<span class='data'>"+bodyWidthWithBorder+"px</span><br>";
+            Str+="网页可见区域高(包括边线的宽)document.body.offsetHeight:<span class='data'>"+bodyHeightWithBorder+"px</span><br>";
+            Str+="网页正文全文宽:document.body.scrollWidth<span class='data'>"+bodyWidthWithScroll+"px</span><br>";
+            Str+="网页正文全文高:document.body.scrollHeight<span class='data'>"+bodyHeightWithScroll+"px</span><br>";
+            Str+="网页被卷去的上边距:document.body.scrollTop<span class='data'>"+bodyTopHeight+"px</span><br>";
+            Str+="网页被卷去的左边距:document.body.scrollLeft<span class='data'>"+bodyLeftWidth+"px</span><br>";
+            Str+="网页正文部分上边距:window.screenTop<span class='data'>"+windowTopHeight+"px</span><br>";
+            Str+="网页正文部分左边距:window.screenLeft<span class='data'>"+windowLeftWidth+"px</span><br>";
+            Str+="屏幕分辨率的高:window.screen.height<span class='data'>"+screenHeight+"px</span><br>";
+            Str+="屏幕分辨率的宽:window.screen.width<span class='data'>"+screenWidth+"px</span><br>";
+            Str+="屏幕可用工作区高度:window.screen.availHeight<span class='data'>"+screenAvailHeight+"px</span><br>";
+            Str+="屏幕可用工作区宽度:window.screen.availWidth<span class='data'>"+screenAvailWidth+"px</span><br>";
+            Str+="</p>"
+            document.getElementById('dispaly').innerHTML=Str;
+         }
+// -->
+</script>
+    <style type="text/css">
+
+<!--
+A:link { 
+    text-decoration: none; 
+    color: #ff0000; 
+    font-weight: normal; 
+} 
+A:visited { 
+    text-decoration: none; 
+    color: #ff6666; 
+    font-weight: normal; 
+} 
+A:active { 
+    text-decoration: none; 
+    color: #ff0000; 
+    font-weight: normal; 
+} 
+A:hover { 
+    text-decoration: underline; 
+    color: #ff0000; 
+    font-weight: normal; 
+} 
+.title {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #990000;
+}
+.display {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+.data {
+    color: #FF0000;
+    font-weight: bold;
+}
+.foot {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #5e5e5e;
+    }
+-->
+    
+</style>
+</head><body onresize="javascript:displayScreenSize();" onload="javascript:displayScreenSize();">
+<span class="title">Screen Size Test</span>
+<hr align="left" size="1" noshade>
+<span class="display">Now we get the screen size about this browser </span><br>
+<span class="display" id="dispaly"></span>
+<hr align="left" size="1" noshade>
+<p align="right"><span class="foot">Screen Size Test by <a href="http://genson.cnblogs.com/">
+genson</a> </span></p>
+</body></html>
