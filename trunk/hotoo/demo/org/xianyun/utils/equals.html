@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>equals test</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="/bin/org/xianyun/utils/equals.js"></script>
+	<script type="text/javascript">
+	function jsout(obj, arrStr, arrObj){
+		document.write("<table border='1'>");
+		document.write("<tr><td><strong>"+obj+"</strong></td>");
+		for (var i=0; i<arrStr.length; i++){
+			document.write("<td>"+arrStr[i]+"</td>");
+		}
+		document.write("</tr>");
+		for(var i=0; i<arrObj.length; i++){
+			document.write("<tr><td>"+arrStr[i]+"</td>")
+			for (var j=0; j<arrObj.length; j++){
+				document.write("<td>"+(arrObj[i].equals(arrObj[j])?"<strong>true</strong>":"false")+"/"+
+					(arrObj[i]==arrObj[j]?"<strong>true</strong>":"false")+"</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table><br />")
+	}
+	</script>
+</head>
+<body>
+<script type="text/javascript">
+// test all of the basic type's equals methad.
+document.write("对象比较的特性:(对称性, 传递性, 自等性)<br /><br />");
+
+// test Number:
+var ns = ["new Number(8)_0", "new Number(8)_1", "new Number(9)", "8_0", "8_1", "9", "NaN_0", "NaN_1"];
+var n = [new Number(8), new Number(8),new Number(9), 8, 8, 9, NaN, NaN];
+jsout("Number", ns, n);
+
+// test String:
+var ss = ['new String("abc")_0', 'new String("abc")_1', 'new String("")', 'new String()', '"abc"_0', '"abc"_1', '""'];
+var s = [new String("abc"), new String("abc"), new String(""), new String(), "abc", "abc", ""];
+jsout("String", ss, s);
+
+// test Boolean:
+var bs = ['new Boolean(true)_0', 'new Boolean(true)_1', 'new Boolean(false)_0', 'new Boolean(false)_1', 'true_0', 'true_1', 'false_0', 'false_1'];
+var b = [new Boolean(true), new Boolean(true), new Boolean(false), new Boolean(false), true, true, false, false];
+jsout("Boolean", bs, b);
+
+// test Date:
+var ds = ['new Date("1999/1/1")_0', 'new Date("1999/1/1")_1', 'new Date()'];
+var d = [new Date("1999/1/1"), new Date("1999/1/1"), new Date()];
+jsout("Date", ds, d);
+
+// test RegExp:
+var rs = ['new RegExp("a", "gi")_0', 'new RegExp("a", "gi")_1', 'new RegExp("abc", "gi")', 'new RegExp("a", "g")', '/a/gi_0', '/a/gi_1', '/abc/gi', '/a/g'];
+var r = [new RegExp("a", "gi"), new RegExp("a", "gi"), new RegExp("abc", "gi"), new RegExp("a", "g"), /a/gi, /a/gi, /abc/gi, /a/g];
+jsout("RegExp", rs, r);
+
+// test Array:
+var _as = ['new Array("a", "b", "c")_0', 'new Array("a", "b", "c")_1', 'new Array()', '["a", "b", "c"]_0', '["a", "b", "c"]_1', '[]'];
+var a = [new Array("a", "b", "c"), new Array("a", "b", "c"), new Array(), ["a", "b", "c"], ["a", "b", "c"], []];
+jsout("Array", _as, a);
+
+// test complicated Array:
+var cas = [
+	'[[integers_0]]',
+	'[[integers_1]]',
+	'[[[string_0]]]',
+	'[[[string_1]]]',
+	'[[[[booleans_0]]]]',
+	'[[[[booleans_1]]]]'
+];
+var ca = [
+	[
+		[1,2,3,4],
+		[5,6,7,8]
+	],
+	[
+		[1,2,3,4],
+		[5,6,7,8]
+	],
+	[
+		[["a","b"],["c","d"]],
+		[["e","f"],["g","h"]]
+	],
+	[
+		[["a","b"],["c","d"]],
+		[["e","f"],["g","h"]]
+	],
+	[
+		[[[[true], [false]]]],
+		[[[[false], [true]]]]
+	],
+	[
+		[[[[true], [false]]]],
+		[[[[false], [true]]]]
+	]
+];
+jsout("Complicated Array", cas, ca);
+
+// test Object:
+var os = ['new Object()_0', 'new Object()_1', 'new Object(propertys)_0', 'new Object(propertys)_1', '{}', '{}']
+var o = [new Object(), new Object(), {"num":100, "bool":true,"str":"abc"}, {"num":100, "bool":true,"str":"abc"}, {}, {}];
+//var os = ['new Object()_0', 'new Object()_1', '{}', '{}']
+//var o = [new Object(), new Object(), {}, {}];
+jsout("Object", os, o);
+
+// test complicated Object:
+var oos = [
+	'{"userName":"HoToo", "password":"123456"}',
+	'{"userName":"HoToo", "password":"123456"}',
+	'{"userName":"hotoo", "password":"123456"}',
+	'{"userName":"闲耘", "password":"123456"}',
+	'{"userName":"闲耘", "password":"123456"}',
+	'{"str":"string", "num":100, "bool":true, "date":new Date(), "fun":function(){}, "obj":{}, "regexp":/a/gi, "arr":[[1,2],[3,4]]}',
+	'{"str":"string", "num":100, "bool":true, "date":new Date(), "fun":function(){}, "obj":{}, "regexp":/a/gi, "arr":[[1,2],[3,4]]}'
+];
+var oo = [
+	{"userName":"HoToo","password":"123456"},
+	{"userName":"HoToo","password":"123456"},
+	{"userName":"hotoo","password":"123456"},
+	{"userName":"闲耘","password":"123456"},
+	{"userName":"闲耘","password":"123456"},
+	{"str":"string", "num":100, "bool":true, "date":new Date(), "obj":{}, "regexp":/a/gi, "arr":[[1,2],[3,4]]},
+	{"str":"string", "num":100, "bool":true, "date":new Date(), "obj":{}, "regexp":/a/gi, "arr":[[1,2],[3,4]]}
+];
+jsout("complicated Object", oos, oo);
+
+
+// test Function:
+var fs = ['new Function()', 'new Function()', 'function(){}', 'function(){}'];
+var f = [new Function(), new Function() ,function(){}, function(){}];
+jsout("Function", fs, f);
+
+
+// test instanceof and typeof:
+var instStr = ['"string"', '100', 'true', '/a/g', '[1,2,3]', 'function(){}', '{}', 'null', 'undefined'];
+var inst = ["string", 100, true, /a/g, [1,2,3], function(){}, {}, null, undefined];
+var ObjsStr = ["String", "Number", "Boolean", "RegExp", "Array", "Function", "Date", "Object"];
+var Objs = [String, Number, Boolean, RegExp, Array, Function, Date, Object];
+jsoutInst("instanceof", ObjsStr, Objs, instStr, inst);
+
+
+
+function jsoutInst(methodName, tsStr, ts, osStr, os){
+	document.write("<table border='1'><tr>");
+	document.write("<td><strong>"+methodName+"</strong></td>");
+	for (var i=0; i<tsStr.length; i++){
+		document.write("<td>"+tsStr[i]+"</td>");
+	}
+	document.write("</tr>");
+	for (var i=0; i<os.length; i++){
+		document.write("<tr><td>"+osStr[i]+"</td>");
+		for (var j=0; j<ts.length; j++){
+			document.write("<td>"+(os[i] instanceof ts[j]?"<strong>true</strong>":"false")+"</td>");
+		}
+		document.write("</tr>");
+	}
+	document.write("</table><br />");
+}
+
+var typesStr = ["string", "number", "boolean", "array", "function", "date", "object", "undefined"];
+jsoutType("typeof", typesStr, instStr, inst);
+function jsoutType(methodName, tsStr, osStr, os){
+	document.write("<table border='1'><tr>");
+	document.write("<td><strong>"+methodName+"</strong></td>");
+	for (var i=0; i<tsStr.length; i++){
+		document.write("<td>"+tsStr[i]+"</td>");
+	}
+	document.write("</tr>");
+	for (var i=0; i<os.length; i++){
+		document.write("<tr><td>"+osStr[i]+"</td>");
+		for (var j=0; j<tsStr.length; j++){
+			document.write("<td>"+(typeof os[i] == tsStr[j]?"<strong>true</strong>":"false")+"</td>");
+		}
+		document.write("</tr>");
+	}
+	document.write("</table><br />");
+}
+
+// "abc" is not instanceof String.
+// 1 is not instanceof Number.
+// true is not instanceof Boolean.
+//! /a/g is instanceof RegExp.
+//! [] is instanceof Array.
+//! functon(){} is instanceof Function.
+//! function(){} is instanceof Object.
+//! {} is instanceof Object.
+// null is not instanceof Object.
+// null is typeof Object.
+
+
+var O = function(){this.m = function(){};};
+O.prototype.method = function(){};
+var o1 = new O();
+var o2 = new O();
+document.write(o1.equals(o2));
+</script>
+</body>
+</html>
