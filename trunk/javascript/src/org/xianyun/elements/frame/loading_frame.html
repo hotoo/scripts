@@ -1,0 +1,31 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>新建网页 1</title>
+</head>
+
+<body>   
+<noscript><iframe src="*.htm"></iframe></noscript> 
+<div align="center" style="position: absolute; width: 100px; height: 100px; z-index: 1; left:158px; top:17px" id="load"><img src="http://sysimages.tq.cn/images/analysis_images/ajax-loader.gif" />&nbsp;loading...</div>
+<iframe style="visibility:hidden" onreadystatechange=stateChangeIE(this) onload=stateChangeFirefox(this) name="callframe" id="callframe" width="100%" height="100%" frameborder="0" scrolling="yes" marginheight="0"></iframe>
+<script>   
+    function stateChangeIE(_frame)
+    { 
+     if (_frame.readyState=="interactive")//state: loading ,interactive,   complete
+     {
+     var loader = document.getElementById("load"); 
+        loader.innerHTML      = "";    
+        loader.style.display = "none";  
+        _frame.style.visibility = "visible";   
+     }   
+    }
+    function stateChangeFirefox(_frame)
+    { 
+     var loader = document.getElementById("load"); 
+        loader.innerHTML      = "";    
+        loader.style.display = "none";  
+        _frame.style.visibility = "visible";   
+    }
+    callframe.location.href="http://www.google.com"; 
+</script>   
+</body>
+</html>

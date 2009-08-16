@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Favor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" language="javascript" src="../../js/utils/HashMap.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/utils/Iterator.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/utils/clone.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/core/Browser.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/core/Function.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/core/Array.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/core/String.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/core/Exception.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/core/ArgumentException.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/utils/equals.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/utils/StringBuffer.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/core/Type.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/utils/json.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/io/File.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/io/FileNotFoundException.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/utils/Properties.js"></script>
+	<script type="text/javascript" language="javascript" src="../../js/net/XmlHttpRequest.js"></script>
+	<script type="text/javascript" language="javascript" src="Favorite4Local.js"></script>
+	<style type="text/css">
+		.favorites{width:368px;height:200px;border:1px solid #cccccc;}
+		.favorite{width:366px;height:180px;font-size:14px;border:0px solid blue;}
+		.favorite ul{list-style-type:none;padding:0;margin:0;}
+		.favorite li{display:inline;float:left;overflow:visible;width:120px;border:1px solid #ffffff;}
+		.favoriteCtrlBar{display:none;position:absolute;background-color:#aaaaaa;color:#ffffff;cursor:pointer;border:0px solid #4c4c4c;}
+		.favoriteCreateBar{cursor:pointer;visibility:hidden;color:#339900;font-size:14px;width:*;text-align:center;}
+		.favoriteWarning{border:1px solid #ff8c05;background-color:#fdd283;color:#712704;line-height:40px;display:none;}
+	</style>
+</head>
+<body>
+
+<div id="FAVs"></div>
+
+<script type="text/javascript" language="javascript">
+
+var datas = [
+["http://www.baidu.com", "Baidu"],
+["http://www.google.com", "Google"],
+["http://www.codyy.com", "阔地网络"],
+["http://www.xianyun.org", "www.xianyun.org"],
+["http://www.xianyun.org", "www.xianyun.org"]
+];
+var fav = new Favorite("fav", datas);//alert(fav.toString());
+//document.write(fav.toString());
+document.getElementById("FAVs").innerHTML = fav.toString();
+//document.body.appendChild(fav.getDOM());
+
+var changeLang = function(l){
+	Favorite.LOCAL.load("local_"+(l?"us-en":"zh-cn")+".properties", false);
+	document.getElementById("FAVs").innerHTML = fav.toString();
+};
+</script>
+
+<input type="checkbox" checked="checked" onclick="changeLang(this.checked);" />En/中文
+
+
+<script type="text/javascript">
+
+/**
+ * 收藏夹。
+ * @extends {HashMap}
+ * @param {Object} data
+ */
+var Favors = function(data){
+	HashMap.call(this);
+	
+	for (var d in data){
+		if (d.isString() && data[d].isString()) {
+			this.put(d, data[d]);
+		}
+	}
+};
+Favors.prototype = new HashMap();
+Favors.prototype.constructor = Favors;
+
+Favors.LOCAL = new Properties();
+Favors.LOCAL.load("local.properties");
+
+Favors.prototype.save = function(){
+	
+};
+
+Favors.prototype.del = function(url){
+	this.remove(url);
+	this.save();
+};
+Favors.prototype.toString = function(){
+	return this._table.toJSONString();
+};
+Favors.prototype.toJSONString = function(){
+	return HashMap.prototype.toJSONString.call(this);
+};
+Favors.prototype.toHTML = function(){
+	var s = "", k = this.keys();
+	while (k.hasNext()){
+		var u = k.next();
+		s+='<span><a href="'+u+'">'+this.get(u)+'</a> '+
+		  '<a href="#" onclick="javascript:void(Favors.del(this));" title="'+Favors.LOCAL.getProperty("DEL", "Delete")+'">×</a>, <span>';
+	}
+	return s;
+};
+Favors.del = function(o){
+	o.parentNode.parentNode.removeChild(o.parentNode);
+};
+
+
+var data = {
+	"http://www.baidu.com":"百度",
+	"http://www.google.com":"Google"
+};
+//var f = new Favors(data);
+//document.write(f.toHTML());
+
+
+</script>
+</body>
+</html>

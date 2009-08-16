@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>InstEditor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script type="text/javascript" src="../../lang/Event.js"></script>
+<script type="text/javascript" src="../../lang/Function.js"></script>
+<script type="text/javascript" src="../../lang/String.js"></script>
+<script type="text/javascript" src="../../lang/Array.js"></script>
+<script type="text/javascript" src="../../utils/equals.js"></script>
+<script type="text/javascript" src="InstEditor.js"></script>
+
+<h2 id="edit1" style="width:400px;">HOTOO</h2>
+<div id="edit" style="width:200px;border:0px solid #ccc;font-weight:bolder;color:#f00;display:block;">Click Here.</div>
+<div id="edit2" style="width:300px;border:0px solid #fe9d01;">Click Here.<br />
+New Line Return.<b>BB</b>&lt;b&gt;CC&lt;b&gt;</div>
+<div id="edit3" style="width:300px;border:1px solid #fe9d01;display:none;">BBB</div>
+<div id="edit4" style="width:300px;border:1px solid #fe9d01;display:none;">BBB</div>
+enable focus here.
+<script type="text/javascript">
+
+var e = new InstEditor(document.getElementById("edit"),"text",function(p,v,c){alert(p+","+v);c();});
+var e = new InstEditor(document.getElementById("edit1"),"text",function(p,v,c){alert(p+","+v);c();});
+var e2 = new InstEditor(document.getElementById("edit2"), "textarea");
+var e3 = new InstEditor(document.getElementById("edit3"), "select");
+e3.options=[["AAA",1],["BBB",2],["CCC",3]];
+var e4 = new InstEditor(document.getElementById("edit4"), "select-multiple");
+e4.options=[["AAA",1],["BBB",2],["CCC",3]];
+
+</script>
+</body>
+</html>

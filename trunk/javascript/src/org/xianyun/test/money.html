@@ -1,0 +1,168 @@
+<html>
+<head>
+<title>money</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<SCRIPT LANGUAGE="JavaScript">
+function convertCurrency(currencyDigits) {
+// Constants:
+ var MAXIMUM_NUMBER = 99999999999.99;
+ // Predefine the radix characters and currency symbols for output:
+ var CN_ZERO = "零";
+ var CN_ONE = "壹";
+ var CN_TWO = "贰";
+ var CN_THREE = "叁";
+ var CN_FOUR = "肆";
+ var CN_FIVE = "伍";
+ var CN_SIX = "陆";
+ var CN_SEVEN = "柒";
+ var CN_EIGHT = "捌";
+ var CN_NINE = "玖";
+ var CN_TEN = "拾";
+ var CN_HUNDRED = "佰";
+ var CN_THOUSAND = "仟";
+ var CN_TEN_THOUSAND = "万";
+ var CN_HUNDRED_MILLION = "亿";
+ var CN_SYMBOL = "人民币";
+ var CN_DOLLAR = "元";
+ var CN_TEN_CENT = "角";
+ var CN_CENT = "分";
+ var CN_INTEGER = "整";
+ 
+// Variables:
+ var integral; // Represent integral part of digit number. 
+ var decimal; // Represent decimal part of digit number.
+ var outputCharacters; // The output result.
+ var parts;
+ var digits, radices, bigRadices, decimals;
+ var zeroCount;
+ var i, p, d;
+ var quotient, modulus;
+ 
+// Validate input string:
+ currencyDigits = currencyDigits.toString();
+ if (currencyDigits == "") {
+  alert("Empty input!");
+  return "";
+ }
+ if (currencyDigits.match(/[^,.\d]/) != null) {
+  alert("Invalid characters in the input string!");
+  return "";
+ }
+ if ((currencyDigits).match(/^((\d{1,3}(,\d{3})*(.((\d{3},)*\d{1,3}))?)|(\d+(.\d+)?))$/) == null) {
+  alert("Illegal format of digit number!");
+  return "";
+ }
+ 
+// Normalize the format of input digits:
+ currencyDigits = currencyDigits.replace(/,/g, ""); // Remove comma delimiters.
+ currencyDigits = currencyDigits.replace(/^0+/, ""); // Trim zeros at the beginning. 
+ // Assert the number is not greater than the maximum number.
+ if (Number(currencyDigits) > MAXIMUM_NUMBER) {
+  alert("Too large a number to convert!");
+  return "";
+ }
+// http://www.knowsky.com/ Process the coversion from currency digits to characters:
+ // Separate integral and decimal parts before processing coversion:
+ parts = currencyDigits.split(".");
+ if (parts.length > 1) {
+  integral = parts[0];
+  decimal = parts[1];
+  // Cut down redundant decimal digits that are after the second.
+  decimal = decimal.substr(0, 2);
+ }
+ else {
+  integral = parts[0];
+  decimal = "";
+ }
+ // Prepare the characters corresponding to the digits:
+ digits = new Array(CN_ZERO, CN_ONE, CN_TWO, CN_THREE, CN_FOUR, CN_FIVE, CN_SIX, CN_SEVEN, CN_EIGHT,CN_NINE);
+ radices = new Array("", CN_TEN, CN_HUNDRED, CN_THOUSAND);
+ bigRadices = new Array("", CN_TEN_THOUSAND, CN_HUNDRED_MILLION);
+ decimals = new Array(CN_TEN_CENT, CN_CENT);
+ // Start processing:
+ outputCharacters = "";
+ // Process integral part if it is larger than 0:
+ if (Number(integral) > 0) {
+  zeroCount = 0;
+  for (i = 0; i < integral.length; i++) {
+   p = integral.length - i - 1;
+   d = integral.substr(i, 1);
+   quotient = p / 4;
+   modulus = p % 4;
+   if (d == "0") {
+    zeroCount++;
+   }
+   else {
+    if (zeroCount > 0)
+    {
+     outputCharacters += digits[0];
+    }
+    zeroCount = 0;
+    outputCharacters += digits[Number(d)] + radices[modulus];
+   }
+   if (modulus == 0 && zeroCount < 4) { 
+
+
+    outputCharacters += bigRadices[quotient];
+   }
+  }
+  outputCharacters += CN_DOLLAR;
+ }
+ // Process decimal part if there is:
+ if (decimal != "") {
+  for (i = 0; i < decimal.length; i++) {
+   d = decimal.substr(i, 1);
+   if (d != "0") {
+    outputCharacters += digits[Number(d)] + decimals[i];
+   }
+  }
+ }
+ // Confirm and return the final output string:
+ if (outputCharacters == "") {
+  outputCharacters = CN_ZERO + CN_DOLLAR;
+ }
+ if (decimal == "") {
+  outputCharacters += CN_INTEGER;
+ }
+ //outputCharacters = CN_SYMBOL + outputCharacters;
+ outputCharacters = outputCharacters;
+ return outputCharacters;
+}// 
+
+var stmp = "";
+function nst_convert(t)
+{
+   if(t.value==stmp) return;//如果等于上次输入则返回
+   var ms = t.value.replace(/[^\d\.]/g,"").replace(/(\.\d{2}).+$/,"$1").replace(/^0+([1-9])/,"$1").replace(/^0+$/,"0");
+   //replace(/[^\d\.]/g,"")去掉输入当中不是数字和.的字符
+   //replace(/(\.\d{2}).+$/,"$1") 
+   //匹配从字符开始的第一个.后面的所有字符,由于没有使用g标记，
+   //所以只匹配开始第一次   然后用小数点和后两位进行替换以确定数值最后的格式正确 高.
+   //replace(/^0+([1-9])/,"$1") 匹配以多个0开头的数值替换为去掉0后的数值做为数字的第一位 也是匹配开始的一次.
+   //replace(/^0+$/,"0") 匹配以0开始和结束的多个0为一个0 也就是0000000 输入->转换成一个0
+   //以下确定输入的为过滤后的合法数字
+   //alert(ms);
+   var txt = ms.split(".");
+   //alert(txt[0]);
+   //如果ms值不小数点存在则txt[0]=小数点前的值否则等于ms
+   //regexp:/\d{4}(,|$)/ 匹配四位数字和,的集合或者四位数字和字符结尾的集合
+   while(/\d{4}(,|$)/.test(txt[0]))//如果为txt[0]=4123
+     txt[0] = txt[0].replace(/(\d)(\d{3}(,|$))/,"$1,$2");
+   //txt[0].replace(/(\d)(\d{3}(,|$))/,"$1,$2")是将txt[0]进行替换后再赋给它
+   //regexp:/(\d)(\d{3}(,|$))/ 将四个数字份为两组第一个数字为第一位，后三位和其他结尾为每二位
+   //并替换成 第一位,第二位 注意 ,的使用很好.   也就是将4123先替换成4,123
+   //由于此表达式默认采用贪婪匹配所以从数值后向前匹配再通过循环进行再匹配替换从而可以将
+   //12345678分成你想要的123,456,78 楼主彩用(,|$)很精典，因为它略去了第二次匹配时的,问题
+   t.value = stmp = txt[0]+(txt.length>1?"."+txt[1]:"");
+   //最终赋值到输入框中  
+   //如果有小数点则加上并购成最终数字否则显示替换后的txt[0]
+   bbb.value = convertCurrency(ms-0);
+   //将ms转换为数字送到number2num1去转换
+}
+
+</SCRIPT>
+
+小写金额：<input type="text" name="aaa" id="aaa" onkeyup="nst_convert(this)"><br>
+大写金额：<input type="text" name="bbb" id="bbb" size=80>

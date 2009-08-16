@@ -1,0 +1,275 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="RoundCornerFrame.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>RoundCornerFrame.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'RoundCornerFrame.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+    <table border="1" cellpadding="3" cellspacing="0" width="100%">
+    <tr bgcolor="#CCCCFF" class="TableHeadingColor">
+    <td colspan=2><font size="+2">
+    
+        <b>Class Summary</b>
+    
+    </font></td>
+    </tr>
+    
+    <tr bgcolor="white" class="TableRowColor">
+    <td width="15%"><b><a href="RoundCornerFrame.html">RoundCornerFrame</a></b></td>
+    <td>&nbsp;</td>
+    </tr>
+    
+    </table>
+    <hr/> 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*&lt;![CDATA[*/</span>
+<span class="comment">/**
+ * 圆角窗口。
+ * <span class="attrib">@namespace</span> org.xianyun
+ * <span class="attrib">@extends</span> {Object}
+ * <span class="attrib">@constructor</span> ?!
+ * <span class="attrib">@param</span> ?!
+ * <span class="attrib">@since</span> IE5.0+, Firefox1.0+, Opera8.0+, Safari3.0, Netscape8.0
+ * <span class="attrib">@version</span> ?!
+ *
+ * <span class="attrib">@author</span> 闲耘(mail[AT]xianyun.org)
+ */</span>
+RoundCornerFrame = <span class="reserved">function</span>(w, h){
+	Window.call(<span class="reserved">this</span>, w, h);
+	<span class="reserved">this</span>._bgc = <span class="literal">"#ABC6EA"</span>; <span class="comment">// background color. (#99CCFF)</span>
+	<span class="reserved">this</span>._clo = false; <span class="comment">// closeable.</span>
+	<span class="reserved">this</span>.mxa = false; <span class="comment">// max able.</span>
+	<span class="reserved">this</span>.mna = false;
+};
+RoundCornerFrame.<span class="reserved">prototype</span> = new Frame(0,0);
+RoundCornerFrame.<span class="reserved">prototype</span>.constructor = RoundCornerFrame;
+
+RoundCornerFrame.<span class="reserved">prototype</span>._ini = <span class="reserved">function</span>(){
+	<span class="reserved">if</span> (!<span class="reserved">this</span>._w){
+	Frame.<span class="reserved">prototype</span>._ini.call(<span class="reserved">this</span>);
+	var r = <span class="literal">"display:block;font-size:1px;overflow:hidden;height:1px;"</span>;
+	<span class="reserved">this</span>._hr1 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._hr1.style.cssText=r+<span class="literal">"cursor:move;margin:0 5px;background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";"</span>; <span class="reserved">this</span>._hr1.innerHTML=<span class="literal">"&amp;nbsp;"</span>; <span class="comment">// head round 1.</span>
+	<span class="reserved">this</span>._hr2 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._hr2.style.cssText=r+<span class="literal">"cursor:move;height:1px;border-left:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";border-right:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";margin:0 3px;border-width:0 2px;"</span>; <span class="reserved">this</span>._hr2.innerHTML=<span class="literal">"&amp;nbsp;"</span>;
+	<span class="reserved">this</span>._hr3 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._hr3.style.cssText=r+<span class="literal">"cursor:move;height:1px;border-left:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";border-right:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";margin:0 2px;"</span>; <span class="reserved">this</span>._hr3.innerHTML=<span class="literal">"&amp;nbsp;"</span>;
+	<span class="reserved">this</span>._hr4 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._hr4.style.cssText=r+<span class="literal">"cursor:move;border-left:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";border-right:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";height:2px;margin:0 1px;"</span>; <span class="reserved">this</span>._hr4.innerHTML=<span class="literal">"&amp;nbsp;"</span>;
+	<span class="reserved">this</span>._t.appendChild(<span class="reserved">this</span>._hr1); <span class="reserved">this</span>._t.appendChild(<span class="reserved">this</span>._hr2);
+	<span class="reserved">this</span>._t.appendChild(<span class="reserved">this</span>._hr3); <span class="reserved">this</span>._t.appendChild(<span class="reserved">this</span>._hr4);
+
+	<span class="reserved">this</span>.__t = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>.__t.style.cssText = <span class="literal">"color:"</span>+Color.alpha(<span class="reserved">this</span>._bgc, 0x11)+<span class="literal">";background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";text-indent:5px;cursor:move;"</span>;
+	<span class="reserved">this</span>._t.appendChild(<span class="reserved">this</span>.__t);
+	<span class="reserved">this</span>.__b = document.createElement(<span class="literal">"div"</span>);
+	<span class="reserved">this</span>.__b.style.cssText = <span class="literal">"overflow:visible;display:block;color:"</span>+Color.alpha(Color.complement(<span class="reserved">this</span>._bgc),0x99)+<span class="literal">";background-color:"</span>+Color.alpha(<span class="reserved">this</span>._bgc, 0x33)+<span class="literal">";border-left:4px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";border-right:4px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";height:100%;"</span>;
+	<span class="reserved">this</span>._b.appendChild(<span class="reserved">this</span>.__b);
+	<span class="reserved">this</span>._fr1 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._fr1.style.cssText=r+<span class="literal">"height:1px;margin:0 5px;background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";"</span>; <span class="reserved">this</span>._fr1.innerHTML=<span class="literal">"&amp;nbsp;"</span>; <span class="comment">// head round 1.</span>
+	<span class="reserved">this</span>._fr2 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._fr2.style.cssText=r+<span class="literal">"height:1px;border-left:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";border-right:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";margin:0 3px;border-width:0 2px;"</span>; <span class="reserved">this</span>._fr2.innerHTML=<span class="literal">"&amp;nbsp;"</span>;
+	<span class="reserved">this</span>._fr3 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._fr3.style.cssText=r+<span class="literal">"height:1px;border-left:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";border-right:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";margin:0 2px;"</span>; <span class="reserved">this</span>._fr3.innerHTML=<span class="literal">"&amp;nbsp;"</span>;
+	<span class="reserved">this</span>._fr4 = document.createElement(<span class="literal">"div"</span>); <span class="reserved">this</span>._fr4.style.cssText=r+<span class="literal">"border-left:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";border-right:5px solid "</span>+<span class="reserved">this</span>._bgc+<span class="literal">";background-color:"</span>+<span class="reserved">this</span>._bgc+<span class="literal">";height:2px;margin:0 1px;"</span>; <span class="reserved">this</span>._fr4.innerHTML=<span class="literal">"&amp;nbsp;"</span>;
+	<span class="reserved">this</span>._f.appendChild(<span class="reserved">this</span>._fr4); <span class="reserved">this</span>._f.appendChild(<span class="reserved">this</span>._fr3);
+	<span class="reserved">this</span>._f.appendChild(<span class="reserved">this</span>._fr2); <span class="reserved">this</span>._f.appendChild(<span class="reserved">this</span>._fr1);
+
+<span class="comment">//	this._w.onlostfocus = Function.createDelegate(this, this.blur);</span>
+	UserDefinedEvent.addEventListener(<span class="reserved">this</span>._w, <span class="literal">"blur"</span>, Function.createDelegate(<span class="reserved">this</span>, <span class="reserved">this</span>.blur));
+	}
+	<span class="reserved">return</span> <span class="reserved">this</span>._w;
+};
+RoundCornerFrame.<span class="reserved">prototype</span>.resetColor = <span class="reserved">function</span>(c){
+	<span class="reserved">this</span>._hr1.style.backgroundColor = 
+	<span class="reserved">this</span>._hr2.style.backgroundColor = 
+	<span class="reserved">this</span>._hr3.style.backgroundColor = 
+	<span class="reserved">this</span>._hr4.style.backgroundColor = 
+	<span class="reserved">this</span>._fr1.style.backgroundColor = 
+	<span class="reserved">this</span>._fr2.style.backgroundColor = 
+	<span class="reserved">this</span>._fr3.style.backgroundColor = 
+	<span class="reserved">this</span>._fr4.style.backgroundColor = 
+	<span class="reserved">this</span>.__t.style.backgroundColor 	= c;
+	<span class="reserved">this</span>.__b.style.borderLeft 	= 
+	<span class="reserved">this</span>.__b.style.borderRight	= 
+	<span class="reserved">this</span>._hr2.style.borderLeft 	= 
+	<span class="reserved">this</span>._hr2.style.borderRight = 
+	<span class="reserved">this</span>._hr3.style.borderLeft 	= 
+	<span class="reserved">this</span>._hr3.style.borderRight = 
+	<span class="reserved">this</span>._hr4.style.borderLeft 	= 
+	<span class="reserved">this</span>._hr4.style.borderRight = 
+	<span class="reserved">this</span>._fr2.style.borderLeft 	= 
+	<span class="reserved">this</span>._fr2.style.borderRight = 
+	<span class="reserved">this</span>._fr3.style.borderLeft 	= 
+	<span class="reserved">this</span>._fr3.style.borderRight = 
+	<span class="reserved">this</span>._fr4.style.borderLeft 	= 
+	<span class="reserved">this</span>._fr4.style.borderRight = <span class="literal">"5px solid "</span>+c;
+};
+RoundCornerFrame.<span class="reserved">prototype</span>.title = <span class="reserved">function</span>(){
+	<span class="reserved">this</span>._ini();
+	<span class="reserved">return</span> <span class="reserved">this</span>.__t;
+};
+RoundCornerFrame.<span class="reserved">prototype</span>.body = <span class="reserved">function</span>(){
+	<span class="reserved">this</span>._ini();
+	<span class="reserved">return</span> <span class="reserved">this</span>.__b;
+};
+RoundCornerFrame.<span class="reserved">prototype</span>.show = <span class="reserved">function</span>(){
+	Frame.<span class="reserved">prototype</span>.show.call(<span class="reserved">this</span>);
+};
+RoundCornerFrame.<span class="reserved">prototype</span>.setColor = <span class="reserved">function</span>(c){
+	<span class="reserved">this</span>._bgc = c; try{<span class="reserved">this</span>.resetColor(c);}catch(e){}
+};
+RoundCornerFrame.<span class="reserved">prototype</span>.focus = <span class="reserved">function</span>(){
+	<span class="comment">//if (this._fsd) return;</span>
+	<span class="reserved">this</span>._fsd = true;
+	Frame.<span class="reserved">prototype</span>.focus.call(<span class="reserved">this</span>);
+	<span class="reserved">this</span>.resetColor(<span class="reserved">this</span>._bgc);
+};
+RoundCornerFrame.<span class="reserved">prototype</span>.blur = <span class="reserved">function</span>(){
+	<span class="comment">//if (!this._fsd) return;</span>
+	<span class="reserved">this</span>._fsd = false;
+	<span class="reserved">this</span>.resetColor(Color.alpha(<span class="reserved">this</span>._bgc, 0x66));
+};
+
+
+<span class="comment">/*]]&gt;*/</span>
+</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>

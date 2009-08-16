@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>DragDropable</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script type="text/javascript" src="../../lang/Event.js"></script>
+<script type="text/javascript" src="../../lang/Function.js"></script>
+<script type="text/javascript" src="DragDropable.js"></script>
+<script type="text/javascript">
+
+var FreeDragDropable = function(e){
+	this._e = e;
+	this._e.style.position = "absolute";
+	this._dragdropable = new DragDropable(Function.createDelegate(this, this.dragging));
+	this.dragable = true;
+	
+	Event.addEventListener(this._e, "mousedown", Function.createDelegate(this._dragdropable, this._dragdropable.drag));
+};
+FreeDragDropable.prototype.moveTo = function(x, y){
+	this._e.style.left = x;
+	this._e.style.top = y;
+};
+FreeDragDropable.prototype.dragging = function(evt){
+	evt = window.event || evt;
+	if (!this.dragable || !Event.isLeftClick(evt)){return false;}
+//	var oldCoor = this.getCoordinate();
+	mosX = Event.pointerX(evt);
+	mosY = Event.pointerY(evt);
+//	this.moveTo(mosX-this.distanceX, mosY-this.distanceY);
+	this.moveTo(mosX, mosY);
+	return false;
+};
+
+</script>
+
+<div id="div">Div</div>
+<script type="text/javascript">
+var $ = function(id){return document.getElementById(id);};
+
+new FreeDragDropable($("div"));
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Document </title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<style>
+.data_table tr {
+	background-color: expression(rowIndex % 2 == 0 ? '#999999' : '#cccccc')
+}
+</style>
+</head>
+<body>
+<script language="JavaScript">
+<!--
+function fillCustInfo(customerId){
+     var table=document.getElementById("sales_contract_saleresult_register_web_batch_valid_customer_list");
+     var obj = new HttpObject();
+     var s = obj.httpGetReturnArray(globeWebAppContext + "/sales/adtypeselect.do?globe.method=getCaptionByCode&ajaxKey=customerKey&customerId="+customerId);
+         if(s){
+       /**custId,custName,classId,custKind,custAddress,Zip,Tel**/
+          var custId=s[0];
+          var custName=s[1];
+          var classId=s[2];
+          var custKind=s[3];
+          var custAddress=s[4];
+          
+          var Zip=s[5];
+          var Tel=s[6];
+
+          var row=table.insertRow(i-1);
+          
+          row.insertCell(0).appendChild(document.createTextNode(custId));
+          row.insertCell(1).appendChild(document.createTextNode(custName));
+          row.insertCell(2).appendChild(document.createTextNode(classId));
+          row.insertCell(3).appendChild(document.createTextNode(custKind));
+          row.insertCell(4).appendChild(document.createTextNode(custAddress));
+          row.insertCell(5).appendChild(document.createTextNode(Zip));
+          row.insertCell(6).appendChild(document.createTextNode(Tel));
+
+       }
+   }
+//-->
+</script>
+
+<table class="data_table">
+<tr>
+	<td>1</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>5</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>7</td>
+	<td>8</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>power</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (mail[AT]xianyun.org">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script language="javascript">/*<![CDATA[*/
+
+Math.power = function(n, m){
+	var a = arguments[2]||n;
+	return m<=1?a:Math.power(n,m-1, n*a);
+};
+
+var Fibonacci = {
+loop:function(n){
+	var b1=1, b2=1, temp, begin=3;
+	for (; begin<=n; ++begin){
+		temp = b1;
+		b1 = b2;
+		b2 = temp + b2;
+	}
+	return b2;
+},
+recursion:function(i){
+	return (i<=2)?1:arguments.callee(i-1)+arguments.callee(i-2);
+},
+tailRecursion:function(i){
+	var a1=arguments[1]||1, a2=arguments[2]||1;
+	var b = arguments[3]||3; // start at 3.
+	return i<=2?1:b==i?a1+a2:arguments.callee(i,a2, a1+a2, b+1);
+},
+recursion_array_A:[],
+recursion_array:function(i){
+	return Fibonacci.recursion_array_A[i]||(Fibonacci.recursion_array_A[i]=(i<=2?1:arguments.callee(i-2)+arguments.callee(i-1)));
+},
+tailRecursion_array_A:[],
+tailRecursion_array:function(i){
+	var a1=arguments[1]||1, a2=arguments[2]||1;
+	var b = arguments[3]||3; // start at 3.
+	return Fibonacci.tailRecursion_array_A[i]||(Fibonacci.tailRecursion_array_A[i]=(i<=2?1:b==i?a1+a2:arguments.callee(i,a2, a1+a2, b+1)));
+},
+fibon:function(){
+	var a1=arguments[1]||1, a2=arguments[2]||1;
+	var b = arguments[3]||3; // start at 3.
+	return i<=2?1:b==i?a1+a2:arguments.callee(i,a2, a1+a2, b+1);
+}
+};
+
+var i = 10;//1476;
+document.write(Fibonacci.loop(i)+"<br />");
+document.write(Fibonacci.recursion(i)+"<br />");
+document.write(Fibonacci.tailRecursion(i)+"<br />");
+document.write(Fibonacci.recursion_array(i)+"<br />");
+document.write(Fibonacci.tailRecursion_array(i)+"<br />");
+
+var n = 1900, I=50;
+var d=new Date();
+for (var i=0; i<I; i++){
+	Fibonacci.loop(n);
+}
+d = new Date()-d;
+
+var d1 = new Date();
+for (var i=0; i<I; i++){
+	Fibonacci.tailRecursion_array(n);
+}
+d1 = new Date()-d1;
+document.write("<br />"+d+":"+d1);
+
+//var n = 4, m=4, I=1000;
+//var d=new Date();
+//for (var i=0; i<I; i++){
+//	document.write(Math.pow(n,m));
+//}
+//d = new Date()-d;
+//document.write("<br />"+d+"<br />");
+//
+//var d1 = new Date();
+//for (var i=0; i<I; i++){
+//	document.write(Math.power(n,m));
+//}
+//d1 = new Date()-d1;
+//document.write("<br />"+d1);
+/*]]>*/</script>
+</body>
+</html>

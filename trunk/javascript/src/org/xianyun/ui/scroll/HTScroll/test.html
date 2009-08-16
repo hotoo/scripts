@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Scroll</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src=""></script>
+<link href="" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<DIV style='PADDING-LEFT: 5px' align=left>
+<FONT id='nType1' style='DISPLAY:none'>
+<table width='248' height='230'  border='1' bordercolor='#dddddd' leftMargin='0' topmargin='0' cellpadding='0' cellspacing='0'><tr><td height='3'></td></tr><tr><td width='248' height='111'>
+<a href=ShowPro.asp?id=18 target='_blank'><img src='MobilePic/20051028151631.jpg' alt='T218' valign='middle' align='left' width=100 height=100 border='0'></a><b><strong><a href=ShowPro.asp?id=18 target='_blank'>T218</a></strong></b><br /><font color='#aaaaaa'>MP4掌上影院  <br>200万像素数码摄像头    <br>MP3音乐播放  <br>大容量MINI SD卡</font><br /></td></tr><td height='3'></td></tr><tr><td width='248' height='111'>
+<a href=ShowPro.asp?id=17 target='_blank'><img src='MobilePic/20051028151815.jpg' alt='TD-C' valign='middle' align='left' width=100 height=100 border='0'></a><b><strong><a href=ShowPro.asp?id=17 target='_blank'>TD-C</a></strong></b><br /><font color='#aaaaaa'DV短片摄制   <br>MP4掌上影院    <br>130万像素数码摄像头   <br>MP3音乐播放</font><br /></td></tr></table>
+</FONT></div><DIV style='PADDING-LEFT: 5px' align=left>
+
+<FONT id='nType3' style='DISPLAY:none'>
+<table width='248' height='230'  border='1' bordercolor='#dddddd' leftMargin='0' topmargin='0' cellpadding='0' cellspacing='0'><tr><td height='3'></td></tr><tr><td width='248' height='111'>
+<a href=ShowPro.asp?id=16 target='_blank'><img src='MobilePic/20051028151938.jpg' alt='SG2288' valign='middle' align='left' width=100 height=100 border='0'></a><b><strong><a href=ShowPro.asp?id=16 target='_blank'>SG2288</a></strong></b><br /><font color='#aaaaaa'>MP4掌上影院    <br>200万像素数码摄像头    <br>MP3音乐播放  <br>大容量MINI SD卡</font><br /></td></tr><td height='3'></td></tr><tr><td width='248' height='111'>
+<a href=ShowPro.asp?id=15 target='_blank'><img src='MobilePic/20051028152117.jpg' alt='TD-2' valign='middle' align='left' width=100 height=100 border='0'></a><b><strong><a href=ShowPro.asp?id=15 target='_blank'>TD-2</a></strong></b><br /><font color='#aaaaaa'真人发音英语学习   <br>内置高清晰数码相机   <br>综合娱乐频道   <br>10000个电话号码存储</font><br /></td></tr></table>
+</FONT></div>
+
+<DIV style='PADDING-LEFT: 5px' align=left><FONT id='nType5' style='DISPLAY:none'>
+<table width='248' height='230'  border='1' bordercolor='#dddddd' leftMargin='0' topmargin='0' cellpadding='0' cellspacing='0'><tr><td height='3'></td></tr><tr><td width='248' height='111'>
+<a href=ShowPro.asp?id=14 target='_blank'><img src='MobilePic/20051028152254.jpg' alt='NEW TD-3' valign='middle' align='left' width=100 height=100 border='0'></a><b><strong><a href=ShowPro.asp?id=14 target='_blank'>NEW TD-3</a></strong></b><br /><font color='#aaaaaa'>掌上电脑    <br>正版牛津词典      <br>30万像素数码摄像头       <br>智能连笔手写输入</font><br /></td></tr><td height='3'></td></tr><tr><td width='248' height='111'>
+<a href=ShowPro.asp?id=13 target='_blank'><img src='MobilePic/20051028152407.jpg' alt='TD-80' valign='middle' align='left' width=100 height=100 border='0'></a><b><strong><a href=ShowPro.asp?id=13 target='_blank'>TD-80</a></strong></b><br /><font color='#aaaaaa'高清晰数码相机  <br>滑盖音乐   <br>超大容量移动硬盘     <br>动听MP3播放</font><br /></td></tr></table>
+</FONT></div>
+
+
+<script language=javascript>
+var jsID_Arr = [];
+jsID_Arr[1]='nType1';
+jsID_Arr[2]='nType2';
+jsID_Arr[3]='nType3';
+jsID_Arr[4]='nType4';
+jsID_Arr[5]='nType5';
+jsID_Arr[6]='nType6';
+</script>
+
+<script language="javascript">/*<![CDATA[*/
+
+
+function HanaScl1(){
+    this.version = "0.1";
+    this.name = "HanaScl";
+    this.item = new Array();
+    this.itemcount = 0;
+    this.currentspeed = 1;
+    this.scrollspeed = 1;
+    this.pausedelay = 500;
+    this.pausemouseover = false;
+    this.stop = true;
+    this.type = 1;
+    this.height = 232;
+    this.width = 248;
+    this.stopHeight=109;
+    this.add =function(){
+        var text = arguments[0];
+        this.item[this.itemcount] = text;
+        this.itemcount = this.itemcount + 1;
+    };
+    this.start = function(){
+        this.display();
+        this.currentspeed = this.scrollspeed;
+        setTimeout(this.name+'.scroll()',this.currentspeed);
+    };
+    this.display =function(){
+        document.write('<div id="'+this.name+'" '+
+            'style="height:'+this.height+';width:'+this.width+';position:relative;overflow:hidden;" '+
+            'OnMouseOver="'+this.name+'.onmouseover();" '+
+            'OnMouseOut="'+this.name+'.onmouseout();">');
+        for(var i=0; i<this.itemcount; i++){
+            if ( this.type == 1) {
+                document.write('<div id="'+this.name+'item'+i+'" style="left:0px;width:'+this.width+';position:absolute;top:'+(this.height*i+1)+'px;">');
+                document.write(this.item[i]);
+                document.write('</div>');
+            } else if ( this.type == 2 ) {
+                document.write('<div id="'+this.name+'item'+i+'"style="left:'+(this.width*i+1)+'px;width:'+this.width+';position:absolute;top:0px;">');
+                document.write(this.item[i]);
+                document.write('</div>');
+            }
+        }
+        document.write('</div>');
+    };
+    this.scroll = function(){
+        this.currentspeed = this.scrollspeed;
+        if ( !this.stop ){
+            for (i=0; i<this.itemcount; i++) {
+                obj = document.getElementById(this.name+'item'+i).style;
+                if ( this.type == 1 ) {
+                    obj.top = parseInt(obj.top) - 1;
+                    if ( parseInt(obj.top) <= this.height*(-1) ) obj.top = this.height * (this.itemcount-1);
+                    if ( parseInt(obj.top) == 0 || ( this.stopHeight > 0 && this.stopHeight - parseInt(obj.top) == 0 ) ) this.currentspeed = this.pausedelay;
+                } else if ( this.type == 2 ) {
+                    obj.left = parseInt(obj.left) - 1;
+                    if ( parseInt(obj.left) <= this.left*(-1) ) obj.left = this.left* (this.itemcount-1);
+                    if ( parseInt(obj.left) == 0 ) this.currentspeed = this.pausedelay;
+                }
+            }
+        }
+        window.setTimeout(this.name+".scroll()",this.currentspeed);
+    };
+    this.onmouseover = function () {
+        if ( this.pausemouseover ) {this.stop = true;}
+    };
+    this.onmouseout = function () {
+        if ( this.pausemouseover ) {this.stop = false;}
+    };
+}
+
+/*]]>*/</script>
+
+
+<script language="javascript">/*<![CDATA[*/
+
+var i2;
+type1 = new HanaScl1();
+type1.name = "type1";
+type1.height = 229;
+type1.width  = 248;
+type1.scrollspeed  = 1;
+type1.pausedelay   = 5000;
+type1.pausemouseover = true;
+//For i2=1 To (jsID_Arr.Count() - 1) step 2
+//    type1.add(eval(jsID_Arr[i2]+".innerHTML"));
+//Next
+type1.add(nType1.innerHTML);
+type1.add(nType3.innerHTML);
+type1.add(nType5.innerHTML);
+type1.start();
+/*]]>*/</script>
+</body>
+</html>

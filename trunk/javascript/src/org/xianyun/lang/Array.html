@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Array test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<script type="text/javascript" src="../../../../../jsunit/app/jsUnitCore.js"></script>
+<script type="text/javascript" src="../utils/equals.js"></script>
+<script type="text/javascript" src="String.js"></script>
+<script type="text/javascript" src="Array.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var a = ["ABC", "def", "Ghi", "cAb", "CaB"];
+
+function testSearch(){
+	assertTrue(a.search(/ab/i).equals(["ABC","cAb","CaB"]));
+}
+
+var a = [
+// array			target		indexOf	last..	contains insert	before				insert middle			insert after
+// object[].indexOf(object);
+[[],				null,		-1,		-1,		false,	[null],						[null,null],			[null,null,null],			[null,null]],
+[[0,1,2],			null,		-1,		-1,		false,	[null,0,1,2],				[null,null,0,1,2],		[null,null,0,1,2,null],		[null,0,1,2,null]],
+[[0,null,2],		null,		 1,		 1,		true,	[null,0,null,2],			[null,null,0,null,2],	[null,null,0,null,2,null],	[null,0,null,2,null]],
+[[0,null,2],		3,			-1,		-1,		false,	[3,0,null,2],				[3,3,0,null,2],			[3,3,0,null,2,3],			[3,0,null,2,3]],
+[[0,,2],			null,		-1,		-1,		false,	[null,0,,2],				[null,null,0,,2],		[null,null,0,,2,null],		[null,0,,2,null]],
+[[0,undefined,2],	undefined,	 1,		 1,		true,	[undefined,0,undefined,2],	[,,0,,2],				[,,0,,2,],					[,0,,2,]],
+[[0,,2],			undefined,	 1,		 1,		true,	[undefined,0,,2],			[,,0,,2],				[,,0,,2,],					[,0,,2,]],
+[[0,,2],			,			 1,		 1,		true,	[,0,,2],					[,,0,,2],				[,,0,,2,],					[,0,,2,]],
+[[0,1,2,3],			2,			 2,		 1,		true,	[2,0,1,2,3],				[2,2,0,1,2,3],			[2,2,0,1,2,3,2],			[2,0,1,2,3,2]],
+// regexp[].indexOf(regexp);
+[[/a/,/b/g],		/b/,		-1,		-1,		false,	[/b/,/a/,/b/g],				[/b/,/b/,/a/,/b/g],		[/b/,/b/,/a/,/b/g,/b/],		[/b/,/a/,/b/g,/b/]],
+[[/a/,/b/g],		/b/g,		 1,		 0,		true,	[/b/g,/a/,/b/g],			[/b/g,/b/g,/a/,/b/g],	[/b/g,/b/g,/a/,/b/g,/b/g],	[/b/g,/a/,/b/g,/b/g]],
+// string[].indexOf(regexp);
+[["abc", "bcd"],	/^b/,		 1,		 0,		true,	[/^b/,"abc","bcd"],			[/^b/,/^b/,"abc","bcd"],[/^b/,/^b/,"abc","bcd",/^b/],[/^b/,"abc","bcd",/^b/]],
+// object[].indexOf(regexp);
+[[1,2,3],			/2/,		-1,		-1,		false,	[/2/,1,2,3],				[/2/,/2/,1,2,3],		[/2/,/2/,1,2,3,/2/],		[/2/,1,2,3,/2/]]
+];
+
+
+// ------- TEST indexOf() ----------------------------------------------------
+document.write("Array.prototype.indexOf():<br />");
+for (var i=0,l=a.length; i<l; i++){
+	var j = a[i][0].indexOf(a[i][1]);
+	document.write((j===a[i][2]?"true":"<strong>false</strong> : "+j+" :["+i+"]")+"<br />");
+}
+document.write("<hr />");
+
+
+// ------- TEST lastIndexOf() ----------------------------------------------------
+document.write("Array.prototype.lastIndexOf():<br />");
+for (var i=0,l=a.length; i<l; i++){
+	var j = a[i][0].lastIndexOf(a[i][1]);
+	document.write((j===a[i][3]?"true":"<strong>false</strong> : "+j+" :["+i+"]")+"<br />");
+}
+document.write("<hr />");
+
+
+// ------- TEST contains() ----------------------------------------------------
+document.write("Array.prototype.contains():<br />");
+for (var i=0,l=a.length; i<l; i++){
+	var j = a[i][0].contains(a[i][1]);
+	document.write((j.equals(a[i][4])?"true":"<strong>false</strong> : "+j+" :["+i+"]")+"<br />");
+}
+document.write("<hr />");
+
+
+// ------- TEST insert() ----------------------------------------------------
+document.write("Array.prototype.insert():<br />");
+document.write("insert at before:<br />");
+for (var i=0,l=a.length; i<l; i++){
+	var j = a[i][0].insert(a[i][1],0);
+	document.write((a[i][0].equals(a[i][5])?"true":"<strong>false</strong> : "+j+":"+a+" :["+i+"]")+"<br />");
+}
+document.write("insert at middle:<br />");
+for (var i=0,l=a.length; i<l; i++){
+	var j = a[i][0].insert(a[i][1],1);
+	document.write((a[i][0].equals(a[i][6])?"true":"<strong>false</strong> : "+j+":"+a+" :["+i+"]")+"<br />");
+}
+document.write("insert at after<br />");
+for (var i=0,l=a.length; i<l; i++){
+	var j = a[i][0].insert(a[i][1],a[i][0].length);
+	document.write((a[i][0].equals(a[i][7])?"true":"<strong>false</strong> : "+j+":"+a+" :["+i+"]")+"<br />");
+}
+document.write("<hr />");
+
+
+// ------- TEST remove() ----------------------------------------------------
+document.write("Array.prototype.remove():<br />");
+for (var i=0,l=a.length; i<l; i++){
+	var j = a[i][0].remove(a[i][1]);
+	document.write((a[i][0].equals(a[i][8])?"true":"<strong>false</strong> : "+j+" :["+i+"]")+"<br />");
+}
+document.write("<hr />");
+
+</script>
+
+
+
+<script language="JavaScript">
+/*<![CDATA[*/
+if (Array){
+Array.SORT_BY_NUMBER = function(a, b){
+    if (a>b){
+        return 1;
+    }else if(a==b){
+        return 0;
+    }else {
+        return -1;
+    }
+};
+Array.SORT_BY_STRING = null;
+}
+Array.prototype.getMax = function(mode){
+    return this.sort(mode)[this.length-1];
+};
+Array.prototype.getMin = function(mode){
+    return this.sort(mode)[0];
+};
+
+document.write([1,3,2].getMin(Array.SORT_BY_NUMBER));
+/*]]>*/
+</script>
+<br /><br />
+比较array.push(value)和array[array.length]=value的效率：<br />
+<script type="text/javascript">
+var total = 10000;
+
+var a2 = new Array();
+var d2 = new Date();
+for (var i=0; i<total; i++) {
+	a2[a2.length]="a";
+	//a2.append("a");
+}
+d2 = new Date()-d2;
+
+var a1 = new Array();
+var d1 = new Date();
+for (var i=0; i<total; i++) {
+	a1.push("a");
+}
+d1 = new Date()-d1;
+
+
+var a3 = new Array();
+var d3 = new Date();
+for (var i=0; i<total; i++) {
+	a3[i]="a";
+}
+d3 = new Date()-d3;
+document.write("array.push(value) : "+d1);
+document.write("<br />array[array.length]=value : "+d2);
+document.write("<br />array[i]=value : "+d3);
+</script>
+
+</body>
+</html>

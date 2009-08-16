@@ -1,0 +1,563 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="Array.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>Array.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'Array.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*&lt;![CDATA[*/</span>
+<span class="comment">/**
+ * <span class="attrib">@overview</span> 扩展系统数组方法
+ * <span class="attrib">@namespace</span> org.xianyun.lang;
+ * <span class="attrib">@author</span> 闲耘 [xianyun.org, hotoo.cn<span class="attrib">@gmail</span>.com]
+ * <span class="attrib">@version</span> 2006/06/15
+ */</span>
+
+<span class="comment">/**
+ * 将指定对象以数组形式返回。
+ * <span class="attrib">@param</span> {Object} iterable 指定的源对象。
+ * <span class="attrib">@return</span> {Array} 返回的数组对象。
+ */</span>
+Array.from = <span class="reserved">function</span>(iterable) {
+	<span class="reserved">if</span> (!iterable) <span class="reserved">return</span> [];
+	<span class="reserved">if</span> (iterable.toArray) {
+		<span class="reserved">return</span> iterable.toArray();
+	} <span class="reserved">else</span> { <span class="comment">// 例如argumengs可以用索引操作，但它不是数组对象。</span>
+		var results = [];
+		<span class="reserved">for</span> (var i = 0; i &lt; iterable.length; i++)
+		  	results.push(iterable[i]);
+		<span class="reserved">return</span> results;
+	}
+};
+
+<span class="comment">/**
+ * 将数组字符串解析为数组对象。
+ * <span class="attrib">@param</span> {String} 指定的字符串
+ * <span class="attrib">@return</span> {Array} 返回解析得到的数组对象，不成功则返回null。
+ */</span>
+Array.parse = <span class="reserved">function</span>(string){
+	try {
+		var a=eval(string);
+		<span class="reserved">return</span> (a instanceof Array?a:null)
+	} catch (e){
+		<span class="reserved">return</span> null;
+	}
+};
+
+<span class="comment">/**
+ * 向数组末尾添加一个元素e。基于向数组末尾添加&lt;strong&gt;一个&lt;/strong&gt;元素的情况比较多，且使用
+ * append方法比push方法较快的缘故，特定义此方法。
+ * 如果需要向数组末尾添加多个元素，请使用push方法（该方法支持动态参数）。
+ * <span class="attrib">@param</span> {Object} e 被添加的元素。
+ * <span class="attrib">@return</span> {Number} 返回添加元素后数组的长度。
+ */</span>
+Array.<span class="reserved">prototype</span>.append = <span class="reserved">function</span>(e){
+	<span class="comment">//var i = this.length;</span>
+	<span class="reserved">this</span>[<span class="reserved">this</span>.length] = e;
+	<span class="comment">//return i+1;</span>
+};
+
+<span class="comment">/**
+ * 遍历数组第一维的元素。
+ * <span class="attrib">@param</span> {Function} iterator
+ */</span>
+Array.<span class="reserved">prototype</span>.each = <span class="reserved">function</span>(iterator){
+	<span class="reserved">for</span> (var i=0; i&lt;<span class="reserved">this</span>.length; i++)
+		iterator(<span class="reserved">this</span>[i], i, <span class="reserved">this</span>);
+};
+
+<span class="comment">/**
+ * 深度遍历数组。
+ * <span class="attrib">@param</span> {Function} iterator 遍历过程中使用iterator函数处理每个非数组对象。
+ */</span>
+Array.<span class="reserved">prototype</span>.deepEach = <span class="reserved">function</span>(iterator){
+	<span class="reserved">for</span> (var i=0, l=<span class="reserved">this</span>.length; i&lt;l; i++){
+		<span class="reserved">if</span> (<span class="reserved">this</span>[i] instanceof Array){
+			<span class="reserved">this</span>[i].deepEach();
+		} <span class="reserved">else</span> {
+			iterator(<span class="reserved">this</span>[i], i, <span class="reserved">this</span>);
+		}
+	}
+};
+
+<span class="comment">/**
+ * 将数组索引为from的元素移动到索引to处（内部移动）。
+ * <span class="attrib">@exception</span> {ReferenceError} 当被移动索引值和目标索引值不为数值型或者超出数组范围时抛出此异常。
+ * <span class="attrib">@param</span> {Number} from 起始移动元素索引。
+ * <span class="attrib">@param</span> {Number} to 目标索引。
+ * <span class="attrib">@return</span> {Object} 返回被移动的对象。
+ * <span class="attrib">@example</span> &lt;code&gt;[0,1,2,3].move(0,1);&lt;/code&gt;
+ */</span>
+Array.<span class="reserved">prototype</span>.move = <span class="reserved">function</span>(from, to){
+	var l = <span class="reserved">this</span>.length;
+	<span class="reserved">if</span> ((from instanceof Number||typeof from===<span class="literal">"number"</span>) &amp;&amp; from&gt;=0&amp;&amp;from&lt;l &amp;&amp;
+	  (to instanceof Number||typeof to===<span class="literal">"number"</span>)&amp;&amp;to&gt;=0&amp;&amp;to&lt;l){
+		<span class="reserved">if</span> (from===to) <span class="reserved">return</span> <span class="reserved">this</span>[from];
+		<span class="reserved">return</span> <span class="reserved">this</span>.insert(<span class="reserved">this</span>.removeAt(from), to);
+	} <span class="reserved">else</span> {
+		throw new ReferenceError(<span class="literal">"期望两个零到数组长度间的整数。"</span>);
+	}
+};
+
+<span class="comment">/** 将数组对象的元素项清空。
+ * <span class="attrib">@return</span> {Array} 返回所有被清除出来的对象集。
+ */</span>
+Array.<span class="reserved">prototype</span>.clear = <span class="reserved">function</span>(){
+	<span class="comment">//this.length = 0;</span>
+	<span class="reserved">return</span> <span class="reserved">this</span>.splice(0, <span class="reserved">this</span>.length);
+};
+
+<span class="comment">/** 将当前数组第一维对象的元素随机打乱。
+ * 数组的元素可以是任意对象（字符/串，数值，日期，数值[即支持多维数组]）。
+ * 该方法会影响数组本身。
+ * <span class="attrib">@return</span> {Array} 返回打乱后的数组对象。
+ * <span class="attrib">@version</span> 2007/07/03
+ */</span>
+Array.<span class="reserved">prototype</span>.shuffle = <span class="reserved">function</span>(){
+	<span class="reserved">return</span> <span class="reserved">this</span>.sort(<span class="reserved">function</span>(){<span class="reserved">return</span> Math.random()*new Date%3-1});
+<span class="comment">//    for (var i=0; i&lt;this.length; i++){</span>
+<span class="comment">//        var r = parseInt(Math.random() * i);</span>
+<span class="comment">//        var _t = this[i];</span>
+<span class="comment">//        this[i] = this[r];</span>
+<span class="comment">//        this[r] = _t;</span>
+<span class="comment">//    }</span>
+<span class="comment">//    return this;</span>
+};
+
+<span class="comment">/**
+ * 按照指定规则，返回从数组中匹配到的第一个元素所在的索引值。允许设置匹配的起始索引值。
+ * 支持多维数组（需引用org.xianyun.utils.equals.js）。
+ * <span class="attrib">@exception</span> {TypeError, RangeError}
+ * <span class="attrib">@param</span> {Object} value 指定的匹配规则。
+ * 		如果value是正则表达式，并且
+ * 			数组元素是字符串，则使用正则表达式规则匹配该字符串。
+ * 			数组元素也是正则表达式，比较这两个表达式是否相等。
+ * 		否则，
+ * 			比较value与数组元素的值是否完全相等。
+ * <span class="attrib">@param</span> {Number} start 查找起始索引（包含该索引所在元素在内），默认从索引为0的元素开始。
+ * <span class="attrib">@return</span> {Number} 如果查找到，返回第一个元素的（非负整数）索引，否则返回-1。
+ * <span class="attrib">@version</span> 2007/07/03
+ */</span>
+Array.<span class="reserved">prototype</span>.indexOf = <span class="reserved">function</span>(v, s){
+	var l = <span class="reserved">this</span>.length;
+	<span class="reserved">if</span> (l===0) <span class="reserved">return</span> -1;
+	<span class="reserved">if</span> (s===null || s===undefined) s = 0;
+	<span class="reserved">if</span> (!(s instanceof Number || typeof(s)===<span class="literal">"number"</span>)){
+		throw new TypeError(<span class="literal">"期望数值型起始索引值"</span>);
+	}
+	<span class="reserved">if</span> (s&lt;0 || s&gt;=l){throw new RangeError(<span class="literal">"期望0到数组长度之间的起始索引值。"</span>);}
+	
+    <span class="reserved">if</span> (v instanceof RegExp){
+        <span class="reserved">for</span>(var i=s; i&lt;l; i++){
+			var t = <span class="reserved">this</span>[i];
+            <span class="reserved">if</span> ((t instanceof String || typeof(t)===<span class="literal">"string"</span>) &amp;&amp; v.test(t)){
+                <span class="reserved">return</span> i;
+            } <span class="reserved">else</span> <span class="reserved">if</span> (t instanceof RegExp &amp;&amp; t.equals(v)){
+				<span class="reserved">return</span> i;
+			}
+        }
+    }<span class="reserved">else</span> {
+        <span class="reserved">for</span>(var i=s; i&lt;l; i++){
+			var t = <span class="reserved">this</span>[i];
+            <span class="reserved">if</span> (v===undefined){<span class="reserved">if</span> (t===undefined){<span class="reserved">return</span> i;}}
+			<span class="reserved">else</span> <span class="reserved">if</span> ((v===null)){<span class="reserved">if</span> (t===null){<span class="reserved">return</span> i;}}
+			<span class="reserved">else</span> <span class="reserved">if</span>(v===t || v.equals(t)){<span class="reserved">return</span> i;}
+        }
+    }
+	<span class="reserved">return</span> -1;
+};
+
+<span class="comment">/**
+ * 按照指定规则，返回从数组中从后向前匹配到的第一个元素所在的索引值。允许设置匹配的起始索引值。
+ * 参考Array.prototype.indexOf方法。
+ * <span class="attrib">@param</span> {Object} v 指定匹配规则。
+ * <span class="attrib">@param</span> {Number, Integer} s 指定起始匹配的索引值。
+ */</span>
+Array.<span class="reserved">prototype</span>.lastIndexOf = <span class="reserved">function</span>(v, s){
+	var i = <span class="reserved">this</span>.reverse().indexOf(v, s);
+	<span class="reserved">this</span>.reverse();
+	<span class="reserved">return</span> i;
+};
+
+<span class="comment">/** 
+ * 判断当前数组对象是否包含与指定对象&lt;strong&gt;值相等&lt;strong&gt;的元素。
+ * <span class="attrib">@exception</span> {}
+ * <span class="attrib">@param</span> {Object} value 指定被查找的对象。
+ * <span class="attrib">@param</span> {Number, Integer} start 指定起始索引，数组将从此处开始查找。
+ * <span class="attrib">@return</span> {Boolean}
+ */</span>
+Array.<span class="reserved">prototype</span>.contains = <span class="reserved">function</span>(v, s){
+    <span class="reserved">return</span> (<span class="reserved">this</span>.indexOf(v, s||0)&gt;=0);
+};
+
+<span class="comment">/**
+ * 插入指定对象item到数组的索引位置index处，该方法会影响数组本身。
+ * 
+ * 使用数组内置方法splice（结合）实现，该方法描述如下：
+ * ---------------------------------------------------------------------------
+ * splice() 方法用于插入、删除或替换数组的元素。
+ * 
+ * 语法：
+ * arrayObject.splice(index,howmany,element1,.....,elementX)
+ * 
+ * 参数		描述 
+ * index	必需。规定从何处添加/删除元素。
+ * 			该参数是开始插入和（或）删除的数组元素的下标，必须是数字。
+ * howmany	必需。规定应该删除多少元素。必须是数字，但可以是 "0"。
+ * 			如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。
+ * element1	可选。规定要添加到数组的新元素。从 index 所指的下标处开始插入。 
+ * elementX	可选。可向数组添加若干元素。
+ * 
+ * 返回值：
+ * 如果从 arrayObject 中删除了元素，则返回的是含有被删除的元素的数组（注：没有删除则返回空数组，in IE6）。
+ * 
+ * 说明：
+ * splice() 方法可删除从 index 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。
+ * 
+ * 提示和注释：
+ * 请注意，splice() 方法与 slice() 方法的作用是不同的，splice() 方法会直接对数组进行修改。
+ * 
+ * 特殊性：
+ * 如果index大于等于数组的长度，则将新元素按参数顺序拼接到数组的末尾。
+ * 如果index为负数，则数组从后往前，取index绝对值的位置开始，将新元素以参数顺序插入/删除/替换，绝对值大于等于数组长度则从索引为0处开始。
+ * ---------------------------------------------------------------------------
+ * 
+ * <span class="attrib">@exception</span> {TypeError}
+ * <span class="attrib">@param</span> {Object} o 指定插入的目标对象，可以是任意类型对象，包括null, undefined, NaN...。
+ * <span class="attrib">@param</span> {Number} i 指定插入的目标索引位置。
+ * 		如果未指定索引值，则将对象拼接到数组的末尾。
+ * 		如果索引值不是数值或者是负数，则抛出异常。
+ * 		如果索引值大于等于数组的长度，则将对象拼接到数组的末尾。
+ * <span class="attrib">@return</span> {Object} 返回被插入的对象o。
+ * <span class="attrib">@see</span> &lt;a href="http://www.w3school.com.cn/js/jsref_splice.asp" target="_blank"&gt;JavaScript splice() 方法&lt;/a&gt;
+ * <span class="attrib">@example</span> &lt;code&gt;[].insert({}, 0);&lt;/code&gt;
+ */</span>
+Array.<span class="reserved">prototype</span>.insert = <span class="reserved">function</span>(o, i){
+	<span class="reserved">if</span> (i===null || i===undefined) i = <span class="reserved">this</span>.length;
+	<span class="reserved">if</span> (!(i instanceof Number || typeof i===<span class="literal">"number"</span>) || i&lt;0)
+		throw new TypeError(<span class="literal">"Array.insert方法期望非负整数索引值。"</span>);
+	<span class="reserved">this</span>.splice(i, 0, o);
+	<span class="reserved">return</span> o;
+};
+
+Array.<span class="reserved">prototype</span>.compare = <span class="reserved">function</span>(a){
+	<span class="reserved">return</span> <span class="reserved">this</span>.toString().match(new RegExp(<span class="literal">"("</span>+a.join(<span class="literal">"|"</span>)+<span class="literal">")"</span>, <span class="literal">"g"</span>));
+};
+
+<span class="comment">/**
+ * 按照指定规则p，将匹配的元素项替换为目标对象t。
+ * <span class="attrib">@param</span> {Object} p
+ * <span class="attrib">@param</span> {Object} t
+ */</span>
+Array.<span class="reserved">prototype</span>.replace = <span class="reserved">function</span>(p, t){
+	<span class="reserved">for</span> (var i=0, l=<span class="reserved">this</span>.length; i&lt;l; i++){
+		<span class="reserved">if</span> (p instanceof Function) {
+			<span class="reserved">if</span> (arguments.length === 1) {
+				p(<span class="reserved">this</span>[i], i, <span class="reserved">this</span>);
+			}
+			<span class="reserved">else</span> {
+				<span class="reserved">if</span> (p(<span class="reserved">this</span>[i], i, <span class="reserved">this</span>)) {
+					<span class="reserved">this</span>[i] = t;
+				}
+			}
+		}
+		<span class="reserved">else</span> {
+			<span class="reserved">if</span> (p instanceof RegExp &amp;&amp; p.test(<span class="reserved">this</span>[i])) {
+				<span class="reserved">this</span>[i] = t;
+			} <span class="reserved">else</span> {
+				<span class="reserved">if</span> (p.equals(<span class="reserved">this</span>[i])) {
+					<span class="reserved">this</span>[i] = t;
+				}
+			}
+		}
+	}
+};
+
+<span class="comment">/**
+ * 求两个数组的交集(intersection)。
+ * <span class="attrib">@param</span> {Object} a
+ * <span class="attrib">@return</span> {Array}
+ */</span>
+Array.<span class="reserved">prototype</span>.cut = <span class="reserved">function</span>(a){
+	var r = [], l0=<span class="reserved">this</span>.length, l1=a.length;
+	<span class="reserved">if</span> (0===l0 || 0===l1) <span class="reserved">return</span> b;
+	<span class="reserved">if</span> (l0&lt;l1){
+		var c = <span class="reserved">this</span>, d = a;
+	} <span class="reserved">else</span> {
+		var c = a, d = <span class="reserved">this</span>;
+	}
+	<span class="reserved">for</span> (var i=0, l=c.length; i&lt;l; i++)
+		<span class="reserved">if</span> (d.contains(c[i]))
+			r[r.length] = c[i];
+	<span class="reserved">return</span> r;
+};
+
+<span class="comment">/**
+ * 求两个数组的交集。
+ * <span class="attrib">@param</span> {Object} a
+ * <span class="attrib">@return</span> {Array}
+ */</span>
+Array.<span class="reserved">prototype</span>.unite = <span class="reserved">function</span>(a){
+	var b = [];
+	<span class="reserved">for</span> (var i=0, c=<span class="reserved">this</span>.concat(a), l=c.length; i&lt;l; i++)
+		<span class="reserved">if</span> (!b.contains(c[i]))
+			b[b.length] = c[i];
+	<span class="reserved">return</span> b;
+};
+
+<span class="comment">/**
+ * 删除数组元素项中第一个等于（equals）指定对象o的元素，这个方法可能会影响数组本身。
+ * 如果数组中不存在与指定对象相等的对象，则抛出异常。
+ * <span class="attrib">@exception</span> {ReferenceError}
+ * <span class="attrib">@param</span> {Object} o 指定被删除的对象。
+ * <span class="attrib">@return</span> {Object} 返回被删除的对象。
+ * <span class="attrib">@example</span> &lt;code&gt;["a","b"].remove("a");&lt;/code&gt;
+ */</span>
+Array.<span class="reserved">prototype</span>.remove = <span class="reserved">function</span>(o){
+	var i = <span class="reserved">this</span>.indexOf(o);
+	<span class="reserved">if</span> (i===-1) throw new ReferenceError(<span class="literal">"Array.remove:o is nonexistent."</span>);
+	<span class="reserved">return</span> <span class="reserved">this</span>.removeAt(i);
+};
+
+<span class="comment">/**
+ * 删除数组第index项元素。
+ * <span class="attrib">@param</span> {Number} i 被删除的目标元素索引值，合法值为0到数组长度减一之间，否则抛出异常。
+ * <span class="attrib">@return</span> {Object} 被删除的元素项对象。
+ * <span class="attrib">@see</span> Array.prototype.insert
+ */</span>
+Array.<span class="reserved">prototype</span>.removeAt = <span class="reserved">function</span>(i){
+	var l = <span class="reserved">this</span>.length;
+	<span class="reserved">if</span> (!(i instanceof Number || typeof i===<span class="literal">"number"</span>) || l===0 || i&lt;0 || i&gt;=l)
+		throw new TypeError(<span class="literal">"Array.removeAt:Invalid type (Number) or Out of range[0,"</span>+l+<span class="literal">")"</span>);
+	<span class="reserved">return</span> <span class="reserved">this</span>.splice(i, 1)[0];
+};
+
+<span class="comment">/**
+ * 查找数组元素中是否匹配指定值。
+ * <span class="attrib">@param</span> {RegExp, String} value
+ * <span class="attrib">@return</span> {Array}
+ * <span class="attrib">@ignore</span>
+ * <span class="attrib">@deprecated</span> 已被Array.prototype.select替换。
+ */</span>
+Array.<span class="reserved">prototype</span>.search = <span class="reserved">function</span>(value){
+	var s = <span class="reserved">this</span>.join(<span class="literal">"\n"</span>);
+	<span class="reserved">if</span> (value instanceof RegExp) {
+		var r = new RegExp(
+			(value.source.startWith(<span class="literal">"^"</span>)?<span class="literal">""</span>:<span class="literal">"^.*"</span>)+value.source+(value.source.endWith(<span class="literal">"$"</span>)?<span class="literal">""</span>:<span class="literal">".*$"</span>), 
+				<span class="literal">"gm"</span>+(value.ignoreCase?<span class="literal">"i"</span>:<span class="literal">""</span>));
+	} <span class="reserved">else</span> <span class="reserved">if</span> (typeof(value)===<span class="literal">"string"</span> || value instanceof String) {
+		var r = new RegExp(<span class="literal">"^.*"</span>+value.toString()+<span class="literal">".*$"</span>, <span class="literal">"gm"</span>);
+	}
+	<span class="reserved">return</span> s.match(r);
+};
+
+<span class="comment">/**
+ * 以指定规则返回数组中匹配的所有项。
+ * <span class="attrib">@param</span> {Object} p 指定规则。
+ * <span class="attrib">@return</span> {Array}
+ */</span>
+Array.<span class="reserved">prototype</span>.select = <span class="reserved">function</span>(p){
+	var a = [];
+	<span class="reserved">if</span> (p instanceof Function){
+		<span class="reserved">for</span> (var i=0, l=<span class="reserved">this</span>.length; i&lt;l; i++)
+			<span class="reserved">if</span> (p(<span class="reserved">this</span>[i])) a[a.length] = <span class="reserved">this</span>[i];
+	} <span class="reserved">else</span> {
+		var i = 0, l=<span class="reserved">this</span>.length-1;
+		do {
+			var j = <span class="reserved">this</span>.indexOf(p, i);
+			<span class="reserved">if</span> (j!==-1) a[a.length] = <span class="reserved">this</span>[j];
+		} <span class="reserved">while</span>(++i &lt; l);
+	}
+	<span class="reserved">return</span> a;
+};
+
+<span class="comment">/**
+ * 判断数组是否为空。
+ * <span class="attrib">@return</span> {Boolean} 数组为空则返回true。
+ */</span>
+Array.<span class="reserved">prototype</span>.isEmpty = <span class="reserved">function</span>(){
+    <span class="reserved">return</span> <span class="reserved">this</span>.length===0;
+};
+
+Array.<span class="reserved">prototype</span>.getType = <span class="reserved">function</span>(){
+    <span class="reserved">return</span> typeof(<span class="reserved">this</span>); <span class="comment">// return "array";</span>
+};
+
+Array.<span class="reserved">prototype</span>.typeOf = <span class="reserved">function</span>(type){
+    <span class="reserved">return</span> type == <span class="literal">'array'</span>;
+};
+
+<span class="comment">/**
+ * 去除数组中无效的元素项(undefined)。
+ * var a=[]; a[10]=1; document.write(a.length+" : "+a.trim().length); -&gt; 11 : 1
+ * <span class="attrib">@return</span> {Array}
+ */</span>
+Array.<span class="reserved">prototype</span>.trim = <span class="reserved">function</span>(){
+	var a = [];
+	<span class="reserved">for</span> (var i=0; i&lt;<span class="reserved">this</span>.length; i++)
+		<span class="reserved">if</span> (typeof(<span class="reserved">this</span>[i])!==<span class="literal">"undefined"</span>)
+			a[a.length] = <span class="reserved">this</span>[i];
+	<span class="reserved">return</span> a;
+};
+
+<span class="comment">/**
+ * 遍历所有元素，返回数组的最大深度。适应任意形状的数组。
+ * <span class="attrib">@return</span> {Number} 数组的最大深度，正整型，最浅为1层深度。
+ */</span>
+Array.<span class="reserved">prototype</span>.depth = <span class="reserved">function</span>(){
+	<span class="comment">//return (this.length!==0)&amp;&amp;(this[0] instanceof Array)?this[0].depth()+1:1; // 适合整齐的数组。</span>
+	var d=1;
+	<span class="reserved">for</span> (var i=0, l=<span class="reserved">this</span>.length; i&lt;l; i++){
+		var c = (<span class="reserved">this</span>[i] instanceof Array)?<span class="reserved">this</span>[i].depth()+1:1;
+		<span class="reserved">if</span> (d&lt;=c){d=c;}
+	}
+	<span class="reserved">return</span> d;
+};
+<span class="comment">/*]]&gt;*/</span></pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>

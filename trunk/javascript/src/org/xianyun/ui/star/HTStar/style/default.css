@@ -1,0 +1,16 @@
+/*<![CDATA[*/
+.HTStarOn{background-image:url('../icon/HTStar_On.gif');}
+.HTStarOff{background-image:url('../icon/HTStar_Off.gif');}
+
+.HTStarOn_blue{background-image:url('../icon/HTStar_yellow_On.gif');}
+.HTStarOff_blue{background-image:url('../icon/HTStar_yellow_Off.gif');}
+.HTStar{
+    width:16px;/*only IE, equals the icon width.*/
+    line-height:16px;
+    height:16px;background-repeat:no-repeat;cursor:pointer;
+    font-size:16px;
+}
+
+/* HTStar2.html just use this */
+.HTStarFloatLayer{border:1px solid #0000ff;padding:3px;background-color:#ffffff;position:absolute;z-index:100;visibility:hidden;}
+/*]]>*/

@@ -1,0 +1,50 @@
+<style type="text/css">
+body{padding: 20px;background-color: #FFF;
+    font: 100.01% "Trebuchet MS",Verdana,Arial,sans-serif}
+h1,h2,p{margin: 0 10px}
+h1{font-size: 250%;color: #FFF}
+h2{font-size: 200%;color: #f0f0f0}
+p{padding-bottom:1em}
+h2{padding-top: 0.3em}
+div#nifty.round{ margin: 0 10%;background: #9BD1FA}
+div#nifty{ margin: 0 10%;background:#fff;}
+div.round b.rtop, div.round b.rbottom{display:block;background: #FFF}
+div.round b.rtop b, div.round b.rbottom b{display:block;height: 1px;overflow: hidden; background: #9BD1FA}
+div.round b.r1{margin: 0 5px}
+div.round b.r2{margin: 0 3px}
+div.round b.r3{margin: 0 2px}
+div.round b.rtop b.r4, div.round b.rbottom b.r4{margin: 0 1px;height: 2px}
+
+ul{list-style:none;}
+ul li{list-style:none;float:left;width:100px;}
+</style>
+
+<div id="nifty" onmouseover='this.className="round";' onmouseout='this.className="";'>
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+A
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+</div>
+
+
+<script type="text/javascript" language="javascript">/*<![CDATA[*/
+
+var Add2Any = function(){
+	this._tgt = [];
+
+};
+
+var round = function(s){
+	return ['<div id="nifty" onmouseover=\'this.className="round";\' onmouseout=\'this.className="";\'>',
+		'<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>',s,
+		'<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>',
+		'</div>'].join("");
+};
+
+
+var A = ["Google", "Baidu", "Yahoo", "Live"], s="<ul>";
+for (var i=0,l=A.length; i<l; i++){
+	s+='<li>'+round('<a href="">'+A[i]+'</a>')+'</li>';
+}
+s+="</ul>";
+document.write(s);
+/*]]>*/</script>

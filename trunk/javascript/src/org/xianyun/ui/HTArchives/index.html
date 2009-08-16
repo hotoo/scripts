@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>闲耘G博客's 索引</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src="HTArchives.js"></script>
+<script language="javascript">/*<![CDATA[*/
+// 将HTML转换成纯文本（去掉标签）
+String.prototype.toPlainText = function(){
+    return this.replace(/<[^>]*>/g, '');
+};
+/*]]>*/</script>
+<link href="HTArchives.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<script language="javascript">/*<![CDATA[*/
+var datas = [
+{title:"<a href='' target='_blank'>我记得/记得我</a>",url:"http://blog.xianyun.org/2007/07/blog-post.html",labels:"",date:"2007/07/24",description:"我没有记住你，这不是我的错，而是你的问题。你没有让我记住你，说明你做的还不够。"},
+{title:"配置Editplus工具，用来编译和运行C++",url:"http://blog.xianyun.org/2007/06/editplusc.html",labels:"C/Cpp,Editplus,tools",date:"2007/06/25",description:"for Dev-C++<br />这里假设Dev-C++安装目录为C:\Dev-Cpp。选择Editplus菜单\"工具->配置用户工具...\"，在\"工具->用户工具\"分支下，选择一个未使用的群组与工具项目，可以更改群组名称为Cpp。"},
+{title:"(Javascript) HTAutoComplete：不要进行词法分析",url:"http://blog.xianyun.org/2007/07/javascript-htautocomplete.html",labels:"Javascript",date:"2007/07/07",description:"上篇关于AutoComplete控件的思考中提到为了设计一个万能的自动完成控件，要对HTAutoComplete进行词/语法分析的想法，现在我改变主意了，那是一个自作聪明的愚蠢想法。"},
+{title:"",url:"",labels:"",date:"",description:""}
+];
+var archive = new HTArchives("archive", datas);
+//archive.singleton = false;
+document.write("<div style='width:800px;'>"+archive.toString()+"</div>");
+
+/*]]>*/</script>
+<input type="button" onclick="archive.previous();" value="« Previous" />
+<input type="button" onclick="archive.next();" value="Next »" />
+<input type="checkbox" name="" onclick="archive.singleton=this.checked;" value="true" checked="checked" />singleton.
+
+<pre>
+sort
+fitle, for search.
+labels
+</pre>
+<div style="width:10em;overflow:hidden;text-overflow:ellipsis;">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+
+<br /><br /><br />
+<div style="width:800px;">
+<ul id="arc2" class="HTArchives">
+    <li title="我记得/记得我" url="http://blog.xianyun.org/2007/07/blog-post.html" labels="" date="2007/07/24">我没有记住你，这不是我的错，而是你的问题。你没有让我记住你，说明你做的还不够。</li>
+    <li title="配置Editplus工具，用来编译和运行C++" url="http://blog.xianyun.org/2007/06/editplusc.html" labels="C/Cpp,Editplus,tools" date="2007/06/25">for Dev-C++<br />这里假设Dev-C++安装目录为C:\Dev-Cpp。选择Editplus菜单\"工具->配置用户工具...\"，在\"工具->用户工具\"分支下，选择一个未使用的群组与工具项目，可以更改群组名称为Cpp。</li>
+    <li title="(Javascript) HTAutoComplete：不要进行词法分析" url="http://blog.xianyun.org/2007/07/javascript-htautocomplete.html" labels="Javascript" date="2007/07/07">上篇关于AutoComplete控件的思考中提到为了设计一个万能的自动完成控件，要对HTAutoComplete进行词/语法分析的想法，现在我改变主意了，那是一个自作聪明的愚蠢想法。</li>
+</ul>
+</div>
+
+<script language="javascript">/*<![CDATA[*/
+document.body.onload = function(){
+    HTArchives.init();
+};
+/*]]>*/</script>
+</body>
+</html>

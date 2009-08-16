@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Calculator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style type="text/css">
+.num_button{width:40px;}
+</style>
+<body>
+<script type="text/javascript">
+
+var Calculator = function(){
+	this._v = 0;
+};
+Calculator.prototype.toString = function(){
+	return this._v;
+};
+Calculator.prototype.valueOf = function(){
+	return this._v;
+};
+
+</script>
+
+<table id="normal" style="width:280px;" style="border-collapse:collapse;">
+<tr>
+	<td colspan="7"><input type="text" style="text-align:right;width:99%;" value="0." readonly="readonly" /></td>
+</tr>
+<tr>
+	<td><input type="text" readonly="readonly" style="width:20px;background-color:#ccc;" /></td>
+	<td>&nbsp;</td>
+	<td colspan="5">
+	<input type="button" value="Backspace" style="width:75px;" />
+	<input type="button" value="CE" style="width:75px;" />
+	<input type="button" value="C" style="width:70px;" />
+	</td>
+</tr>
+<tr>
+	<td><input type="button" value="MC" /></td>
+	<td>&nbsp;</td>
+	<td><input type="button" value="7" class="num_button" /></td>
+	<td><input type="button" value="8" class="num_button" /></td>
+	<td><input type="button" value="9" class="num_button" /></td>
+	<td><input type="button" value="/" class="num_button" /></td>
+	<td><input type="button" value="sqrt" class="num_button" /></td>
+</tr>
+</table>
+</body>
+</html>

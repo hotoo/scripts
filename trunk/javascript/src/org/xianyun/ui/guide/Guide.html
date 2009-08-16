@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Guide 向导</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<style>
+.guide{border:1px solid #cccccc;}
+.guideHeader{background-color:#cccccc;}
+.guideBody{padding:10px;margin:10px;spacing:10px;}
+.guideFooter{text-align:right;}
+</style>
+</head>
+<body>
+<script language="JavaScript">
+<!--
+var Guide = function(vname){
+    // public.
+    this.currentStepIndex = 0;
+    // private.
+    this.name = vname;
+    this.data = null;
+};
+Guide.prototype.appendStep = function(title, text, prive, next, help){
+};
+Guide.prototype.setStep = function(array){
+    this.data = array;
+};
+Guide.prototype.previous = function(){
+    this.gotoStep(this.currentStepIndex-1);
+};
+Guide.prototype.next = function(){
+    this.gotoStep(this.currentStepIndex+1);
+};
+Guide.prototype.gotoStep = function(index){
+    if (index<0 || index>=this.data.length){return false;}
+    document.getElementById("guide_"+this.name+"_header").innerHTML = this.data[index].title;
+    document.getElementById("guide_"+this.name+"_body_step_"+this.currentStepIndex).style.display = "none";
+
+    document.getElementById("guide_"+this.name+"_body_step_"+index).style.display = "";
+
+    this.currentStepIndex = index;
+};
+Guide.prototype.toString = function(){
+    var s = '<div id="' + this.name + '" class="guide">' + // box.
+            '<div id="guide_'+this.name+'_header" class="guideHeader">'+this.data[0].title+'</div>' + // header.
+            '<div id="guide_'+this.name+'_body" class="guideBody">'; // body start.
+    var dis = "";
+    for (var i=0; i<this.data.length; i++){
+        s+='<div id="guide_'+this.name+'_body_step_'+i+'" style="display:'+dis+'">'+this.data[i].body+'</div>';
+        dis = "none"; // display the first step only.
+    }
+    s += '</div>'+ // body end.
+            '<hr size="1px" style="width:96%;" />'+
+            '<div id="guide_'+this.name+'_footer" class="guideFooter">'+
+                '<input type="button" value="Previous (P)" onclick="'+this.name+'.previous();" />'+
+                '<input type="button" value="Next (N)" onclick="'+this.name+'.next();" />'+
+            '</div>' +
+        '</div>';
+    return s;
+};
+//-->
+</script>
+
+
+<script language="JavaScript">
+<!--
+var gui = new Guide('gui');
+gui.setStep([
+    {title:"title of guide step 1", body:"body of guide step 1."},
+    {title:"title of guide step 2", body:"body of guide step 2."},
+    {title:"title of guide step 3", body:"body of guide step 3."}
+]);
+document.write(gui);
+//-->
+</script>
+
+<!-- ========================== -->
+
+
+
+<guide id="g" previous="Previous" next="Next" cancel="Cancel">
+    <step title="step 1" event="javascript:void(0);" help="url or event">step 1 body content.</step>
+    <step title="step 2" help="url or event">step 2 body content.</step>
+</guide>
+<script language="JavaScript">
+<!--
+
+//-->
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>te</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src=""></script>
+<link href="" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<script>
+//for(var i=0x4E00;i<0x9FA5;i++)
+//	document.write(String.fromCharCode(i)+":"+i.toString(16)+"; ")
+
+alert(0x9FA5-0x4E00);
+</script>
+
+<script>
+function encode_utf8(rawtext) {
+    rawtext = rawtext.replace(/\r\n/g,"\n");
+    var utftext = "";
+    for(var n=0; n<rawtext.length; n++)
+        {
+        //
+        var c=rawtext.charCodeAt(n);
+        // 0-127 => 1byte
+        if (c<128)
+            utftext += String.fromCharCode(c);
+        // 127 - 2047 => 2byte
+        else if((c>127) && (c<2048)) {
+            utftext += String.fromCharCode((c>>6)|192);
+            utftext += String.fromCharCode((c&63)|128);}
+        // 2048 - 66536 => 3byte
+        else {
+            utftext += String.fromCharCode((c>>12)|224);
+            utftext += String.fromCharCode(((c>>6)&63)|128);
+            utftext += String.fromCharCode((c&63)|128);}
+        }
+    return utftext;
+}
+
+function decode_utf8(utftext) {
+    var plaintext = ""; var i=0; var c=c1=c2=0;
+    while(i<utftext.length)
+        {
+        c = utftext.charCodeAt(i);
+        if (c<128) {
+            plaintext += String.fromCharCode(c);
+            i++;}
+        else if((c>191) && (c<224)) {
+            c2 = utftext.charCodeAt(i+1);
+            plaintext += String.fromCharCode(((c&31)<<6) | (c2&63));
+            i+=2;}
+        else {
+            c2 = utftext.charCodeAt(i+1); c3 = utftext.charCodeAt(i+2);
+            plaintext += String.fromCharCode(((c&15)<<12) | ((c2&63)<<6) | (c3&63));
+            i+=3;}
+        }
+    return plaintext;
+}
+
+
+
+//alert((encode_utf8("啊")).charCodeAt(0));
+</script>
+
+
+<script language="JavaScript">
+<!--
+function utf8(wide) {
+var c, s;
+var enc = "";
+var i = 0;
+while(i<wide.length) {
+c= wide.charCodeAt(i++);
+// handle UTF-16 surrogates
+if (c>=0xDC00 && c<0xE000) continue;
+if (c>=0xD800 && c<0xDC00) {
+if (i>=wide.length) continue;
+s= wide.charCodeAt(i++);
+if (s<0xDC00 || c>=0xDE00) continue;
+c= ((c-0xD800)<<10)+(s-0xDC00)+0x10000;
+}
+// output value
+if (c<0x80) enc += String.fromCharCode(c);
+else if (c<0x800) enc += String.fromCharCode(0xC0+(c>>6),0x80+(c&0x3F));
+else if (c<0x10000) enc += String.fromCharCode(0xE0+(c>>12),0x80+(c>>6&0x3F),0x80+(c&0x3F));
+else enc += String.fromCharCode(0xF0+(c>>18),0x80+(c>>12&0x3F),0x80+(c>>6&0x3F),0x80+(c&0x3F));
+}
+return enc;
+}
+var hexchars = "0123456789ABCDEF";
+function toHex(n) {
+return hexchars.charAt(n>>4)+hexchars.charAt(n & 0xF);
+}
+var okURIchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
+function encodeURIComponentNew(s) {
+var s = utf8(s);
+var c;
+var enc = "";
+for (var i= 0; i<s.length; i++) {
+if (okURIchars.indexOf(s.charAt(i))==-1)
+enc += "%"+toHex(s.charCodeAt(i));
+else
+enc += s.charAt(i);
+}
+return enc;
+}
+//alert(toHex("严"));
+//alert(encodeURIComponentNew("中文"))
+//alert(decodeURIComponent(encodeURIComponentNew("中文")))
+// -->
+</script> 
+</body>
+</html>

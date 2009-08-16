@@ -1,0 +1,77 @@
+<!-- 
+宝玉 2004-2-26
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> 获取当前系统字体和排版样式 </TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function getSystemFonts(){
+     var a=dlgHelper.fonts.count;
+     var fArray = new Array();
+     var oDropDown = document.all.fonts;
+     for (i = 1;i < dlgHelper.fonts.count;i++){ 
+         fArray[i] = dlgHelper.fonts(i);
+         var aOptions = oDropDown.options;    
+         var oOption = document.createElement("OPTION");
+         aOptions.add(oOption);    
+         oOption.text = fArray[i];
+         oOption.Value = i;
+     } 
+}
+
+function getBlockFormats(){
+     var a=dlgHelper.blockFormats.count;
+     var fArray = new Array();
+     var oDropDown = document.all.formats;
+     oDropDown.setAttribute("id","FormatList");
+     for (i = 1;i < dlgHelper.blockFormats.count;i++)
+     { 
+         fArray[i] = dlgHelper.blockFormats(i);
+         var aOptions = oDropDown.options;    
+         var oOption = document.createElement("OPTION");
+         aOptions.add(oOption);    
+         oOption.text = fArray[i];
+         oOption.Value = i;
+     } 
+}
+
+var OS = {};
+
+OS.FONTS = [];
+OS.FONTS.init = function(){
+	for (var i=1, l=dlgHelper.fonts.count; i<l;i++){
+		OS.FONTS[i] = dlgHelper.fonts(i);
+	}
+	return OS.FONTS;
+};
+
+OS.BLOCK_FORMATS = [];
+OS.BLOCK_FORMATS.init = function(){
+	for (var i=0, l=dlgHelper.blockFormats.count; i<l; i++){
+		OS.BLOCK_FORMATS[i] = dlgHelper.blockFormats[i];
+	}
+	return OS.BLOCK_FORMATS;
+};
+
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY onload="OS.FONTS.init();">
+系统字体和排版样式 SystemFont and BlockFormats<BR>
+<SELECT NAME="fonts" onchange="document.body.style.fontFamily = this.options[this.selectedIndex].text">
+</SELECT>
+<SELECT NAME="formats" onchange="document.body.style.fontFamily = this.options[this.selectedIndex].text">
+</SELECT>
+
+
+<OBJECT ID=dlgHelper CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" WIDTH="0px" HEIGHT="0px"></OBJECT>
+<script language="javascript">/*<![CDATA[*/
+
+/*]]>*/</script>
+</BODY>
+</HTML>

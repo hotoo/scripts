@@ -1,0 +1,430 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="json2.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>json2.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'json2.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/*
+    json2.js
+    2008-02-14
+
+    Public Domain
+
+    No warranty expressed or implied. Use at your own risk.
+
+    See http://www.JSON.org/js.html
+
+    This file creates a global JSON object containing two methods:
+
+        JSON.stringify(value, whitelist)
+            value       any JavaScript value, usually an object or array.
+
+            whitelist   an optional array parameter that determines how object
+                        values are stringified.
+
+            This method produces a JSON text from a JavaScript value.
+            There are three possible ways to stringify an object, depending
+            on the optional whitelist parameter.
+
+            If an object has a toJSON method, then the toJSON() method will be
+            called. The value returned from the toJSON method will be
+            stringified.
+
+            Otherwise, if the optional whitelist parameter is an array, then
+            the elements of the array will be used to select members of the
+            object for stringification.
+
+            Otherwise, if there is no whitelist parameter, then all of the
+            members of the object will be stringified.
+
+            Values that do not have JSON representaions, such as undefined or
+            functions, will not be serialized. Such values in objects will be
+            dropped; in arrays will be replaced with null.
+            JSON.stringify(undefined) returns undefined. Dates will be
+            stringified as quoted ISO dates.
+
+            Example:
+
+            var text = JSON.stringify(['e', {pluribus: 'unum'}]);
+            // text is '["e",{"pluribus":"unum"}]'
+
+        JSON.parse(text, filter)
+            This method parses a JSON text to produce an object or
+            array. It can throw a SyntaxError exception.
+
+            The optional filter parameter is a function that can filter and
+            transform the results. It receives each of the keys and values, and
+            its return value is used instead of the original value. If it
+            returns what it received, then structure is not modified. If it
+            returns undefined then the member is deleted.
+
+            Example:
+
+            // Parse the text. If a key contains the string 'date' then
+            // convert the value to a date.
+
+            myData = JSON.parse(text, function (key, value) {
+                return key.indexOf('date') &gt;= 0 ? new Date(value) : value;
+            });
+
+    This is a reference implementation. You are free to copy, modify, or
+    redistribute.
+
+    Use your own copy. It is extremely unwise to load third party
+    code into your pages.
+*/</span>
+
+<span class="comment">/*jslint evil: true */</span>
+
+<span class="comment">/*global JSON */</span>
+
+<span class="comment">/*members "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
+    charCodeAt, floor, getUTCDate, getUTCFullYear, getUTCHours,
+    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join, length,
+    parse, propertyIsEnumerable, prototype, push, replace, stringify, test,
+    toJSON, toString
+*/</span>
+
+<span class="reserved">if</span> (!<span class="reserved">this</span>.JSON) {
+
+    JSON = <span class="reserved">function</span> () {
+
+        <span class="reserved">function</span> f(n) {    <span class="comment">// Format integers to have at least two digits.</span>
+            <span class="reserved">return</span> n &lt; 10 ? <span class="literal">'0'</span> + n : n;
+        }
+
+        Date.<span class="reserved">prototype</span>.toJSON = <span class="reserved">function</span> () {
+
+<span class="comment">// Eventually, this method will be based on the date.toISOString method.</span>
+
+            <span class="reserved">return</span> <span class="reserved">this</span>.getUTCFullYear()   + <span class="literal">'-'</span> +
+                 f(<span class="reserved">this</span>.getUTCMonth() + 1) + <span class="literal">'-'</span> +
+                 f(<span class="reserved">this</span>.getUTCDate())      + <span class="literal">'T'</span> +
+                 f(<span class="reserved">this</span>.getUTCHours())     + <span class="literal">':'</span> +
+                 f(<span class="reserved">this</span>.getUTCMinutes())   + <span class="literal">':'</span> +
+                 f(<span class="reserved">this</span>.getUTCSeconds())   + <span class="literal">'Z'</span>;
+        };
+
+
+        var m = {    <span class="comment">// table of character substitutions</span>
+            <span class="literal">'\b'</span>: <span class="literal">'\\b'</span>,
+            <span class="literal">'\t'</span>: <span class="literal">'\\t'</span>,
+            <span class="literal">'\n'</span>: <span class="literal">'\\n'</span>,
+            <span class="literal">'\f'</span>: <span class="literal">'\\f'</span>,
+            <span class="literal">'\r'</span>: <span class="literal">'\\r'</span>,
+            <span class="literal">'"'</span> : <span class="literal">'\\"'</span>,
+            <span class="literal">'\\'</span>: <span class="literal">'\\\\'</span>
+        };
+
+        <span class="reserved">function</span> stringify(value, whitelist) {
+            var a,          <span class="comment">// The array holding the partial texts.</span>
+                i,          <span class="comment">// The loop counter.</span>
+                k,          <span class="comment">// The member key.</span>
+                l,          <span class="comment">// Length.</span>
+                r = /[<span class="literal">"\\\x00-\x1f\x7f-\x9f]/g,
+                v;          // The member value.
+
+            switch (typeof value) {
+            case 'string':
+
+// If the string contains no control characters, no quote characters, and no
+// backslash characters, then we can safely slap some quotes around it.
+// Otherwise we must also replace the offending characters with safe sequences.
+
+                return r.test(value) ?
+                    '"</span><span class="literal">' + value.replace(r, function (a) {
+                        var c = m[a];
+                        if (c) {
+                            return c;
+                        }
+                        c = a.charCodeAt();
+                        return '</span>\\u00<span class="literal">' + Math.floor(c / 16).toString(16) +
+                                                   (c % 16).toString(16);
+                    }) + '</span><span class="literal">"' :
+                    '"</span><span class="literal">' + value + '</span><span class="literal">"';
+
+            case 'number':
+
+// JSON numbers must be finite. Encode non-finite numbers as null.
+
+                return isFinite(value) ? String(value) : 'null';
+
+            case 'boolean':
+            case 'null':
+                return String(value);
+
+            case 'object':
+
+// Due to a specification blunder in ECMAScript,
+// typeof null is 'object', so watch out for that case.
+
+                if (!value) {
+                    return 'null';
+                }
+
+// If the object has a toJSON method, call it, and stringify the result.
+
+                if (typeof value.toJSON === 'function') {
+                    return stringify(value.toJSON());
+                }
+                a = [];
+                if (typeof value.length === 'number' &amp;&amp;
+                        !(value.propertyIsEnumerable('length'))) {
+
+// The object is an array. Stringify every element. Use null as a placeholder
+// for non-JSON values.
+
+                    l = value.length;
+                    for (i = 0; i &lt; l; i += 1) {
+                        a.push(stringify(value[i], whitelist) || 'null');
+                    }
+
+// Join all of the elements together and wrap them in brackets.
+
+                    return '[' + a.join(',') + ']';
+                }
+                if (whitelist) {
+
+// If a whitelist (array of keys) is provided, use it to select the components
+// of the object.
+
+                    l = whitelist.length;
+                    for (i = 0; i &lt; l; i += 1) {
+                        k = whitelist[i];
+                        if (typeof k === 'string') {
+                            v = stringify(value[k], whitelist);
+                            if (v) {
+                                a.push(stringify(k) + ':' + v);
+                            }
+                        }
+                    }
+                } else {
+
+// Otherwise, iterate through all of the keys in the object.
+
+                    for (k in value) {
+                        if (typeof k === 'string') {
+                            v = stringify(value[k], whitelist);
+                            if (v) {
+                                a.push(stringify(k) + ':' + v);
+                            }
+                        }
+                    }
+                }
+
+// Join all of the member texts together and wrap them in braces.
+
+                return '{' + a.join(',') + '}';
+            }
+        }
+
+        return {
+            stringify: stringify,
+            parse: function (text, filter) {
+                var j;
+
+                function walk(k, v) {
+                    var i, n;
+                    if (v &amp;&amp; typeof v === 'object') {
+                        for (i in v) {
+                            if (Object.prototype.hasOwnProperty.apply(v, [i])) {
+                                n = walk(i, v[i]);
+                                if (n !== undefined) {
+                                    v[i] = n;
+                                } else {
+                                    delete v[i];
+                                }
+                            }
+                        }
+                    }
+                    return filter(k, v);
+                }
+
+
+// Parsing happens in three stages. In the first stage, we run the text against
+// regular expressions that look for non-JSON patterns. We are especially
+// concerned with '()' and 'new' because they can cause invocation, and '='
+// because it can cause mutation. But just to be safe, we want to reject all
+// unexpected forms.
+
+// We split the first stage into 4 regexp operations in order to work around
+// crippling inefficiencies in IE's and Safari's regexp engines. First we
+// replace all backslash pairs with '@' (a non-JSON character). Second, we
+// replace all simple value tokens with ']' characters. Third, we delete all
+// open brackets that follow a colon or comma or that begin the text. Finally,
+// we look to see that the remaining characters are only whitespace or ']' or
+// ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
+
+                if (/^[\],:{}\s]*$/.test(text.replace(/\\./g, '@').
+replace(/"</span>[^<span class="literal">"\\\n\r]*"</span>|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, <span class="literal">']'</span>).
+replace(/(?:^|:|,)(?:\s*\[)+/g, <span class="literal">''</span>))) {
+
+<span class="comment">// In the second stage we use the eval function to compile the text into a</span>
+<span class="comment">// JavaScript structure. The '{' operator is subject to a syntactic ambiguity</span>
+<span class="comment">// in JavaScript: it can begin a block or an object literal. We wrap the text</span>
+<span class="comment">// in parens to eliminate the ambiguity.</span>
+
+                    j = eval(<span class="literal">'('</span> + text + <span class="literal">')'</span>);
+
+<span class="comment">// In the optional third stage, we recursively walk the new structure, passing</span>
+<span class="comment">// each name/value pair to a filter function for possible transformation.</span>
+
+                    <span class="reserved">return</span> typeof filter === <span class="literal">'function'</span> ? walk(<span class="literal">''</span>, j) : j;
+                }
+
+<span class="comment">// If the text is not JSON parseable, then a SyntaxError is thrown.</span>
+
+                throw new SyntaxError(<span class="literal">'parseJSON'</span>);
+            }
+        };
+    }();
+}
+</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>

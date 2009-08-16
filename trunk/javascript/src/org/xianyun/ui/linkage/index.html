@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Linkage</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<script language="javascript" src="../../utils/Iterator.js"></script>
+<script language="javascript" src="../../lang/Event.js"></script>
+<script language="javascript" src="../../lang/Function.js"></script>
+<script language="javascript" src="dt_area.js"></script>
+<script language="javascript" src="Linkage.js"></script>
+<body>
+<script language="javascript">/*<![CDATA[*/
+
+
+
+var LinkageSelect = function(){
+	Linkage.apply(this, arguments);
+};
+LinkageSelect.prototype = new Linkage();
+LinkageSelect.prototype.constructor = LinkageSelect;
+/*]]>*/</script>
+
+<select id="likage_select_demo_0">
+	<option value="0001">中国</option>
+	<option value="0002" selected="selected">美国</option>
+</select>
+<select id="likage_select_demo_1">
+</select>
+<select id="likage_select_demo_2">
+</select>
+<select id="likage_select_demo_3">
+</select><br />
+<input type="text" id="addr_name" /> <button onclick="setValue($('addr_name').value)">Set</button>
+
+
+<script type="text/javascript">
+var $ = function(id){return document.getElementById(id);};
+
+var lk = new Linkage($("likage_select_demo_0"),$("likage_select_demo_1"),
+  $("likage_select_demo_2"),$("likage_select_demo_3"));
+lk.setDataSrc(DT_Area);
+//lk.setTrigger("onpropertychange");
+
+function setValue(v){
+	var s = "";
+	
+};
+
+//var i3 = new LinkageItem($("likage_select_demo_3"));
+//i3.setDataSrc(DT_Area);
+//var i2 = new LinkageItem($("likage_select_demo_2"), i3);
+//i2.setDataSrc(DT_Area);
+//var i1 = new LinkageItem($("likage_select_demo_1"), i2);
+//i1.setDataSrc(DT_Area);
+//var i0 = new LinkageItem($("likage_select_demo_0"), i1);
+//i0.setDataSrc(DT_Area);
+</script>
+</body>
+</html>

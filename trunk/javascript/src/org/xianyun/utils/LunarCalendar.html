@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>LunarCalendar</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script type="text/javascript" src="../lang/Function.js"></script>
+<script type="text/javascript" src="Calendar.js"></script>
+<script type="text/javascript" src="LunarCalendar.js"></script>
+<script type="text/javascript">
+
+var lun = new LunarCalendar();
+document.write(lun.toLocaleString()+"<br />");
+document.write(LunarCalendar.year(2008));
+document.write(LunarCalendar.month(2008,2,5));
+document.write(LunarCalendar.date(2008,2,5));
+</script>
+</body>
+</html>

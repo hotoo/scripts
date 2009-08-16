@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>max</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="../../system/Browser.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+var ui = {
+	orig:null,
+	max:function(e){
+		// save orig status.
+		this.orig = {
+			element : e,
+			parentNode : e.parentNode,
+			width : e.style.width,
+			height : e.style.height,
+			position : e.style.position
+		};
+		with(e.style){
+			position = "absolute";
+			width = Browser.width()+"px";
+			height = Browser.height()+"px";
+		}
+	},
+	restore:function(e){
+		if(!this.orig){return;}
+		with(e.style){
+			position = this.orig.position;
+			width = this.orig.width;
+			height = this.orig.height;
+		}
+		this.orig = null;
+	}
+};
+
+</script>
+
+<div>
+	<div id="tags" style="border:1px solid #ccc;width:400px;height:300px;"
+		onclick="if(!ui.orig){ui.max(this)}else{ui.restore(this)};"><div>Tags</div></div>
+</div>
+</body>
+</html>

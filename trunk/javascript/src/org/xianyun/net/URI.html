@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>URI, URL, URN</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="URI.js"></script>
+</head>
+<body>
+<script language="JavaScript">
+<!--
+
+var url1 = 'http://www.xianyun.org/HTBlog/index.html?page=1#3';
+var url2 = 'http://www.xianyun.org/HTBlog/index.html?page=2';
+var uri1 = new URI(url1);
+var uri2 = new URI(url2);
+//alert(uri1.isAbsolute());
+//alert(uri1.equal(uri2));
+//alert(uri1.compareTo(uri2));
+//alert(uri1.getAuthority());
+alert(
+    uri1.getScheme() + '\n' +
+    uri1.getAuthority() + '\n' +
+    uri1.getPath() + '\n' +
+    uri1.getQuery() + '\n' +
+    uri1.getFrag() + '\n' +
+    uri1.absolutize('http://www.hotoo.cn')
+);
+
+//-->
+</script>
+</body>
+</html>

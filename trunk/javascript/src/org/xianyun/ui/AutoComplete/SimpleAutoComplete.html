@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Simple Auto Complete</title>
+<meta name="generator" content="editplus">
+<meta name="author" content="">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+#HTAutoCompleteFloatLayer{border:0px solid #blue;}
+.HTAutoCompleteItemOn{background-color:blue;color:#cccccc;}
+.HTAutoCompleteItemOff{background-color:#cccccc;color:black;}
+</style>
+</head>
+<body>
+<input type="text" name="tags" id="tags" />
+
+<script language="javascript">/*<![CDATA[*/
+var HTAutoComplete = function(oElement){
+    this.element = oElement;
+    this.values = null;
+
+    var ME = this;
+    this.bindEvent("focus", function(){ME.match(ME.element.value);});
+    this.bindEvent("keyup", function(){ME.match(ME.element.value);});
+    this.bindEvent("blur", function(){ME.hidden();});
+};
+HTAutoComplete.$ = function(id){
+    return document.getElementById(id);
+};
+HTAutoComplete.floatLayer = null;
+HTAutoComplete.getFloatLayer = function(){
+    if (!this.floatLayer){
+        this.floatLayer = document.createElement('div');
+        //this.floatLayer.className = 'HTAutoCompleteFloatLayer';
+        this.floatLayer.id = 'HTAutoCompleteFloatLayer';
+        this.floatLayer.style.position = "absolute";
+        this.floatLayer.style.display = "none";
+        document.body.appendChild(this.floatLayer);
+        this.floatLayer.name = null;
+    };
+    return this.floatLayer;
+};
+HTAutoComplete.getPosition = function(element){
+    var valueT = 0, valueL = 0;
+    //var w = element.offsetWidth;
+    var h = element.offsetHeight;
+    do {
+        valueT += element.offsetTop  || 0;
+        valueL += element.offsetLeft || 0;
+        element = element.offsetParent;
+    } while (element);
+    return [valueL, valueT+h];
+};
+HTAutoComplete.filters = function(value, arrayValues){
+    var arr = new Array();
+    for (var i = 0; i < arrayValues.length; i++){
+        if (new RegExp(value, "i").test(arrayValues[i])){
+            arr.push(arrayValues[i]);
+        }
+    }
+    return arr;
+};
+HTAutoComplete.bindEvent = function(element, event, handle){
+    if (element.attachEvent)
+        element.attachEvent("on"+event, handle);
+    else if (element.addEventListener)
+        element.addEventListener(event, handle, false);
+};
+HTAutoComplete.prototype.getPosition = function(){
+    return HTAutoComplete.getPosition(this.element);
+};
+HTAutoComplete.prototype.bindEvent = function(event, handle){
+    HTAutoComplete.bindEvent(this.element, event, handle);
+};
+HTAutoComplete.prototype.match = function(){
+    var lay = HTAutoComplete.getFloatLayer();
+    var p = this.getPosition();
+    var val = this.element.value;
+    lay.style.left = p[0];
+    lay.style.top = p[1];
+    var _arr = this.filters();
+    var s = "<div style='border:1px solid blue;background-color:#cccccc;'>";
+    for (var i = 0; i < _arr.length; i++){
+        s += "<div onmouseover='this.className=\"HTAutoCompleteItemOn\";' onmouseout='this.className=\"HTAutoCompleteItemOff\";' onmousedown='HTAutoComplete.$(\""+this.element.id+"\").value=\""+_arr[i]+"\";'>"+_arr[i].replace(new RegExp(this.element.value, ""), "<strong>"+this.element.value+"</strong>")+"</div>";
+    }
+    lay.innerHTML = s + "</div>";
+    var ME = this.element;
+    lay.onclick = function(){alert();
+        ME.value = "ABC";
+    };
+    this.show();
+};
+HTAutoComplete.prototype.show = function(){
+    HTAutoComplete.getFloatLayer().style.display = "";
+};
+HTAutoComplete.prototype.hidden = function(){
+    HTAutoComplete.getFloatLayer().style.display = "none";
+};
+HTAutoComplete.prototype.setValues = HTAutoComplete.prototype.setArrayValue = function(values){
+    this.values = values;
+};
+HTAutoComplete.prototype.filters = function(){
+    return HTAutoComplete.filters(this.element.value, this.values);
+}
+HTAutoComplete.prototype.getCurrentText = function(){
+    
+};
+/*]]>*/</script>
+
+<script language="javascript">/*<![CDATA[*/
+var auto = new HTAutoComplete(document.getElementById("tags"));
+var arr = ["ABC", "AEFG", "BCDE", "BDEFOO"];
+auto.setArrayValue(arr);
+//document.write(HTAutoComplete.getPosition(document.getElementById("tags")));
+//document.write(HTAutoComplete.filters("ooo", arr));
+/*]]>*/</script>
+</body>
+</html>
