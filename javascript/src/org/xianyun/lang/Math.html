@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Math test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="Number.js"></script>
+<script type="text/javascript" src="Math.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var n = 170, I=170;
+var d = [], f1, f2, f3, f4;
+
+for (var l=0, d, d2, d3, d4; l<30; l++) { // 连续测试50次
+	d1 = new Date();
+	for (var i = 0; i < I; i++) { // 连续调用求阶乘方法I次。
+		var f1 = Math.factorial(i); // 求n的阶乘。
+	}
+	d1 = new Date() - d1;
+	
+	d2 = new Date();
+	for (var i = 0; i < I; i++) { // 连续调用求阶乘方法I次。
+		var f2 = Math.factorial_I(i); // 求n的阶乘。
+	}
+	d2 = new Date() - d2;
+	
+	d3 = new Date();
+	for (var i = 0; i < I; i++) {
+		var f3 = Math.factorial_II(i);
+	}
+	d3 = new Date() - d3;
+	
+	d4 = new Date();
+	for (var i = 0; i < I; i++) {
+		var f4 = Math.factorial_II(i);
+	}
+	d4 = new Date() - d4;
+	
+	d[l]=[d1,d2,d3,d4];
+}
+
+
+document.write(f1+", "+"<br />");
+document.write(f2+", "+"<br />");
+document.write(f3+", "+"<br />");
+document.write(f4+", "+"<br />");
+var id=0, id1=0, id2=0, id3=0, id4=0;
+for (var i=0,l=d.length; i<l; i++){
+	id1 += d[i][0];
+	id2 += d[i][1];
+	id3 += d[i][2];
+	id4 += d[i][3];
+}
+id=id/d.length;
+id1=id1/d.length;
+id2=id2/d.length;
+id3=id3/d.length;
+id4=id4/d.length;
+document.write("factorial(simple):"+id1+
+	"<br />factorial_I(recursion):"+id2+
+	"<br />factorial_II(upswing):"+id3+
+	"<br />factorial_III(tril_recurision):"+id4);
+</script>
+</body>
+</html>

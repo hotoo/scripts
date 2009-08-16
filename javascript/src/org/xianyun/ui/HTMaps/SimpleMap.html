@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>HT Map</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src=""></script>
+<link href="" type="text/css" rel="stylesheet" />
+<script language="javascript">/*<![CDATA[*/
+var IImage = function(){};
+IImage.floatLayer = null;
+IImage.getFloatLayer = function(){};
+IImage.prototype.show = function(){};
+
+
+
+var sch = new Object();
+sch.show = function(id){
+    var l = document.getElementById("floatLayer");
+    l.style.display = "";
+    l.style.backgroundColor = "#ffffff"
+    l.innerHTML = "<img src='images/m0.gif' /><br />xianyun.org";
+    l.style.left = event.clientX;
+    l.style.top = event.clientY;
+    l.style.width = "120px";
+    l.style.height = "120px";
+};
+/*]]>*/</script>
+</head>
+<body>
+
+<map name="schoolmate">
+<area href="#" coords="5,5,95,195" style="border:1px solid #ff0000;">
+<area coords="105,5,195,195">
+<area onclick="sch.show(0);" coords="685,60,765,155" alt="xianyun.org" style="cursor:pointer;">
+</map>
+<img src="images/schoolmate.jpg" usemap="#schoolmate">
+
+<div id="floatLayer" style="display:none;border:1px solid #999999;position:absolute;"></div>
+</body>
+</html>

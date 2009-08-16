@@ -1,0 +1,405 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="HTWindow1.2.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>HTWindow1.2.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'HTWindow1.2.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/** cn.hotoo.javascript.tools.HTWindow.js [class]
+ * <span class="attrib">@description</span> 一个完全封装的模拟窗口类
+ * IE 6.0, firefox 1.0, Opera 8.0 通过测试
+ * <span class="attrib">@using</span> cn.hotoo.javascript.tools.Counter.js [class]
+ *           cn.hotoo.javascript.tools.Browser.js [object]
+ * <span class="attrib">@version</span> 1.2.0
+ *
+ * <span class="attrib">@author</span> 闲耘 (HoToo)
+ * <span class="attrib">@author</span> hotoo.cn<span class="attrib">@gmail</span>.com
+ *
+ * <span class="attrib">@create</span> 2006-6-14
+ * <span class="attrib">@update</span> 2006-6-15 using Counter.js and Browser.js
+ *              veriest compatible for more browser.
+ * <span class="attrib">@bug</span> overflow-x in IE and Opera,
+ *         overflow in firefox.
+ *         select, flash will override the div.
+ *
+ */</span>
+
+var HTWinIndex = new Counter(100); <span class="comment">// the max zIndex.</span>
+
+<span class="reserved">function</span> HTWindow( title, body , width, height, left, top, callback){
+    var _index = HTWinIndex; <span class="comment">// 外部变量名修改后，相应修改此处变量名</span>
+    <span class="reserved">this</span>._win = null;
+    <span class="reserved">this</span>._title = null;
+    <span class="reserved">this</span>._titleHTML = title == null ? <span class="literal">''</span> : title;
+    <span class="reserved">this</span>._body = null;
+    <span class="reserved">this</span>._bodyHTML = body == null ? <span class="literal">''</span> : body;
+    <span class="reserved">this</span>._minBar = null;
+    <span class="reserved">this</span>._maxBar = null;
+    <span class="reserved">this</span>._closeBar = null;
+    var _callback = callback;
+    var _bIsDrag = false;
+    var _mouseX = 0;
+    var _mouseY = 0;
+    var _winX = 0;
+    var _winY = 0;
+    var _ME = <span class="reserved">this</span>;
+    <span class="reserved">this</span>._winStyle = {
+		<span class="literal">'left'</span> : left == null ? 100 : left,
+		<span class="literal">'top'</span> : top == null ? 100 : top,
+		<span class="literal">'width'</span> : width == null ? 300 : width,
+		<span class="literal">'height'</span> : height == null ? 200 : height,
+		<span class="literal">'position'</span> : <span class="literal">'absolute'</span> ,
+		<span class="literal">'border'</span> : <span class="literal">'2px solid #888888'</span> ,
+		<span class="literal">'backgroundColor'</span> : <span class="literal">'#f6f6f6'</span> ,
+		<span class="literal">'fontSize'</span> : 13 ,
+		<span class="literal">'color'</span> : <span class="literal">'#999999'</span> ,
+		<span class="literal">'lineHeight'</span> : 2 ,
+	<span class="comment">//!	'float' : 'right' , // throw exception in firefox 1.0.</span>
+		<span class="literal">'zIndex'</span> : _index.getCount() 
+	};
+    <span class="reserved">this</span>._titleStyle = {
+		<span class="literal">'width'</span> : <span class="literal">'100%'</span> ,
+		<span class="literal">'height'</span> : 24 ,
+        <span class="literal">'borderBottom'</span> : <span class="literal">'0px solid #cccccc'</span> ,
+		<span class="literal">'backgroundColor'</span> : <span class="literal">'#888888'</span> ,
+        <span class="literal">'fontFamily'</span> : <span class="literal">'verdana,helvetica,arial,sans-serif;'</span>,
+		<span class="literal">'fontSize'</span> : 13 ,
+		<span class="literal">'color'</span> : <span class="literal">'#f6f6f6'</span> ,
+		<span class="literal">'lineHeight'</span> : 2 ,
+		<span class="literal">'fontWeight'</span> : <span class="literal">'bold'</span> ,
+		<span class="literal">'textAlign'</span> : <span class="literal">'center'</span> ,
+        <span class="literal">'overflow'</span> : <span class="literal">'hidden'</span>,
+        <span class="literal">'cursor'</span> : <span class="literal">'move'</span> 
+	};
+    <span class="reserved">this</span>._bodyStyle = {
+		<span class="literal">'width'</span> : <span class="literal">'100%'</span> ,
+		<span class="literal">'height'</span> : parseInt(<span class="reserved">this</span>._winStyle.height) - parseInt(<span class="reserved">this</span>._titleStyle.height) ,
+        <span class="literal">'border'</span> : <span class="literal">'0px solid #cccccc'</span> ,
+		<span class="literal">'backgroundColor'</span> : <span class="literal">'#f6f6f6'</span> ,
+		<span class="literal">'fontSize'</span> : 13 ,
+		<span class="literal">'color'</span> : <span class="literal">'#999999'</span> ,
+		<span class="literal">'lineHeight'</span> : 1.5,
+		<span class="literal">'fontWeight'</span> : <span class="literal">'lighter'</span> ,
+		<span class="literal">'textAlign'</span> : <span class="literal">'left'</span> ,
+        <span class="literal">'overflow'</span> : <span class="literal">'hidden'</span> , <span class="comment">// !Browser.isIE</span>
+        <span class="literal">'overflowX'</span> : <span class="literal">'hidden'</span> , <span class="comment">// Browser.isIE</span>
+        <span class="literal">'overflowY'</span> : <span class="literal">'visible'</span> , <span class="comment">// Browser.isIE</span>
+        <span class="literal">'wordBreak'</span> : <span class="literal">'break-all'</span> 
+	};
+    <span class="reserved">this</span>._dragStyle = {
+        <span class="literal">'winBorder'</span> : <span class="literal">'2px solid #666666'</span> ,
+        <span class="literal">'winShadow'</span> : <span class="literal">'dropshadow(color=#ff0000,offx=6,offy=6,positive=1)'</span> ,
+        <span class="literal">'titleBackgroundColor'</span> : <span class="literal">'#666666'</span> ,
+        <span class="literal">'bodyBackgroundColor'</span> : <span class="literal">'#eeeeee'</span> 
+    };
+    
+    <span class="reserved">this</span>.setStyle = <span class="reserved">function</span>( oStyle ){
+		<span class="reserved">for</span> ( var key in oStyle ) {
+			<span class="reserved">this</span>._winStyle[key] = oStyle[key];
+		}
+	}
+    <span class="reserved">this</span>.create = <span class="reserved">function</span>(){
+        <span class="comment">// create window.</span>
+        <span class="reserved">this</span>._win = document.createElement(<span class="literal">'div'</span>);
+        <span class="reserved">this</span>._win.onmousedown = <span class="reserved">this</span>.focus;
+        <span class="reserved">for</span> ( var key in <span class="reserved">this</span>._winStyle ) {
+			<span class="reserved">this</span>._win.style[key] = <span class="reserved">this</span>._winStyle[key];
+		}
+        <span class="comment">// create the title for window.</span>
+        <span class="reserved">this</span>._title = document.createElement(<span class="literal">'div'</span>);
+        <span class="reserved">this</span>._title.style.textDecoration = <span class="literal">'none'</span>;
+        <span class="reserved">this</span>._title.style.color = <span class="literal">'#f6f6f6'</span>;
+        <span class="reserved">this</span>._title.setAttribute(<span class="literal">'title'</span>, <span class="reserved">this</span>._titleHTML);
+        <span class="reserved">for</span> ( var key in <span class="reserved">this</span>._titleStyle ) {
+			<span class="reserved">this</span>._title.style[key] = <span class="reserved">this</span>._titleStyle[key];
+		}
+        <span class="reserved">this</span>._title.onselectstart = <span class="reserved">function</span>(){ <span class="reserved">return</span> false;};
+        <span class="reserved">this</span>._title.ondblclick = <span class="reserved">this</span>.minMax;
+        <span class="reserved">this</span>._title.onmousedown = <span class="reserved">this</span>.dragStart;
+        <span class="reserved">this</span>._title.onmousemove = <span class="reserved">this</span>.drag;
+        <span class="reserved">this</span>._title.onmouseup = <span class="reserved">this</span>.dragStop;
+        <span class="reserved">this</span>._title.onmouseout = <span class="reserved">this</span>.dragStop;
+        <span class="comment">// create min bar.</span>
+        <span class="reserved">this</span>._minBar = document.createElement(<span class="literal">'a'</span>);
+        <span class="reserved">this</span>._minBar.setAttribute(<span class="literal">'href'</span>, <span class="literal">'javascript:void(0);'</span>);
+        <span class="reserved">this</span>._minBar.style.textDecoration = <span class="literal">'none'</span>;
+        <span class="reserved">this</span>._minBar.style.color = <span class="literal">'#f6f6f6'</span>;
+        <span class="reserved">this</span>._minBar.innerHTML = Browser.isIE ? 
+            <span class="literal">'&lt;span style="font-family:webdings;font-size:11px;font-weight:lighter;"&gt;0&lt;/span&gt;'</span> : <span class="literal">'_'</span>;
+        <span class="reserved">this</span>._minBar.setAttribute(<span class="literal">'title'</span> , Browser.isOpera ? <span class="literal">'&amp;#26368;&amp;#23567;&amp;#21270;'</span> : <span class="literal">'最小化'</span>);
+        <span class="reserved">this</span>._minBar.onclick = <span class="reserved">this</span>.min;
+        <span class="comment">// create max bar.</span>
+        <span class="reserved">this</span>._maxBar = document.createElement(<span class="literal">'a'</span>);
+        <span class="reserved">this</span>._maxBar.setAttribute(<span class="literal">'href'</span>, <span class="literal">'javascript:void(0);'</span>);
+        <span class="reserved">this</span>._maxBar.style.textDecoration = <span class="literal">'none'</span>;
+        <span class="reserved">this</span>._maxBar.style.color = <span class="literal">'#f6f6f6'</span>;
+        <span class="reserved">this</span>._maxBar.innerHTML = Browser.isIE ? 
+            <span class="literal">'&lt;span style="font-family:webdings;font-size:11px;font-weight:lighter;"&gt;2&lt;/span&gt;'</span> : <span class="literal">'='</span>;
+        <span class="reserved">this</span>._maxBar.style.display = <span class="literal">'none'</span>;
+        <span class="reserved">this</span>._maxBar.setAttribute(<span class="literal">'title'</span>, Browser.isOpera ? <span class="literal">'&amp;#26368;&amp;#22823;&amp;#21270;'</span> : <span class="literal">'最大化'</span>);
+        <span class="reserved">this</span>._maxBar.onclick = <span class="reserved">this</span>.max;
+        <span class="comment">// create close bar.</span>
+        <span class="reserved">this</span>._closeBar = document.createElement(<span class="literal">'a'</span>);
+        <span class="reserved">this</span>._closeBar.setAttribute(<span class="literal">'href'</span>, <span class="literal">'javascript:void(0);'</span>);
+        <span class="reserved">this</span>._closeBar.innerHTML = Browser.isIE ? 
+            <span class="literal">'&lt;span style="font-family:webdings;font-size:11px;font-weight:lighter;"&gt;r&lt;/span&gt;'</span> : <span class="literal">'X'</span>;
+        <span class="reserved">this</span>._closeBar.setAttribute(<span class="literal">'title'</span>, Browser.isOpera ? <span class="literal">'&amp;#20851;&amp;#38381;'</span> : <span class="literal">'关闭'</span>);
+        <span class="reserved">this</span>._closeBar.style.textDecoration = <span class="literal">'none'</span>;
+        <span class="reserved">this</span>._closeBar.style.color = <span class="literal">'#f6f6f6'</span>;
+        <span class="reserved">this</span>._closeBar.onclick = <span class="reserved">this</span>.close;
+        <span class="comment">// create a title.</span>
+        var _tit = document.createElement(<span class="literal">'span'</span>);
+        _tit.innerHTML = <span class="reserved">this</span>._titleHTML;
+        <span class="comment">// create a container include the bars.</span>
+        var _bars = document.createElement(<span class="literal">'span'</span>);
+        _bars.style.top = 1;
+        _bars.style.position = <span class="literal">'absolute'</span>;
+        _bars.style.right = 5;
+        <span class="reserved">this</span>._title.appendChild(_bars);
+        <span class="reserved">this</span>._title.appendChild(_tit);
+        <span class="comment">// add they bars.</span>
+        _bars.appendChild(<span class="reserved">this</span>._minBar);
+        _bars.appendChild(<span class="reserved">this</span>._maxBar);
+        _bars.appendChild(<span class="reserved">this</span>._closeBar);
+        <span class="comment">// create the body of window.</span>
+        <span class="reserved">this</span>._body = document.createElement(<span class="literal">'div'</span>);
+        <span class="reserved">for</span> ( var key in <span class="reserved">this</span>._bodyStyle ) {
+			<span class="reserved">this</span>._body.style[key] = <span class="reserved">this</span>._bodyStyle[key];
+		}
+        <span class="reserved">this</span>._body.innerHTML = <span class="reserved">this</span>._bodyHTML;
+        document.body.appendChild(<span class="reserved">this</span>._win);
+        <span class="reserved">this</span>._win.appendChild(<span class="reserved">this</span>._title);
+        <span class="reserved">this</span>._win.appendChild(<span class="reserved">this</span>._body);
+        <span class="comment">// create a iframe over the select object and so on.</span>
+        <span class="comment">/*
+        var over = document.createElement('iframe');
+        over.style.zIndex = -1;
+        over.style.position = 'absolute';
+        over.style.top = 0;
+        over.style.left = 0;
+        over.style.width = '100%';
+        over.style.height = '100%';
+        over.setAttribute('frameBorder', 0);
+        over.setAttribute('marginWidth', 0);
+        over.setAttribute('marginHeight', 0);
+        this._win.appendChild(over);
+        */</span>
+        _index.addCount(1);
+    };
+    <span class="reserved">this</span>.minMax = <span class="reserved">function</span>(){
+        <span class="reserved">if</span>(_ME._body.style.display == <span class="literal">'none'</span>){
+            _ME.max();
+        } <span class="reserved">else</span> {
+            _ME.min();
+        }
+    }
+    <span class="reserved">this</span>.min = <span class="reserved">function</span>( ){
+        _ME._body.style.display = <span class="literal">'none'</span>;
+        _ME._win.style.height = _ME._title.style.height;
+        _ME._minBar.style.display = <span class="literal">'none'</span>;
+        _ME._maxBar.style.display = <span class="literal">''</span>;
+    };
+    <span class="reserved">this</span>.revert = <span class="reserved">function</span>(){}
+    <span class="reserved">this</span>.max = <span class="reserved">function</span>( ){
+        _ME._body.style.display = <span class="literal">''</span>;
+        _ME._win.style.height = _ME._winStyle.height;
+        _ME._minBar.style.display = <span class="literal">''</span>;
+        _ME._maxBar.style.display = <span class="literal">'none'</span>;
+    };
+    <span class="reserved">this</span>.close = <span class="reserved">function</span>( ){
+        _ME.hidden();
+        <span class="reserved">if</span> (_callback != null){
+            _callback(true);
+        };
+    };
+    <span class="reserved">this</span>.open = <span class="reserved">function</span>( ){
+        _ME.show();
+    };
+    <span class="reserved">this</span>.show = <span class="reserved">function</span>( ){
+        <span class="reserved">this</span>.focus();
+        <span class="reserved">this</span>._win.style.display = <span class="literal">''</span>;
+    };
+    <span class="reserved">this</span>.hidden = <span class="reserved">function</span>( ){
+        <span class="reserved">this</span>._win.style.display = <span class="literal">'none'</span>;
+    };
+    <span class="reserved">this</span>.focus = <span class="reserved">function</span>( ){
+        <span class="reserved">if</span> (_ME._win.style.zIndex == _index.getCount()) { <span class="reserved">return</span>;}
+        _index.addCount(1);
+        _ME._win.style.zIndex = _index.getCount();
+    };
+    <span class="reserved">this</span>.dragStart = <span class="reserved">function</span>( event ){
+        <span class="reserved">if</span> (event == null) {event = window.event;}
+        _mouseX = event.clientX;
+        _mouseY = event.clientY;
+        _winX = parseInt(_ME._win.style.left);
+        _winY = parseInt(_ME._win.style.top);
+        <span class="comment">// set drag style.</span>
+        _ME._win.style.border = _ME._dragStyle.winBorder;
+        <span class="comment">//_ME._win.style.filter = _ME._dragStyle.winShadow;</span>
+        _ME._title.style.backgroundColor = _ME._dragStyle.titleBackgroundColor;
+        _ME._body.style.backgroundColor = _ME._dragStyle.bodyBackgroundColor;
+        _bIsDrag = true;
+    };
+    <span class="reserved">this</span>.drag = <span class="reserved">function</span>( event ){
+        <span class="reserved">if</span> (!_bIsDrag) { <span class="reserved">return</span>;}
+        <span class="reserved">if</span> (event == null) {event = window.event;}
+        _ME._win.style.left = event.clientX - ( _mouseX - _winX);
+        _ME._win.style.top = event.clientY - ( _mouseY - _winY);
+    };
+    <span class="reserved">this</span>.dragStop = <span class="reserved">function</span>(){
+        <span class="reserved">if</span> (!_bIsDrag){<span class="reserved">return</span>;};
+        _ME._win.style.border = _ME._winStyle.border;
+        _ME._title.style.backgroundColor = _ME._titleStyle.backgroundColor;
+        _ME._body.style.backgroundColor = _ME._bodyStyle.backgroundColor;
+        _bIsDrag = false;
+    };
+
+    <span class="reserved">this</span>.create();
+}</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>

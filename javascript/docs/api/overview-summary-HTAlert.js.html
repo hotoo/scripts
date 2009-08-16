@@ -1,0 +1,223 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Frameset//EN""http://www.w3.org/TR/REC-html40/frameset.dtd">
+<html>
+<head>
+<title>
+HOTOO Javascript API Specification Overview
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel ="stylesheet" type="text/css" href="stylesheet.css" title="Style">
+<script>
+function asd() {
+	
+		parent.document.title="HTAlert.js Overview";
+	
+}
+</script>
+</head>
+<body bgcolor="white" onload="asd();">
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> 	<font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top">
+<em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<center>
+	
+	   <h2>HTAlert.js</h2>
+	
+</center>
+
+	
+
+
+<h4>Summary</h4>
+<p>
+	
+		No overview generated for 'HTAlert.js'<BR/><BR/>
+	
+</p>
+
+<hr>
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<!-- ========== END METHOD SUMMARY =========== -->
+
+
+        <pre class="sourceview"><span class="comment">/** cn.hotoo.javascript.UI.HTAlert.js [class]
+ * <span class="attrib">@description</span> 一个封装的模拟 window.alert() 类
+ * IE 6.0, firefox 1.0, Opera 8.0 通过测试
+ * <span class="attrib">@using</span> cn.hotoo.javascript.UI.HTWindow.js [class]
+ *           cn.hotoo.javascript.UI.HTForm.js [object]
+ *           cn.hotoo.javascript.tools.Browser.js [object]
+ * <span class="attrib">@version</span> 1.2.0
+ *
+ * <span class="attrib">@author</span> 闲耘 (HoToo)
+ * <span class="attrib">@author</span> hotoo.cn<span class="attrib">@gmail</span>.com
+ *
+ * <span class="attrib">@create</span> 2006-6-20
+ * <span class="attrib">@update</span>
+ *
+ */</span>
+
+_package(<span class="literal">'cn.hotoo.UI.Window'</span>);
+
+_import(<span class="literal">'cn.hotoo.UI.Window.HTWindow'</span>);
+_import(<span class="literal">'cn.hotoo.UI.form.HTForm'</span>);
+
+var HTAlert = cn.hotoo.UI.Window.HTAlert = <span class="reserved">function</span>(title, body){
+    var _title = title;
+    var _body = body;
+    var _win = null;
+    var _layOver = null;
+    var _yesBar = null;
+    var _noBar = null;
+    var _ME = <span class="reserved">this</span>;
+
+    var create = <span class="reserved">function</span>(){
+        _layOver = document.createElement(Browser.isIE ? <span class="literal">'iframe'</span> : <span class="literal">'div'</span>);
+        _layOver.style.width = <span class="literal">'100%'</span>;
+        _layOver.style.top = 0;
+        _layOver.style.left = 0;
+        _layOver.style.zIndex = 100;
+        _layOver.style.position = <span class="literal">'absolute'</span>;
+        _layOver.style.backgroundColor = <span class="literal">'#eeeeee'</span>;
+        _layOver.style.filter = <span class="literal">'Alpha(opacity=22)'</span>;
+        _layOver.style.height = document.body.scrollHeight;
+        document.body.appendChild(_layOver);
+        _win = new HTWindow(
+            _title,
+            <span class="literal">'&lt;p /&gt;&lt;br /&gt;&lt;div align="center"&gt;'</span> + _body + <span class="literal">'&lt;/div&gt;&lt;p /&gt;&lt;p /&gt;&lt;/div&gt;'</span>,
+            260,
+            160,
+            null,
+            null,
+            callback
+        );
+        <span class="comment">// container the ok button.</span>
+        var _div = document.createElement(<span class="literal">'div'</span>);
+        _div.setAttribute(<span class="literal">'align'</span>, <span class="literal">'center'</span>);
+        _win.getBody().appendChild(_div);
+        var _ok = HTForm.getButton(null, null, <span class="literal">'  确定  '</span>);
+        _ok.onclick = _win.close;
+        _div.appendChild(_ok);
+        _ok.focus();
+    };
+    var callback = <span class="reserved">function</span>(){
+        <span class="reserved">this</span>.returnValue = arguments[0];
+        close();
+    };
+    var close = <span class="reserved">function</span>(){
+        _layOver.style.display = <span class="literal">'none'</span>;
+    };
+    
+    create();
+};</pre>
+	<hr>
+
+
+
+<!-- ========== START OF NAVBAR ========== -->
+<a name="navbar_top"><!-- --></a>
+<table border="0" width="100%" cellpadding="1" cellspacing="0">
+<tr>
+<td colspan=2 bgcolor="#EEEEFF" class="NavBarCell1">
+<a name="navbar_top_firstrow"><!-- --></a>
+<table border="0" cellpadding="0" cellspacing="3">
+  <tr align="center" valign="top">
+  
+  
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-summary.html"><font class="NavBarFont1"><b>Overview</b></font></a>&nbsp;</td>
+  <td bgcolor="#FFFFFF" class="NavBarCell1Rev">	&nbsp;<font class="NavBarFont1Rev"><b>File</b></font>&nbsp;</td>
+  
+
+  <td bgcolor="#FFFFFF" class="NavBarCell1"> <font class="NavBarFont1">Class</font>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="overview-tree.html"><font class="NavBarFont1"><b>Tree</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="index-all.html"--><font class="NavBarFont1"><b>Index</b></font></a>&nbsp;</td>
+  <td bgcolor="#EEEEFF" class="NavBarCell1">    <a href="help-doc.html"><font class="NavBarFont1"><b>Help</b></font></a>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td bgcolor="#EEEEFF" align="right" valign="top"><em>
+<b>HOTOO Javascript API Specification</b></em>
+</td>
+</tr>
+
+<tr>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</font></td>
+<td bgcolor="white" class="NavBarCell2"><font size="-2">
+  <a href="index.html" target="_top"><b>FRAMES</b></a>  &nbsp;
+&nbsp;<a href="overview-summary.html" target="_top"><b>NO FRAMES</b></a>
+&nbsp;&nbsp;
+<script>
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="allclasses-noframe.html" TARGET=""><B>All Classes</B></A>');
+  }
+  //-->
+</script>
+<noscript>
+<a href="allclasses-noframe.html" target=""><b>All Classes</b></a>
+</noscript>
+</font></td>
+</tr>
+</table>
+<!-- =========== END OF NAVBAR =========== -->
+
+<hr>
+<font size="-1">
+Copyright &copy; 2008 by hotoo
+</font>
+<div class="jsdoc_ctime">Documentation generated by <a href="http://jsdoc.sourceforge.net/" target="_parent">JSDoc</a> on Sat Mar 29 23:30:03 2008</div>
+</body>
+</html>

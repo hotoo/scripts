@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>去掉Form下面多余空行</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<style type="text/css" rel="stylesheet">
+form.nospace {
+	margin-top: 0px;
+	margin-bottom: 0px;                
+}
+</style>
+before form.
+<form class="nospace">
+	<input />
+	<button>Click</button>
+</form>
+behind form.
+<hr />
+<style type="text/css">
+form.nobreak{
+	float:left;
+}
+</style>
+<span style="float:left;">before form.</span>
+<form class="nobreak">
+	<input />
+	<button>Click</button>
+</form>
+<span style="float:left;">behind form.</span>
+</body>
+</html>

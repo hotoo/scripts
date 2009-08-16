@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Text Input</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<script type="text/javascript" src="../../lang/Function.js"></script>
+<script type="text/javascript" src="TextInput.simple.js"></script>
+
+<input type="text" id="inputTest" placeholder="Input tips here." />
+<input type="button" onclick="alert($('inputTest').value+','+t.value());" value="value" />
+<input type="text" id="inputTest2" title="Input some tip text here." value="DEFAULT VALUE" />
+<input type="button" onclick="alert($('inputTest2').value+','+t2.value());" value="value" />
+
+<script type="text/javascript">
+
+var $ = function(id){return document.getElementById(id);};
+
+var t= new TextInput($("inputTest"));
+var t2= new TextInput($("inputTest2"));
+
+</script>
+</body>
+</html>

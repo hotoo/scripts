@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Border Frame demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style type="text/css">
+		.StatusBar{font-family:Verdana;font-size:14px;padding:1px;}
+		.StatusBarOn{border:1px solid #333;color:#000;background-color:#aaa;}
+		.StatusBarOff{border:1px solid #ccc;color:#999;cursor:pointer;background-color:#efefef;}
+	</style>
+</head>
+<body>
+<script language="javascript" type="text/javascript" src="../../system/Browser.js"></script>
+<script language="javascript" type="text/javascript" src="../../utils/equals.js"></script>
+<script language="javascript" type="text/javascript" src="../../lang/String.js"></script>
+<script language="javascript" type="text/javascript" src="../../lang/Array.js"></script>
+<script language="javascript" type="text/javascript" src="../../stylesheet/Style.js"></script>
+<script language="javascript" type="text/javascript" src="../../lang/Event.js"></script>
+<script language="javascript" type="text/javascript" src="../../lang/Function.js"></script>
+<script language="javascript" type="text/javascript" src="../../ui/utils/Moveable.js"></script>
+<script language="javascript" type="text/javascript" src="../../ui/utils/Dragable.js"></script>
+<script language="javascript" type="text/javascript" src="../../ui/utils/CascadeManager.js"></script>
+<script language="javascript" type="text/javascript" src="../../utils/Color.js"></script>
+<script language="javascript" type="text/javascript" src="../../event/EventListener.js"></script>
+<script language="javascript" type="text/javascript" src="../../ui/windows/Window.js"></script>
+<script language="javascript" type="text/javascript" src="../../ui/windows/Frame.js"></script>
+<script language="javascript" type="text/javascript" src="../../ui/utils/Resizable.js"></script>
+<script type="text/javascript" type="text/javascript" src="BorderFrame.js"></script>
+<script type="text/javascript">
+
+var f = new BorderFrame(400, 300);
+document.body.appendChild(f.valueOf());
+f.title().innerHTML = "BorderFrame Demo";
+f.moveTo(400, 300);
+f.show();
+
+var f2 = new BorderFrame(400, 300);
+document.body.appendChild(f2.valueOf());
+f2.setMaxable(true);
+f2.setMinable(true);
+f2.setCloseable(true);
+f2.icon().innerHTML = "<img src='icon/logo.gif' />";
+f2.title().innerHTML = "The Border Frame demo 2 - try to change resize status.";
+f2.body().innerHTML = "<table border=1 width=90% height=100><tr><td><textarea style='width:80%;'></textarea></td></tr><tr><td></td></tr></table>";
+f2.moveTo(200, 100);
+f2.show();
+
+</script>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<select><option>test</option></select>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox" onclick="f2.set_n_resizable(this.checked);" />north<br/>
+<input type="checkbox" onclick="f2.set_w_resizable(this.checked);" />west
+&nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox" onclick="f2.set_e_resizable(this.checked);" />east<br/>
+&nbsp; &nbsp; &nbsp; &nbsp; <input type="checkbox" onclick="f2.set_s_resizable(this.checked);" />south<br/>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<script type="text/javascript" type="text/javascript" src="../status/StatusBar.js"></script>
+<script type="text/javascript">
+
+var st = new StatusBar();
+		window.onload = function(){
+		setTimeout(function(){
+st.add(f);
+st.add(f2);
+		},0);
+		};
+</script>
+</body>
+</html>

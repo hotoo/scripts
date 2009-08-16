@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html>
+<head>
+<title>StatusButton</title>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="../../lang/Function.js"></script>
+<script type="text/javascript" src="../../dom/DHTML.js"></script>
+<link type="text/css" rel="stylesheet" href="statusbutton.css" />
+<style type="text/css">/*<![CDATA[*/
+button{margin:0px;padding:0px;width:20px;height:20px;}
+/*]]>*/</style>
+</head>
+<body>
+<button id="sb" type="statusbutton" statusvalue="on" hideFocus title="only show public"><img src="public.gif" />public</button>
+
+<hr />
+
+<button id="sbg1" name="sbg" type="statusbutton" statusvalue="on" title="Incoming Mode"><img src="public.gif" />public</button>
+<button id="sbg2" name="sbg" type="statusbutton" statusvalue="off" title="Outgoing Mode"><img src="public.gif" />public</button>
+<button id="sbg3" name="sbg" type="statusbutton" statusvalue="off" title="Conflict"><img src="public.gif" />public</button>
+
+<script type="text/javascript" language="javascript">/*<![CDATA[*/
+Function.createCallback=function(b,a)
+{
+	return function()
+	{
+		var e=arguments.length;
+		if(e>0)
+		{
+			var d=[];
+			for(var c=0;c<e;c++)
+				d[c]=arguments[c];
+			d[e]=a;
+			return b.apply(this,d)
+		}
+		return b.call(this,a)
+	}
+};
+
+var StatusButton = function(elem){
+	this._e = elem;
+	this.status = /^on$/i.test(elem.getAttribute("statusvalue")||elem.statusvalue);
+	this._cN_on = "STB_on";
+	this._cN_off = "STB_off";
+	this.setStatus(this.status);
+	this._setStatus = Function.createDelegate(this,function(){
+		this.setStatus(!this.status);
+	});
+	this._e.attachEvent("onclick", this._setStatus);
+	this._e.attachEvent("onfocus", Function.createDelegate(this,function(){
+		this._e.blur();
+	}));
+};
+StatusButton.prototype.setStatus = function(s){
+	if (s){
+		this._e.className = this._cN_on;
+	}else{
+		this._e.className = this._cN_off;
+	}
+	this.status=s;
+};
+StatusButton.prototype.setClassName = function(c){
+	this._cN_on = c.on;
+	this._cN_off = c.off;
+};
+StatusButton.prototype.valueOf = function(){
+	return this.status;
+};
+StatusButton.prototype.toString = function(){
+	return this.status?"on":"off";
+};
+
+/**
+ * Status Button Group
+ * @param {HTMLElement} o 动态的HTML元素参数列表。
+ * @param {Number} i 指定默认激活的按钮。
+ */
+var StatusButtonGroup = function(){
+	this._list = [];
+	this._curr = 0;
+	this._cN_on = "STB_on"; // className ON.
+	this._cN_off = "STB_off"; // className OFF.
+	var a = arguments, n=a[a.length-1], b=(a.length>1 && (typeof(n)=="number" || n instanceof Number));
+	this._curr = (b && n<a.length-1) ? n : 0;
+	for (var i=0, l=b?a.length-1:a.length; i<l; i++){
+		this._list[i] = a[i]; // i=this._list.length;
+		this.setStatus(i, false);
+		this._list[i].onclick=Function.createDelegate(this,Function.createCallback(function(){
+			var i = arguments[arguments.length-1];
+			if(this._curr==i){return;}
+			this.setStatus(this._curr, false);
+			this.setStatus(i, true);
+			this._curr=i;
+		},i));
+//		this._list[i].onclick=Function.createCallback(Function.createDelegate(this,function(){
+//			var i = arguments[arguments.length-1];
+//			if(this._curr==i){return;}
+//			this.setStatus(this._curr, false);
+//			this.setStatus(i, true);
+//			this._curr=i;
+//			return false;
+//		}),i);
+		
+		//this._list[i].attachEvent("onfocus", Function.createDelegate(this,Function.createCallback(function(i){this._list[i].blur();},i)));
+		this._list[i].onfocus=function(){this.blur()};//Function.createDelegate(this,Function.createCallback(function(i){this._list[i].blur();},i));
+	//	this._list[i].attachEvent("onfocus", Function.createDelegate(this,Function.createCallback(function(i){
+		//	this._list[i].blur();
+	//	},i)));
+	}
+	this.setStatus(this._curr, true);
+};
+StatusButtonGroup.prototype.add = function(b){
+	this._list[this._list.length] = b;
+	this._regroup();
+};
+StatusButtonGroup.prototype.setStatus = function(i,b){
+	this._list[i].className = b?this._cN_on:this._cN_off;
+};
+StatusButtonGroup.prototype._regroup = function(){
+	var ME = this;
+	for (var i=0,l=this._list.length; i<l; i++){
+		var f = this._list[i]._setStatus;
+		this._list[i]._e.detachEvent("onclick", f);
+		this._list[i]._setStatus = Function.createDelegate(this._list[i], function(){
+			if(this.status){return;}
+			ME._list[ME._curr].setStatus(false);
+			f.call(this);
+			ME._curr = i;
+		});
+		this._list[i]._e.attachEvent("onclick", this._list[i]._setStatus);
+	}
+};
+
+var sb = new StatusButton(document.getElementById("sb"));
+var sbg = new StatusButtonGroup(document.getElementById("sbg1"), document.getElementById("sbg2"), document.getElementById("sbg3"),3);
+/*]]>*/</script>
+</body>
+</html>

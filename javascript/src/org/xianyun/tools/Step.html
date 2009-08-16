@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html>
+<head>
+<title>t</title>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" language="javascript" src="Step.js"></script>
+</head>
+<body>
+<style>
+#content {
+ font-size: 14px;
+ width: 200px;
+ height: 50px;
+ background: #eee;
+ padding: 10px;
+ border: 4px #ccc double;
+ overflow: hidden;
+}
+#key {
+ color: red;
+ float: right;
+ margin-top: -20px;
+}
+</style>
+<script>
+var s=5;
+var minheight=50;
+var maxheight=400;
+function shoppingcat(){
+ var content = document.getElementById("content");
+ var key = document.getElementById("key").innerText;
+ if(content.style.pixelHeight==0)content.style.pixelHeight=minheight;
+ if(key=="展开"){
+  content.style.pixelHeight+=s;
+  if(content.style.pixelHeight<maxheight){
+   setTimeout("shoppingcat();",1);
+  }else{
+   document.getElementById("key").innerText="关闭";
+  }
+ }else{
+  content.style.pixelHeight-=s;
+  if(content.style.pixelHeight>minheight){
+   setTimeout("shoppingcat();",1);
+  }else{
+   document.getElementById("key").innerText="展开";
+  }
+ }
+}
+
+
+// =======================================
+//var I=5;
+//step(function(){alert(I--);},1000,function(){return I<=0;},[]);
+
+function exProc(){
+	document.getElementById("content").style.height=parseInt(document.getElementById("content").style.height)+s;
+}
+function exCond(){
+	return parseInt(document.getElementById("content").style.height)>=maxheight;
+}
+function exDone(){
+	document.getElementById("key").innerText="关闭";
+}
+function ex(){
+	step(exProc,1,exCond,[],exDone);
+}
+
+function coProc(){window.status = "co:"+document.getElementById("content").style.pixelHeight;
+	document.getElementById("content").style.height=parseInt(document.getElementById("content").style.height)-s;
+}
+function coCond(){
+	return document.getElementById("content").style.pixelHeight<=minheight;
+}
+function coDone(){document.getElementById("key").innerText="展开";}
+function co(){
+	step(coProc,1,coCond,[],coDone);
+}
+
+// =======================================
+var EX = new Step(exProc,1,exCond);
+EX.finish = exDone;
+EX.param = [];
+var CO = new Step(coProc,1,coCond,[],coDone);
+</script>
+<div>
+<button onclick="ex();">ex</button>
+<button onclick="co();">co</button>
+</div>
+<div>
+<button onclick="EX.exec();">ex</button>
+<button onclick="CO.exec();">co</button>
+</div>
+<div id="content" style="height:50px"> 
+孤雁儿
+<span id="key" onclick="shoppingcat();">展开</span><br><br>
+世人作梅词，下笔便俗。予试作一篇，乃知前言不妄耳。<br><br>
+藤床纸帐朝眠起，<br> 
+说不尽、无佳思。<br>
+沈香烟断玉炉寒，<br>
+伴我情怀如水。<br>
+笛声三弄，<br>
+梅心惊破，<br>
+多少春情意。<br><br>
+小风疏雨萧萧地，<br>
+又催下、千行泪。<br>
+吹箫人去玉楼空，<br> 
+肠断与谁同倚？
+一枝折得，<br>
+人间天上，<br>
+没个人堪寄。
+</div>
+
+</body>
+</html>

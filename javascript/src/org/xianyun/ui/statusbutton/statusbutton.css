@@ -1,0 +1,23 @@
+body {
+	
+}
+
+/* standard demo style */
+.STB_on{
+	border-left:1px solid #333;border-top:1px solid #333;
+	border-right:1px solid #ccc;border-bottom:1px solid #ccc;
+	background-color:#eee;
+}
+.STB_off{
+	border-left:1px solid #ccc;border-top:1px solid #ccc;
+	border-right:1px solid #333;border-bottom:1px solid #333;
+	background-color:#ccc;
+}
+
+/* image demo style */
+.STB_img_on{
+	background:url(image-url.gif) no-repeat;
+}
+.STB_img_off{
+	background:url(image-url.gif) no-repeat;
+}

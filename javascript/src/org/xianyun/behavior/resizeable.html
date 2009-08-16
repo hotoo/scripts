@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>resizeable/resizeBehavior</title>
+<meta name="generator" content="Editplus">
+<meta name="author" content="闲耘 (xianyun.org, hotoo.cn[AT]gmail.com)">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javascript" type="text/javascript" src="../"></script>
+<link href="" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.Resize_H_bar{cursor:s-resize;position:absolute;width:5px;height:1px;font-size:1px;}
+.Resize_V_bar{cursor:n-resize;position:absolute;width:1px;height:5px;font-size:1px;}
+.Resize_X_bar{cursor:se-resize;position:absolute;width:10px;height:10px;font-size:1px;}
+</style>
+</head>
+<body>
+<textarea id="tx" style="width:300px;height:200px;"></textarea>
+<script language="javascript">/*<![CDATA[*/
+
+var Resizeable = function(elem){
+    this._e = elem;
+	this._h; this._v; this._x;
+    this.Resizeable();
+};
+// init.
+Resizeable.prototype.Resizeable = function(){
+    this._h = this.getHBar();
+	this._v = this.getVBar();
+	this._x = this.getXBar();
+};
+Resizeable.prototype.getHBar = function(){
+	if (this._h) return this._h;
+	var d = document.createElement("div");
+	d.className = "Resize_H_bar";
+	d.style.left = "";
+	return d;
+};
+Resizeable.prototype.getVBar = function(){
+	if (this._v) return this._v;
+	var d = document.createElement("div");
+	d.className = "Resize_V_bar";
+	return d;
+};
+Resizeable.prototype.getXBar = function(){
+	if (this._x) return this._x;
+	var d = document.createElement("div");
+	d.className = "Resize_X_bar";
+	return d;
+};
+
+var s="";
+for (var k in navigator){
+	s+=k+" : "+navigator[k]+"<br />";
+}
+document.write(s+"<br />");
+
+
+</script>
+</body>
+</html>
