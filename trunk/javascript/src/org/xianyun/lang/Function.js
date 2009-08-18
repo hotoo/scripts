@@ -66,34 +66,24 @@ Function.prototype.Extends=function(SuperClass,ClassName){
   return p;
 };
 
+if (!Function.prototype.apply) {
 /**
  *  Function.call & applay 兼容ie5  参考prototype.js
  */
-if (!Function.prototype.apply) {
 Function.prototype.apply = function(object, argu){
-    if (!object) {
-        object = window;
-    }
-    
-    if (!argu) {
-        argu = new Array();
-    }
-    
+    if(!object){object = window;}
+    if(!argu){argu = new Array();}
     object.__apply__ = this;
-    
     var result = eval("object.__apply__(" + argu.join(", ") + ")");
     object.__apply__ = null;
-    
     return result;
 };
 
 Function.prototype.call = function(object){
     var argu = new Array();
-    
     for (var i = 1; i < arguments.length; i++) {
         argu[i - 1] = arguments[i];
     }
-    
     return this.apply(object, argu)
 };
 }
