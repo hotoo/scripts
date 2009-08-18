@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>chunk</title>
+</head>
+<body>
+<button onclick="test1()">Chunk1</button>
+<button onclick="test2()">Chunk2</button>
+<TABLE border=1 width="100%">
+<TR>
+	<TD><div id="time1">0</div></TD>
+	<TD><div id="time2">0</div></TD>
+</TR>
+<TR>
+	<TD valign=top><div id="demo1">1</div></TD>
+	<TD valign=top><div id="demo2">2</div></TD>
+</TR>
+</TABLE>
+
+
+<script type="text/javascript">/*<![CDATA[*/
+
+// 通用分时处理函数
+function timedChunk(items, process, context, callback) {
+	var todo = items.concat(), delay = 25;
+
+	setTimeout(function() {
+		var start = +new Date();
+
+		do {
+			process.call(context, todo.shift());
+		} while(todo.length > 0 && (+new Date() - start < 50));
+
+		if(todo.length > 0) {
+			setTimeout(arguments.callee, delay);
+		} else if(callback) {
+			callback(items);
+		}
+
+	}, delay);
+}
+function timedChunk2(items, process, len, context, callback) {
+	var todo = items.concat(), delay = 25;
+
+	setTimeout(function() {
+		var start = +new Date();
+
+		do {
+			process.call(context, todo.splice(0, len||1));
+		} while(todo.length > 0 && (+new Date() - start < 50));
+
+		if(todo.length > 0) {
+			setTimeout(arguments.callee, delay);
+		} else if(callback) {
+			callback(items);
+		}
+
+	}, delay);
+}
+
+var data = [];
+for (var i=0; i<2000; i++){
+	data[data.length]="data item "+i;
+}
+function show1(d){
+	document.getElementById("demo1").innerHTML += d+"<br />";
+}
+function show2(d){
+	for (var i=0,s="",l=d.length; i<l; i++){
+		s+=d[i]+"<br />";
+	}
+	document.getElementById("demo2").innerHTML += s;
+}
+function test1(){
+	var t=+new Date();
+	timedChunk(data, show1, null, function(){document.getElementById("time1").innerHTML=+new Date()-t;});
+}
+function test2(){
+	var t=+new Date();
+	timedChunk2(data, show2, 20, null, function(){document.getElementById("time2").innerHTML=+new Date()-t;});
+}
+
+/*]]>*/</script>
+</body>
+</html>
