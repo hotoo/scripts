@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>join</title>
+</head>
+<body>
+<script type="text/javascript">/*<![CDATA[*/
+var a=[[1,"a"],[2,"b"],[3,"c"]];
+var $join=Array.prototype.join;
+Array.prototype.join = function(){
+	if(arguments.length<2){return $join.apply(this,arguments)}
+
+};
+document.write(a.join("",""));
+/*]]>*/</script>
+</body>
+</html>
