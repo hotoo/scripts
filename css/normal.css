@@ -1,0 +1,94 @@
+/**
+ * 滚动条，支持IE。
+ * 这个色彩搭配是浅银白色，简洁低调。
+ */
+html,body{
+    scrollbar-face-color:#f6f6f6; 
+    scrollbar-highlight-color:#fff; 
+    scrollbar-shadow-color:#ccc; 
+    scrollbar-3dlight-color:#ccc; 
+    scrollbar-arrow-color:#300;
+    scrollbar-track-color:#f6f6f6; 
+    scrollbar-darkshadow-color:#fff; 
+}
+
+/**
+ * 强制不换行
+ */
+div{
+    white-space:nowrap;
+}
+
+/**
+ * 自动换行
+ */
+div{
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+/**
+ * 强制英文单词断行
+ */
+div{
+    word-break:break-all;
+}
+
+/**
+ * 边框样式定义
+ */
+    border-width:0 1px 1px 1px;
+	border-style:solid;
+	border-color:#eee;
+/**
+ * 圆角效果，支持Firefox, Safari, Chrome.
+ */
+div{
+    -moz-border-radius:5px 0 5px 0; /* top-left, top-right, bottom-right, bottom-left */
+    -khtml-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+
+    -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
+
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-bottomleft:5px;
+
+    -webkit-border-top-left-radius:5px 10px;
+    -webkit-border-top-right-radius:5px 10px;
+    -webkit-border-bottom-right-radius:5px 10px;
+    -webkit-border-bottom-left-radius:5px 10px;}
+
+/**
+ * 透明度。
+ */
+.opacity{
+    -moz-opacity:0.5;               /* FF(0.0-0.9, 0.9-3.0) */
+    opacity:0.5;                    /* FF(0.9-3.0, 3.5+) */
+    -ms-filter:"alpha(opacity=50)"; /* IE 8 */
+    filter:alpha(opacity=50);       /* IE 4-7 */
+    zoom:1; /* set "zoom", "width" or "height" to trigger "hasLayout" in IE 7 and lower */
+
+    -moz-opacity:0.5; opacity:0.5; -ms-filter:"alpha(opacity=50)"; filter:alpha(opacity=50); zoom:1;
+}
+
+
+/* min height start */
+/* for understanding browsers */
+.container {
+width:20em;
+padding:0.5em;
+border:1px solid #000;
+min-height:8em; 
+height:auto;
+}
+/* for Internet Explorer */
+/*\*/
+* html .container {
+height: 8em;
+}
+/**/
+/* min height end */
+
