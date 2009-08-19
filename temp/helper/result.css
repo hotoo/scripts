@@ -1,18 +1,33 @@
 html,body{font-size:14px;}
+
+#header{}
+    #header img{border:0;}
+
+#container{}
+    #container h3{margin:0; padding:.2em .5em; height:1.3em; line-height:1.6em; 
+      background:#F0F7F9 none; border-top:1px solid #6B90DA;
+      font-weight:normal; font-size:14px;}
+
 ol{list-style-type:none; margin:0; padding:0; width:40em;}
 	ol li{margin:1.2em 0; padding:0; list-style-type:none;}
-		ol li h3{margin:0; padding:0; font-weight:normal; font-size:1.3em;}
-			ol li h3 a{color:#20c;}
+		ol li h4{margin:.2em 0; padding:0; font-weight:normal; font-size:1.2em;}
+			ol li h4 a{color:#20c;}
 		ol li p{margin:0; padding:0; color:#666;}
-			ol li h3 em,
+			ol li h4 em,
 			ol li p em{color:#f60; font-style:normal; font-weight:bold;}
 		ol li div{color:#008000;}
 
-#pager{margin:0 auto; width:40em;}
+#pager{margin:0 auto; width:40em; display:inline;}
     #pager ul{list-style-type:none; margin:0; padding:0; overflow:hidden;}
     #pager ul:after{height:0; content:'.'; display:block; clear:both;}
     #pager ul{zoom:1;}
     #pager li{list-style-type:none; float:left; margin:0 .3em; padding:.2em .5em; border:1px solid #ccc;}
     #pager li.curr{border-color:#999; background:#aaa; color:#fff;}
 
-#footer{text-align:center;}
+#footer{margin:1em 0; padding:0;
+  background:#F0F7F9 none; border-width:1px 0; border-style:solid; border-color:#6B90DA;
+  text-align:center;}
+
+form{margin:1em 0;}
+    form input{font-size:1.2em;}
+    form input.text{width:20em;}

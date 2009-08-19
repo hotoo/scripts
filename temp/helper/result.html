@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-<meta name="generator" content="Editplus" />
+<meta name="generator" content="vim" />
 <meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
@@ -12,22 +12,29 @@
 <link type="text/css" rel="stylesheet" href="result.css" />
 </head>
 <body>
+<div id="header">
 <form method="post" action="result.html">
-	<input type="text" name="key" value="keywords" />
-	<input type="submit" value="搜索" />
+    <a href="/"><img alt="alipay logo" src="img/logo.gif" /></a>
+	<input type="text" class="text" name="key" value="keywords" />
+	<input type="submit" class="submit" value="搜索" />
 </form>
+</div>
+<div id="container">
+<h3>搜索"<em>keywords</em>"，共200条帮助。</h3>
 <ol>
-<li><h3><a href="#">这是<em>keywords</em>搜索结果1</a></h3>
+<li><h4><a href="#">这是<em>keywords</em>搜索结果1</a></h4>
 <p>这是<em>keywords</em>的搜索结果项简要描述。这是<em>keywords</em>的搜索结果项简要描述。这是<em>keywords</em>的搜索结果项简要描述。这是<em>keywords</em>的搜索结果项简要描述。</p>
 <div>http://dss.alipay.com/help/someone.html</div>
 </li>
-<li><h3><a href="#">这是<em>keywords</em>搜索结果2</a></h3>
+<li><h4><a href="#">这是<em>keywords</em>搜索结果2</a></h4>
 <p>这是<em>keywords</em>的搜索结果项简要描述。这是<em>keywords</em>的搜索结果项简要描述。这是<em>keywords</em>的搜索结果项简要描述。这是<em>keywords</em>的搜索结果项简要描述。</p>
 <div>http://dss.alipay.com/help/someone.html</div>
 </li>
 </ol>
-<div id="footer">
-<div id="pager"><ul>
+</div>
+
+<div id="pager">
+<ul>
 <li class="curr">1</li>
 <li><a href="#2">2</a></li>
 <li><a href="#3">3</a></li>
@@ -38,10 +45,13 @@
 <li><a href="#4">8</a></li>
 <li><a href="#4">9</a></li>
 <li><a href="#4">10</a></li>
-</ul></div>
+</ul>
+</div>
+
+<div id="footer">
 <form method="post" action="result.html">
-	<input type="text" name="key" value="keywords" />
-	<input type="submit" value="搜索" />
+	<input type="text" class="text" name="key" value="keywords" />
+	<input type="submit" class="submit" value="搜索" />
 </form>
 </div>
 </body>
