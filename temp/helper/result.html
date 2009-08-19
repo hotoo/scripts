@@ -9,21 +9,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>result</title>
-<style type="text/css">/*<![CDATA[*/
-html,body{font-size:14px;}
-ol{list-style-type:none; margin:0; padding:0; width:40em;}
-	ol li{margin:1.5em 0; padding:0;}
-		ol li h3{margin:0; padding:0; font-weight:normal; font-size:1.3em;}
-			ol li h3 a{color:#20c;}
-		ol li p{margin:0; padding:0;}
-			ol li h3 em,
-			ol li p em{color:#f60; font-style:normal; font-weight:bold;}
-		ol li div{color:#008000;}
-#pager{list-style-type:none; margin:0; padding:0;}
-#pager:after{}
-#pager{zoom:1;}
-	#pager li{float:left; margin:.3em; padding:.2em .5em; border:1px solid #ccc;}
-/*]]>*/</style>
+<link type="text/css" rel="stylesheet" href="result.css" />
 </head>
 <body>
 <form method="post" action="result.html">
@@ -40,15 +26,23 @@ ol{list-style-type:none; margin:0; padding:0; width:40em;}
 <div>http://dss.alipay.com/help/someone.html</div>
 </li>
 </ol>
+<div id="footer">
 <div id="pager"><ul>
-<li><a href="#1">1</a></li>
+<li class="curr">1</li>
 <li><a href="#2">2</a></li>
 <li><a href="#3">3</a></li>
 <li><a href="#4">4</a></li>
+<li><a href="#4">5</a></li>
+<li><a href="#4">6</a></li>
+<li><a href="#4">7</a></li>
+<li><a href="#4">8</a></li>
+<li><a href="#4">9</a></li>
+<li><a href="#4">10</a></li>
 </ul></div>
 <form method="post" action="result.html">
 	<input type="text" name="key" value="keywords" />
 	<input type="submit" value="搜索" />
 </form>
+</div>
 </body>
 </html>
