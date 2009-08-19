@@ -4,9 +4,13 @@ html,body{font-size:14px;}
     #header img{border:0;}
 
 #container{}
+    #container h2,
     #container h3{margin:0; padding:.2em .5em; height:1.3em; line-height:1.6em; 
-      background:#F0F7F9 none; border-top:1px solid #6B90DA;
-      font-weight:normal; font-size:14px;}
+      background:#F0F7F9 none; border-top:1px solid #6B90DA;}
+    #container h2{font-weight:bold; font-size:1.2em;}
+    #container h3{font-weight:normal; font-size:14px;}
+    #container p{width:40em;}
+        #container p em{font-style:normal; color:#f60; font-weight:bold;}
 
 ol{list-style-type:none; margin:0; padding:0; width:40em;}
 	ol li{margin:1.2em 0; padding:0; list-style-type:none;}
@@ -16,6 +20,7 @@ ol{list-style-type:none; margin:0; padding:0; width:40em;}
 			ol li h4 em,
 			ol li p em{color:#f60; font-style:normal; font-weight:bold;}
 		ol li div{color:#008000;}
+
 
 #pager{margin:0 auto; width:40em; display:inline;}
     #pager ul{list-style-type:none; margin:0; padding:0; overflow:hidden;}
