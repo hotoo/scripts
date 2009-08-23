@@ -17,7 +17,7 @@ Crazy.prototype.test=function(){
 Crazy.prototype._test1=function(f){
     var d = new Date();
     for (var t=0; t<this.times; t++){
-        f.call(f, this.args);
+        f.apply(f, this.args);
     }
     d = new Date()-d;
     var n=funame(f),ME=this;
