@@ -20,7 +20,7 @@ function crazyIt(){
     var c=new Crazy();
     c.funs=[repeat, repeat2, repeat3];
     c.args=["0", 3];
-    c.timer=100000;
+    c.times=100000;
     c.test();
 }
 </pre>
@@ -29,7 +29,7 @@ function crazyIt(){
 <p>可以在<code>crazyIt</code>中实例化多个<code>Crazy</code>对象，各自带上不同的参数或者循环遍历次数，便可针对不同参数条件进行测试。</p>
 <p><code>crazyIt</code>的属性中，<code>funs</code>即为一系列被测试的函数对象数组。</p>
 <p><code>args</code>属性是测试过程中需要的参数队列。编写被测试函数时需注意，所有被测试函数的参数列表及顺序一定要保持一致。</p>
-<p><code>timer</code>属性是在疯狂循环测试过程中的循环次数，默认10000次，可以根据大型或小型函数进行调整。</p>
+<p><code>times</code>属性是在疯狂循环测试过程中的循环次数，默认10000次，可以根据大型或小型函数进行调整。</p>
 <p>实例化时候，<code>test()</code>运行即可。</p>
 <p>整个过程也可以简化合并成一句完成。</p>
 <p><pre class="code javascript">
