@@ -1,7 +1,11 @@
-var Crazy=function(){
-    this.funs=null;
-    this.args=null;
-    this.times=10000;
+/**
+ * @param 
+ * @author 闲耘(mail[AT]xianyun.org)
+ */
+var Crazy=function(funs,args,time){
+    this.funs=funs;
+    this.args=args;
+    this.times=time||10000;
     this.out=null;
     this._result=[];
 };
