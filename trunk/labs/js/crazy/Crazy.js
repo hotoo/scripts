@@ -6,7 +6,6 @@ var Crazy=function(funs,args,time){
     this.funs=funs;
     this.args=args;
     this.times=time||10000;
-    this.out=null;
     this._result=[];
 };
 Crazy.prototype.test=function(){
