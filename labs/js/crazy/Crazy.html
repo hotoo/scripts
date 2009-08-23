@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>Crazy Tester Framework - Javascript Efficiency Test</title>
+<style type="text/css">/*<![CDATA[*/
+table.result{table-layout:fixed; border-collapse:collapse; border-spacing:0; margin:1em 0;}
+    table.result thead{border-width:1px 1px 0 1px; border-style:solid; border-color:#eee;}
+        table.result th{background:#eee none; color:#666;}
+     table.result tbody{border-width:0 0 0 1px; border-style:solid; border-color:#eee;}
+        table.result td{border-width:0 1px 1px 0; border-style:solid; border-color:#eee;}
+div.rate{border:0px solid #8ec2f5;}
+    div.rate div{background:#8ec2f5 none; color:#fff;}
+.process,.rate{border:1px solid #8ec2f5; position:relative;}
+    .process div,.rate div{background:#8ec2f5 none; display:block; height:1em;}
+    .process cite,.rate cite{position:absolute; left:50%; top:0; margin-left:-2em; width:4em; text-align:center;}
+p{margin:0; padding:0;}
+#btn-run{font-size:2em;}
+h3{margin:.5em 0; padding:0 1em; background:#d6e9fc none; border-top:1px solid #0657b9;}
+/*]]>*/</style>
+<script type="text/javascript" src="Crazy.js"></script>
+<script type="text/javascript">/*<![CDATA[*/
+window.Browser = {
+    isIE : (navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0),
+    isFirefox : navigator.userAgent.indexOf('Firefox') >= 0,
+    isChrome : navigator.userAgent.indexOf('Chrome') >= 0,
+    isOpera : navigator.userAgent.indexOf('Opera') >= 0,
+    isNetscape : navigator.userAgent.indexOf('Netscape') >= 0
+};
+window.$import = function(uri, fCallback){
+    //var id = 'script_' + path.replace(/\//g, '_') + uri.replace(/\./g, '_');
+    var callback = function(script){
+        if (Browser.isIE){
+            script.onreadystatechange = function(){
+                if (script.readyState == 'complete' || script.readyState == 'loaded'){
+                    if(typeof(fCallback) == 'function'){fCallback();};
+                };
+            };
+        }else if(Browser.isFirefox){
+            script.onload = function(){
+                if(typeof(fCallback) == 'function'){fCallback();};
+            };
+            script.onerror = function(){
+                alert('load error.');
+            };
+        }else{ // Chrome, Opera 8.0/9.0 passed.
+            if(typeof(fCallback) == 'function'){fCallback();};
+        };
+    };
+    /*if (document.getElementById(id) != null){ // script tag is created.
+        try{
+            fCallback();
+        }catch(e){ // scripts is not success loaded.
+            callback(document.getElementById(id));
+        };
+        return;
+    };*/
+    //var _url = path + uri.replace(/\./g, '/') + '.js';
+    var script = document.createElement('script');
+    script.setAttribute('language', 'javascript');
+    script.setAttribute('type', 'text/javascript');
+    //script.setAttribute('id', id);
+    script.setAttribute('src', uri);
+    //document.body.appendChild(script);
+    document.getElementsByTagName('head')[0].appendChild(script);
+    callback(script);
+};
+
+function println(){
+	document.write([].join.call(arguments)+"<br />");
+}
+
+function funame(f){
+    if(f.name){return f.name;}
+	var s = f.toString().match(/function(?:\s+(\w+))\s*\(/);
+	return s?s[1]:"anonymous";
+}
+/*]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/
+function $(id){return document.getElementById(id);}
+
+function loadBefore(){
+    $("btn-run").disabled = true;
+    $("btn-load-path").disabled = true;
+    $("btn-load-src").disabled = true;
+}
+function loadBack(){
+    $("btn-run").disabled = false;
+    $("btn-load-path").disabled = false;
+    $("btn-load-src").disabled = false;
+}
+// for local file.
+function loadPath(src){
+    loadBefore();
+    window.$import(src, loadBack)
+}
+// for remote resource.
+function loadUri(src){
+    loadBefore();
+    window.$import(src,loadBack);
+}
+function run(){
+    $("btn-run").disabled = true;
+    if(crazyIt){crazyIt();}
+    $("btn-run").disabled = false;
+}
+/*]]>*/</script>
+</head>
+<body>
+
+<form method="post" action="javascript:void(0);" onsubmit="return false;">
+<table style="border-collapse:collapse; border-spacing:0;">
+<tr>
+    <td rowspan="2" style="padding:0 2em 0 0;"><p><input type="submit" id="btn-run" disabled="disabled" onclick="run();" value="RUN" /></p></td>
+    <td><p><input type="file" id="jspath" name="jspath" onchange="loadPath(this.value)" />
+        <input type="button" id="btn-load-path" onclick="loadPath($('jspath').value)" value="Load Local File(for cache)" /></p>
+    </td>
+</tr>
+<tr>
+    <td><p><input type="text" id="jsuri" name="jsuri" /><input type="button" id="btn-load-src" onclick="loadUri($('jsuri').value);" value="Load Remote Resource" />
+        eg. http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/repeat.js</p></td>
+</tr></table>
+</form>
+<h3>Results</h3>
+<div id="out"></div>
+
+</body>
+</html>
