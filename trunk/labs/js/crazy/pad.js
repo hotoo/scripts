@@ -48,9 +48,9 @@ function pad9(num, n){
     //return n-l==1?"0"+num:pad9("0"+num, n);
 }
 
-function crazyIt(){alert(0);
+function crazyIt(){
     var c=new Crazy();
-    c.funs=[pad, pad3];
+    c.funs=[pad, pad3, pad5, pad6, pad7];
     c.args=[12, 9];
     c.timer=5000;
     c.test();
