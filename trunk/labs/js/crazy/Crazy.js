@@ -5,7 +5,7 @@
  * @param {Number} times loop execute function item times.
  * @param {Function} callback execute when all performance test complete.
  * @author 闲耘(mail[AT]xianyun.org)
- * @version 1.0 2009/08/23
+ * @version 1.2 2009/08/23
  */
 var Crazy=function(funs, args, times, callback){
     this.funs=funs;
