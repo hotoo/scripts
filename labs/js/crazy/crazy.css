@@ -1,6 +1,6 @@
 html,body{}
-table.result{table-layout:fixed; border-collapse:collapse; border-spacing:0; margin:1em 0;}
-    table.result caption{background:#eee; text-align:left; padding:0 .5em;}
+table.result{table-layout:fixed; border-collapse:collapse; border-spacing:0; margin:0 0 1em 0;}
+    table.result caption{background:#eee; text-align:left; padding:0 .5em; margin:0;}
         table.result caption i{color:#f60;}
     table.result thead{border-width:1px 1px 0 1px; border-style:solid; border-color:#eee;}
         table.result th{background:#eee none; color:#666;}
