@@ -12,32 +12,30 @@
 </head>
 <body>
 <h1>疯狂测试框架之帮助 - Help for Crazy Test Framework</h1>
-<p>疯狂测试(Crazy Tester)是专为Javascript效率测试而编写的一个框架。效率测试框架不验证结果的正确性，请将代码调试正确后进行效率测试。</p>
+<p>疯狂测试(Crazy Tester)是专为Javascript性能测试而编写的一个框架。性能测试框架不验证结果的正确性，请将代码调试正确后进行性能测试。</p>
 <p>
 被测试Javascript代码文件中必须有crazyIt函数，示例代码如下：
 <pre class="code javascript">
+/**
+ * Crazy Performance Test Interface.
+ * @return {Array&lt;Object&gt;} [{<strong>funs</strong>:[func1, func2, ...], <strong>args</strong>:[arg1, arg2, ...], <strong>times</strong>:10000}, ...]
+ */
 function crazyIt(){
-    var c=new Crazy();
-    c.funs=[repeat, repeat2, repeat3];
-    c.args=["0", 3];
-    c.times=100000;
-    c.test();
+    var fs=[fun1, fun2];
+
+    return [{funs:fs, args:["0", 30], times:1000},
+        {funs:fs, args:["0123456789abcdefghijklmnopqrstuvwxyz",1000], times:100000}];
 }
 </pre>
 </p>
 <p>其中函数名<code>crazyIt</code>为必须。这里参考了Java文件中的<code>main</code>函数，用来单元测试的思想，发布时将<code>crazyIt</code>函数移除即可。</p>
-<p>可以在<code>crazyIt</code>中实例化多个<code>Crazy</code>对象，各自带上不同的参数或者循环遍历次数，便可针对不同参数条件进行测试。</p>
-<p><code>crazyIt</code>的属性中，<code>funs</code>即为一系列被测试的函数对象数组。</p>
-<p><code>args</code>属性是测试过程中需要的参数队列。编写被测试函数时需注意，所有被测试函数的参数列表及顺序一定要保持一致。</p>
-<p><code>times</code>属性是在疯狂循环测试过程中的循环次数，默认10000次，可以根据大型或小型函数进行调整。</p>
-<p>实例化时候，<code>test()</code>运行即可。</p>
-<p>整个过程也可以简化合并成一句完成。</p>
-<p><pre class="code javascript">
-function crazyIt(){
-    new Crazy([repeat, repeat2, repeat3], ["0", 3], 100000).test();
-}
-</pre></p>
+<p><code>crazyIt()</code>返回一个由一个特殊对象组成的数组，数组项目中的对象，属性列表如下：</p>
+<p><code>funs</code> 为一系列被测试的函数的数组。</p>
+<p><code>args</code> 是运行测试函数所需的参数队列。编写被测试函数时需注意，所有被测试函数的参数列表及顺序一定要保持一致。</p>
+<p><code>times</code> 是在性能测试过程中的循环次数，默认10000次，可以根据大型或小型函数进行调整。</p>
+<p>返回的数组多个<code>Crazy</code>对象，各自带上不同的参数或者循环遍历次数，便可针对不同参数条件进行测试。</p>
+
 <p><a href="Crazy.html">测试页面</a></p>
-<p>测试页面上，导入被测试的Javascript代码（可以导入本地或远程的代码）后，运行即可，可以多次运行。</p>
+<p>测试页面上，导入被测试的Javascript代码（可以导入本地或远程的代码）后，运行即可。可以多次运行，求平均值以获得更准确的性能比较结果。</p>
 </body>
 </html>

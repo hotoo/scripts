@@ -72,13 +72,19 @@ function funame(f){
 function $(id){return document.getElementById(id);}
 
 function loadBefore(){
+    document.body.style.cursor="wait";
     $("btn-run").disabled = true;
+    $("jspath").disabled = true;
     $("btn-load-path").disabled = true;
+    $("jsuri").disabled = true;
     $("btn-load-src").disabled = true;
 }
 function loadBack(){
+    document.body.style.cursor="";
     $("btn-run").disabled = false;
+    $("jspath").disabled = false;
     $("btn-load-path").disabled = false;
+    $("jsuri").disabled = false;
     $("btn-load-src").disabled = false;
 }
 // for local file.
@@ -99,8 +105,8 @@ Function.createDelegate = function(instance, method) {
     }
 };
 
-function runbefore(){$("btn-run").disabled = true;}
-function runback(){$("btn-run").disabled = false;}
+function runbefore(){$("btn-run").disabled=true; loadBefore(); $("btn-run").value="RUNNING...";}
+function runback(){$("btn-run").value="RUN"; loadBack(); $("btn-run").disabled = false;}
 function run(){
     runbefore();
     var cs=crazyIt();
