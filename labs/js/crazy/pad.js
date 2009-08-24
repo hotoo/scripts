@@ -49,10 +49,8 @@ function pad9(num, n){
 }
 
 function crazyIt(){
-    var c=new Crazy();
-    c.funs=[pad, pad3, pad5, pad6, pad7];
-    c.args=[12, 9];
-    c.timer=5000;
-    c.test();
+    var fs=[pad, pad3, pad5, pad6, pad7];
+    return [{funs:fs, args:[12, 9], times:5000},
+           {funs:fs, args:[123456789,3], times:5000}];
 }
 
