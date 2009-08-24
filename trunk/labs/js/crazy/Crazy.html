@@ -90,7 +90,7 @@ function loadBack(){
 // for local file.
 function loadPath(src){
     loadBefore();
-    window.$import(src, loadBack)
+    window.$import(src, loadBack);
 }
 // for remote resource.
 function loadUri(src){
@@ -98,7 +98,7 @@ function loadUri(src){
     window.$import(src,loadBack);
 }
 
-Function.createDelegate = function(instance, method) {
+Function.createDelegate = function(instance, method){
 	//var args = Array.from(arguments).splice(2,arguments.length - 2);
     return function() {
         return method.apply(instance, arguments);
@@ -114,8 +114,10 @@ function run(){
     if(cs instanceof Array){
         var l=cs.length-1,
             c=new Crazy(cs[l].funs, cs[l].args, cs[l].times, runback);
+            c.out = $("out");
         for(var i=l-1; i>=0; i--){
             c = new Crazy(cs[i].funs, cs[i].args, cs[i].times, Function.createDelegate(c, c.test));
+            c.out = $("out");
         }
         c.test();
     }else{
@@ -125,6 +127,7 @@ function run(){
 /*]]>*/</script>
 </head>
 <body>
+<div id="top">
 <a id="helpLink" href="help.html">Help</a>
 <form method="post" action="javascript:void(0);" onsubmit="return false;">
 <table style="border-collapse:collapse; border-spacing:0;">
@@ -140,6 +143,7 @@ function run(){
 </tr></table>
 </form>
 <h3>Results</h3>
+</div>
 <div id="out"></div>
 
 </body>
