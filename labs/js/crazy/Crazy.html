@@ -9,22 +9,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>Crazy Tester Framework - Javascript Efficiency Test</title>
-<style type="text/css">/*<![CDATA[*/
-table.result{table-layout:fixed; border-collapse:collapse; border-spacing:0; margin:1em 0;}
-    table.result thead{border-width:1px 1px 0 1px; border-style:solid; border-color:#eee;}
-        table.result th{background:#eee none; color:#666;}
-     table.result tbody{border-width:0 0 0 1px; border-style:solid; border-color:#eee;}
-        table.result td{border-width:0 1px 1px 0; border-style:solid; border-color:#eee;}
-div.rate{border:0px solid #8ec2f5;}
-    div.rate div{background:#8ec2f5 none; color:#fff;}
-.process,.rate{border:1px solid #8ec2f5; position:relative;}
-    .process div,.rate div{background:#8ec2f5 none; display:block; height:1em;}
-    .process cite,.rate cite{position:absolute; left:50%; top:0; margin-left:-2em; width:4em; text-align:center;}
-p{margin:0; padding:0;}
-#btn-run{font-size:2em;}
-h3{margin:.5em 0; padding:0 1em; background:#d6e9fc none; border-top:1px solid #0657b9;}
-#helpLink{float:right; color:#008000;}
-/*]]>*/</style>
+<link type="text/css" rel="stylesheet" href="crazy.css" />
 <script type="text/javascript" src="Crazy.js"></script>
 <script type="text/javascript">/*<![CDATA[*/
 window.Browser = {
@@ -106,10 +91,30 @@ function loadUri(src){
     loadBefore();
     window.$import(src,loadBack);
 }
+
+Function.createDelegate = function(instance, method) {
+	//var args = Array.from(arguments).splice(2,arguments.length - 2);
+    return function() {
+        return method.apply(instance, arguments);
+    }
+};
+
+function runbefore(){$("btn-run").disabled = true;}
+function runback(){$("btn-run").disabled = false;}
 function run(){
-    $("btn-run").disabled = true;
-    if(crazyIt){crazyIt();}
-    $("btn-run").disabled = false;
+    runbefore();
+    var cs=crazyIt();
+    if(!cs){alert("未找到被测试函数。"); runback(); return;}
+    if(cs instanceof Array){
+        var l=cs.length-1,
+            c=new Crazy(cs[l].funs, cs[l].args, cs[l].times, runback);
+        for(var i=l-1; i>=0; i--){
+            c = new Crazy(cs[i].funs, cs[i].args, cs[i].times, Function.createDelegate(c, c.test));
+        }
+        c.test();
+    }else{
+        new Crazy(cs.funs, cs.args, cs.times, runback).test();
+    }
 }
 /*]]>*/</script>
 </head>

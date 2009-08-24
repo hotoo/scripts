@@ -60,14 +60,13 @@ function repeat_recursion_name(s,i){
 
 
 function crazyIt(){
-    var c=new Crazy();
-    c.funs=[repeat_new_arr_join, repeat_for_minus_arr_join, repeat_for_minus_str_append,
+    var fs=[repeat_new_arr_join, repeat_for_minus_arr_join, repeat_for_minus_str_append,
         repeat_for_plus_arr_join, repeat_for_plus_str_append, repeat_while_minus_arr_join,
         repeat_while_minus_str_append, repeat_while_plus_arr_join, repeat_while_plus_str_append,
         repeat_recursion_callee, repeat_recursion_name];
-    c.args=["0", 30];
-    c.timer=10000;
-    c.test();
+
+    return [{funs:fs, args:["0", 30], times:10000},
+        {funs:fs, args:["0123456789",1000], times:1000}];
 }
 
 
