@@ -10,12 +10,12 @@ table.result{table-layout:fixed; border-collapse:collapse; border-spacing:0; mar
 div.perf, div.rate{border:0; position:relative;}
     div.perf div, div.rate div{display:block; height:1em;}
     div.perf div{background:#e7f2fd none;}
-    div.perf-best div{background:#9c0 none;}
+    div.perf-best div{background:#8ec2f5 none;}
     div.perf-fast div{background:#8ec2f5 none;}
     div.rate div{background:#eee none;}
     div.perf cite, div.rate cite{position:absolute; width:6em; margin-left:-3em; left:50%; top:0; text-align:center; font-style:normal;}
         div.perf-best cite, div.perf-fast cite{}
-        div.perf-best cite{color:#fff;}
+        div.perf-best cite{color:#f93; font-weight:bold;}
         div.perf-fast cite{color:#fff;}
         div.rate cite{width:10em; margin-left:-5em; color:#ccc;}
 
