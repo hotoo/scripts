@@ -8,67 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<title>Crazy Tester Framework - Javascript Efficiency Test</title>
+<title>Crazy - Javascript Efficiency Test Framework</title>
 <link type="text/css" rel="stylesheet" href="crazy.css" />
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="io.js"></script>
 <script type="text/javascript" src="Crazy.js"></script>
 <script type="text/javascript">/*<![CDATA[*/
-window.Browser = {
-    isIE : (navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0),
-    isFirefox : navigator.userAgent.indexOf('Firefox') >= 0,
-    isChrome : navigator.userAgent.indexOf('Chrome') >= 0,
-    isOpera : navigator.userAgent.indexOf('Opera') >= 0,
-    isNetscape : navigator.userAgent.indexOf('Netscape') >= 0
-};
-window.$import = function(uri, fCallback){
-    //var id = 'script_' + path.replace(/\//g, '_') + uri.replace(/\./g, '_');
-    var callback = function(script){
-        if (Browser.isIE){
-            script.onreadystatechange = function(){
-                if (script.readyState == 'complete' || script.readyState == 'loaded'){
-                    if(typeof(fCallback) == 'function'){fCallback();};
-                };
-            };
-        }else if(Browser.isFirefox){
-            script.onload = function(){
-                if(typeof(fCallback) == 'function'){fCallback();};
-            };
-            script.onerror = function(){
-                alert('load error.');
-            };
-        }else{ // Chrome, Opera 8.0/9.0 passed.
-            if(typeof(fCallback) == 'function'){fCallback();};
-        };
-    };
-    /*if (document.getElementById(id) != null){ // script tag is created.
-        try{
-            fCallback();
-        }catch(e){ // scripts is not success loaded.
-            callback(document.getElementById(id));
-        };
-        return;
-    };*/
-    //var _url = path + uri.replace(/\./g, '/') + '.js';
-    var script = document.createElement('script');
-    script.setAttribute('language', 'javascript');
-    script.setAttribute('type', 'text/javascript');
-    //script.setAttribute('id', id);
-    script.setAttribute('src', uri);
-    //document.body.appendChild(script);
-    document.getElementsByTagName('head')[0].appendChild(script);
-    callback(script);
-};
-
-function println(){
-	document.write([].join.call(arguments)+"<br />");
-}
-
-function funame(f){
-    if(f.name){return f.name;}
-	var s = f.toString().match(/function(?:\s+(\w+))\s*\(/);
-	return s?s[1]:"anonymous";
-}
-/*]]>*/</script>
-<script type="text/javascript">/*<![CDATA[*/
+function println(){document.write([].join.call(arguments)+"<br />");}
 function $(id){return document.getElementById(id);}
 
 function loadBefore(){
@@ -98,51 +44,86 @@ function loadUri(src){
     window.$import(src,loadBack);
 }
 
-Function.createDelegate = function(instance, method){
-	//var args = Array.from(arguments).splice(2,arguments.length - 2);
-    return function() {
-        return method.apply(instance, arguments);
-    }
-};
 
-function runbefore(){$("btn-run").disabled=true; loadBefore(); $("btn-run").value="RUNNING...";}
-function runback(){$("btn-run").value="RUN"; loadBack(); $("btn-run").disabled = false;}
-function run(){
-    runbefore();
-    var cs=crazyIt();
+function runbefore(){
+    $("btn-run").disabled=true;
+    $("btn-average").disabled = true;
+    $("btn-clear").disabled = true;
+    loadBefore();
+    $("btn-run").value="RUNNING...";
+}
+function runback(){
+    $("btn-run").value="RUN";
+    loadBack();
+    $("btn-run").disabled = false;
+    $("btn-average").disabled = false;
+    $("btn-clear").disabled = false;
+}
+var CRAZY_INSTANCE=null;
+function crazyInstance(crazy){
+    if(CRAZY_INSTANCE){return CRAZY_INSTANCE;}
+    var cs=crazy();
     if(!cs){alert("未找到被测试函数。"); runback(); return;}
     if(cs instanceof Array){
+        CRAZY_INSTANCE=[];
         var l=cs.length-1,
-            c=new Crazy(cs[l].funs, cs[l].args, cs[l].times, runback);
+            c = new Crazy(cs[l].funs, cs[l].args, cs[l].times, runback);
             c.out = $("out");
+            CRAZY_INSTANCE[CRAZY_INSTANCE.length] = c;
         for(var i=l-1; i>=0; i--){
-            c = new Crazy(cs[i].funs, cs[i].args, cs[i].times, Function.createDelegate(c, c.test));
+            CRAZY_INSTANCE[CRAZY_INSTANCE.length] = c =
+              new Crazy(cs[i].funs, cs[i].args, cs[i].times, Function.createDelegate(c, c.test));
             c.out = $("out");
         }
-        c.test();
+        return CRAZY_INSTANCE;
     }else{
-        new Crazy(cs.funs, cs.args, cs.times, runback).test();
+        return CRAZY_INSTANCE=[new Crazy(cs.funs, cs.args, cs.times, runback)];
     }
+}
+function run(){
+    runbefore();
+    var ci=crazyInstance(crazyIt);
+    ci[ci.length-1].test();
+}
+function average(){
+    if(!crazyIt){return;}
+    var inst = crazyInstance(crazyIt);
+    for(var i=inst.length-1; i>=0; i--){
+        inst[i].average();
+    }
+}
+function clean(){
+    $("out").innerHTML="";
 }
 /*]]>*/</script>
 </head>
 <body>
 <div id="top">
-<a id="helpLink" href="help.html">Help</a>
 <form method="post" action="javascript:void(0);" onsubmit="return false;">
-<table style="border-collapse:collapse; border-spacing:0;">
+<table style="border-collapse:collapse; border-spacing:0; width:95%;">
 <tr>
-    <td rowspan="2" style="padding:0 2em 0 0;"><p><input type="submit" id="btn-run" disabled="disabled" onclick="run();" value="RUN" /></p></td>
-    <td><p><input type="file" id="jspath" name="jspath" onchange="loadPath(this.value)" />
+    <td rowspan="2" width="100" style="padding:0 2em 0 0;"><p>
+        <input type="submit" id="btn-run" disabled="disabled" onclick="run();" value="RUN" /></p></td>
+    <td width="500"><p><input type="file" id="jspath" name="jspath" onchange="loadPath(this.value)" />
         <input type="button" id="btn-load-path" onclick="loadPath($('jspath').value)" value="Load Local File(for cache)" /></p>
+    </td>
+    <td align="rigth">
+        <a id="helpLink" href="help.html">Help</a>
     </td>
 </tr>
 <tr>
-    <td><p><input type="text" id="jsuri" name="jsuri" /><input type="button" id="btn-load-src" onclick="loadUri($('jsuri').value);" value="Load Remote Resource" />
-        eg. <a href="http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/repeat.js">repeat</a>, <a href="http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/pad.js">pad</a></p></td>
+    <td><p>
+        <input type="text" id="jsuri" name="jsuri" />
+        <input type="button" id="btn-load-src" onclick="loadUri($('jsuri').value);" value="Load Remote Resource" />
+        eg. <a href="http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/repeat.js">repeat</a>, 
+        <a href="http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/pad.js">pad</a></p></td>
+    <td align="right">
+        <input type="button" id="btn-average" value="average" onclick="average();" />
+        <input type="button" id="btn-clear" value="clear" onclick="clean();" />
+    </td>
 </tr></table>
 </form>
-<h3>Results</h3>
+<h3><span>Copyleft &copy; 2009 <a href="http://www.xianyun.org">xianyun.org</a>, version 1.3</span>Results</h3>
 </div>
 <div id="out"></div>
 
