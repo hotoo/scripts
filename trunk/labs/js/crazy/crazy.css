@@ -9,9 +9,9 @@ table.result{table-layout:fixed; border-collapse:collapse; border-spacing:0; mar
 
 div.perf, div.rate{border:0; position:relative;}
     div.perf div, div.rate div{display:block; height:1em;}
-    div.perf div{background:#8ec2f5 none;}
-    div.perf-best div{background:#FF7D29 none;}
-    div.perf-fast div{background:#FFB74B none;}
+    div.perf div{background:#e7f2fd none;}
+    div.perf-best div{background:#9c0 none;}
+    div.perf-fast div{background:#8ec2f5 none;}
     div.rate div{background:#eee none;}
     div.perf cite, div.rate cite{position:absolute; width:6em; margin-left:-3em; left:50%; top:0; text-align:center; font-style:normal;}
         div.perf-best cite, div.perf-fast cite{}
@@ -22,5 +22,7 @@ div.perf, div.rate{border:0; position:relative;}
 p{margin:0; padding:0;}
 #btn-run{font-size:2em;}
 h3{margin:.5em 0; padding:0 1em; background:#d6e9fc none; border-top:1px solid #0657b9;}
+    h3 span{font-size:.6em; font-weight:normal; float:right; margin:.3em 0; color:#999;}
+        h3 a{color:#666; text-decoration:none;}
 #helpLink{float:right; color:#008000;}
 
