@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>codes</title>
+<style type="text/css">/*<![CDATA[*/
+html,body{font-size:.9em;}
+pre.code{margin:.5em; padding:5px; width:40em; overflow:hidden;
+  background:#FFF7D7 none;
+  border-width:0 0 0 3em; border-style:solid; border-color:#FAD163;
+  -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
+  line-height:1.3em; font-family:"\5B8B\4F53","Courier New"; font-size:1em;}
+ol.code{margin:.5em 0 .5em .5em; padding:0 0 0 3em; width:40em; overflow:hidden;
+  background:#FAD163 none;
+  border-width:0 0 0 3px; border-style:solid; border-color:#FAD163;
+  -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
+  line-height:1.3em; font-family:"\5B8B\4F53","Courier New"; font-size:1em;}
+
+    ol.code li{color:#fff; background:#FFF7D7 none;}
+    ol.code li.odd{}
+        ol.code li code{color:#000; font-size:1em; margin:0 0 0 .5em; padding:0; /*word-break:break-all;*/ word-wrap: break-word;
+    word-break: normal;}
+/*]]>*/</style>
+<script type="text/javascript">/*<![CDATA[*/
+var Coder = function(e){
+    this._e = e;
+    this._c=null;
+    this._init();
+};
+Coder.prototype._init = function(){
+    this._e.style.display="none";
+    this._c = document.createElement("div");
+    this._c.innerHTML = '<div>Show Plain Text</div>'+this.getHTML();
+    this._e.parentNode.insertBefore(this._c, this._e);
+};
+Coder.prototype.getHTML = function(){
+    var s=this._e.innerHTML, a=s.split("\n"), r=['<ol class="',this._e.className,'">'];
+    for (var i=0,l=a.length; i<l; i++){
+        r.push('<li class="',i%2?"":"odd",'"><code>', a[i].replace(/\s/g,"&nbsp;"), '&nbsp;</code></li>');
+    }
+    r.push('</ol>');
+    return r.join('');
+};
+
+function $(id){return document.getElementById(id);}
+function $2(tag){return document.getElementsByTagName(tag);}
+window.onload = function(){
+    new Coder($("jsdemo"));
+    new Coder($("cssdemo"));
+}
+/*]]>*/</script>
+</head>
+<body>
+<pre class="code javascript" id="jsdemo">String.prototype.trim = {
+    return this.replace(/^\s+/,"").replace(/\s+$/,"");
+};</pre>
+<pre class="code css" id="cssdemo">pre.code{border:1px solid #ccc;}
+
+.box{display:block; position:absolute; float:left; clear:both; cursor:pointer; /*...显示属性*/
+  margin:0; padding:0; width:auto; height:auto; /*...盒模型*/
+  vertical-align:top; white-space:normal; text-decoration:none; text-align:left; /*...排版*/
+  color:#fff; font:15pt/17pt bold "Arial" normal; content:"."; /*...文字*/
+  border:1px solid #ccc; background:transparent none; /*...边框背景*/}
+
+    .box h3{/*...*/}
+
+    .box p{/*...*/}</pre>
+<pre class="code html" id="htmldemo">&lt;pre class="code html"&gt;
+&lt;/pre&gt;</pre>
+</body>
+</html>
