@@ -47,13 +47,17 @@ function repeat_while_plus_str_append(s,i){
     while(k++ < i){t+=s;}
     return t;
 }
-function repeat_recursion_callee(s,i){
+function repeat_tril_recursion_callee(s,i){
     var r=arguments[2]||"";
     return i?arguments.callee(s,i-1,r+s):r;
 }
-function repeat_recursion_name(s,i){
+function repeat_tril_recursion_name(s,i){
     var r=arguments[2]||"";
     return i?repeat_recursion_name(s,i-1,r+s):r;
+}
+function repeat_recursion_name(str, i) {
+   if (isNaN(i) || i <= 0) return "";
+   return str + repeat(str, i-1);
 }
 
 
@@ -63,7 +67,7 @@ function crazyIt(){
     var fs=[repeat_new_arr_join, repeat_for_minus_arr_join, repeat_for_minus_str_append,
         repeat_for_plus_arr_join, repeat_for_plus_str_append, repeat_while_minus_arr_join,
         repeat_while_minus_str_append, repeat_while_plus_arr_join, repeat_while_plus_str_append,
-        repeat_recursion_callee, repeat_recursion_name];
+        repeat_tril_recursion_callee, repeat_tril_recursion_name];
 
     return [{funs:fs, args:["0", 30], times:10000},
         {funs:fs, args:["0123456789",1000], times:1000}];
