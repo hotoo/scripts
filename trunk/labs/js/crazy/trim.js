@@ -3,7 +3,7 @@ String.prototype.trim = function(){
     return this.replace(/(^\s+)(\s+$)/g, '');
 };
 
-String.prototype.trim = function(){
+String.prototype.trim2 = function(){
     return this.replace(/(?:^\s+)(?:\s+$)/g, '');
 };
 
@@ -13,23 +13,23 @@ String.prototype.lTrim = function(){
 String.prototype.rTrim = function(){
     return this.replace(/\s+$/, '');
 };
-String.prototype.trim = function(){
+String.prototype.trim3 = function(){
     return this.lTrim().rTrim();
 };
 
-String.prototype.trim = function(){
+String.prototype.trim4 = function(){
     return this.replace(/^\s+/, '').replace(/\s+$/, '');
 };
 
-String.prototype.trim = function(){
+String.prototype.trim5 = function(){
     return this.replace(/^\s*(.*?)\s*$/, "$1"); // 两端空白字符贪婪匹配，中间字符非贪婪匹配。
 };
 
-String.prototype.trim = function(){
+String.prototype.trim6 = function(){
     return this.replace(/^\s*((?:.\n)*?)\s*$/, "$1");
 };
 
-String.prototype.trim = function(){
+String.prototype.trim7 = function(){
     var l=this.length;
     var m=/^[\s]*/.test(this);
     // /(?=[^\s])/.test(this);// -- never-online
@@ -43,7 +43,7 @@ String.prototype.trim = function(){
     return this.substring(s,e);
 };
 
-String.prototype.trim = function(){
+String.prototype.trim8 = function(){
     var f=function(c){return !Char.isBlank(c);};
     var l=this.length, s=this.$indexOf(f), e=this.$lastIndexOf(f);
     if(-1==s)s=0;
@@ -51,7 +51,7 @@ String.prototype.trim = function(){
     return this.substring(s, e);
 };
 
-String.prototype.trim = function(){
+String.prototype.trim9 = function(){
     var s = this.replace(/^\s+/, '');
     var l=s.length, e=l;
     if(0===l){return '';}
@@ -86,4 +86,12 @@ var Char = {
         return ' '==c || '\t'==c || '\r\n'==c || '\n'==c || '\r'==c;
     }
 };
+
+
+
+
+function crazyIt(){
+    return [{funs:[String.prototype.trim, String.prototype.trim2, String.prototype.trim3],
+        args:"  adf   "}];
+}
 
