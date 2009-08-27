@@ -1,0 +1,55 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Image resize</title>
+    <script type="text/javascript">/*<![CDATA[*/
+
+    /**
+     * 图片等比例缩放
+     * @param {Image} image object, or image element.
+     * @param {Number} w image max width.
+     * @param {Number} h image max height.
+     */
+    function imgResize(i,w,h){
+        var image=new Image();
+        image.src=i.src;
+        if(image.width>0 && image.height>0){
+            if(image.width/image.height>= w/h){
+                if(image.width>w){
+                    i.width=w;
+                    i.height=(image.height*w)/image.width;
+                }else{
+                    i.width=image.width;
+                    i.height=image.height;
+                }
+            } else{
+                if(image.height>h){
+                    i.height=h;
+                    i.width=(image.width*h)/image.height;
+                }else{
+                    i.width=image.width;
+                    i.height=image.height;
+                }
+            }
+        }
+    }
+    function img(i, w, h){
+        var img=new Image(), r=w/h, R, W, H;
+        img.src=i.src;
+        if(img.width>0 && img.height>0){
+            W=img.width; H=img.height; R=W/H;
+            var x=R>=r?"1":"0",
+                y=W>w?"1":"0",
+                z=H>h?"1":"0";
+
+            
+        }
+    }
+/*]]>*/</script>
+</head>
+<body>
+    <img src="http://www.google.cn/intl/zh-CN/images/logo_cn.gif" onload="imgResize(this, 1000,600);" />
+</body>
+</html>

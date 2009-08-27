@@ -19,8 +19,8 @@ function getPreloadedImage( sSrc ){
 	return img;
 }
 
-function resizepic(thispic){ // 改变图片大小
-    if(thispic.width>700) thispic.width=700;
+function resizepic(p,w){ // 改变图片大小
+    if(p.width>w)p.width=w;
 };
 
 function bbimg(o){ // 无级缩放图片大小
