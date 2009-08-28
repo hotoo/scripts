@@ -17,12 +17,14 @@ var Crazy=function(funs, args, times, callback){
     this.callback=callback;
     this.out = null;
     this._refback = Function.createDelegate(this, this._testback);
+    this.counter = 0;
 };
 Crazy.prototype.test=function(){
 	if(!this.funs || this.funs.length===0){return;}
     this._result=[];
     this._func = this.funs.concat();
     this._test(this._func.shift());
+    this.counter++;
 };
 Crazy.prototype._test=function(f){
     var d = new Date(), n=funame(f);
