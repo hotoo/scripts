@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>new Function vs function string</title>
+</head>
+<body>
+<script type="text/javascript">/*<![CDATA[*/
+(function (){
+    var v="100";
+    window.setTimeout(function(){alert(v)}, 0);
+    window.setTimeout("alert(v);", 0);
+});
+
+(function(){var v='8';
+    var f="var v='9';alert(v);";
+    eval(f);
+    new Function(f)();
+})();
+/*]]>*/</script>
+</body>
+</html>

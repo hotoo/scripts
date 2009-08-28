@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>gradation color</title>
+</head>
+<body>
+<script type="text/javascript">/*<![CDATA[*/
+/**
+ * 渐变色彩的算法
+ *
+ * @author mingcheng<i.feelinglucky[at]gmail.com>
+ * @date   2009-06-21
+ * @link   http://www.gracecode.com/
+ */
+ 
+/**
+ * 体现一个色彩到另一个色彩的渐变主要和三个因素有关
+ *    1、起始色彩
+ *    2、终止色彩
+ *    3、渐变的深度（也就是从起始色彩到到终止色彩的宽度）
+ *
+ * 具体算法为：
+ *    RedInfo = (RedDn - RedUp) / uHeight
+ *    GreenInfo = (GreenDn - GreenUp) / uHeight
+ *    BlueInfo = (BlueDn - BlueUp) / uHeight
+ *    Red = RedUp + i * RedInfo
+ *    Green = GreenUp + i * GreenInfo
+ *    Blue = BlueUp + i * BlueInfo
+ * 上述代码中，RedUp、GreenUp、BlueUp 是起始色彩的 RGB 值
+ * RedDn、GreenDn、BlueDn 为终止色彩的 RGB 值
+ * uHeight 是色彩宽度，i是渐变到第几层
+ * Red 、Green、Blue是渐变到第i层时的色彩RGB值
+ */
+function calculate_gradation($start_color, $end_color, $current, $depth) {
+    return $start_color + $current * (($end_color - $start_color) / ($depth||500));
+}
+ 
+var $start = [255, 255, 255]; // 开始的 rgb 色
+var $end   = [192, 192, 192]; // 结束的 rgb 色
+for(var $i = 1, $level = 500; $i <= $level; $i++) {
+    var $r = calculate_gradation($start[0], $end[0], $i, $level);
+    var $g = calculate_gradation($start[1], $end[1], $i, $level);
+    var $b = calculate_gradation($start[2], $end[2], $i, $level);
+    document.write('<div style="width: 15px; height: 1px; background: rgb('+$r+', '+$g+', '+$b+');"></div>' + "\n");
+}
+
+/*]]>*/</script>
+</body>
+</html>
