@@ -13,6 +13,7 @@
 <script type="text/javascript" src="common.js"></script>
 <script type="text/javascript" src="io.js"></script>
 <script type="text/javascript" src="Crazy.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">/*<![CDATA[*/
 function println(){document.write([].join.call(arguments)+"<br />");}
 function $(id){return document.getElementById(id);}
@@ -95,6 +96,81 @@ function average(){
 function clean(){
     $("out").innerHTML="";
 }
+
+
+// -------------------------------------------------------------------
+function drawVisualization() {
+  var data = new google.visualization.DataTable();
+
+    if(!crazyIt){return;}
+    var inst = crazyInstance(crazyIt);
+    //for(var i=inst.length-1; i>=0; i--){
+    var i=0;
+    var cols=inst[i].funs.length;
+  data.addColumn('date', 'Counter');
+for (var x=0; x<cols; x++){
+  data.addColumn('number', funame(inst[i].funs[x])); //Performence
+  data.addColumn('string', funame(inst[i].funs[x]));
+  //data.addColumn('string', 'function name'+x);
+}
+
+        data.addRows(inst[i]._results.length/inst[i].counter);
+        for(var k=0, L=inst[i]._results.length; k<L; k++){
+            var row=k%inst[i].funs.length,
+                col=parseInt(k/inst[i].funs.length),
+                dt=col+1;//alert([row,col,dt]);
+            var r=row%inst[i].funs.length;//alert([row,col,inst[i].funs.length,r]);
+            if(r==0){
+                data.setValue(col, 0, new Date("2009/8/"+dt));
+                data.setValue(col, 1, inst[i]._results[k][1]);
+                data.setValue(col, 2, inst[i]._results[k][0]);
+            }else{//if(r+k+1==8){//alert([row,col,k]);}//alert([row,col,k,row+k+1]);
+                var _k=k%inst[i].funs.length;
+                data.setValue(col, r+_k+1, inst[i]._results[k][1]);
+                data.setValue(col, r+_k+2, inst[i]._results[k][0]);
+            }
+        }
+    //}
+/*
+  data.addRows(6);
+  
+  data.setValue(0, 0, new Date("2009/8/1"));
+  data.setValue(0, 1, 13234);
+  data.setValue(0, 2, "fun");
+  
+  data.setValue(1, 0,  new Date("2009/8/2"));
+  data.setValue(1, 1, 20374);
+  data.setValue(1, 2, "fun2");
+
+  data.setValue(2, 0,  new Date("2009/8/3"));
+  data.setValue(2, 1, 50766);
+  data.setValue(2, 2, "fun3");
+  
+  data.setValue(3, 0,  new Date("2009/8/4"));
+  data.setValue(3, 1, 14334);
+  data.setValue(3, 2, "fun4");
+
+  data.setValue(4, 0,  new Date("2009/8/5"));
+  data.setValue(4, 1, 66467);
+  data.setValue(4, 2, "fun5");
+
+  data.setValue(5, 0,  new Date("2009/8/6"));
+  data.setValue(5, 1, 39463);
+  data.setValue(5, 2, "fun6");
+*/
+  var tr=document.getElementById('trendPanel');
+  var annotatedtimeline = new google.visualization.AnnotatedTimeLine(tr);
+  annotatedtimeline.draw(data, {'displayAnnotations': true});
+}
+function trend(){
+    alert('TODO ing...');return;
+    var tr=document.getElementById('trendPanel');
+    if(tr.style.display!="none"){tr.style.display="none"; return;}
+    tr.style.display = "block";
+    drawVisualization();
+}
+    google.load('visualization', '1', {packages: ['annotatedtimeline'], 'language':'zh_CN'});
+   // google.setOnLoadCallback(drawVisualization);
 /*]]>*/</script>
 </head>
 <body>
@@ -120,6 +196,7 @@ function clean(){
         <a href="http://hotoo.googlecode.com/svn/trunk/labs/js/crazy/isOdd.js">isOdd</a>
     </td>
     <td align="right">
+        <input type="button" id="btn-trend" value="trend" onclick="trend();" />
         <input type="button" id="btn-average" value="average" onclick="average();" />
         <input type="button" id="btn-clear" value="clear" onclick="clean();" />
     </td>
@@ -127,6 +204,7 @@ function clean(){
 </form>
 <h3><span>Copyleft &copy; 2009 <a href="http://www.xianyun.org">xianyun.org</a>, version 1.3</span>Results</h3>
 </div>
+<div id="trendPanel" style="width: 800px; height: 400px; display:none;"></div>
 <div id="out"></div>
 
 </body>
