@@ -1,0 +1,200 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=chinese
+set fileencodings=ucs-bom,utf-8,chinese
+set langmenu=zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+language messages zh_cn.utf-8
+
+set guifont=Courier_New:h9:cANSI
+set nobackup
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set foldmethod=indent
+set foldlevel=20
+set nu
+set fdc=4
+au GUIEnter * simalt ~x
+colo desert
+sy on
+
+" highlight CurrentLine guibg=darkgrey guifg=white
+" au! Cursorhold * exe 'match CurrentLine /\%' . line('.') . 'l.*/'
+" set ut=100
+
+
+" gvim full screen plugin
+" @see http://www.gracecode.com/archives/2946/
+map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+
+
+" jsLint
+" @see http://www.gracecode.com/category/496/
+" @see http://www.vim.org/scripts/script.php?script_id=2578
+let g:jslint_command = $VIM.'\vimfiles\jslint\jsl.exe'
+map <C-s><C-j> :call JsonLint()<cr>
+
+
+" css color
+" @see http://www.gracecode.com/archives/977/
+
+
+" auto wrap text.
+" NOTE: this setting will change text source.
+" set cursorline
+" set textwidth=80
+" set fo+=m
+
+
+" Toggle Menu and Toolbar
+set guioptions-=m
+set guioptions-=T
+map <silent> <F2> :if &guioptions =~# 'T' <Bar>
+        \set guioptions-=T <Bar>
+        \set guioptions-=m <bar>
+    \else <Bar>
+        \set guioptions+=T <Bar>
+        \set guioptions+=m <Bar>
+    \endif<CR>
+
+
+" Calendar
+" @see http://www.gracecode.com/archives/674/
+let g:calendar_diary=$VIM.'\vimfiles\calendar_data\'
+map ca :Calendar<cr>
+
+
+" for javascript.vim
+" enable javascript fold
+"let javascript_fold=1
+" enable support dom, html and css for javascript
+"let javascript_enable_domhtmlcss=1
+
+
+" fold javascript function code.
+" need ftpplugin/python_fold.vim
+function! JavaScriptFold() 
+    setl foldmethod=syntax
+    setl foldlevelstart=1
+    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+
+    function! FoldText()
+        return substitute(getline(v:foldstart), '{.*', '{...}', '')
+    endfunction
+    setl foldtext=FoldText()
+endfunction
+au FileType javascript call JavaScriptFold()
+au FileType javascript setl fen
+
+
+" ctags
+let g:ctags_path=$VIM.'\vimfiles\plugin\ctags.exe'
+let g:ctags_statusline=1
+let g:ctags_args=1
+
+
+" TagList
+filetype on
+let Tlist_Ctags_Cmd=$VIM.'\vimfiles\plugin\ctags.exe'
+nnoremap <F12> :TlistToggle<CR>
+
+
+" snipMate
+" text+<TAB> to Auto Complete Code Fragments.
+" @see http://www.vim.org/scripts/script.php?script_id=2540
+" @see http://code.google.com/p/snipmate/
+" @see http://vimeo.com/3535418
+filetype plugin on
+let snips_author="闲耘 (mail[AT]xianyun.org)"
+
+
+"map <HOME> <S-^>
+"imap <HOME> <ESC><HOME>i
+"map <END> <S-$>
+"imap <END> <S-$>
+"nmap <End> /\S\s*$<CR>:nohl<CR>
+
+
+" get week day string in chinese.
+function! Week_cn()
+    let w=strftime("%w")
+    if w =~ "0"
+        let w="日"
+    elseif w =~ "1"
+        let w="一"
+    elseif w =~ "2"
+        let w="二"
+    elseif w =~ "3"
+        let w="三"
+    elseif w =~ "4"
+        let w="四"
+    elseif w =~ "5"
+        let w="五"
+    elseif w =~ "5"
+        let w="六"
+    endif
+    return "星期" . w
+endfunction
+
+
+
+" FencView.vim
+" 自动识别文件编码
+" @see http://www.vim.org/scripts/script.php?script_id=1708
+"
+" let g:fencview_autodetect=1
+" let g:fencview_auto_patterns='*.txt,*.js,*.css,*.c,*.cpp,*.h,*.java,*.cs,*.htm{l\=}'
+" let g:fencview_checklines=10
+" let $FENCVIEW_TELLENC='tellenc'
+
+
+"source $VIM\vimfiles\plugin\mark.vim
+
+
+" Chinese Docs
+"cp -R doc $VIM.'\vimfiles\doc\'
+
+" map auto complete
+"inoremap ( ()<esc>:let leavechar=")"<cr>i
+"inoremap [ []<esc>:let leavechar="]"<cr>i
+"inoremap { {<esc>o}<esc>:let leavechar="}"<cr>O
+" inoremap { {}<esc>:let leavechar="}"<cr>i
+"inoremap ' ''<esc>:let leavechar="'"<cr>i
+"inoremap " ""<esc>:let leavechar='"'<cr>i
+"au BufNewFile,BufRead *.\(vim\)\@! inoremap " ""<esc>:let leavechar='"'<cr>i
+"au BufNewFile,BufRead *.\(txt\)\@! inoremap ' ''<esc>:let leavechar="'"<cr>i
+"imap <m-l> <esc>:exec "normal f" . leavechar<cr>a
+"imap <d-l> <esc>:exec "normal f" . leavechar<cr>
