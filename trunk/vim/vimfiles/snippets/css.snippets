@@ -353,29 +353,32 @@ snippet break
 snippet border2
 	border-width:${1:0}; border-style:${2:solid}; border-color:${3:#ccc};${4}
 snippet radius
-	-moz-border-radius:${1:4}px; -khtml-border-radius:${2:4}px; -webkit-border-radius:${3:4}px; border-radius:${4:4}px;
+	-moz-border-radius:${1:4px}; -khtml-border-radius:${2:$1}; -webkit-border-radius:${3:$1}; border-radius:${4:$1};
 snippet radius4
-	-moz-border-radius:${1:4}px ${2:4}px ${3:4}px ${4:4}px;
-	-khtml-border-radius:${5:4}px ${6:4}px ${7:4}px ${8:4}px;
-	-webkit-border-top-left-radius:${9:4}px; -webkit-border-top-right-radius:${10:4}px;
-	-webkit-border-bottom-right-radius:${11:4}px; -webkit-border-bottom-left-radius:${12:4}px;
-	 border-radius:${13:4}px ${14:4}px ${15:4}px ${16:4}px;${17}
+	-moz-border-radius:${1:4px} ${2:$1} ${3:$1} ${4:$1};
+	-khtml-border-radius:${5:$1} ${6:$2} ${7:$3} ${8:$4};
+	-webkit-border-top-left-radius:${9:$1}; -webkit-border-top-right-radius:${10:$2};
+	-webkit-border-bottom-right-radius:${11:$3}; -webkit-border-bottom-left-radius:${12:$4};
+	 border-radius:${13:$1} ${14:$2} ${15:$3} ${16:$4};${17}
 snippet radius44
-	-moz-border-radius-topleft:${1:4}px; -moz-border-radius-topright:${2:4}px;
-	-moz-border-radius-bottomright:${3:4}px; -moz-border-radius-bottomleft:${4:4}px;
-	-khtml-border-radius:${5:4}px ${6:4}px ${7:4}px ${8:4}px;
-	-webkit-border-top-left-radius:${9:4}px; -webkit-border-top-right-radius:${10:4}px;
-	-webkit-border-bottom-right-radius:${11:4}px; -webkit-border-bottom-left-radius:${12:4}px;
-	 border-radius:${13:4}px ${14:4}px ${15:4}px ${16:4}px;${17}
+	-moz-border-radius-topleft:${1:4px}; -moz-border-radius-topright:${2:$1};
+	-moz-border-radius-bottomright:${3:$1}; -moz-border-radius-bottomleft:${4:$1};
+	-khtml-border-radius:${5:$1} ${6:$2} ${7:$3} ${8:$4};
+	-webkit-border-top-left-radius:${9:$1}; -webkit-border-top-right-radius:${10:$2};
+	-webkit-border-bottom-right-radius:${11:$3}; -webkit-border-bottom-left-radius:${12:$4};
+	 border-radius:${13:$1} ${14:$2} ${15:$3} ${16:$4};${17}
 snippet opacity
 	-moz-opacity:${1:.5}; opacity:${2:.5}; -ms-filter:"alpha(opacity=${3:50})"; filter:alpha(opacity=${4:50}); zoom:1;${5}
 snippet min-height-hack
-	min-height:${1:8em}; height:${2:auto};
-	${3}
+	min-height:${1:8em}; height:auto;
+	${2}
 	/* for Internet Explorer */
 	/*\*/
-	* html ${4:selector} {
-	    height:${5:8em};
+	* html ${3:selector} {
+	    height:${4:$1};
 	}
 	/**/
-	/* min height end */${6}
+	/* min height end */${5}
+snippet clearfix
+	${1:.clearfix}:after{content:"\0020"; display:block; height:0; clear:both;}
+	${2:$1}{zoom:1;}${3}
