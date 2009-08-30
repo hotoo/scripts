@@ -11,6 +11,22 @@ Object.prototype.each = function(iterator){
 };
 
 /**
+ * @overview
+ * @param {Function} 
+ * @return {Array} 
+ */
+
+Object.prototype.toArray = function(filter){
+    var a=[];
+    for(var k in this){
+        if(filter(k, this[k], this)){
+            a[a.length]=k;
+        }
+    }
+    return a;
+};
+
+/**
  * @see org.xianyun.system.String.prototype.typeOf();
  */
 Object.prototype.typeOf = function(){
@@ -34,7 +50,7 @@ Object.prototype.typeOf = function(){
  * @see org.xianyun.system.String.prototype.instanceOf();
  */
 Object.prototype.instanceOf = function(type){
-    if (this == type){return true;};
+    if (this == type){return true;}
     return this instanceof type;
 };
 
