@@ -1,6 +1,6 @@
 <asx version="3.0">
     <param name="AllowShuffle" value="yes" />
-    <title>Online TV</title>
+    <title>Online Radio</title>
 
     <entry>
         <title>CRI - HIT FM</title>
@@ -148,6 +148,96 @@
     </entry>
 
     <entry>
+        <title>重庆音乐广播</title>
+        <ref href="mms://124.162.54.143/fm881" />
+    </entry>
+
+    <entry>
+        <title>天津音乐广播</title>
+        <ref href="mms://61.136.19.228/live2" />
+    </entry>
+
+    <entry>
+        <title>天津新闻广播</title>
+        <ref href="mms://61.136.19.228/live2" />
+    </entry>
+
+    <entry>
+        <title>天津交通广播</title>
+        <ref href="mms://61.136.19.228/live5" />
+    </entry>
+
+    <entry>
+        <title>天津相声广播</title>
+        <ref href="mms://61.136.19.228/live9" />
+    </entry>
+
+    <entry>
+        <title>天津滨海广播</title>
+        <ref href="mms://61.136.19.228/live7" />
+    </entry>
+
+    <entry>
+        <title>湖北楚天音乐广播</title>
+        <ref href="mms://58.48.156.93/1058" />
+    </entry>
+
+    <entry>
+        <title>湖南文广快乐975</title>
+        <ref href="mms://202.103.67.185/文艺" />
+    </entry>
+
+    <entry>
+        <title>湖南音乐之声超级893</title>
+        <ref href="mms://202.103.67.185/音乐" />
+    </entry>
+
+    <entry>
+        <title>湖南旅游频道</title>
+        <ref href="mms://220.168.7.27/旅游" />
+    </entry>
+
+    <entry>
+        <title>湖南交通广播</title>
+        <ref href="mms://202.103.67.185/交通" />
+    </entry>
+
+    <entry>
+        <title>湖南电台经济频道</title>
+        <ref href="mms://202.103.67.185/经济" />
+    </entry>
+
+    <entry>
+        <title>湖南金鹰955电台</title>
+        <ref href="mms://real.rednet.cn/955" />
+    </entry>
+
+    <entry>
+        <title>CITYFM城市之音 长沙</title>
+        <ref href="mms://real.rednet.cn/1017" />
+    </entry>
+
+    <entry>
+        <title>常德新闻广播</title>
+        <ref href="rtsp://220.248.167.222:554/encoder/swdt.rm" />
+    </entry>
+
+    <entry>
+        <title>CityFM城市之音 四川</title>
+        <ref href="mms://218.6.174.14/fm102.6" />
+    </entry>
+
+    <entry>
+        <title>成都文化休闲频道-FM946飞扬之声</title>
+        <ref href="rtsp://125.64.92.13:554/broadcast/cd/broadcast/4.rm" />
+    </entry>
+
+    <entry>
+        <title>广东电台-流行1057</title>
+        <ref href="mms://chat.imhb.cn/fm1057_1" />
+    </entry>
+
+    <entry>
         <title>广州金曲广播</title>
         <ref href="mms://61.145.114.82/3g" />
     </entry>
@@ -156,7 +246,7 @@
         <title>深圳音乐频率-飞扬971</title>
         <ref href="http://www.szmg.com.cn/szmg_vod/SZR-2_CT.asx" />
     </entry>
-
+<!-- === -->
     <entry>
         <title>cnr - 中国之声</title>
         <ref href="mms://cdnmms.cnr.cn/cnr1" />
