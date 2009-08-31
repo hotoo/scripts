@@ -33,6 +33,86 @@
     </entry>
 
     <entry>
+        <title>rbc - FM1006 - 新闻广播</title>
+        <ref href="mms://alive.rbc.cn/fm1006" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM1073 - 城管广播</title>
+        <ref href="mms://alive.rbc.cn/fm1073" />
+    </entry>
+
+    <entry>
+        <title>rbc - AM603 - 故事广播</title>
+        <ref href="mms://alive.rbc.cn/am603" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM1025 - 体育广播</title>
+        <ref href="mms://alive.rbc.cn/fm1025" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM1039 - 交通广播</title>
+        <ref href="mms://alive.rbc.cn/fm1039" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM876 - 文艺广播</title>
+        <ref href="mms://alive.rbc.cn/fm876" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM974 - 音乐广播</title>
+        <ref href="mms://alive.rbc.cn/fm974" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM774 - 外语广播</title>
+        <ref href="mms://alive.rbc.cn/am774" />
+    </entry>
+
+    <entry>
+        <title>rbc - AM927 - 爱家广播</title>
+        <ref href="mms://alive.rbc.cn/am927" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM986 - 古典音乐广播</title>
+        <ref href="mms://alive.rbc.cn/cfm986" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM970 - 通俗音乐广播</title>
+        <ref href="mms://alive.rbc.cn/cfm970" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1075 - 怀旧金曲广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1075" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM994 - 教学广播</title>
+        <ref href="mms://alive.rbc.cn/cfm994" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1043 - 长书广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1043" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1051 - 戏曲曲艺广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1051" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1065 - 欢乐时光广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1065" />
+    </entry>
+
+    <entry>
         <title>广州金曲广播</title>
         <ref href="mms://61.145.114.82/3g" />
     </entry>
@@ -41,10 +121,64 @@
         <title>深圳音乐频率-飞扬971</title>
         <ref href="http://www.szmg.com.cn/szmg_vod/SZR-2_CT.asx" />
     </entry>
-    <!--
+
     <entry>
-        <title></title>
-        <ref href="" />
+        <title>cnr - 中国之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr1" />
     </entry>
-    -->
+
+    <entry>
+        <title>cnr - 经济之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr2" />
+    </entry>
+
+    <entry>
+        <title>cnr - 音乐之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr3" />
+    </entry>
+
+    <entry>
+        <title>cnr - 都市之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr4" />
+    </entry>
+
+    <entry>
+        <title>cnr - 中华之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr5" />
+    </entry>
+
+    <entry>
+        <title>cnr - 神舟之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr6" />
+    </entry>
+
+    <entry>
+        <title>cnr - 华夏之声普通话</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr7_p" />
+    </entry>
+
+    <entry>
+        <title>cnr - 华夏之声双语</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr7_s" />
+    </entry>
+
+    <entry>
+        <title>cnr - 民族之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr8" />
+    </entry>
+
+    <entry>
+        <title>cnr - 文艺之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr9" />
+    </entry>
+
+    <entry>
+        <title>cnr - 老年之声</title>
+        <ref href="mms://mms.cnr.cn/cnr11?MjgjMCM=" />
+    </entry>
+
+    <entry>
+        <title>cnr - 银河台</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr10" />
+    </entry>
 </asx>
