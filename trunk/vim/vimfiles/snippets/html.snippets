@@ -132,6 +132,13 @@ snippet style
 	</style>${3}
 snippet style2
 	<link type="text/css" rel="stylesheet" href="${1}" media="${2:all}" />${3}
+snippet favicon
+	<link rel="shorticon" type="image/x-icon" href="${1:favicon.ico}" />
+	<link rel="apple-touch-icon" href="${2:1}" />
+snippet rss
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="${1:rss.xml}" />
+snippet atom
+	<link rel="alternate" type="application/atom+xml" title="Atom" href="${1:atom.xml" />
 snippet base
 	<base href="${1}" target="${2}"`Close()`>
 snippet r
@@ -201,6 +208,10 @@ snippet link
 	<link type="text/css" rel="${1:stylesheet}" href="${2:/css/master.css}" media="${3:screen}" charset="utf-8"`Close()`>${4}
 snippet mailto
 	<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
+snippet a
+	<a href="${1:#}">${2}</a>${3}
+snippet img
+	<img src="${1:src.png}" alt="${2:Src Desc}" />
 snippet meta
 	<meta name="${1:name}" content="${2:content}"`Close()`>${3}
 snippet opt
