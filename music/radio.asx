@@ -1,0 +1,50 @@
+<asx version="3.0">
+    <param name="AllowShuffle" value="yes" />
+    <title>Online TV</title>
+
+    <entry>
+        <title>CRI - HIT FM</title>
+        <ref href="mms://live.hitfm.cn/fm887" />
+    </entry>
+
+    <entry>
+        <title>CRI - 都市流行频道</title>
+        <ref href="mms://live.cri.cn/pop/" />
+    </entry>
+
+    <entry>
+        <title>CRI - 怀旧金曲频道</title>
+        <ref href="mms://live.cri.cn/oldies/" />
+    </entry>
+
+    <entry>
+        <title>CRI - 写意民谣频道</title>
+        <ref href="mms://live.cri.cn/country/" />
+    </entry>
+
+    <entry>
+        <title>CRI - Office Radio频道</title>
+        <ref href="mms://live.cri.cn/office/" />
+    </entry>
+
+    <entry>
+        <title>CRI - 海峡飞虹</title>
+        <ref href="mms://live.cri.cn/hxfh" />
+    </entry>
+
+    <entry>
+        <title>广州金曲广播</title>
+        <ref href="mms://61.145.114.82/3g" />
+    </entry>
+
+    <entry>
+        <title>深圳音乐频率-飞扬971</title>
+        <ref href="http://www.szmg.com.cn/szmg_vod/SZR-2_CT.asx" />
+    </entry>
+    <!--
+    <entry>
+        <title></title>
+        <ref href="" />
+    </entry>
+    -->
+</asx>
