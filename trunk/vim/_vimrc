@@ -45,7 +45,9 @@ set tabstop=4
 set shiftwidth=4
 set foldmethod=indent
 set foldlevel=20
-set nu
+" display line number.
+" <code>:set nonu</code> hide line number.
+set nu 
 set fdc=4
 au GUIEnter * simalt ~x
 colo desert
@@ -70,6 +72,17 @@ map <C-s><C-j> :call JsonLint()<cr>
 
 " css color
 " @see http://www.gracecode.com/archives/977/
+
+
+" auto complete drop list.
+set completeopt=longest,menu
+imap <C-L> <C-x><C-o>
+
+
+" css autocomplete
+" csscomplete.vim
+" @see VIM/vim72/autoload/csscomplete.vim
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
 " auto wrap text.
@@ -169,6 +182,10 @@ function! Week_cn()
     return "星期" . w
 endfunction
 
+
+" *.asx, windows media playlist.
+:au BufRead *.asx,<&faf;ASX> runtime! syntax/xml.vim
+au BufRead,BufNewFile *.asx setfiletype asx
 
 
 " FencView.vim
