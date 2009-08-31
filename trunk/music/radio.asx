@@ -113,6 +113,41 @@
     </entry>
 
     <entry>
+        <title>北京 - 青檬音乐台</title>
+        <ref href="mms://pub1.qmoon.net/911pop?cccode=cc1325" />
+    </entry>
+
+    <entry>
+        <title>北京 - 一听音乐电台</title>
+        <ref href="mms://online-radio.1ting.com/music" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-动感101</title>
+        <ref href="mms://218.1.74.230/dg101" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-LOVE RADIO</title>
+        <ref href="mms://218.1.74.230/ml103" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-经典947</title>
+        <ref href="mms://218.1.74.230/ml103" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-经典947</title>
+        <ref href="mms://218.1.74.230/jd947" />
+    </entry>
+
+    <entry>
+        <title>上海 - 五星体育广播</title>
+        <ref href="mms://diantai.smgbb.cn/sport" />
+    </entry>
+
+    <entry>
         <title>广州金曲广播</title>
         <ref href="mms://61.145.114.82/3g" />
     </entry>
