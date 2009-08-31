@@ -14,6 +14,10 @@ Object.prototype.each = function(iterator){
  * @overview
  * @param {Function} 
  * @return {Array} 
+ * @example 
+ *  var a=t.toArray(function(k, v, o){
+ *      return /^\$HASH_TAG_/.test(k);
+ *  }).sort();
  */
 
 Object.prototype.toArray = function(filter){
