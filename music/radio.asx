@@ -246,6 +246,236 @@
         <title>深圳音乐频率-飞扬971</title>
         <ref href="http://www.szmg.com.cn/szmg_vod/SZR-2_CT.asx" />
     </entry>
+
+    <entry>
+        <title>CITYFM城市之音 江苏音乐频率</title>
+        <ref href="mms://vod2.jsbc.com/audio4.jsgd" />
+    </entry>
+
+    <entry>
+        <title>南京音乐频率</title>
+        <ref href="mms://ralive.njbg.com.cn/1058" />
+    </entry>
+
+    <entry>
+        <title>苏州生活广播</title>
+        <ref href="mms://58.211.0.53/fm" />
+    </entry>
+
+    <entry>
+        <title>浙江音乐调频</title>
+        <ref href="mms://live.divast.com/fm968" />
+    </entry>
+
+    <entry>
+        <title>浙江电台交通之声</title>
+        <ref href="mms://live.divast.com/fm93" />
+    </entry>
+
+    <entry>
+        <title>浙江电台旅游之声</title>
+        <ref href="mms://live.divast.com/fm996" />
+    </entry>
+
+    <entry>
+        <title>浙江汽车电台</title>
+        <ref href="mms://live.hcrt.cn/1054test" />
+    </entry>
+
+    <entry>
+        <title>台州广播电台</title>
+        <ref href="rtsp://live.oimx.com/fm102.7" />
+    </entry>
+
+    <entry>
+        <title>杭州新闻广播</title>
+        <ref href="mms://vod.hcrt.cn/89" />
+    </entry>
+
+    <entry>
+        <title>安徽音乐广播</title>
+        <ref href="mms://live.ahradio.com.cn/yygb" />
+    </entry>
+
+    <entry>
+        <title>合肥电台故事广播</title>
+        <ref href="mms://218.185.192.4/audio4" />
+    </entry>
+
+    <entry>
+        <title>池州交通旅游广播</title>
+        <ref href="mms://58.242.17.174/fmlive966" />
+    </entry>
+
+    <entry>
+        <title>赣州电台经济台</title>
+        <ref href="rtsp://www.jxgzdt.cn/broadcast/gzdt945" />
+    </entry>
+
+    <entry>
+        <title>江西交通广播</title>
+        <ref href="mms://tv.jxgdw.com/jswxxxxjt" />
+    </entry>
+
+    <entry>
+        <title>厦门音乐广播</title>
+        <ref href="mms://mediasrv2.iptv.xmg.com.cn/yinyue" />
+    </entry>
+
+    <entry>
+        <title>山东广播文艺频道</title>
+        <ref href="mms://media.sdgb.cn/wenyi" />
+    </entry>
+
+    <entry>
+        <title>CITYFM城市之音 山东</title>
+        <ref href="mms://media.sdgb.cn/yinyue" />
+    </entry>
+
+    <entry>
+        <title>青岛音乐体育广播</title>
+        <ref href="mms://media.sdgb.cn/yinyue" />
+    </entry>
+
+    <entry>
+        <title>淄博电台交通文艺广播</title>
+        <ref href="mms://www.zbradio.com/jt" />
+    </entry>
+
+    <entry>
+        <title>山西音乐广播</title>
+        <ref href="rtsp://r3.sxrtv.com/encoder/r5.rm" />
+    </entry>
+
+    <entry>
+        <title>河北音乐广播</title>
+        <ref href="mms://hbcdn.openhe.net:1755/hebradio_audio6" />
+    </entry>
+
+    <entry>
+        <title>河南音乐广播-魅力881</title>
+        <ref href="mms://vod.hndt.com/yygb" />
+    </entry>
+
+    <entry>
+        <title>黑龙江音乐广播</title>
+        <ref href="http://www.hljradio.com/online/jrt.rm" />
+    </entry>
+
+    <entry>
+        <title>哈尔滨交通广播</title>
+        <ref href="mms://221.212.91.236/FM925" />
+    </entry>
+
+    <entry>
+        <title>哈尔滨音乐广播</title>
+        <ref href="mms://221.212.91.236/FM909" />
+    </entry>
+
+    <entry>
+        <title>故事广播</title>
+        <ref href="mms://221.9.251.166/fm1033" />
+    </entry>
+
+    <entry>
+        <title>沈阳文艺台</title>
+        <ref href="mms://218.24.104.71/wy" />
+    </entry>
+
+    <entry>
+        <title>辽鞍交通生活娱乐广播</title>
+        <ref href="mms://fm.asiafm.cc/fm967" />
+    </entry>
+
+    <entry>
+        <title>葫芦岛连山生活娱乐广播</title>
+        <ref href="mms://radio.asiafm.cc/fm1063" />
+    </entry>
+
+    <entry>
+        <title>龙港评书音乐广播</title>
+        <ref href="mms://fm.asiafm.cc/fm903" />
+    </entry>
+
+    <entry>
+        <title>内蒙古音乐之声</title>
+        <ref href="mms://60.31.199.92/yinyue" />
+    </entry>
+
+    <entry>
+        <title>陕西音乐广播</title>
+        <ref href="mms://219.144.240.172/music" />
+    </entry>
+
+    <entry>
+        <title>陕西戏曲广播</title>
+        <ref href="mms://219.144.240.172/opera" />
+    </entry>
+
+    <entry>
+        <title>汉中音乐广播</title>
+        <ref href="mms://www.fm971.net/net971" />
+    </entry>
+
+    <entry>
+        <title>新星广播网络电台 (云南)</title>
+        <ref href="mms://61.166.57.238/xxgb" />
+    </entry>
+
+    <entry>
+        <title>德宏人民广播电台孔雀之声 (云南)</title>
+        <ref href="mms://222.219.29.252:1173/" />
+    </entry>
+
+    <entry>
+        <title>贵州音乐广播</title>
+        <ref href="rtsp://live.gzbs.cn/encoder/yinyue.rm" />
+    </entry>
+
+    <entry>
+        <title>贵州新闻广播</title>
+        <ref href="rtsp://live.gzbs.cn/encoder/renmin.rm" />
+    </entry>
+
+    <entry>
+        <title>广西人民广播电台-文艺频率</title>
+        <ref href="mms://221.7.194.20:6060/audio2" />
+    </entry>
+
+    <entry>
+        <title>海南文艺广播</title>
+        <ref href="mms://218.77.178.163/LIVECAM10" />
+    </entry>
+
+    <entry>
+        <title>甘肃经济广播“黄河之声”</title>
+        <ref href="mms://202.100.66.166/fm934" />
+    </entry>
+
+    <entry>
+        <title>甘肃农村广播“乡村之音”</title>
+        <ref href="mms://202.100.66.166/fm922" />
+    </entry>
+
+    <entry>
+        <title>新疆929城市广播</title>
+        <ref href="rtsp://www.xjbs.com.cn/encoder/929" />
+    </entry>
+
+    <entry>
+        <title>新疆949交通广播</title>
+        <ref href="rtsp://www.xjbs.com.cn/encoder/949" />
+    </entry>
+
+    <entry>
+        <title>哈密电台哈密之声</title>
+        <ref href="rtsp://zb103.hm169.com/broadcast/fm" />
+    </entry>
+
+    <entry>
+        <title>哈密电台蓝色调频</title>
+        <ref href="rtsp://218.31.113.250/broadcast/981" />
+    </entry>
 <!-- === -->
     <entry>
         <title>cnr - 中国之声</title>
