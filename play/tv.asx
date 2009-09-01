@@ -1,0 +1,9 @@
+<asx version="3.0">
+    <param name="AllowShuffle" value="yes" />
+    <title>Online TV</title>
+
+    <entry>
+        <title>CCTV 1</title>
+        <ref href="http://www.654123.com/asx2004/www654123com_2009_gouride_dao_lian.asx" />
+    </entry>
+</asx>

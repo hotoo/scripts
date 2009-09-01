@@ -1,0 +1,539 @@
+<asx version="3.0">
+    <param name="AllowShuffle" value="yes" />
+    <title>Online Radio</title>
+
+    <entry>
+        <title>CRI - HIT FM</title>
+        <ref href="mms://live.hitfm.cn/fm887" />
+    </entry>
+
+    <entry>
+        <title>CRI - 都市流行频道</title>
+        <ref href="mms://live.cri.cn/pop/" />
+    </entry>
+
+    <entry>
+        <title>CRI - 怀旧金曲频道</title>
+        <ref href="mms://live.cri.cn/oldies/" />
+    </entry>
+
+    <entry>
+        <title>CRI - 写意民谣频道</title>
+        <ref href="mms://live.cri.cn/country/" />
+    </entry>
+
+    <entry>
+        <title>CRI - Office Radio频道</title>
+        <ref href="mms://live.cri.cn/office/" />
+    </entry>
+
+    <entry>
+        <title>CRI - 海峡飞虹</title>
+        <ref href="mms://live.cri.cn/hxfh" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM1006 - 新闻广播</title>
+        <ref href="mms://alive.rbc.cn/fm1006" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM1073 - 城管广播</title>
+        <ref href="mms://alive.rbc.cn/fm1073" />
+    </entry>
+
+    <entry>
+        <title>rbc - AM603 - 故事广播</title>
+        <ref href="mms://alive.rbc.cn/am603" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM1025 - 体育广播</title>
+        <ref href="mms://alive.rbc.cn/fm1025" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM1039 - 交通广播</title>
+        <ref href="mms://alive.rbc.cn/fm1039" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM876 - 文艺广播</title>
+        <ref href="mms://alive.rbc.cn/fm876" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM974 - 音乐广播</title>
+        <ref href="mms://alive.rbc.cn/fm974" />
+    </entry>
+
+    <entry>
+        <title>rbc - FM774 - 外语广播</title>
+        <ref href="mms://alive.rbc.cn/am774" />
+    </entry>
+
+    <entry>
+        <title>rbc - AM927 - 爱家广播</title>
+        <ref href="mms://alive.rbc.cn/am927" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM986 - 古典音乐广播</title>
+        <ref href="mms://alive.rbc.cn/cfm986" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM970 - 通俗音乐广播</title>
+        <ref href="mms://alive.rbc.cn/cfm970" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1075 - 怀旧金曲广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1075" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM994 - 教学广播</title>
+        <ref href="mms://alive.rbc.cn/cfm994" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1043 - 长书广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1043" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1051 - 戏曲曲艺广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1051" />
+    </entry>
+
+    <entry>
+        <title>rbc - CFM1065 - 欢乐时光广播</title>
+        <ref href="mms://alive.rbc.cn/cfm1065" />
+    </entry>
+
+    <entry>
+        <title>北京 - 青檬音乐台</title>
+        <ref href="mms://pub1.qmoon.net/911pop?cccode=cc1325" />
+    </entry>
+
+    <entry>
+        <title>北京 - 一听音乐电台</title>
+        <ref href="mms://online-radio.1ting.com/music" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-动感101</title>
+        <ref href="mms://218.1.74.230/dg101" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-LOVE RADIO</title>
+        <ref href="mms://218.1.74.230/ml103" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-经典947</title>
+        <ref href="mms://218.1.74.230/ml103" />
+    </entry>
+
+    <entry>
+        <title>上海 - 东广音乐-经典947</title>
+        <ref href="mms://218.1.74.230/jd947" />
+    </entry>
+
+    <entry>
+        <title>上海 - 五星体育广播</title>
+        <ref href="mms://diantai.smgbb.cn/sport" />
+    </entry>
+
+    <entry>
+        <title>重庆音乐广播</title>
+        <ref href="mms://124.162.54.143/fm881" />
+    </entry>
+
+    <entry>
+        <title>天津音乐广播</title>
+        <ref href="mms://61.136.19.228/live2" />
+    </entry>
+
+    <entry>
+        <title>天津新闻广播</title>
+        <ref href="mms://61.136.19.228/live2" />
+    </entry>
+
+    <entry>
+        <title>天津交通广播</title>
+        <ref href="mms://61.136.19.228/live5" />
+    </entry>
+
+    <entry>
+        <title>天津相声广播</title>
+        <ref href="mms://61.136.19.228/live9" />
+    </entry>
+
+    <entry>
+        <title>天津滨海广播</title>
+        <ref href="mms://61.136.19.228/live7" />
+    </entry>
+
+    <entry>
+        <title>湖北楚天音乐广播</title>
+        <ref href="mms://58.48.156.93/1058" />
+    </entry>
+
+    <entry>
+        <title>湖南文广快乐975</title>
+        <ref href="mms://202.103.67.185/文艺" />
+    </entry>
+
+    <entry>
+        <title>湖南音乐之声超级893</title>
+        <ref href="mms://202.103.67.185/音乐" />
+    </entry>
+
+    <entry>
+        <title>湖南旅游频道</title>
+        <ref href="mms://220.168.7.27/旅游" />
+    </entry>
+
+    <entry>
+        <title>湖南交通广播</title>
+        <ref href="mms://202.103.67.185/交通" />
+    </entry>
+
+    <entry>
+        <title>湖南电台经济频道</title>
+        <ref href="mms://202.103.67.185/经济" />
+    </entry>
+
+    <entry>
+        <title>湖南金鹰955电台</title>
+        <ref href="mms://real.rednet.cn/955" />
+    </entry>
+
+    <entry>
+        <title>CITYFM城市之音 长沙</title>
+        <ref href="mms://real.rednet.cn/1017" />
+    </entry>
+
+    <entry>
+        <title>常德新闻广播</title>
+        <ref href="rtsp://220.248.167.222:554/encoder/swdt.rm" />
+    </entry>
+
+    <entry>
+        <title>CityFM城市之音 四川</title>
+        <ref href="mms://218.6.174.14/fm102.6" />
+    </entry>
+
+    <entry>
+        <title>成都文化休闲频道-FM946飞扬之声</title>
+        <ref href="rtsp://125.64.92.13:554/broadcast/cd/broadcast/4.rm" />
+    </entry>
+
+    <entry>
+        <title>广东电台-流行1057</title>
+        <ref href="mms://chat.imhb.cn/fm1057_1" />
+    </entry>
+
+    <entry>
+        <title>广州金曲广播</title>
+        <ref href="mms://61.145.114.82/3g" />
+    </entry>
+
+    <entry>
+        <title>深圳音乐频率-飞扬971</title>
+        <ref href="http://www.szmg.com.cn/szmg_vod/SZR-2_CT.asx" />
+    </entry>
+
+    <entry>
+        <title>CITYFM城市之音 江苏音乐频率</title>
+        <ref href="mms://vod2.jsbc.com/audio4.jsgd" />
+    </entry>
+
+    <entry>
+        <title>南京音乐频率</title>
+        <ref href="mms://ralive.njbg.com.cn/1058" />
+    </entry>
+
+    <entry>
+        <title>苏州生活广播</title>
+        <ref href="mms://58.211.0.53/fm" />
+    </entry>
+
+    <entry>
+        <title>浙江音乐调频</title>
+        <ref href="mms://live.divast.com/fm968" />
+    </entry>
+
+    <entry>
+        <title>浙江电台交通之声</title>
+        <ref href="mms://live.divast.com/fm93" />
+    </entry>
+
+    <entry>
+        <title>浙江电台旅游之声</title>
+        <ref href="mms://live.divast.com/fm996" />
+    </entry>
+
+    <entry>
+        <title>浙江汽车电台</title>
+        <ref href="mms://live.hcrt.cn/1054test" />
+    </entry>
+
+    <entry>
+        <title>台州广播电台</title>
+        <ref href="rtsp://live.oimx.com/fm102.7" />
+    </entry>
+
+    <entry>
+        <title>杭州新闻广播</title>
+        <ref href="mms://vod.hcrt.cn/89" />
+    </entry>
+
+    <entry>
+        <title>安徽音乐广播</title>
+        <ref href="mms://live.ahradio.com.cn/yygb" />
+    </entry>
+
+    <entry>
+        <title>合肥电台故事广播</title>
+        <ref href="mms://218.185.192.4/audio4" />
+    </entry>
+
+    <entry>
+        <title>池州交通旅游广播</title>
+        <ref href="mms://58.242.17.174/fmlive966" />
+    </entry>
+
+    <entry>
+        <title>赣州电台经济台</title>
+        <ref href="rtsp://www.jxgzdt.cn/broadcast/gzdt945" />
+    </entry>
+
+    <entry>
+        <title>江西交通广播</title>
+        <ref href="mms://tv.jxgdw.com/jswxxxxjt" />
+    </entry>
+
+    <entry>
+        <title>厦门音乐广播</title>
+        <ref href="mms://mediasrv2.iptv.xmg.com.cn/yinyue" />
+    </entry>
+
+    <entry>
+        <title>山东广播文艺频道</title>
+        <ref href="mms://media.sdgb.cn/wenyi" />
+    </entry>
+
+    <entry>
+        <title>CITYFM城市之音 山东</title>
+        <ref href="mms://media.sdgb.cn/yinyue" />
+    </entry>
+
+    <entry>
+        <title>青岛音乐体育广播</title>
+        <ref href="mms://media.sdgb.cn/yinyue" />
+    </entry>
+
+    <entry>
+        <title>淄博电台交通文艺广播</title>
+        <ref href="mms://www.zbradio.com/jt" />
+    </entry>
+
+    <entry>
+        <title>山西音乐广播</title>
+        <ref href="rtsp://r3.sxrtv.com/encoder/r5.rm" />
+    </entry>
+
+    <entry>
+        <title>河北音乐广播</title>
+        <ref href="mms://hbcdn.openhe.net:1755/hebradio_audio6" />
+    </entry>
+
+    <entry>
+        <title>河南音乐广播-魅力881</title>
+        <ref href="mms://vod.hndt.com/yygb" />
+    </entry>
+
+    <entry>
+        <title>黑龙江音乐广播</title>
+        <ref href="http://www.hljradio.com/online/jrt.rm" />
+    </entry>
+
+    <entry>
+        <title>哈尔滨交通广播</title>
+        <ref href="mms://221.212.91.236/FM925" />
+    </entry>
+
+    <entry>
+        <title>哈尔滨音乐广播</title>
+        <ref href="mms://221.212.91.236/FM909" />
+    </entry>
+
+    <entry>
+        <title>故事广播</title>
+        <ref href="mms://221.9.251.166/fm1033" />
+    </entry>
+
+    <entry>
+        <title>沈阳文艺台</title>
+        <ref href="mms://218.24.104.71/wy" />
+    </entry>
+
+    <entry>
+        <title>辽鞍交通生活娱乐广播</title>
+        <ref href="mms://fm.asiafm.cc/fm967" />
+    </entry>
+
+    <entry>
+        <title>葫芦岛连山生活娱乐广播</title>
+        <ref href="mms://radio.asiafm.cc/fm1063" />
+    </entry>
+
+    <entry>
+        <title>龙港评书音乐广播</title>
+        <ref href="mms://fm.asiafm.cc/fm903" />
+    </entry>
+
+    <entry>
+        <title>内蒙古音乐之声</title>
+        <ref href="mms://60.31.199.92/yinyue" />
+    </entry>
+
+    <entry>
+        <title>陕西音乐广播</title>
+        <ref href="mms://219.144.240.172/music" />
+    </entry>
+
+    <entry>
+        <title>陕西戏曲广播</title>
+        <ref href="mms://219.144.240.172/opera" />
+    </entry>
+
+    <entry>
+        <title>汉中音乐广播</title>
+        <ref href="mms://www.fm971.net/net971" />
+    </entry>
+
+    <entry>
+        <title>新星广播网络电台 (云南)</title>
+        <ref href="mms://61.166.57.238/xxgb" />
+    </entry>
+
+    <entry>
+        <title>德宏人民广播电台孔雀之声 (云南)</title>
+        <ref href="mms://222.219.29.252:1173/" />
+    </entry>
+
+    <entry>
+        <title>贵州音乐广播</title>
+        <ref href="rtsp://live.gzbs.cn/encoder/yinyue.rm" />
+    </entry>
+
+    <entry>
+        <title>贵州新闻广播</title>
+        <ref href="rtsp://live.gzbs.cn/encoder/renmin.rm" />
+    </entry>
+
+    <entry>
+        <title>广西人民广播电台-文艺频率</title>
+        <ref href="mms://221.7.194.20:6060/audio2" />
+    </entry>
+
+    <entry>
+        <title>海南文艺广播</title>
+        <ref href="mms://218.77.178.163/LIVECAM10" />
+    </entry>
+
+    <entry>
+        <title>甘肃经济广播“黄河之声”</title>
+        <ref href="mms://202.100.66.166/fm934" />
+    </entry>
+
+    <entry>
+        <title>甘肃农村广播“乡村之音”</title>
+        <ref href="mms://202.100.66.166/fm922" />
+    </entry>
+
+    <entry>
+        <title>新疆929城市广播</title>
+        <ref href="rtsp://www.xjbs.com.cn/encoder/929" />
+    </entry>
+
+    <entry>
+        <title>新疆949交通广播</title>
+        <ref href="rtsp://www.xjbs.com.cn/encoder/949" />
+    </entry>
+
+    <entry>
+        <title>哈密电台哈密之声</title>
+        <ref href="rtsp://zb103.hm169.com/broadcast/fm" />
+    </entry>
+
+    <entry>
+        <title>哈密电台蓝色调频</title>
+        <ref href="rtsp://218.31.113.250/broadcast/981" />
+    </entry>
+<!-- === -->
+    <entry>
+        <title>cnr - 中国之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr1" />
+    </entry>
+
+    <entry>
+        <title>cnr - 经济之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr2" />
+    </entry>
+
+    <entry>
+        <title>cnr - 音乐之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr3" />
+    </entry>
+
+    <entry>
+        <title>cnr - 都市之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr4" />
+    </entry>
+
+    <entry>
+        <title>cnr - 中华之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr5" />
+    </entry>
+
+    <entry>
+        <title>cnr - 神舟之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr6" />
+    </entry>
+
+    <entry>
+        <title>cnr - 华夏之声普通话</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr7_p" />
+    </entry>
+
+    <entry>
+        <title>cnr - 华夏之声双语</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr7_s" />
+    </entry>
+
+    <entry>
+        <title>cnr - 民族之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr8" />
+    </entry>
+
+    <entry>
+        <title>cnr - 文艺之声</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr9" />
+    </entry>
+
+    <entry>
+        <title>cnr - 老年之声</title>
+        <ref href="mms://mms.cnr.cn/cnr11?MjgjMCM=" />
+    </entry>
+
+    <entry>
+        <title>cnr - 银河台</title>
+        <ref href="mms://cdnmms.cnr.cn/cnr10" />
+    </entry>
+</asx>
