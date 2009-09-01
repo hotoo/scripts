@@ -29,6 +29,8 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+
+" encoding
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=chinese
@@ -38,20 +40,45 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 language messages zh_cn.utf-8
 
+
+" fonts
 set guifont=Courier_New:h9:cANSI
+
+
+" swrap file, auto backup.
+" :set backup
 set nobackup
+
+
+" tabs
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+
+" fold
 set foldmethod=indent
 set foldlevel=20
+set fdc=4
+
+
 " display line number.
 " <code>:set nonu</code> hide line number.
 set nu 
-set fdc=4
+
+
+" max open window
 au GUIEnter * simalt ~x
+
+
+" theme, skin, color
 colo desert
 sy on
+
+
+" set ignorecase
+set ic
+
 
 " highlight CurrentLine guibg=darkgrey guifg=white
 " au! Cursorhold * exe 'match CurrentLine /\%' . line('.') . 'l.*/'
@@ -67,7 +94,7 @@ map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 " @see http://www.gracecode.com/category/496/
 " @see http://www.vim.org/scripts/script.php?script_id=2578
 let g:jslint_command = $VIM.'\vimfiles\jslint\jsl.exe'
-map <C-s><C-j> :call JsonLint()<cr>
+"map <C-s><C-j> :call JsonLint()<cr>
 
 
 " css color
@@ -155,10 +182,12 @@ let snips_author="闲耘 (mail[AT]xianyun.org)"
 
 
 "map <HOME> <S-^>
+"nmap <HOME> ^
 "imap <HOME> <ESC><HOME>i
 "map <END> <S-$>
 "imap <END> <S-$>
 "nmap <End> /\S\s*$<CR>:nohl<CR>
+
 
 
 " get week day string in chinese.
@@ -184,8 +213,11 @@ endfunction
 
 
 " *.asx, windows media playlist.
-:au BufRead *.asx,<&faf;ASX> runtime! syntax/xml.vim
+:au BufRead *.asx,<&faf;XML> runtime! syntax/xml.vim
 au BufRead,BufNewFile *.asx setfiletype asx
+
+:au BufRead *.vm,<&faf;HTML> runtime! syntax/html.vim
+au BufRead,BufNewFile *.vm setfiletype vm
 
 
 " FencView.vim
