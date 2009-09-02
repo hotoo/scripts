@@ -213,11 +213,16 @@ endfunction
 
 
 " *.asx, windows media playlist.
-:au BufRead *.asx,<&faf;XML> runtime! syntax/xml.vim
-au BufRead,BufNewFile *.asx setfiletype asx
+"au BufRead *.asx,<&faf;XML> runtime! syntax/xml.vim
+"au BufRead,BufNewFile *.asx setfiletype asx
 
-:au BufRead *.vm,<&faf;HTML> runtime! syntax/html.vim
-au BufRead,BufNewFile *.vm setfiletype vm
+
+" velocity.vim : Syntax file for velocity templates
+" @see http://www.vim.org/scripts/script.php?script_id=541
+" NOTE: $VIM.vim72/filetype.vim
+"
+"au BufRead *.vm,<&faf;HTML> runtime! syntax/html.vim
+"au BufRead,BufNewFile *.vm setfiletype vm
 
 
 " FencView.vim
