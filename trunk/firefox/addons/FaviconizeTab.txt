@@ -5,4 +5,5 @@ https://www.google.com/reader/*
 https://www.google.com/analytics/*
 https://docs.google.com/*
 http://www.douban.com/*
+http://meme.yahoo.com/*
 
