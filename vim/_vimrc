@@ -42,7 +42,8 @@ language messages zh_cn.utf-8
 
 
 " fonts
-set guifont=Courier_New:h9:cANSI
+set guifont=Courier_New:h11:cANSI
+"set guifontwide=YouYuan:h11:cGB2312
 
 
 " swrap file, auto backup.
