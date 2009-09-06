@@ -8,4 +8,4 @@ set guifont=Courier_New:h11:cANSI
 
 set guifontwide=YouYuan:h11:cGB2312
 
-
+不过Windows 7下的宋体已经很好。
