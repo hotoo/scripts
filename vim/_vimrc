@@ -232,6 +232,11 @@ endfunction
 "nmap <End> /\S\s*$<CR>:nohl<CR>
 
 
+" rtrim
+" right trim, remove invalid spaces at right.
+" TODO
+
+
 " get week day string in chinese.
 function Week_cn()
     let w=strftime("%w")
