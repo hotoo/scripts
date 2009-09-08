@@ -107,6 +107,14 @@ set completeopt=longest,menu
 imap <C-L> <C-x><C-o>
 
 
+" Normal Mode, Visual Mode, and Select Mode,
+" use <Tab> and <Shift-Tab> to indent
+nmap <tab> v>
+nmap <s-tab> v<
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+
 " css autocomplete
 " csscomplete.vim
 " @see VIM/vim72/autoload/csscomplete.vim
@@ -182,17 +190,38 @@ filetype plugin on
 let snips_author="闲耘 (mail[AT]xianyun.org)"
 
 
+function HomeBind(offset)
+    let cursor=getpos('.')
+    let s0=getline(line('.'))
+    let s1=substitute(s0, "^\\s\\+", "", "")
+    let x=len(s0)-len(s1)+1
+    if col('.') == x-a:offset
+        let x=1
+    endif
+    call setpos('.', [cursor[0], cursor[1], x, cursor[3]])
+endfunction
+imap <silent> <Home> <Esc>:call HomeBind(1)<cr>i
+nmap <silent> <Home> :call HomeBind(0)<cr>
+vmap <silent> <Home> <Esc>:call HomeBind(1)<cr>v
 "map <HOME> <S-^>
 "nmap <HOME> ^
 "imap <HOME> <ESC><HOME>i
+
+
+function EndBind(offset)
+    let cursor=getpos('.')
+    let s0=getline(line('.'))
+    let s1=substitute(s0, "\S\s*$", "", "")
+    let x=len(s0)-len(s1)+1
+    " TODO
+endfunction
 "map <END> <S-$>
 "imap <END> <S-$>
 "nmap <End> /\S\s*$<CR>:nohl<CR>
 
 
-
 " get week day string in chinese.
-function! Week_cn()
+function Week_cn()
     let w=strftime("%w")
     if w =~ "0"
         let w="日"
