@@ -146,6 +146,13 @@ let g:calendar_diary=$VIM.'\vimfiles\calendar_data\'
 map ca :Calendar<cr>
 
 
+" NERDTree
+" @see http://www.vim.org/scripts/script.php?script_id=1658
+" @see http://www.gracecode.com/archives/1339/
+imap <F3> :NERDTree<cr>
+nmap <F3> :NERDTree<cr>
+
+
 " for javascript.vim
 " enable javascript fold
 "let javascript_fold=1
