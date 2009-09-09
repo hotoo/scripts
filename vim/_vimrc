@@ -254,6 +254,41 @@ function Week_cn()
 endfunction
 
 
+" tab navigation & operation like tabs browser
+" @see http://vimcdoc.sourceforge.net/doc/tabpage.html
+" Note: cannot map <C-n> for gvim on window 7.
+imap <C-t> <Esc>:tabnew<cr>
+nmap <C-t> :tabnew<cr>
+imap <C-w> <Esc>:tabclose<cr>
+nmap <C-w> :tableclose<cr>
+imap <C-S-w> <Esc>:tabonly<cr>
+nmap <C-S-w> :tabonly<cr>
+imap <C-tab> :tabnext<cr>
+nmap <C-tab> :tabnext<cr>
+imap <C-S-tab> :tabprevious<cr>
+nmap <C-S-tab> :tabprevious<cr>
+imap <A-1> <Esc>:tabfirst<cr>
+nmap <A-1> :tabfirst<cr>
+imap <A-2> <Esc>2gt<cr>
+nmap <A-2> 2gt<cr>
+imap <A-3> <Esc>3gt<cr>
+nmap <A-3> 3gt<cr>
+imap <A-4> <Esc>4gt<cr>
+nmap <A-4> 4gt<cr>
+imap <A-5> <Esc>5gt<cr>
+nmap <A-5> 5gt<cr>
+imap <A-6> <Esc>6gt<cr>
+nmap <A-6> 6gt<cr>
+imap <A-7> <Esc>7gt<cr>
+nmap <A-7> 7gt<cr>
+imap <A-8> <Esc>8gt<cr>
+nmap <A-8> 8gt<cr>
+imap <A-9> <Esc>9gt<cr>
+nmap <A-9> 9gt<cr>
+imap <A-0> <Esc>:tablast<cr>
+nmap <A-0> :tablast<cr>
+
+
 " *.asx, windows media playlist.
 "au BufRead *.asx,<&faf;XML> runtime! syntax/xml.vim
 "au BufRead,BufNewFile *.asx setfiletype asx
