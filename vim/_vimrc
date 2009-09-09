@@ -250,23 +250,7 @@ vmap <silent> <End> :call EndBind(0)<cr>
 
 " get week day string in chinese.
 function Week_cn()
-    let w=strftime("%w")
-    if w =~ "0"
-        let w="日"
-    elseif w =~ "1"
-        let w="一"
-    elseif w =~ "2"
-        let w="二"
-    elseif w =~ "3"
-        let w="三"
-    elseif w =~ "4"
-        let w="四"
-    elseif w =~ "5"
-        let w="五"
-    elseif w =~ "5"
-        let w="六"
-    endif
-    return "星期" . w
+    return "星期".strpart("日一二三四五六", strftime("%w")*3, 3)
 endfunction
 
 
