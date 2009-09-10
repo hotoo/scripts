@@ -1,3 +1,22 @@
+"
+"                     {/ ． ．\}
+"                     ( (oo)   )    
+" +-------------oOOo---︶︶︶︶---oOOo-------------+
+"                                      _  ___
+"                                       \/ _/
+"                                      _/ /ian__
+"                                     /__/\ \/ /
+"                                          \  /
+"                                          /_/un
+"
+"
+" @author 闲耘™ (@hotoo, mail@xianyun.org)
+"               (http://www.xianyun.org/)
+" @version 2009/09/10
+" 
+" +---------------------------------Oooo-----------+
+"
+
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -146,6 +165,24 @@ imap <M-0> <Esc>:tablast<cr>
 nmap <M-0> :tablast<cr>
 
 
+" auto complete drop list.
+set completeopt=longest,menu
+imap <C-L> <C-x><C-o>
+
+
+" Toggle Menu and Toolbar
+" @see http://liyanrui.is-programmer.com/articles/1791/gvim-menu-and-toolbar-toggle.html
+set guioptions-=m
+set guioptions-=T
+map <silent> <F2> :if &guioptions =~# 'T' <Bar>
+        \set guioptions-=T <Bar>
+        \set guioptions-=m <bar>
+    \else <Bar>
+        \set guioptions+=T <Bar>
+        \set guioptions+=m <Bar>
+    \endif<CR>
+
+
 " Dynamic bind <HOME> key
 " if caret/cursor not at the frist non-white-space character
 "   move caret/cursor to there
@@ -208,23 +245,6 @@ let g:jslint_command = $VIM.'\vimfiles\jslint\jsl.exe'
 " @see http://www.vim.org/scripts/script.php?script_id=2150
 
 
-" auto complete drop list.
-set completeopt=longest,menu
-imap <C-L> <C-x><C-o>
-
-
-" Toggle Menu and Toolbar
-set guioptions-=m
-set guioptions-=T
-map <silent> <F2> :if &guioptions =~# 'T' <Bar>
-        \set guioptions-=T <Bar>
-        \set guioptions-=m <bar>
-    \else <Bar>
-        \set guioptions+=T <Bar>
-        \set guioptions+=m <Bar>
-    \endif<CR>
-
-
 " Calendar
 " @see http://www.gracecode.com/archives/674/
 let g:calendar_diary=$VIM.'\vimfiles\calendar_data\'
@@ -247,6 +267,9 @@ nmap <F3> :NERDTreeToggle<cr>
 
 " fold javascript function code.
 " need ftpplugin/python_fold.vim
+" @see http://amix.dk/blog/viewEntry/19132
+" @see http://vim.sourceforge.net/scripts/script.php?script_id=515
+" @see http://amix.dk/vim/vimrc.html
 function! JavaScriptFold() 
     setl foldmethod=syntax
     setl foldlevelstart=1
