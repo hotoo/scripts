@@ -30,6 +30,7 @@ function MyDiff()
 endfunction
 
 
+" -------------------------------- Settings ----------------------------------
 " encoding
 set encoding=utf-8
 set termencoding=utf-8
@@ -45,6 +46,21 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 language messages zh_cn.utf-8
 
+" FencView.vim
+" 自动识别文件编码
+" @see http://www.vim.org/scripts/script.php?script_id=1708
+"
+" let g:fencview_autodetect=1
+" let g:fencview_auto_patterns='*.txt,*.js,*.css,*.c,*.cpp,*.h,*.java,*.cs,*.htm{l\=}'
+" let g:fencview_checklines=10
+" let $FENCVIEW_TELLENC='tellenc'
+
+
+" max open window
+au GUIEnter * simalt ~x
+" theme, skin, color
+colo desert
+sy on
 
 " fonts
 set guifont=Courier_New:h11:cANSI
@@ -55,35 +71,22 @@ set guifont=Courier_New:h11:cANSI
 " :set backup
 set nobackup
 
-
 " tabs
 set expandtab
 set tabstop=4
 set shiftwidth=4
-
 
 " fold
 set foldmethod=indent
 set foldlevel=20
 set fdc=4
 
+" set ignorecase
+set ic
 
 " display line number.
 " <code>:set nonu</code> hide line number.
 set nu 
-
-
-" max open window
-au GUIEnter * simalt ~x
-
-
-" theme, skin, color
-colo desert
-sy on
-
-
-" set ignorecase
-set ic
 
 
 " highlight CurrentLine guibg=darkgrey guifg=white
@@ -91,9 +94,106 @@ set ic
 " set ut=100
 
 
+" auto wrap text.
+" NOTE: this setting will change text source.
+" set cursorline
+" set textwidth=80
+" set fo+=m
+
+
+
+" ------------------------------- Mappings -----------------------------------
+" Normal Mode, Visual Mode, and Select Mode,
+" use <Tab> and <Shift-Tab> to indent
+nmap <tab> v>
+nmap <s-tab> v<
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+
+" tab navigation & operation like tabs browser
+" @see http://vimcdoc.sourceforge.net/doc/tabpage.html
+" Note: cannot map <C-number> for gvim on window 7.
+imap <C-t> <Esc>:tabnew<cr>
+nmap <C-t> :tabnew<cr>
+imap <C-w> <Esc>:tabclose<cr>
+nmap <C-w> :tableclose<cr>
+imap <C-S-w> <Esc>:tabonly<cr>
+nmap <C-S-w> :tabonly<cr>
+imap <C-tab> :tabnext<cr>
+nmap <C-tab> :tabnext<cr>
+imap <C-S-tab> :tabprevious<cr>
+nmap <C-S-tab> :tabprevious<cr>
+imap <M-1> <Esc>:tabfirst<cr>
+nmap <M-1> :tabfirst<cr>
+imap <M-2> <Esc>2gt
+nmap <M-2> 2gt
+imap <M-3> <Esc>3gt
+nmap <M-3> 3gt
+imap <M-4> <Esc>4gt
+nmap <M-4> 4gt
+imap <M-5> <Esc>5gt
+nmap <M-5> 5gt
+imap <M-6> <Esc>6gt
+nmap <M-6> 6gt
+imap <M-7> <Esc>7gt
+nmap <M-7> 7gt
+imap <M-8> <Esc>8gt
+nmap <M-8> 8gt
+imap <M-9> <Esc>9gt
+nmap <M-9> 9gt
+imap <M-0> <Esc>:tablast<cr>
+nmap <M-0> :tablast<cr>
+
+
+" Dynamic bind <HOME> key
+" if caret/cursor not at the frist non-white-space character
+"   move caret/cursor to there
+" else
+"   move to beginning
+function HomeBind(offset)
+    let cursor=getpos('.')
+    let s0=getline(line('.'))
+    let s1=substitute(s0, "^\\s\\+", "", "")
+    let x=len(s0)-len(s1)+1
+    if col('.') == x-a:offset
+        let x=1
+    endif
+    call setpos('.', [cursor[0], cursor[1], x, cursor[3]])
+endfunction
+imap <silent> <Home> <Esc>:call HomeBind(1)<cr>i
+nmap <silent> <Home> :call HomeBind(0)<cr>
+vmap <silent> <Home> <Esc>:call HomeBind(1)<cr>
+
+
+" Dynamic bind <END> key
+" if caret/cursor not at the end
+"   move caret/cursor to there
+" else
+"   move to last non-white-space character.
+function EndBind(offset)
+    let cursor=getpos('.')
+    let s0=getline(line('.'))
+    let s1=substitute(s0, "\\s*$", "", "")
+    let x=len(s0)+a:offset
+    if col('.') == x
+        let x=len(s1)+a:offset
+    endif
+    call setpos('.', [cursor[0], cursor[1], x, cursor[3]])
+endfunction
+imap <silent> <End> <Esc>:call EndBind(0)<cr>a
+nmap <silent> <End> :call EndBind(0)<cr>
+vmap <silent> <End> :call EndBind(0)<cr>
+"nmap <End> /\S\s*$<CR>:nohl<CR>
+
+
+
+" -------------------------------- Plugins -----------------------------------
 " gvim full screen plugin
+" @see http://www.vim.org/scripts/script.php?script_id=2596
 " @see http://www.gracecode.com/archives/2946/
 map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+imap <F11> <Esc><F11>a
 
 
 " jsLint
@@ -105,32 +205,12 @@ let g:jslint_command = $VIM.'\vimfiles\jslint\jsl.exe'
 
 " css color
 " @see http://www.gracecode.com/archives/977/
+" @see http://www.vim.org/scripts/script.php?script_id=2150
 
 
 " auto complete drop list.
 set completeopt=longest,menu
 imap <C-L> <C-x><C-o>
-
-
-" Normal Mode, Visual Mode, and Select Mode,
-" use <Tab> and <Shift-Tab> to indent
-nmap <tab> v>
-nmap <s-tab> v<
-vmap <tab> >gv
-vmap <s-tab> <gv
-
-
-" css autocomplete
-" csscomplete.vim
-" @see VIM/vim72/autoload/csscomplete.vim
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-
-" auto wrap text.
-" NOTE: this setting will change text source.
-" set cursorline
-" set textwidth=80
-" set fo+=m
 
 
 " Toggle Menu and Toolbar
@@ -202,91 +282,15 @@ filetype plugin on
 let snips_author="闲耘 (mail[AT]xianyun.org)"
 
 
-" Dynamic bind <HOME> key
-" if caret/cursor not at the frist non-white-space character
-"   move caret/cursor to there
-" else
-"   move to beginning
-function HomeBind(offset)
-    let cursor=getpos('.')
-    let s0=getline(line('.'))
-    let s1=substitute(s0, "^\\s\\+", "", "")
-    let x=len(s0)-len(s1)+1
-    if col('.') == x-a:offset
-        let x=1
-    endif
-    call setpos('.', [cursor[0], cursor[1], x, cursor[3]])
-endfunction
-imap <silent> <Home> <Esc>:call HomeBind(1)<cr>i
-nmap <silent> <Home> :call HomeBind(0)<cr>
-vmap <silent> <Home> <Esc>:call HomeBind(1)<cr>
+" marks, will be auto load source
+"source $VIM\vimfiles\plugin\mark.vim
 
 
-" Dynamic bind <END> key
-" if caret/cursor not at the end
-"   move caret/cursor to there
-" else
-"   move to last non-white-space character.
-function EndBind(offset)
-    let cursor=getpos('.')
-    let s0=getline(line('.'))
-    let s1=substitute(s0, "\\s*$", "", "")
-    let x=len(s0)+a:offset
-    if col('.') == x
-        let x=len(s1)+a:offset
-    endif
-    call setpos('.', [cursor[0], cursor[1], x, cursor[3]])
-endfunction
-imap <silent> <End> <Esc>:call EndBind(0)<cr>a
-nmap <silent> <End> :call EndBind(0)<cr>
-vmap <silent> <End> :call EndBind(0)<cr>
-"nmap <End> /\S\s*$<CR>:nohl<CR>
-
-
-" rtrim
-" right trim, remove invalid spaces at right.
-" TODO
-
-
-" get week day string in chinese.
-function Week_cn()
-    return "星期".strpart("日一二三四五六", strftime("%w")*3, 3)
-endfunction
-
-
-" tab navigation & operation like tabs browser
-" @see http://vimcdoc.sourceforge.net/doc/tabpage.html
-" Note: cannot map <C-number> for gvim on window 7.
-imap <C-t> <Esc>:tabnew<cr>
-nmap <C-t> :tabnew<cr>
-imap <C-w> <Esc>:tabclose<cr>
-nmap <C-w> :tableclose<cr>
-imap <C-S-w> <Esc>:tabonly<cr>
-nmap <C-S-w> :tabonly<cr>
-imap <C-tab> :tabnext<cr>
-nmap <C-tab> :tabnext<cr>
-imap <C-S-tab> :tabprevious<cr>
-nmap <C-S-tab> :tabprevious<cr>
-imap <M-1> <Esc>:tabfirst<cr>
-nmap <M-1> :tabfirst<cr>
-imap <M-2> <Esc>2gt
-nmap <M-2> 2gt
-imap <M-3> <Esc>3gt
-nmap <M-3> 3gt
-imap <M-4> <Esc>4gt
-nmap <M-4> 4gt
-imap <M-5> <Esc>5gt
-nmap <M-5> 5gt
-imap <M-6> <Esc>6gt
-nmap <M-6> 6gt
-imap <M-7> <Esc>7gt
-nmap <M-7> 7gt
-imap <M-8> <Esc>8gt
-nmap <M-8> 8gt
-imap <M-9> <Esc>9gt
-nmap <M-9> 9gt
-imap <M-0> <Esc>:tablast<cr>
-nmap <M-0> :tablast<cr>
+" ------------------------------- File Types ---------------------------------
+" css autocomplete
+" csscomplete.vim
+" @see VIM/vim72/autoload/csscomplete.vim
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
 " *.asx, windows media playlist.
@@ -302,21 +306,21 @@ nmap <M-0> :tablast<cr>
 "au BufRead,BufNewFile *.vm setfiletype vm
 
 
-" FencView.vim
-" 自动识别文件编码
-" @see http://www.vim.org/scripts/script.php?script_id=1708
-"
-" let g:fencview_autodetect=1
-" let g:fencview_auto_patterns='*.txt,*.js,*.css,*.c,*.cpp,*.h,*.java,*.cs,*.htm{l\=}'
-" let g:fencview_checklines=10
-" let $FENCVIEW_TELLENC='tellenc'
+
+" --------------------------- Macros & Functions -----------------------------
+" TODO rtrim: right trim, remove invalid spaces at right.
 
 
-"source $VIM\vimfiles\plugin\mark.vim
+
+" get week day string in chinese.
+function Week_cn()
+    return "星期".strpart("日一二三四五六", strftime("%w")*3, 3)
+endfunction
 
 
 " Chinese Docs
 "cp -R doc $VIM.'\vimfiles\doc\'
+
 
 " map auto complete
 "inoremap ( ()<esc>:let leavechar=")"<cr>i
