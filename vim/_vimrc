@@ -256,7 +256,7 @@ endfunction
 
 " tab navigation & operation like tabs browser
 " @see http://vimcdoc.sourceforge.net/doc/tabpage.html
-" Note: cannot map <C-n> for gvim on window 7.
+" Note: cannot map <C-number> for gvim on window 7.
 imap <C-t> <Esc>:tabnew<cr>
 nmap <C-t> :tabnew<cr>
 imap <C-w> <Esc>:tabclose<cr>
