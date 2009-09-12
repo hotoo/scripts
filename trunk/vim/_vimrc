@@ -90,6 +90,7 @@ set guifont=Courier_New:h11:cANSI
 set nobackup
 
 " tabs
+set softtabstop=4
 set expandtab
 set tabstop=4
 set shiftwidth=4
