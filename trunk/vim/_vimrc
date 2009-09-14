@@ -81,8 +81,12 @@ colo desert
 sy on
 
 " fonts
-set guifont=Courier_New:h11:cANSI
-"set guifontwide=YouYuan:h11:cGB2312
+" @see http://support.microsoft.com/kb/306527/zh-cn
+" @see http://www.gracecode.com/archives/1545/
+if has("win32")
+    set guifont=Courier_New:h11:cANSI
+    "set guifontwide=YouYuan:h11:cGB2312
+endif
 
 
 " swrap file, auto backup.
