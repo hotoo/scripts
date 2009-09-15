@@ -21,6 +21,7 @@ function resetHeight(){
         ifr.width=0; ifr.height=0;
         ifr.style.width=0; ifr.style.height=0;
         ifr.style.display="none";
+        document.body.appendChild(ifr);
     }
     ifr.url = uri+"#"+hash;
 }
