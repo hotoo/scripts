@@ -92,7 +92,24 @@ document.write(12345678901234567890.1234567890123456789);
 document.write("<br />");
 
 document.write("<hr />");
-var ns=[];
+
+function repeat(s,i){
+    var r="";
+    while(i--){r+=s;}
+    return r;
+}
+function num(i){
+    var r="";
+    while(i--){r=i%10+r;}
+    return r;
+}
+var ns=[], X=30, I=30, D=30;
+function makeNumber(l){
+    return parseFloat(num(l)+"."+num(D));
+}
+for(var i=1; i<X; i++){
+    document.write(repeat("&nbsp;",I-i)+makeNumber(i)+"<br />");
+}
 /*]]>*/</script>
 </pre>
 </body>
