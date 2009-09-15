@@ -230,21 +230,21 @@ snippet table
 	<table>
 	<thead>
 		<tr>
-			<th>${1:Header}</th>
+			<th>${1:Header}</th>${2}
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>${2:Data}</t2>
+			<td>${3:Data}</t2>${4}
 		</tr>
 	</tbody>
-	</table>${4}
+	</table>${5}
 snippet textarea
-	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
+	<textarea id="${1:name}" name="${2:$1}" rows="${3:8}" cols="${4:40}"${5}>${6}</textarea>${7}
 snippet frame
 	<frameset rows="${1:,}" cols="${2:,}">
 		<frame src="${3}" name="${4}" />
 		<frame src="${5}" name="${6}" />
 	</frameset>
 snippet iframe
-	<iframe src="${1}" width="100%" height="100%" frameborder="0" scrolling="${2:yes/no}"></iframe>
+	<iframe src="${1}" width="${2:100%}" height="${3:100%}" frameborder="0" marginwidth="0" marginheight="0" scrolling="${4:yes}"${5}></iframe>${6}
