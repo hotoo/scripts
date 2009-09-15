@@ -52,7 +52,7 @@ Number.toRoman = function(a){
 	
 };
 Number.prototype.toRoman = function(){
-	return Number._ROMAN[this]
+	return Number._ROMAN[this];
 };
 Number.prototype.fromRoman = function(r){
 	
@@ -160,6 +160,7 @@ Number.prototype.isFibonacci = function(){
 		else if (f===this) return true;
 		else return false;
 	}
+    return false;
 };
 /**
  * 求斐波纳契(fibonacci)数列中第index的值。
@@ -218,6 +219,11 @@ String.prototype.commafy = function(){
     var __n = _n[1].match(/(-?\d{0,3})((?:\d{3})*)/);
     return __n[1] + __n[2].replace(/(\d{3})/g, ",$1") + // integer.
         _n[2].replace(/(\d{3})/g, "$1,").replace(/(.*),$/, "$1"); // decimal.
+};
+Number.prototype.commafy = function(){
+    var a=String(this).split("."), i=a[0], d=a[1];
+    return i.replace(/(?=(?!\b)(?:\w{3})+$)/g,",") +
+        (d?"."+d.replace(/(\d{3}(?!$))/g, "$1,"):"");
 };
 Number.prototype.commafy = function(){
     return this.toString().commafy();
@@ -304,7 +310,7 @@ Number.round2 = function(n){
 if (!Number.prototype.round){
 Number.prototype.round = function(){
     return Math.round(this);
-}
+};
 Number.prototype.round2 = function(){
     return Number.round(this);
 };
@@ -377,15 +383,10 @@ Number.prototype.format = function(format){
  * TODO 数值本身位数长度大于参数值时，结果不正确。
  */
 Number.prototype.format = function(l){
-	return ((new Array(l).join("0")+(this|0)).slice(-l))
+	return ((new Array(l).join("0")+(this|0)).slice(-l));
 };
 }
 Number.prototype.format = function(len){
 	return ((new Array(len).join("0")+(this|0)).slice(-len));
 };
-
-/** 
- *
- *
- */
 /*]]>*/
