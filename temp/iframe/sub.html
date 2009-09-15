@@ -23,7 +23,7 @@ function resetHeight(){
         ifr.style.display="none";
         document.body.appendChild(ifr);
     }
-    ifr.url = uri+"#"+hash;
+    ifr.src = uri+"#"+hash;
 }
 if(window.attachEvent){
     window.attachEvent("onload", resetHeight);
