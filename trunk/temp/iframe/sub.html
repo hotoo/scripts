@@ -9,6 +9,29 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <title>Sub Test</title>
+<script type="text/javascript">/*<![CDATA[*/
+function resetHeight(){
+    var hash = document.documentElement.scrollHeight,
+        uri="http://m2.dss.alipay.com:8080/alipaydw/index/agent.htm",
+        id="reset-height-frame",
+        ifr=document.getElementById("id");
+    if(!ifr){
+        var ifr=document.createElement("iframe");
+        ifr.id = id;
+        ifr.width=0; ifr.height=0;
+        ifr.style.width=0; ifr.style.height=0;
+        ifr.style.display="none";
+    }
+    ifr.url = uri+"#"+hash;
+}
+if(window.attachEvent){
+    window.attachEvent("onload", resetHeight);
+    //window.attachEvent("onresize", resetHeight);
+}else if(window.addEventListener){
+    window.addEventListener('load', resetHeight, false);
+    //window.addEventListener('resize', resetHeight, false);
+}
+/*]]>*/</script>
 </head>
 <body>
     <div id="wrapper">
