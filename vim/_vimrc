@@ -49,6 +49,9 @@ endfunction
 
 
 " -------------------------------- Settings ----------------------------------
+" quick startup mode.
+set shortmess=atI
+
 " encoding
 set encoding=utf-8
 set termencoding=utf-8
@@ -96,9 +99,17 @@ set nobackup
 
 " tabs
 set softtabstop=4
+" replace tab to word space.
 set expandtab
+" show tab indent word space.
 set tabstop=4
+" tab length
 set shiftwidth=4
+
+" break full word.
+set linebreak
+" new line indent same this line.
+set autoindent
 
 " fold
 set foldmethod=indent
@@ -135,15 +146,24 @@ vmap <tab> >gv
 vmap <s-tab> <gv
 
 
+" use Meta key(Windows:Alt) to move cursor in insert mode.
+" Note: if system install "Lingoes Translator", 
+"   you will need change/disabled hot key.
+noremap! <M-j> <Down>
+noremap! <M-k> <Up>
+noremap! <M-h> <left>
+noremap! <M-l> <Right>
+
+
 " tab navigation & operation like tabs browser
 " @see http://vimcdoc.sourceforge.net/doc/tabpage.html
 " Note: cannot map <C-number> for gvim on window 7.
 imap <C-t> <Esc>:tabnew<cr>
 nmap <C-t> :tabnew<cr>
-imap <C-w> <Esc>:tabclose<cr>
-nmap <C-w> :tableclose<cr>
-imap <C-S-w> <Esc>:tabonly<cr>
-nmap <C-S-w> :tabonly<cr>
+"imap <C-w> <Esc>:tabclose<cr>
+"nmap <C-w> :tableclose<cr>
+"imap <C-S-w> <Esc>:tabonly<cr>
+"nmap <C-S-w> :tabonly<cr>
 imap <C-tab> :tabnext<cr>
 nmap <C-tab> :tabnext<cr>
 imap <C-S-tab> :tabprevious<cr>
