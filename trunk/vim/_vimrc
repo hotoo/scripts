@@ -284,6 +284,20 @@ func StateChangeEnter()
 endfunc
 
 
+" Doxygen
+" @see http://www.vim.org/scripts/script.php?script_id=5
+" @see http://www.vim.org/scripts/script.php?script_id=987
+" @see http://www.jeffhung.net/blog/articles/jeffhung/447/
+" @see http://blog.csdn.net/AD_LI/archive/2009/08/24/4474878.aspx
+let g:DoxygenToolkit_authorName="闲耘™ (@hotoo, mail@xianyun.org)"
+let s:licenseTag = "Copyleft(C)\<enter>"
+let s:licenseTag = s:licenseTag . "For 闲耘™\<enter>"
+let s:licenseTag = s:licenseTag . "Some right reserved\<enter>"
+let g:DoxygenToolkit_licenseTag = s:licenseTag
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
+
+
 " gvim full screen plugin
 " @see http://www.vim.org/scripts/script.php?script_id=2596
 " @see http://www.gracecode.com/archives/2946/
