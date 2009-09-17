@@ -251,6 +251,39 @@ vmap <silent> <End> :call EndBind(0)<cr>
 
 
 " -------------------------------- Plugins -----------------------------------
+" Super Auto Complete Pop Menu
+" autocomplete.vim
+" @see http://www.vim.org/scripts/script.php?script_id=1879
+" @see http://hi.baidu.com/timeless/blog/item/cb4478f09a1563ca7931aa5d.html
+" Note: functions and key maps invalid.
+let g:AutoComplPop_IgnoreCaseOption=1
+set ignorecase
+let g:pumselect = 0 
+inoremap <expr> <TAB>   MaySelect()
+function MaySelect()
+    if(pumvisible())
+        let g:pumselect = 1 
+        return "\<DOWN>"
+    endif
+    return "\<TAB>"
+endfunc
+
+inoremap <expr> <Space> MayComplete()
+func MayComplete()
+    if (pumvisible() && g:pumselect)
+        let g:pumselect = 0 
+        return "\<CR>"
+    endif
+    return "\<Space>"
+endfunc
+
+inoremap <expr> <CR> StateChangeEnter()
+func StateChangeEnter()
+    let g:pumselect = 0 
+    return "\<CR>"
+endfunc
+
+
 " gvim full screen plugin
 " @see http://www.vim.org/scripts/script.php?script_id=2596
 " @see http://www.gracecode.com/archives/2946/
