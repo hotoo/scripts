@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Equals</title>
+    
+</head>
+<body>
+<script type="text/javascript">
+var I=400000;
+var d1 = new Date();
+var b;
+for (var i=0; i<I; i++){
+ b=1=="1";
+}
+d1 = new Date()-d1;
+
+var d2 = new Date();
+for (var i=0; i<I; i++){
+ b=1==="1";
+}
+d2 = new Date()-d2;
+
+document.write(d1+":"+d2);
+        
+</script>
+</body>
+</html>
