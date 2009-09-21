@@ -70,11 +70,10 @@ language messages zh_cn.utf-8
 " FencView.vim
 " 自动识别文件编码
 " @see http://www.vim.org/scripts/script.php?script_id=1708
-"
-" let g:fencview_autodetect=1
-" let g:fencview_auto_patterns='*.txt,*.js,*.css,*.c,*.cpp,*.h,*.java,*.cs,*.htm{l\=}'
-" let g:fencview_checklines=10
-" let $FENCVIEW_TELLENC='tellenc'
+let g:fencview_autodetect=1
+let g:fencview_auto_patterns='*.txt,*.js,*.css,*.c,*.cpp,*.h,*.java,*.cs,*.htm{l\=}'
+let g:fencview_checklines=20
+let $FENCVIEW_TELLENC='tellenc'
 
 
 " max open window
@@ -82,6 +81,13 @@ au GUIEnter * simalt ~x
 " theme, skin, color
 colo desert
 sy on
+
+
+"if has('multi_byte_ime')
+"    highlight Cursor guibg=Green guifg=NONE
+"    highlight CursorIM guibg=Purple guifg=NONE
+"endif
+
 
 " fonts
 " @see http://support.microsoft.com/kb/306527/zh-cn
@@ -251,37 +257,38 @@ vmap <silent> <End> :call EndBind(0)<cr>
 
 
 " -------------------------------- Plugins -----------------------------------
-" Super Auto Complete Pop Menu
-" autocomplete.vim
+" Auto Complete Pop Menu
+" autocomplpop.vim
 " @see http://www.vim.org/scripts/script.php?script_id=1879
 " @see http://hi.baidu.com/timeless/blog/item/cb4478f09a1563ca7931aa5d.html
 " Note: functions and key maps invalid.
-let g:AutoComplPop_IgnoreCaseOption=1
-set ignorecase
-let g:pumselect = 0 
-inoremap <expr> <TAB>   MaySelect()
-function MaySelect()
-    if(pumvisible())
-        let g:pumselect = 1 
-        return "\<DOWN>"
-    endif
-    return "\<TAB>"
-endfunc
-
-inoremap <expr> <Space> MayComplete()
-func MayComplete()
-    if (pumvisible() && g:pumselect)
-        let g:pumselect = 0 
-        return "\<CR>"
-    endif
-    return "\<Space>"
-endfunc
-
-inoremap <expr> <CR> StateChangeEnter()
-func StateChangeEnter()
-    let g:pumselect = 0 
-    return "\<CR>"
-endfunc
+"
+"let g:AutoComplPop_IgnoreCaseOption=1
+"let g:pumselect = 0 
+"
+"inoremap <expr> <TAB>   MaySelect()
+"function MaySelect()
+"    if(pumvisible())
+"        let g:pumselect = 1 
+"        return "\<DOWN>"
+"    endif
+"    return "\<TAB>"
+"endfunc
+"
+"inoremap <expr> <Space> MayComplete()
+"func MayComplete()
+"    if (pumvisible() && g:pumselect)
+"        let g:pumselect = 0 
+"        return "\<CR>"
+"    endif
+"    return "\<Space>"
+"endfunc
+"
+"inoremap <expr> <CR> StateChangeEnter()
+"func StateChangeEnter()
+"    let g:pumselect = 0 
+"    return "\<CR>"
+"endfunc
 
 
 " Doxygen
