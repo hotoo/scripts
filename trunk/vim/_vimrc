@@ -1,5 +1,5 @@
 "                     {/ ． ．\}
-"                     ( (oo)   )    
+"                     ( (oo)   )
 " +-------------oOOo---︶︶︶︶---oOOo-------------+
 "                                      _  ___
 "                                       \/ _/
@@ -12,7 +12,7 @@
 " @author 闲耘™ (@hotoo, mail@xianyun.org)
 "               (http://www.xianyun.org/)
 " @version 2009/09/10
-" 
+"
 " +---------------------------------Oooo-----------+
 "
 
@@ -131,7 +131,7 @@ set ic
 
 " display line number.
 " <code>:set nonu</code> hide line number.
-set nu 
+set nu
 
 
 " highlight CurrentLine guibg=darkgrey guifg=white
@@ -157,7 +157,7 @@ vmap <s-tab> <gv
 
 
 " use Meta key(Windows:Alt) to move cursor in insert mode.
-" Note: if system install "Lingoes Translator", 
+" Note: if system install "Lingoes Translator",
 "   you will need change/disabled hot key.
 noremap! <M-j> <Down>
 noremap! <M-k> <Up>
@@ -268,12 +268,12 @@ vmap <silent> <End> :call EndBind(0)<cr>
 " Note: functions and key maps invalid.
 "
 "let g:AutoComplPop_IgnoreCaseOption=1
-"let g:pumselect = 0 
+"let g:pumselect = 0
 "
 "inoremap <expr> <TAB>   MaySelect()
 "function MaySelect()
 "    if(pumvisible())
-"        let g:pumselect = 1 
+"        let g:pumselect = 1
 "        return "\<DOWN>"
 "    endif
 "    return "\<TAB>"
@@ -282,7 +282,7 @@ vmap <silent> <End> :call EndBind(0)<cr>
 "inoremap <expr> <Space> MayComplete()
 "func MayComplete()
 "    if (pumvisible() && g:pumselect)
-"        let g:pumselect = 0 
+"        let g:pumselect = 0
 "        return "\<CR>"
 "    endif
 "    return "\<Space>"
@@ -290,7 +290,7 @@ vmap <silent> <End> :call EndBind(0)<cr>
 "
 "inoremap <expr> <CR> StateChangeEnter()
 "func StateChangeEnter()
-"    let g:pumselect = 0 
+"    let g:pumselect = 0
 "    return "\<CR>"
 "endfunc
 
@@ -353,7 +353,7 @@ nmap <F3> :NERDTreeToggle<cr>
 " @see http://amix.dk/blog/viewEntry/19132
 " @see http://vim.sourceforge.net/scripts/script.php?script_id=515
 " @see http://amix.dk/vim/vimrc.html
-function! JavaScriptFold() 
+function! JavaScriptFold()
     setl foldmethod=syntax
     setl foldlevelstart=1
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
@@ -414,8 +414,19 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 
 " --------------------------- Macros & Functions -----------------------------
-" TODO rtrim: right trim, remove invalid spaces at right.
-
+" Remove trailing whitespace when writing a buffer, but not for diff files.
+" From: Vigil
+" @see http://blog.bs2.to/post/EdwardLee/17961
+function RemoveTrailingWhitespace()
+    if &ft != "diff"
+        let b:curcol = col(".")
+        let b:curline = line(".")
+        silent! %s/\s\+$//
+        silent! %s/\(\s*\n\)\+\%$//
+        call cursor(b:curline, b:curcol)
+    endif
+endfunction
+autocmd BufWritePre * call RemoveTrailingWhitespace()
 
 
 " get week day string in chinese.
