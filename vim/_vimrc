@@ -88,8 +88,7 @@ sy on
 " @see :help mbyte-IME
 if has('multi_byte_ime')
     highlight Cursor guibg=#F0E68C guifg=#708090
-    highlight CursorIM guibg=#cccccc guifg=NONE
-" Purple
+    highlight CursorIM guibg=Purple guifg=NONE
 endif
 
 
