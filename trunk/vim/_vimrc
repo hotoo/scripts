@@ -80,13 +80,17 @@ let $FENCVIEW_TELLENC='tellenc'
 au GUIEnter * simalt ~x
 " theme, skin, color
 colo desert
+" @see http://blog.infinitered.com/entries/show/8
+"colo ir_black
 sy on
 
 
-"if has('multi_byte_ime')
-"    highlight Cursor guibg=Green guifg=NONE
-"    highlight CursorIM guibg=Purple guifg=NONE
-"endif
+" @see :help mbyte-IME
+if has('multi_byte_ime')
+    highlight Cursor guibg=#F0E68C guifg=#708090
+    highlight CursorIM guibg=#cccccc guifg=NONE
+" Purple
+endif
 
 
 " fonts
