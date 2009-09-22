@@ -8,6 +8,7 @@
 var Options = function(sel){
     this.sel = sel;
 };
+
 /**
  * create new option item and select it, if exist same one, select it.
  * @param {String} txt option element's text for display.
@@ -26,6 +27,7 @@ Options.prototype.create = function(txt, val){
     ops[l].selected = true;
     return true;
 };
+
 /**
  * change selected option's text and value.
  * @param {String} txt option name/text for display.
@@ -35,10 +37,11 @@ Options.prototype.create = function(txt, val){
 Options.prototype.change = function(txt, val){
     var ops = this.sel.options;
     if(!ops.length){return false;}
-    ops[sel.selectedIndex].value = val||txt;
-    ops[sel.selectedIndex].text = txt;
+    ops[this.sel.selectedIndex].value = val||txt;
+    ops[this.sel.selectedIndex].text = txt;
     return true;
 };
+
 /**
  * remove selected option item.
  * @return {Boolean}
@@ -46,7 +49,19 @@ Options.prototype.change = function(txt, val){
 Options.prototype.remove = function(){
     var ops = this.sel.options;
     if(!ops.length){return false;}
-    sel.remove(sel.selectedIndex);
+    this.sel.remove(this.sel.selectedIndex);
+    return true;
+};
+
+/**
+ * clear all options item.
+ * @return {Boolean}
+ */
+Options.prototype.clear = function(){
+    var l = this.sel.options.length;
+    while(l--){
+        this.sel.remove(0);
+    }
     return true;
 };
 /*]]>*/
