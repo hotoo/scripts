@@ -123,19 +123,18 @@ snippet xhtml
 	</html>
 snippet body
 	<body>
-		${1}
+	${1}
 	</body>
 snippet head
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8"`Close()`>
-		<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
-		${2}
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"`Close()`>
+	<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>${2}
 	</head>${3}
 snippet title
 	<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>${2}
 snippet script
 	<script type="text/javascript">/*<![CDATA[*/
-		${1}
+	${1}
 	/*]]>*/</script>${2}
 snippet scriptsrc
 	<script type="text/javascript" src="${1}.js"></script>${2}
@@ -143,14 +142,14 @@ snippet script2
 	<script src="${1}.js" type="text/javascript" charset="utf-8"></script>${2}
 snippet style
 	<style type="text/css" media="${1:screen}">
-		${2}
+	${2}
 	</style>${3}
 snippet style2
-	<link type="text/css" rel="stylesheet" href="${1}" />
+	<link type="text/css" rel="stylesheet" href="${1}" />${2}
 snippet base
-	<base href="${1}" target="${2}"`Close()`>
+	<base href="${1}" target="${2}"`Close()`>${3}
 snippet r
-	<br`Close()[1:]`>
+	<br`Close()[1:]`>${2}
 snippet div
 	<div id="${1:name}">
 		${2}
@@ -172,18 +171,15 @@ snippet movie
 snippet fieldset
 	<fieldset id="$1">
 		<legend>${1:name}</legend>
-
 		${3}
 	</fieldset>
 snippet form
 	<form action="${1:`Filename('$1_submit')`}" method="${2:get}" accept-charset="utf-8">
 		${3}
-
-
 	<p><input type="submit" value="Continue &rarr;"`Close()`></p>
-	</form>
+	</form>${4}
 snippet h1
-	<h1 id="${1:heading}">${2:$1}</h1>
+	<h1 id="${1:heading}">${2:$1}</h1>${3}
 snippet input
 	<input type="${1:text/submit/hidden/button/radio/checkbox/file/reset/image}" name="${2:some_name}" value="${3}"`Close()` />${4}
 snippet label
