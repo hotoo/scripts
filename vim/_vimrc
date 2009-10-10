@@ -149,6 +149,15 @@ set nu
 set clipboard+=unnamed
 
 
+" User Defined Status Line.
+set laststatus=2
+set statusline=%t%m%r%h%w\ [%Y/%{&ff}]\ [ASCII=\%03.3b]\ [%l%1*/%L(%p%%),%*%v]
+hi User1 guibg=#cccccc guifg=#666666
+"hi User1 cterm=italic ctermfg=blue
+"hi User2 cterm=bold
+
+
+
 " ------------------------------- Mappings -----------------------------------
 " Normal Mode, Visual Mode, and Select Mode,
 " use <Tab> and <Shift-Tab> to indent
