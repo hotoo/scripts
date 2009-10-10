@@ -144,17 +144,17 @@ set nu
 " set textwidth=80
 " set fo+=m
 syn match out80 /\%80v./ containedin=ALL
-hi out80 guifg=#333333 guibg=#ffffff 
+hi out80 guifg=#333333 guibg=#ffffff
 
 
 " share system clipboard.
-set clipboard+=unnamed
+"set clipboard+=unnamed
 
 
 " User Defined Status Line.
 set laststatus=2
-set statusline=%t%m%r%h%w\ [%Y/%{&ff}]\ [ASCII=\%03.3b]\ [%l%1*/%L(%p%%),%*%v]
-hi User1 guibg=#C2BFA5 guifg=#999999
+set statusline=%t%m%r%h%w\ [%Y:%{toupper(&ff)}:%{toupper(&fenc!=''?&fenc:&enc)}]\ [ASCII:%b]\ [%l%1*/%L(%p%%)%*,%v]
+hi User1 guibg=#C2BFA5 guifg=#888888
 "hi User1 cterm=italic ctermfg=blue
 "hi User2 cterm=bold
 
