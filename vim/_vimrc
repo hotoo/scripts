@@ -79,9 +79,8 @@ let $FENCVIEW_TELLENC='tellenc'
 " max open window
 au GUIEnter * simalt ~x
 " theme, skin, color
-colo desert
-" @see http://blog.infinitered.com/entries/show/8
-"colo ir_black
+"colo desert
+colo hotoo
 sy on
 
 
