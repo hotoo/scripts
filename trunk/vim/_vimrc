@@ -158,6 +158,9 @@ hi User1 guibg=#C2BFA5 guifg=#888888
 "hi User2 cterm=bold
 
 
+" Set default mode:insert.
+"exe "startinsert"
+
 
 " ------------------------------- Mappings -----------------------------------
 " Normal Mode, Visual Mode, and Select Mode,
