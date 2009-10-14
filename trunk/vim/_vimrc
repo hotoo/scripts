@@ -104,6 +104,8 @@ endif
 " swrap file, auto backup.
 " :set backup
 set nobackup
+set directory=$VIM\tmp
+
 
 " tabs
 set softtabstop=4
