@@ -224,7 +224,10 @@ map <F7> :cn<CR>
 " prev quickfix line.
 map <F8> :cp<CR>
 " compile c/cpp code.
-map <F9> :make<CR> :copen<CR> <C-W>10_
+autocmd FileType cpp nmap <F9> :make<CR> :copen<CR> <C-W>10_
+autocmd FileType cpp nmap <F10> :exe "!gcc -o ".expand("%:r").".exe ".expand("%")<cr>
+autocmd FileType cpp nmap <F5> :exe "!".expand("%:r").".exe"<Left>
+autocmd FileType javascript nmap <F9> :call JsonLint()<cr>
 
 
 " auto complete drop list.
