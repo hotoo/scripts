@@ -122,7 +122,8 @@ set linebreak
 set autoindent
 
 " fold
-set foldmethod=indent
+"set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=20
 set fdc=4
 
