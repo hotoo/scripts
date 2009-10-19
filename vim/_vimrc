@@ -174,6 +174,10 @@ vmap <tab> >gv
 vmap <s-tab> <gv
 
 
+" <Space> key in normal model.
+nmap <Space> i <Esc>l
+
+
 " use Meta key(Windows:Alt) to move cursor in insert mode.
 " Note: if system install "Lingoes Translator",
 "   you will need change/disabled hot key.
@@ -221,13 +225,16 @@ nmap <M-0> :tablast<cr>
 " close quickfix window.
 map <F4> :cclose<CR>
 " next quickfix line.
-map <F7> :cn<CR>
+map <F8> :cn<CR>
 " prev quickfix line.
-map <F8> :cp<CR>
+map <F7> :cp<CR>
 " compile c/cpp code.
-autocmd FileType cpp nmap <F9> :make<CR> :copen<CR> <C-W>10_
-autocmd FileType cpp nmap <F10> :exe "!gcc -o ".expand("%:r").".exe ".expand("%")<cr>
-autocmd FileType cpp nmap <F5> :exe "!".expand("%:r").".exe"<Left>
+autocmd FileType cpp,c nmap <F9> :make<CR> :copen<CR> <C-W>10_
+"autocmd FileType cpp,c nmap <F10> :exe "!gcc -o ".expand("%:r").".exe ".expand("%")<cr>
+" @see http://easwy.com/blog/archives/advanced-vim-skills-quickfix-mode/
+"      http://blog.zdnet.com.cn/html/30/422230-2881199.html
+autocmd FileType cpp,c nmap <F10> :exe "set makeprg=gcc\ -Wall\ -o".expand("%:r").".exe\ ".expand("%")<cr>
+autocmd FileType cpp,c nmap <F5> :exe "!".expand("%:r").".exe"<Left>
 autocmd FileType javascript nmap <F9> :call JsonLint()<cr>
 
 
