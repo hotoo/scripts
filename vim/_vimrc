@@ -154,8 +154,9 @@ hi out80 guifg=#333333 guibg=#ffffff
 
 
 " User Defined Status Line.
+" @see http://www.vim.org/scripts/script.php?script_id=8 for VimBuddy.
 set laststatus=2
-set statusline=%t%m%r%h%w\ [%Y:%{toupper(&ff)}:%{toupper(&fenc!=''?&fenc:&enc)}]\ [ASCII:%b]\ [%l%1*/%L(%p%%)%*,%v]
+set statusline=%t%m%r%h%w\ [%Y:%{toupper(&ff)}:%{toupper(&fenc!=''?&fenc:&enc)}]\ [ASCII:%b]\ [%l%1*/%L(%p%%)%*,%v]\ [%{VimBuddy()}]
 hi User1 guibg=#C2BFA5 guifg=#888888
 "hi User1 cterm=italic ctermfg=blue
 "hi User2 cterm=bold
@@ -233,7 +234,8 @@ autocmd FileType cpp,c nmap <F9> :make<CR> :copen<CR> <C-W>10_
 "autocmd FileType cpp,c nmap <F10> :exe "!gcc -o ".expand("%:r").".exe ".expand("%")<cr>
 " @see http://easwy.com/blog/archives/advanced-vim-skills-quickfix-mode/
 "      http://blog.zdnet.com.cn/html/30/422230-2881199.html
-autocmd FileType cpp,c nmap <F10> :exe "set makeprg=gcc\ -Wall\ -o".expand("%:r").".exe\ ".expand("%")<cr>
+autocmd FileType cpp nmap <F10> :w<cr>:exe ":set makeprg=g++\\\ -Wall\\\ -o\\\ ".expand("%:r").".exe\\\ ".expand("%")<cr>:make<cr><cr>:cw<cr>
+autocmd FileType c nmap <F10> :w<cr>:exe ":set makeprg=gcc\\\ -Wall\\\ -o\\\ ".expand("%:r").".exe\\\ ".expand("%")<cr>:make<cr><cr>:cw<cr>
 autocmd FileType cpp,c nmap <F5> :exe "!".expand("%:r").".exe"<Left>
 autocmd FileType javascript nmap <F9> :call JsonLint()<cr>
 
