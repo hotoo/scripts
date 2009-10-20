@@ -169,6 +169,7 @@ hi User1 guibg=#C2BFA5 guifg=#888888
 " ------------------------------- Mappings -----------------------------------
 " Normal Mode, Visual Mode, and Select Mode,
 " use <Tab> and <Shift-Tab> to indent
+" @see http://c9s.blogspot.com/2007/10/vim-tips.html
 nmap <tab> v>
 nmap <s-tab> v<
 vmap <tab> >gv
@@ -177,6 +178,12 @@ vmap <s-tab> <gv
 
 " <Space> key in normal model.
 nmap <Space> i <Esc>l
+
+
+" Change Assignment(=) Expression.
+" @see http://c9s.blogspot.com/2007/09/vim-tip.html
+nmap c=r $F=lcf;
+nmap c=l $F=c^
 
 
 " use Meta key(Windows:Alt) to move cursor in insert mode.
@@ -223,8 +230,23 @@ imap <M-0> <Esc>:tablast<cr>
 nmap <M-0> :tablast<cr>
 
 
+" QUICKFIX WINDOW
+" @see http://c9s.blogspot.com/2007/10/vim-quickfix-windows.html
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+function! QFixToggle(forced)
+    if exists("g:qfix_win") && a:forced == 0
+        cclose
+        unlet g:qfix_win
+    else
+        copen 10
+        let g:qfix_win = bufnr("$")
+    endif
+endfunction
+"nnoremap <leader>q :QFix<CR>
+
 " close quickfix window.
-map <F4> :cclose<CR>
+"nmap <F4> :cclose<CR>
+nmap <F4> :QFix<CR>
 " next quickfix line.
 map <F8> :cn<CR>
 " prev quickfix line.
