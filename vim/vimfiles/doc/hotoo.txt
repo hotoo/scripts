@@ -1,0 +1,28 @@
+*hotoo.txt*    For Vim version 7.0
+
+                    VIM 用户帮助文件
+
+------------------------------------------------------------------------------
+                                        *user-plugin-list*
+用户插件列表 ~
+|acp.vim|
+|bufexplorer.vim|
+|calendar.vim|
+|ctags.vim|
+|fencview.vim|
+|jsLint.vim|
+|mark.vim|
+|matrix.vim|
+|mru.vim|
+|NERD_comment.vim|
+|NERD_tree.vim|
+|snipMate.vim|
+|taglist.vim|
+|tasklist.vim|
+|Template.vim|
+|vimbuddy.com|
+
+
+
+
+ vim:tw=78:fo=tcq2:isk=!-~,^*,^\|,^\":ts=8:ft=help:norl:
