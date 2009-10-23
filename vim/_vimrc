@@ -156,7 +156,7 @@ hi out80 guifg=#333333 guibg=#ffffff
 " User Defined Status Line.
 " @see http://www.vim.org/scripts/script.php?script_id=8 for VimBuddy.
 set laststatus=2
-set statusline=%t\ %1*%m%*\ %1*%r%*\ %1*%h%*\ %1*%w%*%=\ [%{VimBuddy()}]\ [%l%2*/%L(%p%%)%*,%v]\ [%b:%B]\ [%Y,%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}]
+set statusline=%t\ %1*%m%*\ %1*%r%*\ %h%w%=\ [%{VimBuddy()}]\ [%l%2*/%L(%p%%)%*,%v]\ [%b:%B]\ [%Y,%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}]
 hi User1 guibg=red guifg=yellow
 hi User2 guibg=#C2BFA5 guifg=#666666
 "hi User1 cterm=italic ctermfg=blue
