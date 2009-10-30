@@ -12,6 +12,11 @@
 |fencview.vim|
 |jsLint.vim|
 |mark.vim|
+|MatchIt.vim|
+    在html标记(tags)间跳转
+    @see http://www.vim.org/scripts/script.php?script_id=39
+    分别解压到$VIM/vimfiles/plugin, $VIM/vimfiles/doc
+
 |matrix.vim|
 |mru.vim|
 |NERD_comment.vim|
