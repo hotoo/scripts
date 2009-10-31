@@ -168,6 +168,14 @@ snippet movie
 			pluginspage="http://www.apple.com/quicktime/download/"
 		`Close()[1:]`>
 	</object>${6}
+snippet obj:svg
+	<object data="${1:demo.svg}" width="${2:300}" height="${3:100}" type="image/svg+xml"
+		codebase="http://www.adobe.com/svg/viewer/install/" />
+
+	<embed src="${4:$1}" width="${5:$2}" height="${6:$3}" type="image/svg+xml"
+		pluginspage="http://www.adobe.com/svg/viewer/install/" />
+
+	</object>${7}
 snippet fieldset
 	<fieldset id="$1">
 		<legend>${1:name}</legend>
