@@ -1,7 +1,9 @@
 " Vim completion script
-" Language:	HTML and XHTML
+" Language:	HTML, XHTML, HTML5
 " Maintainer:	Mikolaj Machowski ( mikmach AT wp DOT pl )
 " Last Change:	2006 Oct 19
+"
+" Update: 2009/11/01 by 闲耘(@hoto mail[AT]xianyun.org) for html5
 
 function! htmlcomplete#CompleteTags(findstart, base)
   if a:findstart
