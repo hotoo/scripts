@@ -25,6 +25,18 @@ let g:xmldata_html5 = {
 \ [],
 \ { 'accesskey': [], 'coords': [], 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onblur': [], 'onkeydown': [], 'target': [], 'nohref': ['BOOL'], 'onfocus': [], 'onkeyup': [], 'href': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'alt': [], 'tabindex': [], 'onmouseout': [], 'onmousemove': [], 'style': [], 'onkeypress': [], 'onmousedown': [], 'shape': ['rect', 'circle', 'poly', 'default'], 'class': [], 'title': [], 'onclick': []}
 \ ],
+\ 'article':[
+\ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button', 'ins', 'del', 'article', 'section'],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'aside':[
+\ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button', 'ins', 'del', 'article', 'section'],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'audio': [
+\ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button', 'ins', 'del', 'article', 'section'],
+\ {'autoplay':['true', 'false'], 'controls':['true', 'false'], 'end':[], 'loopend':[], 'loopstart':[], 'playcount':[], 'src':[], 'start':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]},
+\ ],
 \ 'b': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'style': [], 'onmousemove': [], 'onmouseout': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': []}
@@ -50,8 +62,8 @@ let g:xmldata_html5 = {
 \ { 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'cite': [], 'onmouseover': [], 'lang': [], 'style': [], 'onmousemove': [], 'onmouseout': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': []}
 \ ],
 \ 'body': [
-\ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button', 'ins', 'del', 'section'],
-\ { 'vlink': [], 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'alink': [], 'onkeyup': [], 'bgcolor': [], 'text': [], 'onmouseup': [], 'id': [], 'link': [], 'onmouseover': [], 'lang': [], 'onmouseout': [], 'onmousemove': [], 'style': [], 'background': [], 'onunload': [], 'onkeypress': [], 'onmousedown': [], 'onload': [], 'class': [], 'title': [], 'onclick': []}
+\ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button', 'ins', 'del', 'article', 'aside', 'audio', 'canvas', 'command', 'datagrid', 'datatemplate', 'details', 'dialog', 'embed', 'event-source', 'figure', 'footer', 'header', 'keygen', 'm', 'meter', 'nav', 'nest', 'output', 'progress', 'rp', 'rt', 'ruby', 'rule', 'section', 'source', 'time', 'video'],
+\ { 'vlink': [], 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'alink': [], 'onkeyup': [], 'bgcolor': [], 'text': [], 'onbeforeunload',[], 'onafterprint':[], 'onbeforeprint':[], 'onmouseup': [], 'id': [], 'link': [], 'onmouseover': [], 'lang': [], 'onmouseout': [], 'onmousemove': [], 'style': [], 'background': [], 'onunload': [], 'onkeypress': [], 'onmousedown': [], 'onload': [], 'class': [], 'title': [], 'onclick': []}
 \ ],
 \ 'br': [
 \ [],
@@ -60,6 +72,10 @@ let g:xmldata_html5 = {
 \ 'button': [
 \ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'hr', 'table', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo'],
 \ { 'accesskey': [], 'disabled': ['BOOL'], 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onblur': [], 'onkeydown': [], 'onfocus': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'tabindex': [], 'value': [], 'name': [], 'onmouseout': [], 'onmousemove': [], 'style': [], 'onkeypress': [], 'onmousedown': [], 'class': [], 'title': [], 'onclick': [], 'type': ['submit', 'button', 'submit', 'reset']}
+\ ],
+\ 'canvas': [
+\ [],
+\ {'width':[], 'height':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'caption': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
@@ -85,6 +101,22 @@ let g:xmldata_html5 = {
 \ ['col'],
 \ { 'width': [], 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'charoff': [], 'onmouseover': [], 'lang': [], 'align': ['left', 'center', 'right', 'justify', 'char'], 'valign': ['top', 'middle', 'bottom', 'baseline'], 'onmouseout': [], 'onmousemove': [], 'style': [], 'onkeypress': [], 'onmousedown': [], 'char': [], 'span': ['1'], 'class': [], 'title': [], 'onclick': []}
 \ ],
+\ 'command': [
+\ [],
+\ {'checked':['true', 'false'], 'default':['true', 'false'], 'disabled':['true', 'false'], 'hidden':['true', 'false'], 'icon':[], 'label':[], 'radiogroup':[], 'type':['checkbox', 'command', 'radio'], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'datagrid': [
+\ [],
+\ {'disabled':['true', 'false'], 'multiple':['true', 'false'], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'datalist': [
+\ ['option'],
+\ {'data':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'datatemplate': [
+\ [],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\],
 \ 'dd': [
 \ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'style': [], 'onmousemove': [], 'onmouseout': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': []}
@@ -92,6 +124,14 @@ let g:xmldata_html5 = {
 \ 'del': [
 \ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'datetime': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'cite': [], 'onmouseover': [], 'lang': [], 'onmouseout': [], 'onmousemove': [], 'style': [], 'onkeypress': [], 'onmousedown': [], 'class': [], 'title': [], 'onclick': []}
+\ ],
+\ 'datails': [
+\ [],
+\ {'open':['true', 'false'], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'dialog': [
+\ ['dt', 'dd'],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'dfn': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
@@ -117,13 +157,29 @@ let g:xmldata_html5 = {
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'style': [], 'onmousemove': [], 'onmouseout': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': []}
 \ ],
+\ 'embed': [
+\ [],
+\ {'height':[], 'src':[], 'type':[], 'width':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\],
+\ 'event-source': [
+\ [],
+\ {'src':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\],
 \ 'fieldset': [
 \ ['legend', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'dir': ['ltr', 'rtl'], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'style': [], 'onmousemove': [], 'onmouseout': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': []}
 \ ],
+\ 'figure': [
+\ [],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\],
 \ 'font': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'dir': ['ltr', 'rtl'], 'size': [], 'face': [], 'color': [], 'id': [], 'lang': [], 'style': [], 'class': [], 'title': []}
+\ ],
+\ 'footer': [
+\ ['address'],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'form': [
 \ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
@@ -156,6 +212,10 @@ let g:xmldata_html5 = {
 \ 'head': [
 \ ['title', 'isindex', 'base', 'script', 'style', 'meta', 'link', 'object'],
 \ { 'profile': [], 'dir': ['ltr', 'rtl'], 'lang': []}
+\ ],
+\ 'header': [
+\ [],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'hr': [
 \ [],
@@ -193,6 +253,10 @@ let g:xmldata_html5 = {
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': [], 'dir': ['ltr', 'rtl'], 'style': [], 'onmousemove': [], 'onmouseout': []}
 \ ],
+\ 'keygen': [
+\ [],
+\ {'autofocus':[], 'challenge':[], 'disabled':['true', 'false'], 'form':[], 'keytype':[], 'name':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
 \ 'label': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'button'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'for': [], 'onkeypress': [], 'onmousedown': [], 'class': [], 'title': [], 'onclick': [], 'accesskey': [], 'dir': ['ltr', 'rtl'], 'onblur': [], 'onfocus': [], 'onmouseout': [], 'onmousemove': [], 'style': []}
@@ -209,6 +273,10 @@ let g:xmldata_html5 = {
 \ [],
 \ { 'rel': [], 'ondblclick': [], 'onkeydown': [], 'target': [], 'onkeyup': [], 'href': [], 'media': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'charset': [], 'hreflang': [], 'onkeypress': [], 'onmousedown': [], 'rev': [], 'class': [], 'title': [], 'onclick': [], 'type': [], 'dir': ['ltr', 'rtl'], 'onmouseout': [], 'onmousemove': [], 'style': []}
 \ ],
+\ 'm': [
+\ [],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
 \ 'map': [
 \ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'area'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'name': [], 'onkeypress': [], 'onmousedown': [], 'class': [], 'title': [], 'onclick': [], 'dir': ['ltr', 'rtl'], 'onmouseout': [], 'onmousemove': [], 'style': []}
@@ -219,7 +287,19 @@ let g:xmldata_html5 = {
 \ ],
 \ 'meta': [
 \ [],
-\ { 'http-equiv': [], 'content': [], 'lang': [], 'name': [], 'scheme': [], 'dir': ['ltr', 'rtl']}
+\ { 'http-equiv': ['Content-Type'], 'content': ['text/html; charset=UTF-8'], 'lang': [], 'name': [], 'scheme': [], 'dir': ['ltr', 'rtl']}
+\ ],
+\ 'meter': [
+\ [],
+\ {'high':[], 'low':[], 'max':[], 'min':[], 'optimum':[], 'value':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'nav': [
+\ ['a'],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'nest': [
+\ [],
+\ {'filter':[], 'mode':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'noframes': [
 \ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
@@ -245,6 +325,10 @@ let g:xmldata_html5 = {
 \ [''],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'value': [], 'onkeypress': [], 'onmousedown': [], 'class': [], 'title': [], 'onclick': [], 'label': [], 'disabled': ['BOOL'], 'dir': ['ltr', 'rtl'], 'onmouseout': [], 'onmousemove': [], 'style': [], 'selected': ['BOOL']}
 \ ],
+\ 'output': [
+\ [],
+\ {'form':['true', 'false'], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
 \ 'p': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'align': ['left', 'center', 'right', 'justify'], 'lang': [], 'onkeypress': [], 'onmousedown': [], 'class': [], 'title': [], 'onclick': [], 'dir': ['ltr', 'rtl'], 'onmouseout': [], 'onmousemove': [], 'style': []}
@@ -257,9 +341,29 @@ let g:xmldata_html5 = {
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'br', 'script', 'map', 'q', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': [], 'width': [], 'dir': ['ltr', 'rtl'], 'style': [], 'onmousemove': [], 'onmouseout': []}
 \ ],
+\ 'progress': [
+\ ['span'],
+\ {'max':[], 'value':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
 \ 'q': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': [], 'dir': ['ltr', 'rtl'], 'cite': [], 'style': [], 'onmousemove': [], 'onmouseout': []}
+\ ],
+\ 'ruby':[
+\ ['rt', 'rp'],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'rp': [
+\ [],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'rt': [
+\ [],
+\ {'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
+\ ],
+\ 'rule': [
+\ [],
+\ {'condition':[], 'mode':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 's': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
@@ -274,7 +378,7 @@ let g:xmldata_html5 = {
 \ { 'src': [], 'for': [], 'charset': [], 'event': [], 'type': [], 'defer': ['BOOL'], 'language': []}
 \ ],
 \ 'section': [
-\ ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+\ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button', 'ins', 'del', 'section'],
 \ {'class':[], 'contenteditable':['true', 'false'], 'contextmenu':[], 'dir':['ltr','rtl'], 'draggable':['true', 'false', 'auto'], 'id':[], 'irrelevant':['true', 'false'], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'select': [
@@ -284,6 +388,10 @@ let g:xmldata_html5 = {
 \ 'small': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': [], 'dir': ['ltr', 'rtl'], 'style': [], 'onmousemove': [], 'onmouseout': []}
+\ ],
+\ 'source':[
+\ [],
+\ {'media':[], 'src':[], 'type':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'span': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
@@ -337,6 +445,10 @@ let g:xmldata_html5 = {
 \ ['tr'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'align': ['left', 'center', 'right', 'justify', 'char'], 'lang': [], 'valign': ['top', 'middle', 'bottom', 'baseline'], 'onkeypress': [], 'onmousedown': [], 'class': [], 'title': [], 'onclick': [], 'dir': ['ltr', 'rtl'], 'charoff': [], 'onmouseout': [], 'onmousemove': [], 'style': [], 'char': []}
 \ ],
+\ 'time':[
+\ [],
+\ {'datetime':[]}
+\ ],
 \ 'title': [
 \ [''],
 \ { 'lang': [], 'dir': ['ltr', 'rtl']}
@@ -360,6 +472,10 @@ let g:xmldata_html5 = {
 \ 'var': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
 \ { 'ondblclick': [], 'onkeydown': [], 'onkeyup': [], 'onmouseup': [], 'id': [], 'onmouseover': [], 'lang': [], 'onmousedown': [], 'onkeypress': [], 'onclick': [], 'title': [], 'class': [], 'dir': ['ltr', 'rtl'], 'style': [], 'onmousemove': [], 'onmouseout': []}
+\ ],
+\ 'video': [
+\ [],
+\ {'autoplay':['true', 'false'], 'controls':['true', 'false'], 'end':[], 'height':[], 'loopend':[], 'loopstart':[], 'playcount':[], 'poster':[], 'src':[], 'start':[], 'width':[], 'class':[], 'contenteditable':[], 'contextmenu':[], 'dir':[], 'draggable':[], 'id':[], 'irrelevant':[], 'lang':[], 'ref':[], 'registrationmark':[], 'tabindex':[], 'template':[], 'title':[], 'onabort':[], 'onbeforeunload':[], 'onblur':[], 'onchange':[], 'onclick':[], 'oncontextmenu':[], 'ondblclick':[], 'ondrag':[], 'ondragend':[], 'ondragenter':[], 'ondragleave':[], 'ondragover':[], 'ondragstart':[], 'ondrop':[], 'onerror':[], 'onfocus':[], 'onkeydown':[], 'onkeypress':[], 'onkeyup':[], 'onload':[], 'onmessage':[], 'onmousedown':[], 'onmousemove':[], 'onmouseover':[], 'onmouseout':[], 'onmouseup':[], 'onmousewheel':[], 'onresize':[], 'onscroll':[], 'onselect':[], 'onsubmit':[], 'onunload':[]}
 \ ],
 \ 'vimxmlattrinfo' : {
 \ 'accept' : ['ContentType', ''],
