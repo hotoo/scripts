@@ -501,6 +501,11 @@ function Week_cn()
 endfunction
 
 
+" Underline the Urls.
+hi URI_string gui=underline
+match URI_string /\(http\|https\|ftp\|ftps\):\/\/\w\+\(\.\w\+\)\+\(\w\|\~\|\!\|@\|\#\|\$\|%\|&\|\^\|\*\|(\|)\|\-\|_\|+\|=\||\|\\\|\[\|\]\|{\|}\|;\|:\|,\|\.\|\/\|?\)*/
+
+
 " Chinese Docs
 "cp -R doc $VIM.'\vimfiles\doc\'
 
