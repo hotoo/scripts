@@ -2269,6 +2269,8 @@ au BufNewFile,BufRead *.z8a			setf z8a
 " @see http://www.vim.org/scripts/script.php?script_id=541
 au! BufRead,BufNewFile *.vm  setfiletype velocity 
 
+au BufRead,BufNewFile *.cue setfiletype cue
+
 augroup END
 
 
