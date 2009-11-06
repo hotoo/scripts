@@ -502,13 +502,14 @@ endfunction
 
 
 " Underline the Urls.
-fun! PostSyntaxInit()
-    hi URI_string gui=underline
-    syntax match URI_string /\(http\|https\|ftp\|ftps\):\/\/\w\+\(\.\w\+\)\+\(\w\|\~\|\!\|@\|\#\|\$\|%\|&\|\^\|\*\|(\|)\|\-\|_\|+\|=\||\|\\\|\[\|\]\|{\|}\|;\|:\|,\|\.\|\/\|?\)*/ containedin=ALL
-    hi Email_string gui=underline
-    syntax match Email_string /[a-zA-Z]\+\(\-\?\w\+\)*\(\.\w\+\(\-\?\w\+\)*\)*@\w\+\(\.\w\+\)\+/ containedin=ALL
-endf
-autocmd Syntax * :call PostSyntaxInit()
+" this code will make vim slow.
+"fun! PostSyntaxInit()
+"    hi URI_string gui=underline
+"    syntax match URI_string /\(http\|https\|ftp\|ftps\):\/\/\w\+\(\.\w\+\)\+\(\w\|\~\|\!\|@\|\#\|\$\|%\|&\|\^\|\*\|(\|)\|\-\|_\|+\|=\||\|\\\|\[\|\]\|{\|}\|;\|:\|,\|\.\|\/\|?\)*/ containedin=ALL
+"    hi Email_string gui=underline
+"    syntax match Email_string /[a-zA-Z]\+\(\-\?\w\+\)*\(\.\w\+\(\-\?\w\+\)*\)*@\w\+\(\.\w\+\)\+/ containedin=ALL
+"endf
+"autocmd Syntax * :call PostSyntaxInit()
 
 
 " Chinese Docs
