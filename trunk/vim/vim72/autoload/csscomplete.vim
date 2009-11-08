@@ -3,7 +3,7 @@
 " Maintainer:	Mikolaj Machowski ( mikmach AT wp DOT pl )
 " Last Change:	2007 May 5
 
-	let s:values = split("azimuth background background-attachment background-color background-image background-position background-repeat border bottom border-collapse border-color border-spacing border-style border-top border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color  border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width border-bottom-width border-left-width border-width caption-side clear clip color content counter-increment counter-reset cue cue-after cue-before cursor display direction elevation empty-cells float font font-family font-size font-style font-variant font-weight height left letter-spacing line-height list-style list-style-image list-style-position list-style-type margin margin-right margin-left margin-top margin-bottom max-height max-width min-height min-width orphans outline outline-color outline-style outline-width overflow padding padding-top padding-right padding-bottom padding-left page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position quotes right richness speak speak-header speak-numeral speak-punctuation speech-rate stress table-layout text-align text-decoration text-indent text-transform top unicode-bidi vertical-align visibility voice-family volume white-space width widows word-spacing z-index border-image border-radius box-shadow background-origin background-clip background-size opacity text-shadow text-overflow word-wrap box-sizing resize outline outline-width outline-style outline-offset outline-color nav-up nav-right nav-down nav-left nav-index columns column-widows column-span column-rule column-rule-color column-width column-rule-style column-gap column-fill column-count column-break-before column-break-after")
+	let s:values = split("azimuth background background-attachment background-color background-image background-position background-repeat border bottom border-collapse border-color border-spacing border-style border-top border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color  border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width border-bottom-width border-left-width border-width caption-side clear clip color content counter-increment counter-reset cue cue-after cue-before cursor display direction elevation empty-cells float font font-family font-size font-style font-variant font-weight height hanging-punctuation left letter-spacing line-height list-style list-style-image list-style-position list-style-type margin margin-right margin-left margin-top margin-bottom max-height max-width min-height min-width orphans outline outline-color outline-style outline-width overflow padding padding-top padding-right padding-bottom padding-left page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position punctuation-trim quotes right richness speak speak-header speak-numeral speak-punctuation speech-rate stress table-layout text-align text-align-last text-decoration text-emphasis text-indent text-justify text-transform text-wrap top unicode-bidi vertical-align visibility voice-family volume white-space white-space-collapse width widows word-spacing z-index border-image border-radius box-shadow background-origin background-clip background-size opacity text-shadow text-overflow text-outline word-wrap box-sizing resize outline outline-width outline-style outline-offset outline-color nav-up nav-right nav-down nav-left nav-index columns column-widows column-span column-rule column-rule-color column-width column-rule-style column-gap column-fill column-count column-break-before column-break-after word-break")
 
 function! csscomplete#CompleteCSS(findstart, base)
 
@@ -204,6 +204,8 @@ elseif borders[max(keys(borders))] == 'colon'
 		let values = ["normal", "italic", "oblique", "small-caps", "bold", "bolder", "lighter", "100", "200", "300", "400", "500", "600", "700", "800", "900", "xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large", "larger", "smaller", "sans-serif", "serif", "monospace", "cursive", "fantasy", "caption", "icon", "menu", "message-box", "small-caption", "status-bar"]
 	elseif prop =~ '^\%(height\|width\)$'
 		let values = ["auto"]
+    elseif prop == 'hanging-punctuation'
+        let values = ["none", "start", "end", "end-edge"]
 	elseif prop =~ '^\%(left\|rigth\)$'
 		let values = ["auto"]
 	elseif prop == 'letter-spacing'
@@ -271,6 +273,8 @@ elseif borders[max(keys(borders))] == 'colon'
 		let values = ["url(", "mix", "repeat", "auto", "none"]
 	elseif prop == 'position'
 		let values = ["static", "relative", "absolute", "fixed"]
+    elseif prop == 'punctuation-trim'
+        let values = ["none", "start", "end", "adjacent"]
 	elseif prop == 'quotes'
 		let values = ["none"]
 	elseif prop == 'richness'
@@ -290,13 +294,21 @@ elseif borders[max(keys(borders))] == 'colon'
 	elseif prop == 'table-layout'
 		let values = ["auto", "fixed"]
 	elseif prop == 'text-align'
-		let values = ["left", "right", "center", "justify"]
+        let values = ["start", "end", "left", "right", "center", "justify"]
+    elseif prop == 'text-align-last'
+        let values = ["start", "end", "left", "right", "center", "justify"]
 	elseif prop == 'text-decoration'
 		let values = ["none", "underline", "overline", "line-through", "blink"]
+    elseif prop == 'text-emphasis'
+        let values = ["none", "accent", "dot", "cricle", ""disc", "before", "after"]
 	elseif prop == 'text-indent'
 		return []
+    elseif prop == 'text-justify'
+        let values = ["auto", "inter-word", "inter-ideograph", "inter-cluster", "distribute", "kashida", "tibetan"]
 	elseif prop == 'text-transform'
 		let values = ["capitalize", "uppercase", "lowercase", "none"]
+    elseif prop == 'text-wrap'
+        let values = ["normal", "unrestricted", "none", "suppress"]
 	elseif prop == 'top'
 		let values = ["auto"]
 	elseif prop == 'unicode-bidi'
@@ -310,11 +322,15 @@ elseif borders[max(keys(borders))] == 'colon'
 	elseif prop == 'volume'
 		let values = ["silent", "x-soft", "soft", "medium", "loud", "x-loud"]
 	elseif prop == 'white-space'
-		let values = ["normal", "pre", "nowrap", "pre-wrap", "pre-line"]
+		let values = ["normal", "pre", "nowrap", "pre-wrap", "pre-line", "inherit"]
+    elseif prop == 'white-space-collapse'
+        let values = ["preserve", "collapse", "preserve-breaks", "discard"]
 	elseif prop == 'widows'
 		return []
 	elseif prop == 'word-spacing'
 		let values = ["normal"]
+    elseif prop == 'word-break'
+        let values = ["normal", "break-all", "keep-all", "loose", "break-strict"]
 	elseif prop == 'z-index'
 		let values = ["auto"]
     elseif prop == 'border-image'
@@ -331,6 +347,8 @@ elseif borders[max(keys(borders))] == 'colon'
         let values = ["none", "*"]
     elseif prop == 'text-overflow'
         let values = ["clip", "ellipsis"]
+    elseif prop == 'text-outline'
+        let values = ["none", "#"]
     elseif prop == 'word-wrap'
         let values = ["normal", "break-word"]
     elseif prop == 'box-sizing'
