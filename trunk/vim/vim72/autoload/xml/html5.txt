@@ -1,3 +1,5 @@
+==Newer Tags==
+ 'article', 'aside', 'audio', 'canvas', 'command', 'datagrid', 'datatemplate', 'details', 'dialog', 'embed', 'event-source', 'figure', 'footer', 'header', 'keygen', 'm', 'meter', 'nav', 'nest', 'output', 'progress', 'rp', 'rt', 'ruby', 'rule', 'section', 'source', 'time', 'video'
 
 ==Global Attribute==
 @see http://www.w3.org/TR/html5/dom.html#global-attributes
