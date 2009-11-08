@@ -3,13 +3,13 @@
  * 这个色彩搭配是浅银白色，简洁低调。
  */
 html,body{
-    scrollbar-face-color:#f6f6f6; 
-    scrollbar-highlight-color:#fff; 
-    scrollbar-shadow-color:#ccc; 
-    scrollbar-3dlight-color:#ccc; 
+    scrollbar-face-color:#f6f6f6;
+    scrollbar-highlight-color:#fff;
+    scrollbar-shadow-color:#ccc;
+    scrollbar-3dlight-color:#ccc;
     scrollbar-arrow-color:#300;
-    scrollbar-track-color:#f6f6f6; 
-    scrollbar-darkshadow-color:#fff; 
+    scrollbar-track-color:#f6f6f6;
+    scrollbar-darkshadow-color:#fff;
 }
 
 /**
@@ -25,6 +25,11 @@ div{
 div{
     word-wrap: break-word;
     word-break: normal;
+	white-space:pre-wrap;       /* css 3 */
+	white-space:-moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space:-pre-wrap;      /* Opera 4-6 */
+	white-space:-o-pre-wrap;    /* Opera 7 */
+	word-wrap:break-word;       /* Internet Explorer 5.5+ */
 }
 
 /**
@@ -81,7 +86,7 @@ div{
 width:20em;
 padding:0.5em;
 border:1px solid #000;
-min-height:8em; 
+min-height:8em;
 height:auto;
 }
 /* for Internet Explorer */
@@ -91,4 +96,3 @@ height: 8em;
 }
 /**/
 /* min height end */
-
