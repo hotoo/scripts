@@ -265,7 +265,7 @@ autocmd FileType cpp,c nmap <F9> :setlocal makeprg=make<cr>:make<cr> :copen<cr> 
 autocmd FileType javascript nmap <F9> :call JsonLint()<cr>
 autocmd FileType javascript nmap <F10> :make<cr>
 autocmd FileType html,xhtml,css nmap <F9> :make<cr><cr>:copen<cr>
-"autocmd FileType cpp,c nmap <F10> :exe "!gcc -o ".expand("%:r").".exe ".expand("%")<cr>
+"autocmd FileType cpp,c nmape <F10> :!g++ -o %:r.exe %<cr><cr>
 " @see http://easwy.com/blog/archives/advanced-vim-skills-quickfix-mode/
 "      http://blog.zdnet.com.cn/html/30/422230-2881199.html
 autocmd FileType cpp nmap <F10> :w<cr>:setlocal makeprg=g++\ -Wall\ -o\ %:r.exe\ %<cr>:make<cr><cr>:cw<cr>
@@ -394,6 +394,16 @@ function SmartEnd(mode)
   endif
   return ""
 endfunction
+
+
+" ------------------------------- Commands -----------------------------------
+" @see http://www.vim.org/scripts/script.php?script_id=687
+" @see http://code.google.com/p/easy-vim/downloads/detail?name=vimtweak.dll
+command -nargs=1 Alpha :call libcallnr("vimtweak.dll", "SetAlpha", <args>)
+command -nargs=0 MaxWin :call libcallnr("vimtweak.dll", "EnableMaximize", 1)
+command -nargs=0 MinWin :call libcallnr("vimtweak.dll", "EnableMaximize", 0)
+command -nargs=0 TopWin :call libcallnr("vimtweak.dll", "EnableTopMost", 1)
+command -nargs=0 UnTopWin :call libcallnr("vimtweak.dll", "EnableTopMost", 0)
 
 
 " -------------------------------- Plugins -----------------------------------
