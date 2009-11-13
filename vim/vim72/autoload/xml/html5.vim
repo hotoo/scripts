@@ -375,7 +375,7 @@ let g:xmldata_html5 = {
 \ ],
 \ 'script': [
 \ [],
-\ { 'src': [], 'for': [], 'charset': [], 'event': [], 'type': [], 'defer': ['BOOL'], 'language': []}
+\ { 'src': [], 'for': [], 'charset': ['utf-8','gbk','gb2312'], 'event': [], 'type': ['text/javascript'], 'defer': ['BOOL'], 'language': ['zh-CN','zh-TW','zh-HK','us-EN']}
 \ ],
 \ 'section': [
 \ ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'dir', 'menu', 'pre', 'dl', 'div', 'center', 'noscript', 'noframes', 'blockquote', 'form', 'isindex', 'hr', 'table', 'fieldset', 'address', 'tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button', 'ins', 'del', 'section'],
@@ -407,7 +407,7 @@ let g:xmldata_html5 = {
 \ ],
 \ 'style': [
 \ [],
-\ { 'media': [], 'lang': [], 'type': [], 'title': [], 'dir': ['ltr', 'rtl']}
+\ { 'media': ['all','braille','embossed','handheld','print','projection','screen','speech','tty','tv'], 'lang': ['zh-CN','zh-TW','zh-HK','en-US'], 'type': ['text/css'], 'title': [], 'dir': ['ltr', 'rtl']}
 \ ],
 \ 'sub': [
 \ ['tt', 'i', 'b', 'u', 's', 'strike', 'big', 'small', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'a', 'img', 'applet', 'object', 'font', 'basefont', 'br', 'script', 'map', 'q', 'sub', 'sup', 'span', 'bdo', 'iframe', 'input', 'select', 'textarea', 'label', 'button'],
