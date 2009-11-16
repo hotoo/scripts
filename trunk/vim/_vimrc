@@ -494,25 +494,6 @@ nmap <F3> :NERDTreeToggle<cr>
 "let javascript_enable_domhtmlcss=1
 
 
-" fold javascript function code.
-" need ftpplugin/python_fold.vim
-" @see http://amix.dk/blog/viewEntry/19132
-" @see http://vim.sourceforge.net/scripts/script.php?script_id=515
-" @see http://amix.dk/vim/vimrc.html
-function! JavaScriptFold()
-    setl foldmethod=syntax
-    setl foldlevelstart=1
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-        return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
-au FileType javascript call JavaScriptFold()
-au FileType javascript setl fen
-
-
 " ctags
 let g:ctags_path=$VIM.'\vimfiles\plugin\ctags.exe'
 let g:ctags_statusline=1
@@ -536,6 +517,14 @@ let snips_author="闲耘 (mail[AT]xianyun.org)"
 
 " marks, will be auto load source
 "source $VIM\vimfiles\plugin\mark.vim
+
+
+" ------------------------------- Folding ---------------------------------
+au BufNewFile,BufRead *.js so $VIM/vimfiles/ftplugin/javascript_fold.vim
+au BufNewFile,BufRead *.css so $VIM/vimfiles/ftplugin/css_fold.vim
+
+"au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/plugin/XMLFolding.vim
+au BufNewFile,BufRead *.xml,*.htm,*.html,*.vm,*.php,*.jsp so $VIM/vimfiles/ftplugin/xml_fold.vim
 
 
 " ------------------------------- File Types ---------------------------------
