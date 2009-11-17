@@ -200,8 +200,12 @@ imap jj <Esc>
 
 " Open Windows Explorer and Fouse current file.
 "                                      %:p:h     " Just Fold Name.
+if has("win32")
 nmap <F6> :!start explorer /e,/select, %:p<CR>
 imap <F6> <Esc><F6>
+command -nargs=0 Explor :!start explorer /e,/select, %:p
+command -nargs=0 Explorer :!start explorer /e,/select, %:p
+endif
 
 
 " tab navigation & operation like tabs browser
@@ -483,8 +487,14 @@ map ca :Calendar<cr>
 " NERDTree
 " @see http://www.vim.org/scripts/script.php?script_id=1658
 " @see http://www.gracecode.com/archives/1339/
-imap <F3> :NERDTreeToggle<cr>
-nmap <F3> :NERDTreeToggle<cr>
+let g:NERDTreeWinPos="left"
+let g:NERDTreeWinSize=20
+"imap <F3> :NERDTreeToggle<cr>
+"nmap <F3> :NERDTreeToggle<cr>
+" For NERD_tree Project
+" @see http://www.vim.org/scripts/script.php?script_id=2801
+imap <F3> <Esc>:ToggleNERDTree<cr>
+nmap <F3> :ToggleNERDTree<cr>
 
 
 " for javascript.vim
@@ -496,6 +506,8 @@ nmap <F3> :NERDTreeToggle<cr>
 
 " ctags
 let g:ctags_path=$VIM.'\vimfiles\plugin\ctags.exe'
+let g:Tlist_Use_Right_Window=1
+let g:Tlist_WinWidth=20
 let g:ctags_statusline=1
 let g:ctags_args=1
 
