@@ -5,7 +5,7 @@
 " @see http://amix.dk/vim/vimrc.html
 function! JavaScriptFold()
     setl foldmethod=syntax
-    setl foldlevelstart=1
+"    setl foldlevelstart=1
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
     function! FoldText()
