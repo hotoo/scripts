@@ -564,7 +564,7 @@ au FileType css,javascript,c,cpp,java,cs setl fen
 "au BufNewFile,BufRead *.css so $VIM/vimfiles/ftplugin/css_fold.vim
 
 ":au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/plugin/XMLFolding.vim
-"au BufNewFile,BufRead *.xml,*.htm,*.html,*.vm,*.php,*.jsp so $VIM/vimfiles/ftplugin/xml_fold.vim
+au BufNewFile,BufRead *.xml,*.htm,*.html,*.vm,*.php,*.jsp so $VIM/vimfiles/ftplugin/xml_fold.vim
 
 
 " ------------------------------- File Types ---------------------------------
