@@ -14,6 +14,18 @@
 " @version 2009/09/10
 "
 " +---------------------------------Oooo-----------+
+"<F1>  Format(C/Cpp/...) Source
+"<F2>  Toggle Menu and Toolbar
+"<F3>  Toggle NERD tree
+"<F4>  Toggle Quickfix Window
+"<F5>  Run(C/Cpp/C#/Java)/Preview(XHTML)
+"<F6>  Explor File/Folder
+"<F7>  Debug Prev
+"<F8>  Debug Next
+"<F9>  Compile(C/Cpp/Java/C#)/Validate(XHTML/CSS/Javascript) Source
+"<F10> Quick Compile(C/Cpp/Java/C#)/Minify(XHTML/CSS/Javascript) Source
+"<F11> Toggle Full Screen
+"<F12> Toggle TagList Window
 "
 
 set nocompatible
@@ -156,9 +168,10 @@ hi out80 guifg=#333333 guibg=#ffffff
 " User Defined Status Line.
 " @see http://www.vim.org/scripts/script.php?script_id=8 for VimBuddy.
 set laststatus=2
-set statusline=%t\ %1*%m%*\ %1*%r%*\ %h%w%=\ [%{VimBuddy()}]\ [%l%2*/%L(%p%%)%*,%v]\ [%b:%B]\ [%Y,%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}]
+set statusline=%t\ %1*%m%*\ %1*%r%*\ %2*%h%*%w%=\ [%{VimBuddy()}]\ [%l%3*/%L(%p%%)%*,%v]\ [%b:%B]\ [%Y,%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}]
 hi User1 guibg=red guifg=yellow
-hi User2 guibg=#C2BFA5 guifg=#666666
+hi User2 guibg=#008000 guifg=white
+hi User3 guibg=#C2BFA5 guifg=#666666
 "hi User1 cterm=italic ctermfg=blue
 "hi User2 cterm=bold
 
@@ -274,6 +287,8 @@ autocmd FileType html,xhtml,css nmap <F9> :make<cr><cr>:copen<cr>
 "      http://blog.zdnet.com.cn/html/30/422230-2881199.html
 autocmd FileType cpp nmap <F10> :w<cr>:setlocal makeprg=g++\ -Wall\ -o\ %:r.exe\ %<cr>:make<cr><cr>:cw<cr>
 autocmd FileType c nmap <F10> :w<cr>:setlocal makeprg=gcc\ -Wall\ -o\ %:r.exe\ %<cr>:make<cr><cr>:cw<cr>
+" @see http://csstidy.sourceforge.net/
+autocmd FileType css nmap <F10> :!start csstidy %:p --preserve_css=false --remove_bslash=false --compress_color=true --lowercase_s=false --timestamp=false --optimise_shorthands=0 --remove_last_;=true --sort_selectors=false --merge_selectors=0 --compress_font-weight=false --allow_html_in_template=false --silent=true --case_properties=0 --template=default %:p:r.min.%:p:e<cr><cr>
 " run current code.
 autocmd FileType cpp,c nmap <F5> :!%:r.exe
 autocmd FileType xhtml,html nmap <F5> :call Save2Temp()<cr><cr>:!start "E:\Mozilla Firefox\firefox.exe" -P debug %<cr>
@@ -532,11 +547,24 @@ let snips_author="闲耘 (mail[AT]xianyun.org)"
 
 
 " ------------------------------- Folding ---------------------------------
-au BufNewFile,BufRead *.js so $VIM/vimfiles/ftplugin/javascript_fold.vim
-au BufNewFile,BufRead *.css so $VIM/vimfiles/ftplugin/css_fold.vim
+function! Folding()
+    setl foldmethod=syntax
+"    setl foldlevelstart=1
+    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
-"au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/plugin/XMLFolding.vim
-au BufNewFile,BufRead *.xml,*.htm,*.html,*.vm,*.php,*.jsp so $VIM/vimfiles/ftplugin/xml_fold.vim
+    function! FoldText()
+        return substitute(getline(v:foldstart), '{.*', '{...} ['.(v:foldend-v:foldstart).'\ lines]', '')
+    endfunction
+    setl foldtext=FoldText()
+endfunction
+au FileType css,javascript,c,cpp,java,cs call Folding()
+au FileType css,javascript,c,cpp,java,cs setl fen
+
+"au BufNewFile,BufRead *.js so $VIM/vimfiles/ftplugin/javascript_fold.vim
+"au BufNewFile,BufRead *.css so $VIM/vimfiles/ftplugin/css_fold.vim
+
+":au BufNewFile,BufRead *.xml,*.htm,*.html so ~/.vim/plugin/XMLFolding.vim
+"au BufNewFile,BufRead *.xml,*.htm,*.html,*.vm,*.php,*.jsp so $VIM/vimfiles/ftplugin/xml_fold.vim
 
 
 " ------------------------------- File Types ---------------------------------
