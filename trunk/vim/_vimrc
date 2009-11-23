@@ -553,7 +553,10 @@ function! Folding()
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
     function! FoldText()
-        return substitute(substitute(getline(v:foldstart),'\t','    ','g'), '{.*', '{...} ['.(v:foldend-v:foldstart).'\ lines]', '')
+        let b:Start = substitute(substitute(getline(v:foldstart),'\t','    ','g'),'{.*','{...','')
+        let b:End = substitute(substitute(getline(v:foldend),'\t','    ','g'),'.*}','}','')
+        return b:Start . b:End
+        "return substitute(substitute(getline(v:foldstart),'\t','    ','g'), '{.*', '{...} ['.(v:foldend-v:foldstart).'\ lines]', '')
     endfunction
     setl foldtext=FoldText()
 endfunction
