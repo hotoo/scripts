@@ -555,7 +555,7 @@ function! Folding()
     function! FoldText()
         let b:Start = substitute(substitute(getline(v:foldstart),'\t','    ','g'),'{.*','{...','')
         let b:End = substitute(substitute(getline(v:foldend),'\t','    ','g'),'.*}','}','')
-        return b:Start . b:End
+        return b:Start.b:End.' ['.(v:foldend-v:foldstart).' lines] '
         "return substitute(substitute(getline(v:foldstart),'\t','    ','g'), '{.*', '{...} ['.(v:foldend-v:foldstart).'\ lines]', '')
     endfunction
     setl foldtext=FoldText()
