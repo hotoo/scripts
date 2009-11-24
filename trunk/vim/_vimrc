@@ -168,7 +168,8 @@ hi out80 guifg=#333333 guibg=#ffffff
 " User Defined Status Line.
 " @see http://www.vim.org/scripts/script.php?script_id=8 for VimBuddy.
 set laststatus=2
-set statusline=%t\ %1*%m%*\ %1*%r%*\ %2*%h%*%w%=[%{VimBuddy()}]\ [%l%3*/%L(%p%%)%*,%v]\ [%b:%B]\ [%Y,%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}]
+set statusline=%t\ %1*%m%*\ %1*%r%*\ %2*%h%*%w%=[%{VimBuddy()}]\ [%l%3*/%L(%p%%)%*,%v]\ [%b:%B]\ [%{&ft==''?'TEXT':toupper(&ft)},%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}]
+"let &statusline=' %t %{&mod?(&ro?"*":"+"):(&ro?"=":" ")} %1*|%* %{&ft==""?"any":&ft} %1*|%* %{&ff} %1*|%* %{(&fenc=="")?&enc:&fenc}%{(&bomb?",BOM":"")} %1*|%* %=%1*|%* 0x%B %1*|%* (%l,%c%V) %1*|%* %L %1*|%* %P'
 hi User1 guibg=red guifg=yellow
 hi User2 guibg=#008000 guifg=white
 hi User3 guibg=#C2BFA5 guifg=#666666
