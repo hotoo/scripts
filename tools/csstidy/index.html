@@ -1,0 +1,28 @@
+简介
+CSSTidy是一个开源的CSS解析器和优化器。它有用于命令行的可执行文件（可用于 Windows, Linux 和 OSX）和用于 PHP 的脚本（同样拥有相同的完整的特性）。
+
+相对于其他的 CSS 解析器，CSSTidy 没有使用正则表达式，并拥有完整的 CSS2支持和更高的可靠性。
+
+特性（"a" 代表选择器，"margin" 代表所有的属性）：
+
+  # 像 "black" 或者 rgb(0,0,0) 这样的颜色值可以被转成 #000000 甚至 #000 。一些命名的颜色如果比其对应的十六进制颜色值较短的话，可以被替换成命名颜色值。
+  # a{property:x;property:y;} 将变成 a{property:y;} （所有重复的属性将被合并）。
+  # margin:1px 1px 1px 1px; 将变成 margin:1px;
+  # margin:0px; 将变成 margin:0;
+  # a{margin-top:10px; margin-bottom:10px; margin-left:10px; margin-right:10px;} 将变成 a{margin:10px;}
+  # margin:010.0px; 将变成 margin:10px;
+  # 所有不必要的空白字符将被删除，这个取决于压缩级别
+  # 所有的背景属性将被合并
+  # 删除所有的注释
+  # 每个（以花括号包围的）块最后的分号可以被删除。
+  # 添加缺少的分号，修正字符串中错误的换行，补充缺少的单位，改正错误的颜色值（和命名颜色）
+  # property:value ! important; 将变成 property:value !important;
+
+为什么需要优化？
+被优化的 CSS 代码可以更快的被页面加载，占用更少的带宽。所以优化可以给用户和网站服务商都带来好处。如果你对快速加载网页有兴趣，你也许可以从 <a href="http://www.websiteoptimization.com/">websiteoptimization.com</a> 得到一些有趣的资源。
+
+压缩比
+压缩率主要依赖于使用的压缩基本（删除无效空白）。使用标准压缩级别（保留可读性）的压缩率一般多余30%。理论上压缩率可以达到99,99%，不过除非是非常“愚蠢”的样式表定义。可以看这个<a href="http://csstidy.sourceforge.net/example.php">示例</a>。
+
+压缩之外
+如果一个高的压缩器对你来说不是非常重要，你同样可以使用 CSSTidy 格式化或者修复 CSS 代码来获得更高的浏览器兼容性。除了默认的4个模板之外，你也可以自定义模板，将大量的 CSS 代码格式化为自己的编码风格。另外还可以转换选择符和属性的大小写。
