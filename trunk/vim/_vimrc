@@ -59,6 +59,19 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
+" @see http://vim.wikia.com/wiki/Selecting_changes_in_diff_mode
+if &diff
+    let g:origCursorPos=getpos('.')
+    autocmd WinEnter * :call setpos('.', g:origCursorPos)
+    autocmd WinLeave * :let g:origCursorPos=getpos('.')
+    "call InitSyncDiffCursor()
+    nmap <F7> [c
+    nmap <F8> ]c
+else
+    map <F7> :cp<cr>
+    map <F8> :cn<cr>
+endif
+
 
 " -------------------------------- Settings ----------------------------------
 " quick startup mode.
@@ -168,7 +181,7 @@ hi out80 guifg=#333333 guibg=#ffffff
 " User Defined Status Line.
 " @see http://www.vim.org/scripts/script.php?script_id=8 for VimBuddy.
 set laststatus=2
-set statusline=%t\ %1*%m%*\ %1*%r%*\ %2*%h%*%w%=[%{VimBuddy()}]\ [%l%3*/%L(%p%%)%*,%v]\ [%b:%B]\ [%{&ft==''?'TEXT':toupper(&ft)},%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}]
+set statusline=%t\ %1*%m%*\ %1*%r%*\ %2*%h%*%w%=[%{VimBuddy()}]\ [%l%3*/%L(%p%%)%*,%v]\ [%b:%B]\ [%{&ft==''?'TEXT':toupper(&ft)},%{toupper(&ff)},%{toupper(&fenc!=''?&fenc:&enc)}%{&bomb?',BOM':''}]
 "let &statusline=' %t %{&mod?(&ro?"*":"+"):(&ro?"=":" ")} %1*|%* %{&ft==""?"any":&ft} %1*|%* %{&ff} %1*|%* %{(&fenc=="")?&enc:&fenc}%{(&bomb?",BOM":"")} %1*|%* %=%1*|%* 0x%B %1*|%* (%l,%c%V) %1*|%* %L %1*|%* %P'
 hi User1 guibg=red guifg=yellow
 hi User2 guibg=#008000 guifg=white
@@ -554,10 +567,14 @@ function! Folding()
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
     function! FoldText()
-        let b:Start = substitute(substitute(getline(v:foldstart),'\t','    ','g'),'{.*','{...','')
-        let b:End = substitute(substitute(getline(v:foldend),'\t','    ','g'),'.*}','}','')
-        return b:Start.b:End.' ['.(v:foldend-v:foldstart).' lines] '
-        "return substitute(substitute(getline(v:foldstart),'\t','    ','g'), '{.*', '{...} ['.(v:foldend-v:foldstart).'\ lines]', '')
+    if &diff
+        let b:Start=getline(v:foldstart).' ... '
+        let b:End=getline(v:foldend)
+    else
+        let b:Start=substitute(substitute(getline(v:foldstart),'\t','    ','g'),'{.*','{...','')
+        let b:End=substitute(substitute(getline(v:foldend),'\t','    ','g'),'.*}','}','')
+    endif
+    return b:Start.b:End.'                                                                                                                  ['.(v:foldend-v:foldstart).' lines] '
     endfunction
     setl foldtext=FoldText()
 endfunction
