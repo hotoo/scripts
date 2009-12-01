@@ -183,6 +183,10 @@ Color.beta = function(s, a){
 	return "#"+c.join("");
 };
 
+Color.prototype.gradation = function(r,g,b){
+    // body...
+};
+
 /**
  * 将指定颜色值字符串解析为颜色值，并返回其补色(即反转色)。
  * @param {String} c 指定颜色值字符串。

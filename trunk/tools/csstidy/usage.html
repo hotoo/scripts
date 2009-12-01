@@ -1,0 +1,53 @@
+CSSTidy - 致用户
+如果你只是想简单的优化 CSS 代码，可以使用 <a href="http://cdburnerxp.se/cssparse/css_optimiser.php">在线版 CSSTidy</a>。这是一个快速、简单优化代码的方法。
+
+CSSTidy （命令行）
+CSSTidy 语法：
+csstidy input_filename [
+    --preserve_css=[false|true] |
+    --remove_bslash=[true|false] |
+    --compress_colors=[true|false]
+    --lowercase_s=[false|true] |
+    --timestamp=[false|true] |
+    --optimise_shorthands=[1|2|0] |
+    --remove_last_;=[false|true] |
+    --sort_properties=[false|true] |
+    --sort_selectors=[false|true] |
+    --merge_selectors=[2|1|0] |
+    --compress_font-weight=[true|false] |
+    --allow_html_in_templates=[true|false] |
+    --silent==[false|true] |
+    --case_properties=[0|1|2] |
+    --template=[default | filename | low | high | highest] |
+    output_filename ]*
+
+用以下命令来优化 CSS 文件并输出到屏幕。
+    csstidy mycssfile.css
+
+如果使用文件名 "-"，CSSTidy 将从 标准输入设备中读取内容。
+可以在输入文件之后加上 "--你希望改变的设置=true 或者 false"。如果 "true" 是语法描述中的第一个值，就表明 "true" 是默认值（false 亦然）。例如：
+    csstidy mycssfile.css --remove_last_;=true myoutputfile.css
+
+CSSTidy - 致开发者（PHP）
+下面是演示如何在 PHP 中使用 CSSTidy 的基本示例：
+    <?php
+    include('class.csstidy.php');
+
+    $css_code = '
+    a{
+    color:black;
+    background-color:blue;
+    }';
+
+    $css = new csstidy();
+    $css->set_cfg('remove_last_;', TRUE);
+    $css->parse($css_code);
+    echo $css->print->formatted();
+    ?>
+
+    另一个重要的方法是 load_template($string) 或者 load_template($filename, TRUE)。你可以使用这个方法来从字符串或者文件中导入用户自定义模板。更多<a href="http://csstidy.sourceforge.net/templates.php">模板的详细信息可以看这里</a>，注意不要使用 CSSTidy 来实时优化 CSS 代码，当样式表到达一定大小时优化过程会变得非常之慢。<a href="http://csstidy.sourceforge.net/docs">完整的文档</a> 可以看这里。
+
+使用要点
+如果没有启用“保护 CSS”，所有的注释和针对浏览器的 css hack 将被删除（有效的 <a href="http://csstidy.sourceforge.net/hacks.php">CSS hacks 列表</a>）。尽管你应该使用合法（或者格式良好）的代码，CSSTidy 同样也可以解析和修正不正确的代码。
+
+如果你想改变默认设置，请记住通常最好的选择是默认选项，所有这个压缩是很好的，改变选择可能给样式表带来副作用（例如对选择器进行排序）。
