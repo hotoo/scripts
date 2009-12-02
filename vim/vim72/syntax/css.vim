@@ -204,7 +204,7 @@ syn match cssSpecialCharQQ +\\"+ contained
 syn match cssSpecialCharQ +\\'+ contained
 syn region cssStringQQ start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=cssUnicodeEscape,cssSpecialCharQQ
 syn region cssStringQ start=+'+ skip=+\\\\\|\\'+ end=+'+ contains=cssUnicodeEscape,cssSpecialCharQ
-syn match cssClassName "\.[A-Za-z][A-Za-z0-9_-]\+"
+syn match cssClassName "\.[A-Za-z][A-Za-z0-9_-]*"
 
 if main_syntax == "css"
   syn sync minlines=10
