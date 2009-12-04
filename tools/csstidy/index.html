@@ -57,25 +57,25 @@ C++: 1.3<br>
 
 <p>特性（"a" 代表选择器，"margin" 代表任何的属性）：</p>
 <ul>
-  <li>像 "black" 或者 rgb(0,0,0) 这样的颜色值可以被转成 #000000 甚至 #000 。一些命名的颜色如果比其对应的十六进制颜色值较短的话，可以被替换成命名颜色值。</li>
-  <li>a{property:x;property:y;} 将变成 a{property:y;} （所有重复的属性将被合并）。</li>
-  <li>margin:1px 1px 1px 1px; 将变成 margin:1px;</li>
-  <li>margin:0px; 将变成 margin:0;</li>
-  <li>a{margin-top:10px; margin-bottom:10px; margin-left:10px; margin-right:10px;} 将变成 a{margin:10px;}</li>
-  <li>margin:010.0px; 将变成 margin:10px;</li>
-  <li>所有不必要的空白字符将被删除，这个取决于压缩级别</li>
-  <li>所有的背景属性将被合并</li>
+  <li>像 "black" 或者 rgb(0,0,0) 这样的颜色值可以被压缩为 #000000 甚至 #000 。一些命名的颜色如果比其对应的十六进制颜色值较短的话，可以被替换成命名颜色值。</li>
+  <li>a{property:x;property:y;} 压缩为 a{property:y;} （所有重复的属性将被合并）。</li>
+  <li>margin:1px 1px 1px 1px; 压缩为 margin:1px;</li>
+  <li>margin:0px; 压缩为 margin:0;</li>
+  <li>a{margin-top:10px; margin-bottom:10px; margin-left:10px; margin-right:10px;} 压缩为 a{margin:10px;}</li>
+  <li>margin:010.0px; 压缩为 margin:10px;</li>
+  <li>删除所有不必要的空白字符，这个取决于压缩级别</li>
+  <li>合并所有的背景属性</li>
   <li>删除所有的注释</li>
-  <li>每个（以花括号包围的）块最后的分号可以被删除。</li>
+  <li>删除每个（以花括号包围的）块最后的分号。</li>
   <li>添加缺少的分号，修正字符串中错误的换行，补充缺少的单位，改正错误的颜色值（和命名颜色）</li>
-  <li>property:value ! important; 将变成 property:value !important;</li>
+  <li>property:value ! important; 压缩为 property:value !important;</li>
 </ul>
 
 <h2>为什么要优化？</h2>
-<p>被优化的 CSS 代码可以更快的被页面加载，占用更少的带宽。所以优化可以给用户和网站服务商都带来好处。如果你对快速加载网页有兴趣，你可以从 <a href="http://www.websiteoptimization.com/">websiteoptimization.com</a> 得到一些有趣的资源。</p>
+<p>被优化的 CSS 代码可以更快的被页面加载，占用更少的带宽。所以优化可以给用户和网站服务商都带来好处。如果你对快速加载网页有兴趣，你可以从 <a href="http://www.websiteoptimization.com/">websiteoptimization.com</a> 得到一些资源。</p>
 
 <h2>压缩率</h2>
-<p>压缩率主要依赖于使用的压缩基本（删除无效空白）。使用标准压缩级别（保留可读性）的压缩率一般多余30%。理论上压缩率可以达到99,99%，不过除非是非常“愚蠢”的样式表定义。可以看这个<a href="example.html">示例</a>。</p>
+<p>压缩率主要依赖于使用的压缩级别（删除无效空白）。使用标准压缩级别（保留可读性）的压缩率一般多余30%。理论上压缩率可以达到99,99%，不过除非是非常“愚蠢”的样式表定义。可以看这个<a href="example.html">示例</a>。</p>
 
 <h2>压缩之外</h2>
 <p>如果一个好的压缩器对你来说不是非常重要，你同样可以使用 CSSTidy 格式化或者修复 CSS 代码来获得更高的浏览器兼容性。除了默认的4个模板之外，你也可以自定义模板，将大量的 CSS 代码格式化为自己的编码风格。另外还可以转换选择符和属性的大小写。</p>
