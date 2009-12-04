@@ -1,0 +1,18 @@
+ul.tags{list-style-type:none; margin:0; padding:0;}
+ul.tags:after{content:"\0020"; display:block; height:0; clear:both;}
+ul.tags{zoom:1;}
+
+    ul.tags li{list-style-type:none; float:left; background:transparent url(bg/flow2.gif) no-repeat; margin-left:-12px;}
+    ul.tags li:first-child,
+    ul.tags li.first{background-image:url(bg/flow.gif); margin-left:0;}
+    ul.tags li.active{background-image:url(bg/flow2-active.gif);}
+    ul.tags li:first-child.active,
+    ul.tags li.first-active{background-image:url(bg/flow-active.gif); margin-left:0;}
+    /* 针对IE6不支持 :first-child 伪类的问题，第一个流程是活动状态时，其 HTML 结构中第一个 li 元素最好带上 first-active 类，其他版本/类型的浏览器则可选。下同 */
+
+        ul.tags li a{display:inline-block; background:#fff url(bg/flow2.gif) no-repeat right 0; margin-left:18px; text-decoration:none;}
+        ul.tags li.active a,
+        ul.tags li.first-active a{background-image:url(bg/flow2-active.gif);}
+        /* 同上 */
+
+            ul.tags li a span{display:inline-block; background:transparent none; margin:8px 18px 0 0; height:28px; color:#fff;}
