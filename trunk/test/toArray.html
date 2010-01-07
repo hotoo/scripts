@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<style type="text/css">/*<![CDATA[*/
+table{border:1px solid #ccc; border-collapse:collapse; margin:2px;}
+table th{background:#eee none; border:1px solid #ccc;}
+table td{border:1px solid #ccc; padding:3px 10px;}
+label{}
+label.err{background:#c00 none; color:#fff;}
+/*]]>*/</style>
+<title>arguments to Array 性能大比拼</title>
+</head>
+<body>
+<h1>arguments to Array 性能大比拼</h1>
+<script type="text/javascript">/*<![CDATA[*/
+function test(func, times, args){
+    var d=+new Date();
+    while(times--) func(arguments);
+    var a = func(arguments);
+    var s = a instanceof Array ? "Array" : "<label class='err'>ERROR</label>";
+    var l = a.length;
+    return s + ".length: " + l + ", time: " + (+new Date()-d);
+}
+
+function $AA(a){
+    return Array.apply(null, a);
+}
+function $B(a){
+    return Array.prototype.slice.call(a);
+}
+function $C(a){
+    return [].slice.call(a);
+}
+
+function checkArgs(){
+    return "arguments is "+(arguments instanceof Array?"":"<strong>not</strong> ")+"an Array.";
+}
+//=========================================================
+function testA(len){
+    var d=+new Date();
+    for (var i=0; i<len; i++){
+        Array.apply(null,arguments);
+    }
+    var a = Array.apply(this, arguments);
+    var s = a instanceof Array ? "Array" : "ERROR";
+    var l = a.length;
+    return "<td>Array.apply(this,arguments)</td><td>"+s+".length: "+l+"</td><td>"+len+"</td><td>"+(+new Date()-d)+"</td>";
+}
+
+function testB(len){
+    var d=+new Date();
+    for (var i=0; i<len; i++){
+        Array.prototype.slice.call(arguments);
+    }
+    var a = Array.prototype.slice.call(arguments);
+    var s = a instanceof Array ? "Array" : "ERROR";
+    var l = a.length;
+    return "<td>Array.prototype.slice.call(arguments)</td><td>"+s+".length: "+l+"</td><td>"+len+"</td><td>"+(+new Date()-d)+"</td>";
+}
+function testC(len){
+    var d=+new Date();
+    for (var i=0; i<len; i++){
+        [].slice.call(arguments);
+    }
+    var a = [].slice.call(arguments);
+    var s = a instanceof Array ? "Array" : "ERROR";
+    var l = a.length;
+    return "<td>[].slice.call(arguments)</td><td>"+s+".length: "+l+"</td><td>"+len+"</td><td>"+(+new Date()-d)+"</td>";
+}
+// Prototype
+function $A(iterable) {
+  if (!iterable) return [];
+  if (iterable.toArray) return iterable.toArray();
+  var length = iterable.length || 0, results = new Array(length);
+  while (length--) results[length] = iterable[length];
+  return results;
+}
+function testD(len){
+    var d=+new Date();
+    for (var i=0; i<len; i++){
+        $A(arguments);
+    }
+    var a = $A(arguments);
+    var s = "<label " + (a instanceof Array ? ">Array" : "class='err'>ERROR") + "</label>";
+    var l = a.length;
+    return "<td>Prototype: $A(arguments)</td><td>"+s+".length: "+l+"</td><td>"+len+"</td><td>"+(+new Date()-d)+"</td>";
+}
+// jQuery
+var toString = Object.prototype.toString;
+var jQuery={
+    isFunction: function( obj ) {
+		return toString.call(obj) === "[object Function]";
+	}
+};
+var makeArray= function( array ) {
+    var ret = [];
+
+    if( array != null ){
+        var i = array.length;
+        // The window, strings (and functions) also have 'length'
+        if( i == null || typeof array === "string" || jQuery.isFunction(array) || array.setInterval )
+            ret[0] = array;
+        else
+            while( i )
+                ret[--i] = array[i];
+    }
+
+    return ret;
+}
+function testE(len){
+    var d=+new Date();
+    for (var i=0; i<len; i++){
+        makeArray(arguments);
+    }
+    var a = makeArray(arguments);
+    var s = "<label " + (a instanceof Array ? ">Array" : "class='err'>ERROR") + "</label>";
+    var l = a.length;
+    return "<td>jQuery: makeArray(arguments)</td><td>"+s+".length: "+l+"</td><td>"+len+"</td><td>"+(+new Date()-d)+"</td>";
+}
+function laotu(a){
+    var r=[], len=a.length;
+    while (len){
+        r[--len] = a[len];
+    }
+    return r;
+}
+function testF(len){
+    var d=+new Date();
+    for (var i=0; i<len; i++){
+        laotu(arguments);
+    }
+    var a = laotu(arguments);
+    var s = "<label " + (a instanceof Array ? ">Array" : "class='err'>ERROR") + "</label>";
+    var l = a.length;
+    return "<td>老土的方法： laotu(arguments)</td><td>"+s+".length: "+l+"</td><td>"+len+"</td><td>"+(+new Date()-d)+"</td>";
+}
+
+
+
+//===================================================================
+var l=100000, L=10000, s=[], S=[];
+if(navigator.userAgent.indexOf("MSIE")>=0){l/=10; L/=10;}
+if(navigator.userAgent.indexOf("Chrome")>=0){l*=5; L*=5;}
+
+s[0] = testA(l, "a", "B");
+s[1] = testB(l, "a", "B");
+s[2] = testC(l, "a", "B");
+s[3] = testD(l, "a", "B");
+s[4] = testE(l, "a", "B");
+s[5] = testF(l, "a", "B");
+
+S[0] = testA(L, "a", "B",1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+S[1] = testB(L, "a", "B",1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+S[2] = testC(L, "a", "B",1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+S[3] = testD(L, "a", "B",1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+S[4] = testE(L, "a", "B",1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+S[5] = testF(L, "a", "B",1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,4,3,2,2,2,21,3,4,5,54,3,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+
+document.write(checkArgs());
+document.write(["<table><thead><tr><th>function name</th><th>validate</th><th>times</th><th>time</th></tr></thead><tbody><tr>",s.join("</tr><tr>"),"</tr></tbody></table>"].join(""));
+document.write(["<table><thead><tr><th>function name</th><th>validate</th><th>times</th><th>time</th></tr></thead><tbody><tr>",S.join("</tr><tr>"),"</tr></tbody></table>"].join(""));
+/*]]>*/</script>
+</body>
+</html>
