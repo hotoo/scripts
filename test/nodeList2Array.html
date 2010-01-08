@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN"> 
+<head> 
+<meta name="keywords" content="" /> 
+<meta name="description" content="" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" /> 
+<link rel="icon" href="favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+<title>small nodeList to Array</title> 
+</head> 
+<body> 
+<h1>small nodeList to Array</h1>
+<div></div> 
+<div></div> 
+<div></div> 
+<div></div> 
+<div></div> 
+<div></div> 
+<div></div> 
+<div></div> 
+<div></div> 
+ 
+<script type="text/javascript">/*<![CDATA[*/
+function nodeListToArray(nodes){
+    var arr, length;
+ 
+    try {
+        // works in every browser except IE
+        arr = [].slice.call(nodes);
+        return arr;
+    } catch(err){
+        // slower, but works in IE
+        arr = [];
+        length = nodes.length;
+ 
+        for(var i = 0; i < length; i++){
+             arr.push(nodes[i]);
+         }  
+ 
+        return arr;
+    }
+} 
+ 
+function nodeList2Array(nodes){
+    try{
+        // works in every browser except IE
+        return Array.prototype.slice.call(nodes);
+    }catch(err){
+        // slower, but works in IE
+        var arr = [], len = nodes.length;
+        while (len){
+            arr[--len] = nodes[len];
+        }
+        return arr;
+    }
+} 
+ 
+var L=50000;
+if(navigator.userAgent.indexOf("MSIE")>=0){L/=5;}
+if(navigator.userAgent.indexOf("Chrome")>=0){L*=2;}
+var list = document.getElementsByTagName("div");
+var d1 = +new Date();
+for (var i=0; i<L; i++){
+    nodeListToArray(list);
+}
+d1 = +new Date() - d1;
+ 
+var d2 = +new Date();
+for (var i=0; i<L; i++){
+    nodeList2Array(list);
+}
+d2 = +new Date() - d2;
+ 
+document.write(list.length+"<br />");
+document.write(nodeListToArray(list).length+"<br />");
+document.write(nodeList2Array(list).length+"<br />");
+document.write(d1+"<br />");
+document.write(d2+"<br />");
+/*]]>*/</script> 
+</body> 
+</html> 
