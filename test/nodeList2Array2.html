@@ -101,8 +101,10 @@ for (var i=0; i<L; i++){
 d2 = +new Date() - d2;
  
 document.write(list.length+"<br />");
-document.write(nodeListToArray(list).length+"<br />");
-document.write(nodeList2Array(list).length+"<br />");
+var n1 = nodeListToArray(list);
+document.write((n1 instanceof Array?"Array":"Error") + ".length: "+n1.length+"<br />");
+var n2 = nodeList2Array(list);
+document.write((n2 instanceof Array?"Array":"Error")+".length: "+n2.length+"<br />");
 document.write(d1+"<br />");
 document.write(d2+"<br />");
 /*]]>*/</script> 
