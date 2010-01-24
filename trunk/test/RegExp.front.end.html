@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="generator" content="Editplus" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>RegExp: sub pattern at front or end?</title>
+</head>
+<body>
+<script type="text/javascript">/*<![CDATA[*/
+
+var front = /^(?:(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/;
+var end = /^(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(?:\.(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3}$/;
+
+var ip = "192.168.0.255";
+var ip2 = "192.168.0.256";
+var tot = 500000;
+if(navigator.userAgent.indexOf("Chrome")>-1){tot*=10;}
+document.write(front.test(ip)+"<br />");
+document.write(end.test(ip)+"<br />");
+document.write(front.test(ip2)+"<br />");
+document.write(end.test(ip2)+"<br />");
+
+var d1 = new Date();
+for (var i=0; i<tot; i++){
+    front.test(ip);
+}
+d1 = new Date-d1;
+
+
+var d2 = new Date();
+for (var i=0; i<tot; i++){
+    end.test(ip);
+}
+d2 = new Date-d2;
+
+document.write(d1+"<br />"+d2);
+
+/*]]>*/</script>
+</body>
+</html>
