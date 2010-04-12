@@ -3,6 +3,46 @@
     <title>Online TV</title>
 
     <entry>
+        <title>凤凰卫视中文台</title>
+        <ref href="http://biz.vsdn.tv380.com/live.php?5B63686E5D445830303030303034327C3336397C317C313030307CD6D0CEC4CCA85B2F63686E5DVSDNSOOONERCOM00|5B63686E5D434E4330303030303033327C3237367C327C313030307CE4B8ADE69687E58FB07C727473705B2F63686E5D5B74735D307C687474703A2F2F3132332E3132392E3235312E3131393A2F434E4330303030303033325F3237365B2F74735DVSDNSOOONERCOM00|asx" />
+    </entry>
+    <entry>
+        <title>浙江经视</title>
+        <ref href="http://www.51zhibo.com/asx/908.asx" />
+    </entry>
+    <entry>
+        <title>杭州生活频道</title>
+        <ref href="http://www.51zhibo.com/asx/876.asx" />
+    </entry>
+    <entry>
+        <title>杭州影视频道</title>
+        <ref href="http://www.51zhibo.com/asx/881.asx" />
+    </entry>
+    <entry>
+        <title>上海第一财经</title>
+        <ref href="http://www.51zhibo.com/asx/67.asx" />
+    </entry>
+    <entry>
+        <title>上海东方电影频道</title>
+        <ref href="http://www.51zhibo.com/asx/653.asx" />
+    </entry>
+    <entry>
+        <title>深圳移动电视</title>
+        <ref href="http://www.51zhibo.com/asx/165.asx" />
+    </entry>
+    <entry>
+        <title>重庆卫视</title>
+        <ref href="http://www.51zhibo.com/asx/716.asx" />
+    </entry>
+    <entry>
+        <title>美国国家地理频道</title>
+        <ref href="http://www.51zhibo.com/asx/1223.asx" />
+    </entry>
+    <entry>
+        <title>韩国MBC</title>
+        <ref href="http://www.51zhibo.com/asx/1174.asx" />
+    </entry>
+    <entry>
         <title>CCTV 1</title>
         <ref href="http://www.654123.com/asx2004/www654123com_2009_gouride_dao_lian.asx" />
     </entry>
