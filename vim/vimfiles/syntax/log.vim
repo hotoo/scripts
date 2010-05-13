@@ -3,6 +3,9 @@
 " Author: 闲耘™(hotoo.cn[AT]xianyun.org)
 " Date: 2010/05/13
 
+" for Windows log.
+syn match WindowsProfix /^\d\+\.\d\+/
+
 "syn keyword logsKey contained message debug warning error info
 syn match logsTypeSucc /\[\(success\|succ\)\]/
 syn match logsTypeSucc /\[\?\(SUCCESS\|SUCC\)\]\?/
@@ -11,24 +14,24 @@ syn match logsTypeInfo /\[\?\(MESSAGE\|INFO\)\]\?/
 "syn match logsTypeInfo /\[.\{-}\]/
 syn match logsTypeInfo /\[[^\]]*\]/
 syn match logsTypeWarning /\[\(warn\|debug\|bug\)\]/
-syn match logsTypeWarning /\[\?\(WARN\|DEBUG\|BUG\)\]\?/
-syn match logsTypeError /\[error\]/
-syn match logsTypeError /\[\?ERROR\]\?/
+syn match logsTypeWarning /\[\?\<\(WARN\|DEBUG\|BUG\)\>\]\?/
+syn match logsTypeError /\[\<error\>\]/
+syn match logsTypeError /\[\?\<ERROR\>\]\?/
 
 syn match Comments /^#.*$/
 "!syn match String /"[^"]"/
-syn match String /".\{-}"/
+"syn match String /".\{-}"/
 "!syn match String /'[^']'/
-syn match String /'.\{-}'/
-syn match URI /\w:\\[a-zA-Z0-9\.\\~@#$%^&\*()_]\+/
+"syn match String /'.\{-}'/
+syn match URI /\w:\\[a-zA-Z0-9\.\\~@#$%^&\*_\-]\+/
+syn match URI /\d\{1,3}\.\d\{1,3}\.\d\{1,3}\.\d\{1,3}/
+syn match URI /https\?:\/\/[a-zA-Z0-9\.\/~@#$%^&\*_\-]\+/
 syn match DateTime /\d\{4}\([\-\/\.]\)\d\{1,2}\1\d\{1,2}\ \d\{1,2}:\d\{1,2}:\d\{1,2}\([\.,]\d\+\)\?/
 syn match DateTime /\(Mon\|Tue\|Wed\|Thu\|Fri\|Sat\|Sun\)\ \(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec\)\ \d\{1,2}\ \d\{1,2}:\d\{1,2}:\d\{1,2}\ CST\ \d\{4}/
 syn match Date /\d\{4}\([\-\/\.]\)\d\{1,2}\1\d\{1,2}/
+syn match Date /\d\{4}年\d\{1,2}月\d\{1,2}日/
 syn match Date /\d\{1,2}\([\-\/\.]\)\d\{1,2}\1\d\{4}/
 syn match Time /\d\{1,2}:\d\{1,2}:\d\{1,2}\([\.,]\d\+\)\?/
-
-" for Windows log.
-syn match WindowsProfix /^\d\+\.\d\+/
 
 "syn match   logsNumber	       "-\=\<\d\+L\=\>\|0[xX][0-9a-fA-F]\+\>"
 
@@ -38,8 +41,7 @@ hi logsTypeWarning guifg=#ff0000 guibg=#ffff00
 hi logsTypeError guibg=#ff0000 guifg=#ffff00
 hi logsTypeSucc guibg=#008000 guifg=#ffffff
 hi Comments guifg=#666666
-hi String guifg=#55a255
-"hi String guifg=#eeeeee
+"hi String guifg=#55a255
 hi URI gui=underline
 hi Title gui=bold guifg=#cc3300
 hi DateTime guifg=#8ec2f5
