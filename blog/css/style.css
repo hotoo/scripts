@@ -1,0 +1,54 @@
+body {font-family: Arial, sans-serif; margin: 1em 2em 1em 2em; font-size: 100%; line-height: 130%;}
+h1, h2, h3, h4, h5, h6 {font-family: Trebuchet MS, serif; margin-top: 1.5em; margin-bottom: 0.5em;
+    border-bottom:1px solid #eee; line-height:1.2em;
+}
+h1 {font-size: 2.0em;}
+h2 {font-size: 1.6em;}
+h3 {font-size: 1.3em;}
+h4 {font-size: 1.2em;}
+h5 {font-size: 1.1em;}
+h6 {font-size: 1.0em;}
+p, pre, blockquote, table, ul, ol, dl {margin-top: 1em; margin-bottom: 1em;}
+ul ul, ul ol, ol ol, ol ul {margin-top: 0.5em; margin-bottom: 0.5em;}
+li {margin: 0.3em auto;}
+ul {margin-left: 2em; padding-left: 0.5em;}
+dt {font-weight: bold;}
+img {border: none;}
+pre {border-left: 1px solid #ccc; margin-left: 2em; padding-left: 0.5em;}
+pre{margin:.5em; padding:5px; overflow:hidden;
+  background:#FFF7D7 none;
+  border-width:0 0 0 3px; border-style:solid; border-color:#FAD163;
+  -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
+  line-height:1.5em; font-family:"Courier New","\5B8B\4F53"; font-size:1em;}
+
+blockquote {padding: 0.4em; background-color: #f6f5eb;}
+
+table{table-layout:fixed; border-collapse:collapse; border-spacing:0;
+    border-width:1px 0 0 1px; border-style:solid; border-color:#ccc;}
+
+    th, td{border-width:0 1px 1px 0; border-style:solid; border-color:#ccc; padding: 0.3em;}
+    th{background-color: #f0f0f0;}
+
+hr {border: none; border-top: 1px solid #ccc; width: 100%;}
+del {text-decoration: line-through; color: #777777;}
+
+a{color:#002BB8; text-decoration:none;}
+a:hover{text-decoration:underline;}
+a[href^="http://"],
+a[href^="https://"]{background:transparent url(bg/popout.png) no-repeat scroll right 0; padding:0 18px 0 0;}
+
+div.toc{border:1px solid #ccc; background:#f8f8f8; float:right; padding:3px;
+    -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
+}
+    div.toc ul{margin:0; padding:0 0 0 1em; *padding:0;}
+    div.toc>ul{padding:0;}
+    div.toc ul ul{*padding:0 0 0 8px;}
+    div.toc li{list-style-type: none; margin:0; padding:0 0 0 18px; background:transparent url(bg/folder.png) no-repeat; font-size:.9em;}
+
+.todo {font-weight: bold; background-color: #f0ece8; color: #a03020;}
+.justleft {text-align: left;}
+.justright {text-align: right;}
+.justcenter {text-align: center;}
+
+#footer{border-width:1px 0 0; border-style:solid; border-color:#ccc; background:#f8f8f8 none; color:#999; padding:5px;}
+    #footer p{float:right; margin:0; padding:0; font-size:.75em;}
