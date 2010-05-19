@@ -1,0 +1,168 @@
+<!--[if !IE 6]><!DOCTYPE html><![endif]-->
+<!-- Do not use doctype for ie6. -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>Histogram</title>
+<style type="text/css">/*<![CDATA[*/
+
+/* single histogram */
+div.histogram-single{border-width:0 0 1px 1px; border-style:solid; border-color:#ccc; margin:0 0 1.5em; padding:50px 0 0; font-family:georgia;}
+    div.histogram-single ul{margin:0; padding:0; list-style-type:none;}
+    div.histogram-single ul:after{content:"\0020"; display:block; height:0; clear:both;}
+    div.histogram-single ul{zoom:1;}
+        div.histogram-single li{margin:0; padding:0; float:left; list-style-type:none; width:16px; height:100px; margin:-2px 2px 0; position:relative;}
+            div.histogram-single a{display:block; width:16px; height:100%;/* overflow:hidden;*/ position:absolute; bottom:0;
+                border-width:1px 1px 0; border-style:solid; border-color:#ccc;
+                background:#eee none; color:#333; text-decoration:none;}
+            div.histogram-single a:hover,
+            div.histogram-single a:focus{background:#ccc none; border-color:#aaa;}
+
+            div.histogram-single span{top:-1.4em; position:absolute; padding:0 5px; text-align:center; display:block; color:#eee; z-index:0; cursor:pointer; width:2em; margin-left:-1em;}
+            div.histogram-single a:hover span,
+            div.histogram-single a:focus span{color:#333; border:1px solid #ccc; background:#eee none; z-index:1; zoom:1;}
+            div.histogram-single cite{position:absolute; bottom:-1.2em; font-style:normal; text-align:center; width:100%; color:#666; cursor:pointer;}
+            div.histogram-single a:hover cite,
+            div.histogram-single a:focus cite{text-decoration:underline; color:#000;}
+
+/* multi histogram */
+div.histogram-multi{border-width:0 0 1px 1px; border-style:solid; border-color:#ccc; margin:0 0 1.5em; padding:50px 0 0; font-family:georgia;}
+    div.histogram-multi ul{margin:0; padding:0; list-style-type:none;}
+    div.histogram-multi ul:after{content:"\0020"; display:block; height:0; clear:both;}
+    div.histogram-multi ul{zoom:1;}
+        div.histogram-multi li{margin:0; padding:0; float:left; list-style-type:none; width:70px; height:100px; margin:-2px 2px 0; position:relative;}
+        div.histogram-multi li:hover{background:#eee none;}
+        div.histogram-multi li.hover{background:#eee none;}
+            div.histogram-multi a:hover,
+            div.histogram-multi a:focus{background:#ccc none; border-color:#aaa;}
+            div.histogram-multi a{display:inline-block; width:16px; height:100%;/* overflow:hidden;*/ position:absolute; bottom:0;
+                border-width:1px 1px 0; border-style:solid; border-color:#ccc;
+                background:#eee none; color:#333; text-decoration:none;}
+            div.histogram-multi a:nth-child(1){left:0; background-color:#8ec2f5; border-color:#49e;}
+            div.histogram-multi a.nth-child-1{left:0; background-color:#8ec2f5; border-color:#49e;}
+            div.histogram-multi a:nth-child(1):hover{left:0; background-color:#49e; border-color:#49e;}
+            div.histogram-multi a.nth-child-1:hover{left:0; background-color:#49e; border-color:#49e;}
+            div.histogram-multi a:nth-child(1):hover span{left:0; background-color:#8ec2f5; border-color:#49e; color:#fff;}
+            div.histogram-multi a.nth-child-1:hover span{left:0; background-color:#8ec2f5; border-color:#49e; color:#fff;}
+            div.histogram-multi a:nth-child(2){left:20px; background-color:#f60; border-color:#f00;}
+            div.histogram-multi a.nth-child-2{left:20px; background-color:#f60; border-color:#f00;}
+            div.histogram-multi a:nth-child(2):hover{left:20px; background-color:#f00; border-color:#f00;}
+            div.histogram-multi a.nth-child-2:hover{left:20px; background-color:#f00; border-color:#f00;}
+            div.histogram-multi a:nth-child(2):hover span{background-color:#f60; border-color:#f00; color:#fff;}
+            div.histogram-multi a.nth-child-2:hover span{background-color:#f60; border-color:#f00; color:#fff;}
+            div.histogram-multi a:nth-child(3){left:40px; background-color:#74a474; border-color:#55a255;}
+            div.histogram-multi a.nth-child-3{left:40px; background-color:#74a474; border-color:#55a255;}
+            div.histogram-multi a:nth-child(3):hover{left:40px; background-color:#55a255; border-color:#55a255;}
+            div.histogram-multi a.nth-child-3:hover{left:40px; background-color:#55a255; border-color:#55a255;}
+            div.histogram-multi a:nth-child(3):hover span{background-color:#74a474; border-color:#55a255; color:#fff;}
+            div.histogram-multi a.nth-child-3:hover span{background-color:#74a474; border-color:#55a255; color:#fff;}
+            div.histogram-multi a:nth-child(4){left:60px; background-color:#fcf; border-color:#f9f;}
+            div.histogram-multi a.nth-child-4{left:60px; background-color:#fcf; border-color:#f9f;}
+            div.histogram-multi a:nth-child(4):hover{left:60px; background-color:#f9f; border-color:#f9f;}
+            div.histogram-multi a.nth-child-4:hover{left:60px; background-color:#f9f; border-color:#f9f;}
+            div.histogram-multi a:nth-child(4):hover span{background-color:#fcf; border-color:#f9f;}
+            div.histogram-multi a.nth-child-4:hover span{background-color:#fcf; border-color:#f9f;}
+
+            div.histogram-multi span{top:-1.4em; position:absolute; padding:0 5px; text-align:center; display:block; color:#eee; z-index:0; cursor:pointer; width:2em; margin-left:-1em;}
+            div.histogram-multi a:hover span,
+            div.histogram-multi a:focus span{color:#333; border:1px solid #ccc; background:#eee none; z-index:1; zoom:1;}
+            div.histogram-multi cite{position:absolute; bottom:-1.2em; font-style:normal; text-align:center; width:100%; color:#666; cursor:pointer;}
+            div.histogram-multi li:hover cite{color:#000; text-decoration:underline;}
+            div.histogram-multi li.hover cite{color:#000; text-decoration:underline;}
+            div.histogram-multi a:hover cite,
+            div.histogram-multi a:focus cite{text-decoration:underline; color:#000;}
+
+/*]]>*/</style>
+</head>
+<body>
+<strong>Single Histogram:</strong>
+<div class="histogram-single">100%
+    <ul>
+        <li><a href="javascript:void(0);" style="height:0%;"><span>0</span><cite>0</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:10%;"><span>10%</span><cite>1</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:20%;"><span>20%</span><cite>2</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:30%;"><span>30</span><cite>3</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:40%;"><span>40</span><cite>4</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:50%;"><span>50</span><cite>5</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:60%;"><span>60</span><cite>6</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:70%;"><span>70</span><cite>7</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:80%;"><span>80</span><cite>8</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:90%;"><span>90</span><cite>9</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:100%;"><span>100</span><cite>10</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:120%;"><span>120</span><cite>11</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:95%;"><span>95</span><cite>12</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:85%;"><span>85</span><cite>13</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:75%;"><span>75</span><cite>14</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:65%;"><span>65</span><cite>15</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:55%;"><span>55</span><cite>16</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:45%;"><span>45</span><cite>17</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:35%;"><span>35</span><cite>18</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:25%;"><span>25</span><cite>19</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:15%;"><span>15</span><cite>20</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:5%;"><span>5</span><cite>21</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:30%;"><span>30</span><cite>22</cite></a></li>
+        <li><a href="javascript:void(0);" style="height:50%;"><span>50</span><cite>23</cite></a></li>
+    </ul>
+</div>
+
+<strong>Multi Histogram:</strong>
+<div class="histogram-multi">100%
+    <ul>
+        <li>
+            <a href="javascript:void(0);" style="height:0%;"><span>0</span></a>
+            <a href="javascript:void(0);" style="height:10%;"><span>10</span></a>
+            <a href="javascript:void(0);" style="height:5%;"><span>5</span></a>
+            <a href="javascript:void(0);" style="height:15%;"><span>15</span></a>
+            <cite>0</cite>
+        </li>
+        <li>
+            <a href="javascript:void(0);" style="height:40%;"><span>40</span></a>
+            <a href="javascript:void(0);" style="height:50%;"><span>50</span></a>
+            <a href="javascript:void(0);" style="height:20%;"><span>20</span></a>
+            <a href="javascript:void(0);" style="height:35%;"><span>35</span></a>
+            <cite>1</cite>
+        </li>
+        <li>
+            <a href="javascript:void(0);" style="height:80%;"><span>80</span></a>
+            <a href="javascript:void(0);" style="height:60%;"><span>60</span></a>
+            <a href="javascript:void(0);" style="height:75%;"><span>75</span></a>
+            <a href="javascript:void(0);" style="height:75%;"><span>75</span></a>
+            <cite>2</cite>
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">/*<![CDATA[*/
+(function(){
+    if(navigator.userAgent.indexOf("MSIE 6")>-1 || navigator.userAgent.indexOf("MSIE 7")>-1){
+        var hack=true;
+    }
+    var list = document.getElementsByTagName("ul");
+    for (var i=0,l=list.length; i<l; i++){
+        if(list[i].parentNode.className == "histogram-multi"){
+            var lis = list[i].getElementsByTagName("li");
+            for (var j=0,m=lis.length; j<m; j++){
+                if(hack){
+                    lis[j].onmouseover=function(){this.className="hover";};
+                    lis[j].onmouseout=function(){this.className="";};
+                }
+                var as = lis[j].getElementsByTagName("a"),
+                    n=as.length;
+                lis[j].style.width = (n*20+10)+"px";
+                if(!hack){continue;}
+                for (var k=0; k<n; k++){
+                    as[k].className = "nth-child-"+(k+1);
+                }
+            }
+        }
+    }
+})();
+
+/*]]>*/</script>
+
+</body>
+</html>
