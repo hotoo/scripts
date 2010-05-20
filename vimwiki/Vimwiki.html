@@ -47,8 +47,9 @@ let g:vimwiki_list = [{'path': 'D:\My Dropbox\VimPrivateWiki'},
 
 
 <h2 id="toc_1.1">技巧</h2>
+<h3 id="toc_1.1.1">TagList</h3>
 <p>
-让 Vimwiki 支持 <a href="TagList.html">TagList</a> 的大纲视图。
+让 Vimwiki 支持 TagList 的大纲视图。
 </p>
 
 <p>
@@ -92,6 +93,11 @@ for Linux &amp; Mac: ~/.ctags
 let tlist_vimwiki_settings = 'wiki;h:Headers'
 </pre>
 
+<h3 id="toc_1.1.2">搜索 Wiki</h3>
+<pre>
+:vimgrep /KEY/ %:p:h/*.wiki
+</pre>
+
 <h2 id="toc_1.2">资源</h2>
 <ul>
 <li>
@@ -117,6 +123,9 @@ let tlist_vimwiki_settings = 'wiki;h:Headers'
 </li>
 <li>
 <a href="http://xbeta.info/vimwiki.htm">Pkm工具：Vimwiki</a>
+</li>
+<li>
+<a href="http://nanasi.jp/articles/vim/vimwiki/vimwiki_vim_config.html">Vimwiki : Vimベースの個人用Wiki環境 #4 設定・カスタマイズ</a>
 </li>
 </ul>
 </article>

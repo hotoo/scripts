@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!--[if IE]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<title>DjVu - 闲耘™.Wiki</title>
+<title>Office-2010 - 闲耘™.Wiki</title>
 </head>
 <body>
 <div id="wrapper">
@@ -21,20 +21,26 @@
 </header>
 <article>
 
-<h1 id="toc_1">DjVu</h1>
-
-<h2 id="toc_1.1">RESOURCE</h2>
+<h1 id="toc_1">Office 2010</h1>
 <ul>
 <li>
-<a href="http://djvu.org/">DjVu.org - the premier menu for djvu resources</a>
-</li>
-<li>
-<a href="http://djvu.sourceforge.net/">DjVuLibre: Open Source Djvu library and viewer</a> -- 有跨平台（Windows/Unix/Linux/Mac）的 DjView 阅读器。
-</li>
-<li>
-<a href="http://windjview.sourceforge.net/">WinDjView Homepage</a> -- 有支持 Windows 和 Mac 的阅读器。
+<a href="http://www.portablesoft.cn/microsoft-office-coexist/">完美解决Office 2007与Office 2010同时安装的共存问题</a>
 </li>
 </ul>
+<blockquote>
+下面是找寻到的Office 2007与Office 2010共存的解决方案，希望对大家有所帮助，至于完美不完美倒是其次了：
+
+建议先安装Office 2007，然后安装Office 2010（注意安装过程中选择保留之前的Office版本），再添加如下注册表项禁用Word启动修复功能：
+</blockquote>
+<pre>
+      Windows Registry Editor Version 5.00
+
+      [HKEY_CURRENT_USER\Software\Microsoft\Office\12.0\Word\Options]
+      ”NoRereg”=dword:00000001
+
+      [HKEY_CURRENT_USER\Software\Microsoft\Office\14.0\Word\Options]
+      ”NoRereg”=dword:00000001
+</pre>
 </article>
 <footer>
     <a href="index.html" id="back-home">&lsaquo; 首页</a>
