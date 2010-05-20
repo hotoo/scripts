@@ -1,0 +1,32 @@
+body{margin:0px;padding:0px;}
+#wrap{min-width:540px;max-width:960px;width:80%;margin:2em auto 0px auto;font-size:.9em;}
+#header{}
+#name{height:1.6em;font-size:2em;font-weight:bold;}
+.title{font-weight:bold;margin-top:1.6em;}
+#face{border:1px dashed #ccc;padding:1px;float:right;}
+h5{margin:0px;}
+dt{font-weight:bold;}
+dd{margin:0px;padding-left:.5em;padding-top:.2em;padding-bottom:.2em;line-height:1.3em;}
+dd.border{background-color:#f8f8f8;border-left:4px double #ccc;border-top:1px dashed #ccc;border-bottom:1px dashed #ccc;border-right:0px;}
+blockquote{margin:0px;padding-left:.5em;padding-top:.2em;padding-bottom:.2em;line-height:1.3em;
+	background-color:#f8f8f8;
+	border-left:4px double #ccc;border-top:1px dashed #ccc;border-bottom:1px dashed #ccc;border-right:0px;}
+.desc{color:#666;font-style:italic;}
+ol,ul{margin:0px;margin-left:1.5em;padding:0px;}table{border-top:1px solid #333;border-bottom:1px solid #333;width:100%;}
+table tr{height:24px;}
+caption{text-align:left;font-weight:bold;}
+table tr th{background-color:#eee;width:100px;text-align:right;font-weight:normal;padding-right:.5em;font-size:1em;}
+table tr td{font-family:"courier new",verdana;padding-left:.5em;}
+address{font-style:normal;}
+a{color:#000;}
+.plugin{font-style:italic;color:#333;}
+img{border:0px;}
+.mailto{background:#fff url(AT.gif) no-repeat;width:6px;height:10px;}
+.popup{background:#fff url(popout.jpg) no-repeat center;width:16px;height:16px;margin-left:2px;display:inline;cursor:default;}
+#myWebServices{list-style:none;margin:0px;padding:0px;}
+#myWebServices li{display:inline;padding-right:1em;}
+#footer{text-align:right;}
+
+@media print{
+#myTools,#footer{display:none;}
+}
