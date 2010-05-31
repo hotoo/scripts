@@ -21,7 +21,7 @@
 </header>
 <article>
 
-<h1 id="toc_1">CSS Hacks</h1>
+<h1 id="toc_1">CSS Hacks &amp; Expression</h1>
 <p>
 全面的IE / Firefox / Webkit / Opera CSS HACK列表：
 </p>
@@ -101,10 +101,41 @@ html[xmlns*=""]:root #trece  { color: red  }
 
 </pre>
 
-<h2 id="toc_1.1">参考</h2>
+<h2 id="toc_1.1">Expression</h2>
+<p>
+<code>max-width</code>
+</p>
+<pre>
+.data_table tr {
+	background-color: expression(rowIndex % 2 == 0 ? '#999999' : '#cccccc')
+}
+
+p{
+    max-width:800px;
+    *width:expression(document.body.clientWidth&gt;800?"800px":"auto");
+}
+
+#demo{
+    left:expression(document.getElementById('table_container').scrollLeft);
+}
+</pre>
+
+<h2 id="toc_1.2">参考</h2>
 <ul>
 <li>
 <a href="http://www.happinesz.cn/archives/1331/">说说CSS Hack 和向后兼容</a>
+</li>
+<li>
+<a href="http://webfx.eae.net/dhtml/cssexpr/cssexpr.html">CSS Expressions</a>
+</li>
+<li>
+<a href="http://blog.dynatrace.com/2010/02/16/the-real-performance-overhead-of-css-expressions/">The Real Performance Overhead of CSS Expressions</a>
+</li>
+<li>
+<a href="http://www.planabc.net/2009/09/21/optimization_of_css_eexpression/">CSS Expression 的优化</a>
+</li>
+<li>
+<a href="http://www.never-online.net/blog/article.asp?id=246">CSS expression在IE8里正式退出历史舞台</a>
 </li>
 </ul>
 </article>
