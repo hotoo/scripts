@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>Progress</title>
+<style type="text/css">/*<![CDATA[*/
+div.progress{border:1px solid #49e !important; width:100%; position:relative; margin:1px; padding:1px !important; font-family:Arial,Verdana,Sans-Serif; font-size:14px;}
+    div.progress span{display:block; background:#8ec2f5 none; margin:0; width:0%; height:1.2em;}
+    div.progress cite{position:absolute; width:5em; height:16px; top:2px; left:50%; margin-left:-2.5em; text-align:center; font-style:normal; font-weight:normal; line-height:16px;}
+div.progress-done{border-color:#008000!important;}
+    div.progress-done span{background-color:#008000;}
+    div.progress-done cite{color:#fff;}
+div.progress-late{border-color:#f00!important; width:80%!important;}
+    div.progress-late span{background-color:#f00; width:120%!important;}
+    div.progress-late cite{color:#fff; font-size:90%;}
+div.progress-late-done{border-color:#008000!important; width:80%!important;}
+    div.progress-late-done span{background-color:#008000; width:120%!important;}
+    div.progress-late-done cite{color:#fff; font-size:90%;}
+
+a.progress{border:1px solid #49e; width:100%; position:relative; margin:2px; padding:0; font-family:Arial,Verdana,Sans-Serif; font-size:14px; display:block; text-decoration:none; color:#000;}
+    a.progress span{display:block; background:#8ec2f5 none; margin:1px; width:0%; height:1.2em; cursor:pointer;}
+    a.progress cite{position:absolute; width:4em; top:2px; left:50%; margin-left:-2em; text-align:center; font-style:normal; font-weight:normal; cursor:pointer;}
+a.progress-done{border-color:#008000;}
+    a.progress-done span{background-color:#008000;}
+a.progress-late{border-color:#f00; width:80%;}
+    a.progress-late span{background-color:#f00; width:120%;}
+    a.progress-late cite{color:#fff;}
+
+
+#wrapper{width:120px;}
+/*]]>*/</style>
+</head>
+<body>
+<div id="wrapper">
+
+<div class="progress"><span style="width:0%"></span><cite>0%</cite></div>
+<br />
+
+<div class="progress"><span style="width:50%"></span><cite>50%</cite></div>
+<br />
+
+实际完成，但未最后确认。
+<div class="progress"><span style="width:100%"></span><cite>100%</cite></div>
+<br />
+
+<div class="progress progress-done"><span style="width:100%"></span><cite>完成</cite></div>
+<br />
+
+<div class="progress progress-late"><span style="width:100%"></span><cite>逾期</cite></div>
+<br />
+
+<div class="progress progress-late-done"><span style="width:100%"></span><cite>逾期完成</cite></div>
+<p /><br />
+
+
+<a href="javascript:void(0);" class="progress"><span style="width:50%"></span><cite>50%</cite></a>
+
+</div>
+</body>
+</html>
