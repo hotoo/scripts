@@ -1,0 +1,23 @@
+html,body{font:12px/1 sans-serif,Helvetica,Tahoma,Arial,\5b8b\4f53; background-color:#fff;}
+
+#comment-list{font-size:1.2em;}
+#comment-list ul{}
+#comment-list li{
+    margin:3px 0; padding:5px; vertical-align:top; border:1px solid #E3E9FF;
+    -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
+}
+#comment-list li.even{background-color:#E8ECFB;}
+#comment-list li:nth-child(even){background-color:#E8ECFB;}
+
+#comment-list table{width:100%;}
+
+#comment-list .user-info{width:10em; overflow:hidden; border-right:1px solid #eee; line-height:1.2em; vertical-align:top;}
+#comment-list li:nth-child(even) .user-info{border-color:#fff;}
+#comment-list li.even .user-info{border-color:#fff;}
+    #comment-list .depart,
+    #comment-list .office,
+    #comment-list .datetime{color:#999;}
+    #comment-list cite{font-style:normal; font-weight:bold;}
+#comment-list .comment-content{padding:3px 5px; vertical-align:top; line-height:1.2em;}
+
+#comment-filed{}

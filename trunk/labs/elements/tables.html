@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="generator" content="gvim" />
+<meta name="author" content="闲耘 (mail[AT]xianyun.org)" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="tables.css" media="all" />
+<title>Tables</title>
+</head>
+<body>
+
+<div id="wrapper">
+<table class="records">
+    <thead>
+        <tr>
+            <th class="count" width="16"></th>
+            <th width="200">Name</th>
+            <th width="200">Detail</th>
+            <th width="120">Optional</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="count">1.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="count">2.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="count">3.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="count">4.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="count">5.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<table class="records controls">
+    <tbody>
+        <tr>
+            <td class="quick-filter">
+                <input type="search" name="" value="" />
+                <a href="javascript:void(0);">高级搜索</a>
+            </td>
+            <td class="table-navs">
+                1-20/100
+                显示行数：
+                <select name="show-rows" id="show-rows">
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="">全部</option>
+                </select>
+                转到：
+                <input type="text" class="gotopage" name="goto-page" value="2" />
+                <input type="button" name="" value="Go" />
+                <a href="javascript:void(0);">&lsaquo; 上一页</a>
+                <a href="javascript:void(0);">下一页 &rsaquo;</a>
+            </td>
+        </tr>
+        <tr class="popup-filter">
+            <td colspan="2">
+                <form action="tables_submit" method="post" accept-charset="utf-8">
+                    <p><input type="submit" value="搜索"></p>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</body>
+</html>
