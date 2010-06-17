@@ -1,0 +1,65 @@
+html,body{
+    font:12px/1 Helvetica,Tahoma,Arial,\5b8b\4f53,sans-serif,georgia,Courier,"Courier New";
+}
+
+a.submit,
+a.button{background:transparent url(bg/minibutton_matrix.png) no-repeat scroll 0 0; padding:0 0 0 2px; display:inline-block; text-decoration:none; font-size:1.2em;}
+a.submit{font-weight:bold;}
+a.submit span,
+a.button span{background:transparent url(bg/minibutton_matrix.png) no-repeat scroll right 0; height:23px; display:inline-block; padding:0 10px 0 8px; line-height:23px; cursor:pointer; text-decoration:none; color:#000;
+    /*text-shadow:0 0 1px #FFFFFF;*/
+}
+a.submit span{color:#900;}
+a.button:hover{background-position:0 -30px; text-shadow:0 0 1px rgba(0,0,0,.3);}
+a.button:hover span{background-position:100% -30px; color:#fff;}
+a.button:active{background-position:0 -60px;}
+a.button:active span{background-position:100% -60px;}
+a.submit:hover{background-position:0 -90px;}
+a.submit:hover span{background-position:100% -90px; color:#fff;}
+a.submit:active{background-position:0 -120px;}
+a.submit:active span{background-position:100% -120px;}
+
+a.btn-disabled{background-position:0 -150px;}
+a.btn-disabled span{background-position:100% -150px; color:#777;}
+a.btn-disabled:hover{background-position:0 -150px; cursor:default;}
+a.btn-disabled:hover span{background-position:100% -150px; color:#777; cursor:default;}
+
+a.arrow-left{
+    background:transparent url(bg/arrow_orange_white_left_large.gif) no-repeat;
+    padding:0 0 0 36px;
+    display:inline-block;
+    height:45px;
+    color:#fff;
+}
+a.arrow-left span{
+    background:transparent url(bg/arrow_orange_white_left_large.gif) no-repeat right 0;
+    height:29px;
+    display:inline-block;
+    padding:16px 16px 0 8px;
+    color:#fff;
+    font-weight:bold;
+}
+a.arrow-left:hover{
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+a.arrow-right{
+    background:transparent url(bg/arrow_orange_white_right_large.gif) no-repeat right 0;
+    padding:0 36px 0 0;
+    display:inline-block;
+    height:45px;
+    color:#fff;
+}
+a.arrow-right span{
+    background:transparent url(bg/arrow_orange_white_right_large.gif) no-repeat;
+    height:29px;
+    display:inline-block;
+    padding:16px 8px 0 16px;
+    color:#fff;
+    font-weight:bold;
+}
+a.arrow-right:hover{
+    text-decoration:underline;
+    cursor:pointer;
+}

@@ -1,0 +1,10 @@
+
+input[type=search]{
+    border:0 none;
+    height:16px;
+    padding:4px 10px 2px 21px;
+    background:transparent url(bg/search_field.gif) no-repeat;
+}
+input[type=search]:focus{
+    background-position:0 -22px;
+}
