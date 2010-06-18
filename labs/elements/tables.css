@@ -19,12 +19,19 @@ table.records{
         table tbody tr:hover td{background-color:#f0f6f6;}
 
         table td.count{text-align:right; color:#999;}
-table.records tr.controls{}
-        table.records tr.controls td{background-color:#e5e5e5; padding:1px 5px; border-width:0 1px 1px!important;}
-        table.records tr.controls td.quick-filter{width:240px;}
-        table.records tr.controls td.table-navs{text-align:right;}
 
-        table.records tr.popup-filter td{vertical-align:top; background-color:#FFF7D7;}
+table.records-controls{
+    border-collapse:collapse; border-spacing:0;
+    border-width:0 1px 1px; border-style:solid; border-color:#ccc;
+    table-layout:fixed; width:100%;
+}
+table.records-controls tr.footbar{border-width:0 1px 1px;}
+        table.records-controls tr.footbar td{background-color:#e5e5e5; padding:1px 5px; border-width:0 1px 1px!important;}
+        table.records-controls tr.footbar td.quick-filter{width:240px;}
+        table.records-controls tr.footbar td.table-navs{text-align:right; color:#666;}
+
+        table.records-controls tr.popup-filter{display:none;}
+        table.records-controls tr.popup-filter td{vertical-align:top; background-color:#FFF7D7;}
 
 #wrapper{width:800px;}
 
