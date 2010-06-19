@@ -93,10 +93,10 @@ pre{
     /*word-wrap:break-word; word-break:break-all;*/
     /*white-space:nowrap;*/
     overflow:hidden;
-    background:#FFF7D7 none;
-    border-width:0 0 0 3px; border-style:solid; border-color:#FAD163;
-    -moz-box-shadow:2px 2px 8px #666; -webkit-box-shadow:2px 2px 8px #666; box-shadow:2px 2px 8px #666;
-    -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
+    background:#f8f8f8 none;
+    border-width:1px 0 1px 3px; border-style:solid; border-color:#eee;
+    /*-moz-box-shadow:2px 2px 8px #666; -webkit-box-shadow:2px 2px 8px #666; box-shadow:2px 2px 8px #666;*/
+    -moz-border-radius:3px; -khtml-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
     line-height:1.5em; font-family:"Courier New","\5B8B\4F53"; font-size:.9em;
 }
 pre:hover{
@@ -108,7 +108,11 @@ blockquote{
     margin:.5em 1em; padding:0.4em 50px; line-height:1.5em; min-height:50px;
     border-width:0; border-color:#ccc; border-style:solid;
     -moz-border-radius:8px; -khtml-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;
-    background-color:#eee; background-image:url(bg/testy-quote-open.gif),url(bg/testy-quote-close.gif); background-position:left top,right bottom; background-repeat:no-repeat; *background:#eee url(bg/testy-quote-open.gif) no-repeat;}
+    background-color:#eee; background-image:url(bg/testy-quote-open.gif),url(bg/testy-quote-close.gif);
+    background-position:left top,right bottom;
+    background-repeat:no-repeat;
+    background:#eee url(bg/testy-quote-open.gif) no-repeat\9;
+}
 
 table{border-collapse:collapse; border-spacing:0;
     -moz-box-shadow:0 0 8px #666; -webkit-box-shadow:0 0 8px #666; box-shadow:0 0 8px #666;
