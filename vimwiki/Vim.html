@@ -201,10 +201,6 @@ language messages zh_cn.utf-8
 
 <h3 id="toc_1.4.2">字体(fonts)</h3>
 <pre>
-" fonts
-" @see http://support.microsoft.com/kb/306527/zh-cn
-" @see http://www.gracecode.com/archives/1545/
-" @see http://blog.xianyun.org/2009/09/14/vim-fonts.html
 if has("win32")
     set guifont=Courier_New:h12:cANSI
     "set guifontwide=YouYuan:h11:cGB2312
@@ -222,6 +218,12 @@ endif
 </li>
 <li>
 <a href="http://www.gracecode.com/archives/2402/">Windows 下 gVim 的雅黑字体配置</a>
+</li>
+<li>
+<a href="http://support.microsoft.com/kb/306527/zh-cn">HOW TO： 使用 ClearType 增强屏幕字体</a>
+</li>
+<li>
+<a href="../blog/vim-fonts.html">vim字体设置</a>
 </li>
 </ul>
 
@@ -315,6 +317,80 @@ vmap &lt;s-tab&gt; &lt;gv
 </pre>
 
 <p>
+选中一段文字并全文搜索这段文字
+</p>
+<pre>
+vnoremap  *  y/&lt;C-R&gt;=escape(@", '\\/.*$^~[]')&lt;CR&gt;&lt;CR&gt;
+vnoremap  #  y?&lt;C-R&gt;=escape(@", '\\/.*$^~[]')&lt;CR&gt;&lt;CR&gt;
+</pre>
+
+<p>
+自动补全成对的括号、引号
+</p>
+<pre>
+"inoremap ( ()&lt;ESC&gt;i
+inoremap ( &lt;c-r&gt;=OpenPair('(')&lt;CR&gt;
+inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
+"inoremap { {}&lt;ESC&gt;i
+inoremap { &lt;c-r&gt;=OpenPair('{')&lt;CR&gt;
+inoremap } &lt;c-r&gt;=ClosePair('}')&lt;CR&gt;
+"inoremap [ []&lt;ESC&gt;i
+inoremap [ &lt;c-r&gt;=OpenPair('[')&lt;CR&gt;
+inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
+"inoremap &lt; &lt;&gt;&lt;ESC&gt;i
+inoremap &lt; &lt;c-r&gt;=OpenPair('&lt;')&lt;CR&gt;
+inoremap &gt; &lt;c-r&gt;=ClosePair('&gt;')&lt;CR&gt;
+function! OpenPair(char)
+    let PAIRs = {
+                \ '{' : '}',
+                \ '[' : ']',
+                \ '(' : ')',
+                \ '&lt;' : '&gt;'
+                \}
+    let ol = len(split(getline('.'), a:char, 1))-1
+    let cl = len(split(getline('.'), PAIRs[a:char], 1))-1
+    if ol==cl
+        return a:char . PAIRs[a:char] . "\&lt;Left&gt;"
+    else
+        return a:char
+    endif
+endfunction
+function! ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\&lt;Right&gt;"
+    else
+        return a:char
+    endif
+endf
+
+inoremap ' &lt;c-r&gt;=CompleteQuote("'")&lt;CR&gt;
+inoremap " &lt;c-r&gt;=CompleteQuote('"')&lt;CR&gt;
+function! CompleteQuote(quote)
+    let ql = len(split(getline('.'), a:quote, 1))-1
+    " a:quote length is odd.
+    if (ql%2)==1
+        return a:quote
+    elseif getline('.')[col('.') - 1] == a:quote
+        return "\&lt;Right&gt;"
+    else
+        return a:quote . a:quote . "\&lt;Left&gt;"
+    endif
+endfunction
+</pre>
+<ul>
+<li>
+<a href="http://vim.wikia.com/wiki/Making_Parenthesis_And_Brackets_Handling_Easier">Making Parenthesis And Brackets Handling Easier</a>
+</li>
+<li>
+<a href="http://aoyme.wordpress.com/2010/05/31/%E5%9C%A8vim%E4%B8%AD%E5%B0%86%E6%8B%AC%E5%8F%B7%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%EF%BC%9A/">自动补全括号</a>
+</li>
+<li>
+<a href="../blog/vim-autocomplete-pairs.html">Vim 自动补全成对的括号或引号</a>
+</li>
+</ul>
+
+
+<p>
 普通模式下使用空格键。
 </p>
 <pre>
@@ -390,23 +466,6 @@ function RemoveTrailingWhitespace()
     endif
 endfunction
 autocmd BufWritePre * call RemoveTrailingWhitespace()
-</pre>
-
-<p>
-获得当前星期信息的函数。
-</p>
-<pre>
-" get week day string in chinese.
-function Week_cn()
-    return "星期".strpart("日一二三四五六", strftime("%w")*3, 3)
-endfunction
-</pre>
-<p>
-另外如果安装 snipMate ，可以在 vimfiles/snippets/_.snippets 中加入如下代码，在编辑文本时输入 <code>week&lt;Tab&gt;</code> 就可以知道完成当前的星期信息。
-</p>
-<pre>
-snippet week
-    `Week_cn()`
 </pre>
 
 <h3 id="toc_1.4.4">外观(Theme,Color Scheme)</h3>
@@ -526,17 +585,6 @@ Javascript
 <li>
 <a href="snipMate.html">snipMate</a>
 </li>
-<ul>
-<li>
-<a href="http://code.google.com/p/snipmate/">TextMate-style snippets for Vim</a>
-</li>
-<li>
-<a href="http://blog.liancheng.info/?p=211">snipMate反引号转义补丁</a> (似乎没考虑偶数个反斜杠的问题。)
-</li>
-<li>
-<a href="http://github.com/scrooloose/snipmate-snippets">snipMate-snippets</a>
-</li>
-</ul>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=2611">XPTemplate</a>^<a href="http://code.google.com/p/xptemplate/">2</a>^(<a href="http://you.video.sina.com.cn/b/26112622-1539471463.html">screencast in C</a>, <a href="http://you.video.sina.com.cn/b/26383083-1539471463.html">screencast in python</a>)
 </li>
@@ -608,6 +656,17 @@ txtfmt
 </li>
 </ul>
 <li>
+Python
+</li>
+<ul>
+<li>
+<a href="http://blog.dispatched.ch/2009/05/24/vim-as-python-ide/">Vim as Python IDE</a>
+</li>
+<li>
+<a href="http://code.google.com/p/vimpdb/">vimpdb</a> - Integrated Python debugging within Vim.
+</li>
+</ul>
+<li>
 自动补全
 </li>
 <ul>
@@ -624,6 +683,14 @@ File Type
 <ul>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=301">xmledit : A filetype plugin to help edit XML, HTML, and SGML documents</a>
+</li>
+</ul>
+<li>
+CSS3
+</li>
+<ul>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=3042">css3 : css3 syntax for vim</a>
 </li>
 </ul>
 <li>
@@ -718,6 +785,9 @@ Twitter
 </li>
 </ul>
 <li>
+<a href="database.html">数据库(Database)</a>
+</li>
+<li>
 其他
 </li>
 <ul>
@@ -744,6 +814,14 @@ vimrc (<strong>仅供参考</strong>)
 </li>
 <li>
 <a href="http://blog.csdn.net/redguardtoo/archive/2006/09/03/1172136.aspx">史上最强的Vim 配置文件（修正版）</a>
+</li>
+</ul>
+<li>
+跳转(Jumps)
+</li>
+<ul>
+<li>
+<a href="http://blog.chinaunix.net/u/8681/showart_1226043.html">Vim 中文本行内跳转到指定百分比的列</a>
 </li>
 </ul>
 <li>
@@ -775,22 +853,7 @@ vimrc (<strong>仅供参考</strong>)
 杂项
 </li>
 </ul>
-<p>
-插入日期时间：
-如果安装有snipMate插件，在 _.snippets 中加入如下代码，就可以在插入模式中输入 date&lt;Tab&gt;, time&lt;Tab&gt; 之类的方式快速插入日期时间了。
-</p>
-<pre>
-snippet date
-	`strftime("%Y/%m/%d")`
-snippet date-
-	`strftime("%Y-%m-%d")`
-snippet time
-	`strftime("%Y/%m/%d %H:%M:%S")`
-snippet time-
-	`strftime("%Y-%m-%d %H:%M:%S")`
-snippet week
-	`Week_cn()`
-</pre>
+
 
 <p>
 打开、保存文件时，显示文件选择对话框，更多可以 <code>:h browse</code>。
@@ -820,10 +883,16 @@ snippet week
 <a href="http://www.ibm.com/developerworks/cn/linux/l-vim-script-3/">使用脚本编写 Vim 编辑器，第 3 部分: 内置列表</a>
 </li>
 <li>
-<a href="http://www.ibm.com/developerworks/cn/linux/l-vimdiff/">技巧：Vimdiff 使用</a>
+<a href="http://www.ibm.com/developerworks/cn/linux/l-vim-script-4/index.html">使用脚本编写 Vim 编辑器，第 4 部分: 字典</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/linux/l-vim-script-5/">使用脚本编写 Vim 编辑器，第 5 部分: 事件驱动的脚本编写和自动化</a>
 </li>
 <li>
 <a href="http://www.ibm.com/developerworks/cn/linux/l-tip-prompt/tip15/">神奇的VIM</a>
+</li>
+<li>
+<a href="http://www.ibm.com/developerworks/cn/linux/l-vimdiff/">技巧：Vimdiff 使用</a>
 </li>
 <li>
 <a href="http://www.rayninfo.co.uk/vimtips.html">Best of Vim Tips</a> <a href="http://groups.google.com/group/Vim-cn/msg/f72fba0645955101">中文</a>
@@ -893,6 +962,9 @@ PDF
 <ul>
 <li>
 <a href="http://www.liuhuadong.com/archives/95/index.html">在vim状态栏显示文件上次修改日期</a>
+</li>
+<li>
+<a href="http://blog.chinaunix.net/u3/109940/showart_2205193.html">在VIM中添加一键编译和一键运行</a>
 </li>
 </ul>
 </ul>
@@ -969,6 +1041,9 @@ PDF
 <li>
 <a href="http://www.vimer.cn/">Vimer的程序世界</a>
 </li>
+<li>
+<a href="http://qixinglu.com/tag/vim">七星居(hashtags#vim)</a>
+</li>
 </ul>
 
 
@@ -1027,8 +1102,53 @@ Eclipse
 <li>
 <a href="http://www.viplugin.com/viplugin/">Viplugin</a>
 </li>
+<ol>
+<li>
+许可证：将 <code>Xq@a*4</code> 存储为 viPlugin.license 文件，放至 Eclipse 根目录下。
+</li>
+<li>
+反编译：
+</li>
+<ol>
+<li>
+下载程序包。
+</li>
+<li>
+解压到相应目录 。
+</li>
+<li>
+用解压缩程序解开 /ViPluginEclipseLayer_1.8.6//lib/ViImplementation.jar 。
+</li>
+<li>
+找到 com.mbartl.license.CheckLicenseFile.class 用文本编辑器打开。
+</li>
+<li>
+修改偏移0x54F处的9A为99 (不用找地址，这个文件里只有一个9A)，保存。
+</li>
+<li>
+jar cvf ViImplementation.jar * -_-! 替换原来的ViImplementation.jar
+</li>
+<li>
+进入eclipse，点击菜单项 VI-〉Load 什么什么的那个，记下提示没有license文件的目录。
+</li>
+<li>
+进入那个目录建立一个文件名字为viPlugin.license 即可。
+</li>
+<li>
+回到eclipse 点击VI-〉Load 什么什么的那个。 处于VI 编辑的状态。
+</li>
+</ol>
+</ol>
 <li>
 <a href="http://eclim.org/">Eclim</a> <a href="http://sourceforge.net/projects/eclim/">Eclim (Eclipse + Vim)</a>
+</li>
+</ul>
+<li>
+NetBeans
+</li>
+<ul>
+<li>
+<a href="http://jvi.sourceforge.net/">jVi</a>
 </li>
 </ul>
 <li>
@@ -1071,6 +1191,14 @@ Google Chrome
 </li>
 <li>
 <a href="http://code.google.com/p/vime/">vime - A vim operation style like plugin for google chrome.</a>
+</li>
+</ul>
+<li>
+Opera
+</li>
+<ul>
+<li>
+<a href="http://my.opera.com/Blazeix/blog/vimperator-for-opera">Vimperator for Opera</a>
 </li>
 </ul>
 <li>
@@ -1141,9 +1269,24 @@ Develop
 </li>
 <ul>
 <li>
+<a href="http://clewn.sourceforge.net/">Clewn</a>
+</li>
+<li>
 <a href="http://cgdb.sourceforge.net/">cgdb</a>
 </li>
+<li>
+<a href="http://astyle.sourceforge.net/">astyle</a>
+</li>
 </ul>
+<li>
+The Go Programming Language
+</li>
+<li>
+<a href="http://code.google.com/p/go/source/browse/misc/vim/go.vim">go.vim</a>^<a href="http://www.vim.org/scripts/script.php?script_id=2854">vimscript#2854</a>^
+</li>
+<li>
+<a href="http://www.algorithm.com.au/code/vimacs/">Vimacs</a> (<a href="http://blog.waterlin.org/articles/gvim%E9%87%8C%E8%AE%BE%E7%BD%AE%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88%E3%80%81%E5%AD%97%E4%BD%93%E3%80%81%E4%BD%BF%E7%94%A8tabs%E4%BB%A5%E5%8F%8A%E6%A8%A1%E6%8B%9Femacs%E7%9A%84%E9%94%AE%E7%BB%91.html">gvim里设置配色方案、字体、使用tabs以及模拟Emacs的键绑定</a>)
+</li>
 </ul>
 
 
@@ -1210,6 +1353,9 @@ vimcn@chatterous.com - GTalk,Email,Web,SMS,Twitter等多种通讯方式，参考
 </li>
 <li>
 QQ 群：Vim 草堂(28971390) - 撇开腾讯不说，这个群的氛围是非常不错，卧虎藏龙，而且都很热心。
+</li>
+<li>
+<a href="Vimer.html">Vimer</a>
 </li>
 </ul>
 
