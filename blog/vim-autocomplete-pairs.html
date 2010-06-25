@@ -74,7 +74,65 @@ endfunction
 p.s. 原来 Vim Wiki 里已经有了相关的内容，我闭门造车了。
 </p>
 
-<h2 id="toc_1.1">相关脚本</h2>
+<h2 id="toc_1.1">更新 (2010/6/24)</h2>
+<p>
+让左括号更智能。不过对于跨行、转义的符号对支持不佳。
+<a href="http://gist.github.com/449512">gist: 449512</a>
+</p>
+<pre>
+"inoremap ( ()&lt;ESC&gt;i
+inoremap ( &lt;c-r&gt;=OpenPair('(')&lt;CR&gt;
+inoremap ) &lt;c-r&gt;=ClosePair(')')&lt;CR&gt;
+"inoremap { {}&lt;ESC&gt;i
+inoremap { &lt;c-r&gt;=OpenPair('{')&lt;CR&gt;
+inoremap } &lt;c-r&gt;=ClosePair('}')&lt;CR&gt;
+"inoremap [ []&lt;ESC&gt;i
+inoremap [ &lt;c-r&gt;=OpenPair('[')&lt;CR&gt;
+inoremap ] &lt;c-r&gt;=ClosePair(']')&lt;CR&gt;
+"inoremap &lt; &lt;&gt;&lt;ESC&gt;i
+inoremap &lt; &lt;c-r&gt;=OpenPair('&lt;')&lt;CR&gt;
+inoremap &gt; &lt;c-r&gt;=ClosePair('&gt;')&lt;CR&gt;
+function! OpenPair(char)
+    let PAIRs = {
+                \ '{' : '}',
+                \ '[' : ']',
+                \ '(' : ')',
+                \ '&lt;' : '&gt;'
+                \}
+    let ol = len(split(getline('.'), a:char, 1))-1
+    let cl = len(split(getline('.'), PAIRs[a:char], 1))-1
+    if ol==cl
+        return a:char . PAIRs[a:char] . "\&lt;Left&gt;"
+    else
+        return a:char
+    endif
+endfunction
+function! ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\&lt;Right&gt;"
+    else
+        return a:char
+    endif
+endf
+
+inoremap ' &lt;c-r&gt;=CompleteQuote("'")&lt;CR&gt;
+inoremap " &lt;c-r&gt;=CompleteQuote('"')&lt;CR&gt;
+function! CompleteQuote(quote)
+    let ql = len(split(getline('.'), a:quote, 1))-1
+    " a:quote length is odd.
+    if (ql%2)==1
+        return a:quote
+    elseif getline('.')[col('.') - 1] == a:quote
+        return "\&lt;Right&gt;"
+    else
+        return a:quote . a:quote . "\&lt;Left&gt;"
+    endif
+endfunction
+</pre>
+
+
+
+<h2 id="toc_1.2">相关脚本</h2>
 <ul>
 <li>
 <a href="http://www.vim.org/scripts/script.php?script_id=2754">delimitMate.vim</a> (<a href="http://github.com/Raimondi/delimitMate">src</a>)
