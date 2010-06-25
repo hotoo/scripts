@@ -49,13 +49,13 @@
 </ol>
 
 <p>
-我参考前辈的方案，做了更<a href="http://github.com/hotoo/Edit-with-Vim-tabs">自动化的处理脚本</a>，
+我参考前辈的方案，做了更 <a href="http://github.com/hotoo/Edit-with-Vim-tabs">自动化的处理脚本</a>，
 将其中的 edit.with.vim.tabs.reg 合并到注册表就可以了。如果想还原为用窗口打开的方式，
 再将 edit.with.vim.window.reg 合并到注册表中。
 </p>
 
 <p>
-这个设置会让双击默认编辑器为 Vim 的文件，或者右键 -&amp;gt; Edit with Vim 都将文件在页签中
+这个设置会让双击默认编辑器为 Vim 的文件，或者右键 -&gt; Edit with Vim 都将文件在页签中
 打开。开始用这确实挺爽，右键菜单中也没有了那些动态增加进来的已打开文件的项。
 不过后来又发现不止如此，连用 Vim 比较(Diff with Vim)的项也没了。
 </p>
@@ -88,6 +88,64 @@
 <p>
 如果你有好注意，快来快来告诉我 : )
 </p>
+
+<p>
+另外给页签加上序号是非常有用的：
+</p>
+<pre>
+set guitablabel=%N.%t
+</pre>
+
+<p>
+尤其是在设置了这样的快捷键之后：
+</p>
+<pre>
+imap &lt;C-tab&gt; :tabnext&lt;cr&gt;
+nmap &lt;C-tab&gt; :tabnext&lt;cr&gt;
+imap &lt;C-S-tab&gt; :tabprevious&lt;cr&gt;
+nmap &lt;C-S-tab&gt; :tabprevious&lt;cr&gt;
+imap &lt;M-1&gt; &lt;Esc&gt;:tabfirst&lt;cr&gt;
+nmap &lt;M-1&gt; :tabfirst&lt;cr&gt;
+imap &lt;M-2&gt; &lt;Esc&gt;2gt
+nmap &lt;M-2&gt; 2gt
+imap &lt;M-3&gt; &lt;Esc&gt;3gt
+nmap &lt;M-3&gt; 3gt
+imap &lt;M-4&gt; &lt;Esc&gt;4gt
+nmap &lt;M-4&gt; 4gt
+imap &lt;M-5&gt; &lt;Esc&gt;5gt
+nmap &lt;M-5&gt; 5gt
+imap &lt;M-6&gt; &lt;Esc&gt;6gt
+nmap &lt;M-6&gt; 6gt
+imap &lt;M-7&gt; &lt;Esc&gt;7gt
+nmap &lt;M-7&gt; 7gt
+imap &lt;M-8&gt; &lt;Esc&gt;8gt
+nmap &lt;M-8&gt; 8gt
+imap &lt;M-9&gt; &lt;Esc&gt;9gt
+nmap &lt;M-9&gt; 9gt
+imap &lt;M-0&gt; &lt;Esc&gt;:tablast&lt;cr&gt;
+nmap &lt;M-0&gt; :tablast&lt;cr&gt;
+</pre>
+<p>
+更多，但是不推荐(因为跟默认快捷键冲突)的快捷键设置：
+</p>
+<pre>
+" [CONFLICT] back tag history
+imap &lt;C-t&gt; &lt;Esc&gt;:tabnew&lt;cr&gt;
+nmap &lt;C-t&gt; :tabnew&lt;cr&gt;
+" [CONFLICT] window shortcut key.
+imap &lt;C-w&gt; &lt;Esc&gt;:tabclose&lt;cr&gt;
+nmap &lt;C-w&gt; :tableclose&lt;cr&gt;
+imap &lt;C-S-w&gt; &lt;Esc&gt;:tabonly&lt;cr&gt;
+nmap &lt;C-S-w&gt; :tabonly&lt;cr&gt;
+</pre>
+
+
+<h2 id="toc_1.1">参考链接</h2>
+<ul>
+<li>
+<a href="http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line">Show tab number in your tab line</a>
+</li>
+</ul>
 
 <p>
  blog:datetime=2010/06/25 18:48:06:tags=Vim
