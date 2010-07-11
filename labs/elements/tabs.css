@@ -1,0 +1,66 @@
+
+ul.tabs{
+    list-style-type:none;
+    margin:0; padding:0;
+    background-color:#eee;
+    border-width:0 0 1px 0; border-style:solid; border-color:#999;
+    -moz-border-radius:3px; -khtml-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
+}
+ul.tabs:after{content:"\0020"; display:block; height:0; clear:both;}
+ul.tabs{zoom:1;}
+    ul.tabs li{
+        float:left; list-style-type:none;
+        margin:0 0 -1px 0; padding:.5em .8em;
+        background-color:#eee;
+        border-width:0; border-style:solid; border-color:#ccc;}
+    ul.tabs li.actived{
+        margin:0 1px;
+        background-color:#999;
+        border-width:1px 1px 0 1px; border-style:solid; border-color:#999;
+        -moz-border-radius:3px; -khtml-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;
+        -moz-border-radius-bottomleft:0; -moz-border-radius-bottomright:0; -moz-border-radius-topleft:3px; -moz-border-radius-topright:3px;}
+
+        ul.tabs li a{text-decoration:none; color:#999;}
+        ul.tabs li.actived a{color:#fff;}
+
+
+div{
+    border-width:0 0 1px; border-style:solid; border-color:#cecece;
+}
+ul.twitter-tabs{
+    display:block;
+    margin:25px 0 5px;
+    padding:0;
+    text-align:left;
+    list-style:none outside none;
+    word-wrap:break-word;
+    font:0.75em 'Lucida Grande',sans-serif;
+    color:#333;
+}
+ul.twitter-tabs li{
+margin:0;
+padding:0 0 1em;
+display:inline;
+text-align:left;
+list-style:none outside none;
+}
+ul.twitter-tabs li a{
+font-size:13px !important;
+text-transform:capitalize;
+color:#0084B4;
+-moz-border-radius:3px 3px 0 0;
+background-color:#F0F0F0;
+color:#2276BB;
+display:inline;
+margin-right:1px;
+padding:6px 15px 5px;
+text-decoration:none;
+outline:medium none;
+}
+ul.twitter-tabs li a:hover{
+    background-color:#e6e6e6;
+}
+ul.twitter-tabs li.active a{
+    border-width:1px; border-style:solid; border-color:#c4c4c4 #c4c4c4 #fff;
+    background-color:#fff;
+}

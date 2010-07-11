@@ -1,24 +1,28 @@
 html,body{font:14px/1 Helvetica,Tahoma,Arial,\5b8b\4f53,sans-serif;}
 
+table.records-action{
+    border-collapse:collapse; border-spacing:0;
+    table-layout:fixed; width:100%;
+}
 table.records{
     border-collapse:collapse; border-spacing:0; border:1px solid #ccc;
     table-layout:fixed; width:100%;
 }
-    table thead{}
-        table th{
+    table.records thead{}
+        table.records th{
             background-color:#e5e5e5; border:1px solid #bbb; padding:5px 5px;
             cursor:default;
             font-size:95%;
             -moz-user-select:none;
         }
-        table th:hover{background-color:#d5d5d5;}
-    table tbody{}
-        table tbody td{border:1px solid #ddd; padding:5px 5px;}
-        table tbody tr:nth-child(even) td{background-color:#f9f9f9;}
-        table tbody tr{background-color:expression(rowIndex%2==0?'#f9f9f9':'#fff');}
-        table tbody tr:hover td{background-color:#f0f6f6;}
+        table.records th:hover{background-color:#d5d5d5;}
+    table.records tbody{}
+        table.records tbody td{border:1px solid #ddd; padding:5px 5px;}
+        table.records tbody tr:nth-child(even) td{background-color:#f9f9f9;}
+        table.records tbody tr{background-color:expression(rowIndex%2==0?'#f9f9f9':'#fff');}
+        table.records tbody tr:hover td{background-color:#f0f6f6;}
 
-        table td.count{text-align:right; color:#999;}
+        table.records td.count{text-align:right; color:#999;}
 
 table.records-controls{
     border-collapse:collapse; border-spacing:0;
