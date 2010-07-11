@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<title>Form Demo</title>
+<link type="text/css" rel="stylesheet" href="css/kbutton.css" />
+<link type="text/css" rel="stylesheet" href="css/forms.css" />
+<style type="text/css">/*<![CDATA[*/
+body{font:12px/1.3 "Lucida Grande","Lucida","Arial",Sans-serif;}
+/*]]>*/</style>
+</head>
+<body>
+
+<form method="post" action="">
+<div>
+<div class="vform-hd"><div><div>
+    <strong>必填</strong><span>以下信息非常重要，请正确填写。</span><i></i>
+</div></div></div>
+<table class="vlayout">
+<tbody>
+    <tr>
+        <th width="160" style="width:160px">默认文本框：</th>
+        <td class="input">
+            <input placeholder="用户名" />
+        </td>
+        <td class="help" width="260" style="width:260px">默认单行文本框的帮助信息。</td>
+    </tr>
+    <tr>
+        <th>文本框：</th>
+        <td class="input">
+            <input type="text" placeholder="用户名" />
+        </td>
+        <td class="help">单行文本框的帮助信息。</td>
+    </tr>
+    <tr>
+        <th>密码：</th>
+        <td class="input">
+            <input type="password" placeholder="密码" />
+        </td>
+        <td class="help">密码的帮助。</td>
+    </tr>
+    <tr>
+        <th>搜索框：</th>
+        <td class="input">
+            <input type="search" />
+        </td>
+        <td class="help">搜索的帮助。</td>
+    </tr>
+    <tr>
+        <th>电话(Tel)：</th>
+        <td class="input">
+            <input type="tel" />
+        </td>
+        <td class="help">电话的帮助。</td>
+    </tr>
+    <tr>
+        <th>网址(URL)：</th>
+        <td class="input">
+            <input type="url" />
+        </td>
+        <td class="help">网址的帮助。</td>
+    </tr>
+    <tr>
+        <th>电子邮件(Email)：</th>
+        <td class="input">
+            <input type="email" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>单选框：</th>
+        <td class="input">
+            <input type="radio" name="a" id="a0" value="" /><label for="a0">随机排序</label>
+            <input type="radio" name="a" id="a1" value="" /><label for="a1">时间排序</label>
+            <input type="radio" name="a" id="a2" value="" /><label for="a2">金额排序</label>
+            <input type="radio" name="a" id="a3" value="" /><label for="a3">笔数排序</label>
+        </td>
+        <td class="help"></th>
+    </tr>
+    <tr>
+        <th>复选框：</th>
+        <td class="input">
+            <input type="checkbox" name="ck" id="ck0" value="" /><label for="ck0">单笔</label>
+            <input type="checkbox" name="ck" id="ck1" value="" /><label for="ck1">汇总</label>
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>下拉框：</th>
+        <td class="input">
+            <select>
+                <option value="0">Opt 0</option>
+                <option value="1">Opt 1</option>
+                <option value="1">Opt 2</option>
+                <option value="1">Opt 3</option>
+                <option value="1">Opt 4</option>
+                <option value="1">Opt 5</option>
+                <option value="1">Opt 6</option>
+                <option value="1">Opt 7</option>
+                <option value="1">Opt 8</option>
+                <option value="1">Opt 9</option>
+                <option value="1">Opt 10</option>
+                <option value="1">Opt 11: this is longger long long long long long long long long long long long text for test.</option>
+            </select>
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>多选下拉框：</th>
+        <td class="input">
+            <select multiple="multiple">
+                <option value="0">Opt 0</option>
+                <option value="1">Opt 1</option>
+                <option value="1">Opt 2</option>
+                <option value="1">Opt 3</option>
+                <option value="1">Opt 4</option>
+                <option value="1">Opt 5</option>
+                <option value="1">Opt 6</option>
+                <option value="1">Opt 7</option>
+                <option value="1">Opt 8</option>
+                <option value="1">Opt 9</option>
+                <option value="1">Opt 10</option>
+                <option value="1">Opt 11: this is longger long long long long long long long long long long long text for test.</option>
+            </select>
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>抽奖类型：</th>
+        <td class="input">
+            <input type="radio" name="rad" id="radio0" value="" /><label for="radio0">随机排序</label>
+            <input type="radio" name="rad" id="radio1" value="" /><label for="radio1">时间排序</label>
+            <input type="radio" name="rad" id="radio2" value="" /><label for="radio2">金额排序</label>
+            <input type="radio" name="rad" id="radio3" value="" /><label for="radio3">笔数排序</label>
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>月份：</th>
+        <td class="input">
+            <input type="month" name="" value="" /> 至
+            <input type="month" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>星期：</th>
+        <td class="input">
+            <input type="week" name="" value="" /> 至
+            <input type="week" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>日期范围：</th>
+        <td class="input">
+            <input type="date" id="dt1" name="" value="" /> 至
+            <input type="date" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>时间范围：</th>
+        <td class="input">
+            <input type="time" id="dt1" name="" value="" /> 至
+            <input type="time" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>日期时间范围：</th>
+        <td class="input">
+            <input type="datetime" id="dt1" name="" value="" /> 至
+            <input type="datetime" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>本地日期时间范围：</th>
+        <td class="input">
+            <input type="datetime-local" id="dt1" name="" value="" /> 至
+            <input type="datetime-local" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>描述：</th>
+        <td class="input" colspan="2">
+            <textarea></textarea>
+        </td>
+    </tr>
+    <tr>
+        <th>数值：</th>
+        <td class="input">
+            <input type="number" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>范围：</th>
+        <td class="input">
+            <input type="range" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+    <tr>
+        <th>颜色：</th>
+        <td class="input">
+            <input type="color" name="" value="" />
+        </td>
+        <td class="help"></td>
+    </tr>
+</tbody>
+<tfoot>
+    <tr>
+        <td></td>
+        <td class="input" colspan="2">
+		<button type="submit" class="yk-btn yk-btn-style-a yk-xl"><b><b>发布</b></b></button>
+        <button type="button" class="yk-btn yk-btn-style-c yk-xl"><b><b>保存草稿</b></b></button>
+        <a href='#back-home' class="yk-btn yk-l yk-btn-style-c"><b><b>取消</b></b></a>
+        </td>
+    </tr>
+</tfoot>
+</table>
+</div>
+</form>
+
+<a href="http://www.w3.org/TR/html5/forms.html">Forms - HTML5</a>
+
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">/*<![CDATA[*/
+(function($){
+    $.fn.extend({
+        form5:function(){
+            if($.browser.msie && $.browser.version<8){
+                $("input[type='text']").each(function(){
+                    var type=$(this).get(0).getAttribute("type");
+                    switch(type){
+                    case "text":
+                    case "month":
+                    case "week":
+                    case "date":
+                    case "time":
+                    case "datetime":
+                    case "datetime-local":
+                    case "search":
+                    case "tel":
+                    case "email":
+                    case "url":
+                    case "number":
+                    case "range":
+                    case "color":
+                    //!case "file":
+                        $(this).addClass(type);
+                        break;
+                    default:
+                        throw new Error('Unknow input[type="'+type+'"].');
+                        break;
+                    }
+                })
+            }
+        }
+    });
+})(jQuery);
+$(function(){
+    $("form").form5();
+});
+/*]]>*/</script>
+</body>
+</html>

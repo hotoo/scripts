@@ -37,20 +37,26 @@
 </p>
 
 <p>
-有很多中方法可以避免这个问题，如下各种均可：
+有很多中方法可以避免这个问题，例如：
 </p>
 <pre>
 &lt;iframe src="blank.html"&gt;&lt;/iframe&gt;
-&lt;iframe src="javascript:void(0);"&gt;&lt;/iframe&gt;
 &lt;iframe src="javascript:''"&gt;&lt;/iframe&gt;
-&lt;iframe src="javascript:false;"&gt;&lt;/iframe&gt; // 这个会在空 iframe 里显示内容为 false。
 
-// 以下是错误的：
+// 这个会在空 iframe 里显示内容为 false。
+&lt;iframe src="javascript:false;"&gt;&lt;/iframe&gt;
+
+// 这个在 IE7 中显示 iframe 的内容为“Internet Explorer 无法显示该网页”的错误
+&lt;iframe src="javascript:void(0);"&gt;&lt;/iframe&gt;
+
+// 以下写法仍然会有弹窗：
 &lt;iframe src="about:blank"&gt;&lt;/iframe&gt;
+&lt;iframe src="javascript:escape('')"&gt;&lt;/iframe&gt;
 </pre>
 
 <p>
 <a href="http://www.blogjava.net/swingboat/archive/2007/08/15/136953.html">参考</a>
+<a href="http://www.alisdn.com/wordpress/?p=1140">IE环境下的安全警告汇总</a>
 </p>
 
 <p>
