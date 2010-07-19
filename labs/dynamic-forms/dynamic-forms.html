@@ -56,7 +56,6 @@ hr{border-width:0; border-style:solid; border-color:#eee #fff #ccc;}
     </ol>
     <hr />
 
-    <p>radio, checkbox, select 这些不能修改内容的项，一般来说增加更多项是没有实际意义的。</p>
     single radio:
     <ol id="single-radio-list">
         <li><input type="radio" name="radioes" />Radio.</li>
@@ -132,11 +131,17 @@ hr{border-width:0; border-style:solid; border-color:#eee #fff #ccc;}
 <script type="text/javascript">/*<![CDATA[*/
 $(function(){
     $("#text-list,#text-list-2,#text-list-3,#textarea-list").dynamicForms({min:2,max:5});
-    $("#password-list").dynamicForms({handler:$("#add-pwd")});
+    $("#password-list").dynamicForms({handler:$("#add-pwd"),remover:"Del"});
     $("#single-checkbox-list,#multi-checkbox-list").dynamicForms();
     $("#single-radio-list,#multi-radio-list").dynamicForms();
-    $("#single-select-list,#multi-select-list").dynamicForms({min:1,max:8});
-    $("#mix-list").dynamicForms();
+    $("#single-select-list,#multi-select-list").dynamicForms({
+        template:'<li><select name="opt">'+
+                '<option value="0">Option 0</option>'+
+                '<option value="1">Option 1</option>'+
+                '<option value="2">Option 2</option>'+
+            '</select></li>'
+    });
+    $("#mix-list").dynamicForms({min:1,max:8});
 });
 /*]]>*/</script>
 </body>
