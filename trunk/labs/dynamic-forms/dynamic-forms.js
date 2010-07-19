@@ -13,9 +13,14 @@
                 var _this=this,
                     $this=$(this);
                 var handler_add,
-                    handler_remove = settings.remover ||
-                        '<a class="remove" href="javascript:void(0);">x 移除</a>',
+                    handler_remove =
+                        '<a class="remove" href="javascript:void(0);">'+(settings.remover||'x 移除')+'</a>',
+                    template;
+                if(!settings.template){
                     template = $(this).find("li:first").clone();
+                }else{
+                    template = $(settings.template).clone();
+                }
 
                 if(!settings.handler){
                     handler_add = $('<a class="add" href="javascript:void(0);">+ 添加</a>');
@@ -57,6 +62,7 @@
         }
     });
     var defaults = {
+        template:null,        // {String,HTMLElement}
         min:1,                // {Number} Lower limit of element count.
         max:Number.MAX_VALUE, // {Number} Limit of element count.
         handler:null,         // {String,HTMLElement} HTML code for create new element,
