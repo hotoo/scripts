@@ -25,7 +25,7 @@
 <script type="text/javascript">/*<![CDATA[*/
     function $(id){return document.getElementById(id);}
     function url2(){
-        return location.href.replace(/^https?:\/\/hotoo.googlecode.com\/svn\//, "http://hotoo.github.com/");
+        return location.href.replace(/^https?:\/\/hotoo.googlecode.com\/svn\//i, "http://hotoo.github.com/");
     }
     var s = url2();
     $("a-redirect").href = s;
