@@ -19,12 +19,33 @@
     </ul>
 </nav>
 </header>
+<div>
+    目前博客和 Wiki 部分已经转到了 Github.com，如果没有自动跳转，请<a id="a-redirect" href="http://hotoo.github.com/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo.googlecode.com\/svn\//, "http://hotoo.github.com/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <article>
 
 <h1 id="toc_1">CSS Hacks &amp; Expression</h1>
 <p>
 全面的IE / Firefox / Webkit / Opera CSS HACK列表：
 </p>
+<pre>
+    selector{
+        property:all-ie\9;
+        property:gte-ie8\0;
+        *property:lte-ie7;
+        +property:ie7;
+        _property:ie6;
+    }
+</pre>
 <pre type="css">
 /***** Selector Hacks ******/
 /* IE6 and below */

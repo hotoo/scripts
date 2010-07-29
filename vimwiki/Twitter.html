@@ -19,6 +19,18 @@
     </ul>
 </nav>
 </header>
+<div>
+    目前博客和 Wiki 部分已经转到了 Github.com，如果没有自动跳转，请<a id="a-redirect" href="http://hotoo.github.com/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo.googlecode.com\/svn\//, "http://hotoo.github.com/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <article>
 
 <h1 id="toc_1">Twitter</h1>
@@ -103,7 +115,10 @@ following Me <a href="https://twitter.com/hotoo">@hotoo</a>
 <a href="http://guomin.us">国民推特网</a>
 </li>
 <li>
-<a href="http://twitalker.appspot.com/">TwiTalker</a>^<a href="http://twi-talker.appspot.com/">en</a>^ <a href="http://www.kavingray.com/blog/">作者博客</a>
+<a href="http://twitalker.appspot.com/">TwiTalker</a>
+    <a href="http://twi-talker.appspot.com/">en</a>
+    <a href="http://www.kavingray.com/blog/twitalker/">作者博客</a>
+    <a href="http://code.google.com/p/twitalker/">google code</a>
 </li>
 <li>
 <a href="http://oioioioi.info/">kwestion</a> ^<a href="http://code.google.com/p/kwestion/">opensource</a>^
@@ -199,7 +214,15 @@ following Me <a href="https://twitter.com/hotoo">@hotoo</a>
 <li>
 <a href="http://www.atebits.com/">Tweetie</a> - for Mac &amp; iPhone
 </li>
+<li>
+<a href="http://www.vim.org/scripts/script.php?script_id=2204">TwitVim</a>
+</li>
 </ul>
+
+<pre>
+let twitvim_login = "user:password"
+let g:twitvim_api_root = "api.twitter.com"
+</pre>
 
 <h2 id="toc_1.7">Others</h2>
 <ul>
