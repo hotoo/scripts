@@ -25,6 +25,18 @@
     </ul>
 </nav>
 </header>
+<div>
+    目前博客和 Wiki 部分已经转到了 Github.com，如果没有自动跳转，请<a id="a-redirect" href="http://hotoo.github.com/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo.googlecode.com\/svn\//, "http://hotoo.github.com/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
@@ -53,13 +65,13 @@
 </p>
 
 <p>
-注：Vim <code>:set fenc=gbk</code>，可以轉碼，但 <code>:wq!</code> 無法正常保存；<a href="UltraEdit.html">UltraEdit</a> 本身的編碼
+注：Vim <code>:set fenc=gbk</code>，可以轉碼，但 <code>:wq!</code> 無法正常保存；UltraEdit 本身的編碼
 支持不夠好，不建議用來轉碼。
 </p>
 
 <p>
 注2：Vim diff 可以比較出不同，找出特殊字符，但可能無法正常編輯（如刪除）它們，
-特殊字符是非常怪異的；<a href="BeyondCompare.html">BeyondCompare</a> 和 <a href="WinMarge.html">WinMarge</a> 基本可以勝任。
+特殊字符是非常怪異的；BeyondCompare 和 WinMarge 基本可以勝任。
 </p>
 
 <p>

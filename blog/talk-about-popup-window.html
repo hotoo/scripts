@@ -25,6 +25,18 @@
     </ul>
 </nav>
 </header>
+<div>
+    目前博客和 Wiki 部分已经转到了 Github.com，如果没有自动跳转，请<a id="a-redirect" href="http://hotoo.github.com/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo.googlecode.com\/svn\//, "http://hotoo.github.com/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
@@ -60,7 +72,7 @@
 </p>
 
 <p>
-前些时候我发现淘宝首页的拼音索引和商品详细信息等都不可用了，于是在 Twitter 上对 <a href="https://twitter.com/taobaoued">@TaobaoUED</a> 发了句牢骚，然后 <a href="https://twitter.com/macji">@Macji</a> 很主动的跟我联系了解情况。后来发现问题出在 <a href="https://addons.mozilla.org/zh-CN/firefox/addon/1865">Adblock plus</a> ^<a href="http://adblockplus.org/en/">2</a>^的 <a href="ChinaList.html">ChinaList</a> 直接将淘宝用的 tbra 框架屏蔽了，然后我和 Macji 进行了“深入的激辩”，大致情况如下：
+前些时候我发现淘宝首页的拼音索引和商品详细信息等都不可用了，于是在 Twitter 上对 <a href="https://twitter.com/taobaoued">@TaobaoUED</a> 发了句牢骚，然后 <a href="https://twitter.com/macji">@Macji</a> 很主动的跟我联系了解情况。后来发现问题出在 <a href="https://addons.mozilla.org/zh-CN/firefox/addon/1865">Adblock plus</a> ^<a href="http://adblockplus.org/en/">2</a>^的 ChinaList 直接将淘宝用的 tbra 框架屏蔽了，然后我和 Macji 进行了“深入的激辩”，大致情况如下：
 </p>
 <blockquote>
 Macji: 对于 china list 这种不负责的乱禁用 js 框架, 而不是只是禁用广告. 所以我们也无办法<br />

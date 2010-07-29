@@ -25,12 +25,24 @@
     </ul>
 </nav>
 </header>
+<div>
+    目前博客和 Wiki 部分已经转到了 Github.com，如果没有自动跳转，请<a id="a-redirect" href="http://hotoo.github.com/">点击这里</a>。
+</div>
+<script type="text/javascript">/*<![CDATA[*/
+    function $(id){return document.getElementById(id);}
+    function url2(){
+        return location.href.replace(/^https?:\/\/hotoo.googlecode.com\/svn\//, "http://hotoo.github.com/");
+    }
+    var s = url2();
+    $("a-redirect").href = s;
+    location.replace(s);
+/*]]>*/</script>
 <div id="container">
     <article>
 
 <h1 id="toc_1">让 gvim 访问网络资源</h1>
 <p>
-当我还是 Vim 超级菜鸟的时候，我就知道 Vim 可以和 Editplus、<a href="UltraEdit.html">UltraEdit</a> 一样，访问网络资源，操作方式也很类似：
+当我还是 Vim 超级菜鸟的时候，我就知道 Vim 可以和 Editplus、UltraEdit 一样，访问网络资源，操作方式也很类似：
 </p>
 <ol>
 <li>
@@ -73,7 +85,7 @@ Vim 就会加载网站资源文件的内容。
 <blockquote>
 *<strong>error</strong>* (netrw) neither the wget nor the fetch command is available
 ——————————————————————————————–
-“<a href="NetrwMessage.html">NetrwMessage</a>” –缓冲区无内容–
+“NetrwMessage” –缓冲区无内容–
 </blockquote>
 <p>
 向人请教得到解答：
